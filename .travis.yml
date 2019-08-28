@@ -7,3 +7,4 @@ install:
 git:
   depth: 25
   quiet: true
+dist: trusty
