@@ -1,20 +1,40 @@
-package model;
+package com.dsoft.tpdsoft.model;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Client {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue
     private Integer id;
 
+    @NotEmpty(message = "Name can´t be blank")
     private String name;
+
+    @NotEmpty(message = "LastName can´t be blank")
     private String lastName;
+
+    @NotEmpty(message = "Email can´t be blank")
+    @Email(message = "Invalid email format")
     private String email;
+
+    @NotEmpty(message = "Address can´t be blank")
     private String address;
+
+    public Client(){
+
+    }
+
+    public Client(String name, String lastName, String email, String address) {
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.address = address;
+    }
 
     public Integer getId() {
         return id;
