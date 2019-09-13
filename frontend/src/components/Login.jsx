@@ -13,7 +13,7 @@ function Login() {
       </div>
       <div className="login row col-md-4 offset-md-4">
         <h1 className="login-title col-md-9 aling-self-left">
-          Ingresar
+          Ingreso
         </h1>
         <img className="login-with-icon col" src={LoginWithFacebook} alt="Login with facebook" />
         <img className="login-with-icon col" src={LoginWithGoogle} alt="Login with google" />
@@ -33,7 +33,7 @@ function Login() {
 
           <div>
             <Button variant="primary" type="submit">
-              Entrar
+              Ingresar
             </Button>
             <p className="register-text">Si no tenes cuenta, <span className="register">registrate!</span></p>
           </div>
