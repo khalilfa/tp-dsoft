@@ -1,0 +1,54 @@
+.login {
+    background-color: white;
+    padding: 10px;
+    margin-top: 2px;
+    border-radius: 10px;
+    border: 3px solid grey;
+}
+
+.form {
+    padding: 15px;
+}
+
+.app-logo {
+    font-family: "Montserrat", sans-serif;
+    font-size: 50px;
+    font-family: 'Libre Baskerville', serif;
+    background-color: white; 
+    color: #6374DF; 
+    padding: 3px;
+    padding-right: 10px;
+    border-radius: 60px;
+    border: 3px solid grey;
+    font-style: italic;
+}
+
+.app-name {
+    font-weight: 900;
+    color: white;
+    font-style: italic;
+}
+
+.login-with-icon {
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    padding: 5px;
+    width: 50px;
+    margin: 3px;
+}
+
+.login-with-icon:hover {
+    box-shadow: 0 0 2px 1px #6374DF;
+}
+
+.register {
+    font-weight: bold;
+}
+
+.register:hover {
+    color: royalblue;
+}
+
+.register-text {
+    padding: 3px;
+}

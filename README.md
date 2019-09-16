@@ -14,3 +14,8 @@ hacer un _rebase_ en `master` (idealmente), pedir o no cambios, y luego proceder
 el _merge_.
 
 Si se logró hacer el _merge_ correctamente el _branch_ debiese ser eliminado.
+
+## Start backend project
+
+Dentro del la carpeta /back ejectutar el siguiente comando: 
+> mvn spring-boot:run
