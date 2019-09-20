@@ -10,7 +10,7 @@ public class ClientTest {
 
     @Before
     public void before() {
-        this.client = new Client("Pepe", "Argento", "pepe@gmail.com", "Buenos aires");
+        this.client = new Client("Pepe", "Argento", "pepe@gmail.com", "Buenos aires", "123456789");
         this.client.setId(1);
     }
 
@@ -22,6 +22,7 @@ public class ClientTest {
         assertEquals(this.client.getLastName(), "Argento");
         assertEquals(this.client.getEmail(), "pepe@gmail.com");
         assertEquals(this.client.getAddress(), "Buenos aires");
+        assertEquals(this.client.getPassword(), "123456789");
     }
 
     @Test
@@ -52,5 +53,11 @@ public class ClientTest {
     public void setAddress() {
         this.client.setAddress("Montevideo");
         assertEquals(this.client.getAddress(), "Montevideo");
+    }
+
+    @Test
+    public void setPassword() {
+        this.client.setPassword("987654321");
+        assertEquals(this.client.getPassword(), "987654321");
     }
 }

@@ -21,7 +21,7 @@ public class ClientControllerTest {
 
     @Test
     public void saveAClient() {
-        Client client = new Client("Pepe", "Argento", "pepe@gmail.com", "Buenos aires");
+        Client client = new Client("Pepe", "Argento", "pepe@gmail.com", "Buenos aires", "123456789");
         when(clientRepository.save(any(Client.class))).then(AdditionalAnswers.returnsFirstArg());
         Client savedClient = clientRepository.save(client);
         assert(savedClient).equals(client);
@@ -29,7 +29,7 @@ public class ClientControllerTest {
 
     @Test
     public void getAClient() {
-        Client client = new Client("Pepe", "Argento", "pepe@gmail.com", "Buenos aires");
+        Client client = new Client("Pepe", "Argento", "pepe@gmail.com", "Buenos aires", "123456789");
         when(clientRepository.findById(any(Integer.class))).thenReturn(Optional.of(client));
         Client gettedClient = clientRepository.findById(1).get();
         assert(gettedClient).equals(client);

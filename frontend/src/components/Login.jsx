@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/login.css';
+import { Link } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import LoginWithFacebook from '../resources/facebook-icon.png';
 import LoginWithGoogle from '../resources/google-icon.png';
@@ -35,7 +36,9 @@ function Login() {
             <Button variant="primary" type="submit">
               Ingresar
             </Button>
-            <p className="register-text">Si no tenes cuenta, <span className="register">registrate!</span></p>
+            <p className="register-text">
+              Si no tenes cuenta, <Link to="/register" className="register">registrate!</Link>
+            </p>
           </div>
         </Form>
       </div>

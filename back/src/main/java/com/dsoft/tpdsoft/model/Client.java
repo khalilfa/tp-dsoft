@@ -25,15 +25,19 @@ public class Client {
     @NotEmpty(message = "Address can´t be blank")
     private String address;
 
+    @NotEmpty(message = "Password can´t be blank")
+    private String password;
+
     public Client(){
 
     }
 
-    public Client(String name, String lastName, String email, String address) {
+    public Client(String name, String lastName, String email, String address, String password) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
         this.address = address;
+        this.password = password;
     }
 
     public Integer getId() {
@@ -74,5 +78,13 @@ public class Client {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
