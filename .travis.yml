@@ -1,17 +1,13 @@
 language: java
 sudo: required
-
 jdk:
-- oraclejdk8
-
+ - oraclejdk8
 install:
-- cd back && mvn clean install -Dmaven.compiler.target=1.8 -Dmaven.compiler.source=1.8
-
+ - cd back && mvn clean install -Dmaven.compiler.target=1.8 -Dmaven.compiler.source=1.8
 deploy:
   provider: heroku
   api_key:
     secure: mHbf/7ABP65FItPOmB/l70wnXudZD74xkyhySqsbw5QDH1vPzqbpJYC8MA7dAzmDk1x+4Kx9a/lQpMRxFxYLcNYlUFP9AW4zIgN+GqePUXOlqtPEOs5lkPzbLcL1apPgr4UL9ppktE0gnYUxdgRwFGZAokVoSQ8PlecyrYuN72Yv8g1xaLtUFnXLNCWtmKp2cj7CvMmIidKOMUmtyJB1qrfZQtGXmH1XitHdt7EZ3tK/Fq8bm+LsJ26i36usyCj8wjeJp8heANPKtlsaQec8Xd0ZGOI8dPpDXZ3fxoAbAWmdUn2XMER8M8SYiYq00pfX5ZdG76VVx3I6wc1A13fXRNJSwIYNuj5Rm93pZJGfGG0285ZKZWvUUxLjMAN1BS/Q7RsV6KZihvF2NIwmbolb/bTKD4XcSaY7I3MnGzoVftTZa/YnTZhTpWNDB9IyhYy+n4P6d9UQ9p3aqthtYlbcXDm4NLF6X9ZopMoKFkgGV82uqv6skjXPYDp3gfj/7J8KP/LyIGn57xXfsX6jkFDE9R0EgfA0w7PIL0MSicDTfEzBgDeTWp0rCqe4W8sk/4I8QuVSLxtTTyPIkByjNh9WjofU6IchE5KD4kx/CeGCIEBf3VDZyttWNtUM7jNDZ4W057qKNbxgAaAH1T7JrHZtkmCrr3csy9/wWrLmMB80QPw=
-
 git:
   depth: 25
   quiet: true
