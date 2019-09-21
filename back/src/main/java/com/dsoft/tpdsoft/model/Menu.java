@@ -22,7 +22,7 @@ public class Menu {
 	@Size(min=20, max=40)
 	private String description;
 	
-	private ArrayList<Category> categories; // TODO valideta at least one category
+	private ArrayList<Category> categories; // TODO validate at least one category
 	
 	private DeliveryInfo deliveryInfo;
 	
