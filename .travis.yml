@@ -4,6 +4,11 @@ jdk:
  - oraclejdk8
 install:
  - cd back && mvn clean install -Dmaven.compiler.target=1.8 -Dmaven.compiler.source=1.8
+deploy:
+  provider: heroku
+  api_key:
+    secure: $HEROKU_TOKEN
+  app: viandasya
 git:
   depth: 25
   quiet: true
