@@ -10,6 +10,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.joda.time.DateTime;
+import org.joda.time.DateTime.Property;
+import org.joda.time.LocalTime;
+
 @Entity
 public class DeliveryInfo {
 
@@ -20,19 +24,25 @@ public class DeliveryInfo {
 	
 	private Integer averageTime;
 	
-	private int from; // int cause LocalDateTime work with this ??
+	private LocalTime from; // int cause LocalDateTime work with this ??
 	
-	private int to;
+	private LocalTime to;
 	
-	private List<DayOfWeek> ableDays;
+	private List<Integer> ableDays; // mon = 1, tues = 2, wed=....
 	
-	public DeliveryInfo(Float price, Integer averageTime, int from, int to, List<DayOfWeek> ableDays) {
+	public DeliveryInfo() {}
+	
+	public DeliveryInfo(Float price, Integer averageTime, LocalTime from, LocalTime to, List<Integer> ableDays) {
 		this.price = price;
 		this.averageTime = averageTime;
 		this.from = from;
 		this.to = to;
 		this.ableDays = ableDays;
 	}
+	
+	public Integer getId() {return id;}
+
+	public void setId(Integer id) { this.id = id; }
 
 	public Float getPrice() {return price;}
 
@@ -42,16 +52,35 @@ public class DeliveryInfo {
 
 	public void setAverageTime(Integer averageTime) { this.averageTime = averageTime; }
 
-	public int getFrom() { return from; }
+	public LocalTime getFrom() { return from; }
 
-	public void setFrom(int from) { this.from = from; }
+	public void setFrom(LocalTime from) { this.from = from; }
 
-	public int getTo() { return to; }
+	public LocalTime getTo() { return to; }
 
-	public void setTo(int to) { this.to = to; }
+	public void setTo(LocalTime to) { this.to = to; }
 
-	public List<DayOfWeek> getAbleDays() { return ableDays; }
+	public List<Integer> getAbleDays() { return ableDays; }
 
-	public void setAbleDays(List<DayOfWeek> ableDays) { this.ableDays = ableDays; }
+	public void setAbleDays(List<Integer> ableDays) { this.ableDays = ableDays; }
+	
+	
+	public Boolean canDeliverOrder(org.joda.time.LocalDateTime timeOrderDone) {
+		return this.isValidDay(timeOrderDone) && this.isValidHour(timeOrderDone);
+	}
+
+	public boolean isValidHour(org.joda.time.LocalDateTime timeOrderDone) {
+		LocalTime castedTimeOrderDone = new LocalTime(timeOrderDone.getHourOfDay(),timeOrderDone.getMinuteOfHour());
+		return this.from.isBefore(castedTimeOrderDone) && this.to.isAfter(castedTimeOrderDone);
+	}
+
+	public boolean isValidDay(org.joda.time.LocalDateTime timeOrderDone) {
+		return this.getAbleDays().contains( this.dayOfTimeOrderDone(timeOrderDone) );
+	}
+
+	private Integer dayOfTimeOrderDone(org.joda.time.LocalDateTime timeOrderDone) {
+		return timeOrderDone.getDayOfWeek();
+	}
+	
 	
 }
