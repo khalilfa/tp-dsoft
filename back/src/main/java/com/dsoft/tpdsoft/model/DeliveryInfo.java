@@ -15,7 +15,7 @@ import org.joda.time.DateTime.Property;
 import org.joda.time.LocalTime;
 
 @Entity
-public class DeliveryInfo {
+public class DeliveryInfo extends AttentionSchedule{
 
 	@Id @GeneratedValue
 	private Integer id; // TODO do we want it to be saved??
@@ -30,9 +30,10 @@ public class DeliveryInfo {
 	
 	private List<Integer> ableDays; // mon = 1, tues = 2, wed=....
 	
-	public DeliveryInfo() {}
+//	public DeliveryInfo() {}
 	
 	public DeliveryInfo(Float price, Integer averageTime, LocalTime from, LocalTime to, List<Integer> ableDays) {
+		super(from, to, ableDays);
 		this.price = price;
 		this.averageTime = averageTime;
 		this.from = from;
@@ -52,19 +53,6 @@ public class DeliveryInfo {
 
 	public void setAverageTime(Integer averageTime) { this.averageTime = averageTime; }
 
-	public LocalTime getFrom() { return from; }
-
-	public void setFrom(LocalTime from) { this.from = from; }
-
-	public LocalTime getTo() { return to; }
-
-	public void setTo(LocalTime to) { this.to = to; }
-
-	public List<Integer> getAbleDays() { return ableDays; }
-
-	public void setAbleDays(List<Integer> ableDays) { this.ableDays = ableDays; }
-	
-	
 	public Boolean canDeliverOrder(org.joda.time.LocalDateTime timeOrderDone) {
 		return this.isValidDay(timeOrderDone) && this.isValidHour(timeOrderDone);
 	}
