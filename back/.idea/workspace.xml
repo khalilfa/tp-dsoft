@@ -160,9 +160,12 @@
       <workItem from="1568640235428" duration="1096000" />
       <workItem from="1568996193293" duration="81000" />
       <workItem from="1569333428454" duration="2032000" />
+<<<<<<< HEAD
       <workItem from="1569355666675" duration="48000" />
       <workItem from="1569355829498" duration="126000" />
       <workItem from="1569356015700" duration="58000" />
+=======
+>>>>>>> be62ccabcdc97809863a016354d8955b76a529a7
     </task>
     <servers />
   </component>
@@ -186,10 +189,15 @@
     <SUITE FILE_PATH="coverage/tp_dsoft$com_dsoft_tpdsoft_model_in_back.ic" NAME="com.dsoft.tpdsoft.model in back Coverage Results" MODIFIED="1568305695202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.dsoft.tpdsoft.model.*</FILTER>
     </SUITE>
+<<<<<<< HEAD
     <SUITE FILE_PATH="coverage/tp_dsoft$All_in_back__2_.ic" NAME="All in back (2) Coverage Results" MODIFIED="1568303650806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/tp_dsoft$All_in_back__1_.ic" NAME="All in back (1) Coverage Results" MODIFIED="1569333889603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+=======
+>>>>>>> be62ccabcdc97809863a016354d8955b76a529a7
     <SUITE FILE_PATH="coverage/tp_dsoft$All_in_back__3_.ic" NAME="All in back (3) Coverage Results" MODIFIED="1568301171227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/tp_dsoft$All_in_back.ic" NAME="All in back Coverage Results" MODIFIED="1568301912065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/tp_dsoft$All_in_back__4_.ic" NAME="All in back (4) Coverage Results" MODIFIED="1568301499916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/tp_dsoft$All_in_back__1_.ic" NAME="All in back (1) Coverage Results" MODIFIED="1569333889603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/tp_dsoft$All_in_back__2_.ic" NAME="All in back (2) Coverage Results" MODIFIED="1568303650806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
