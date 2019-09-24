@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f558565-e50f-417f-bcc9-928f4cd768ed" name="Default Changelist" comment="">
+    <list default="true" id="b74d0843-2edb-4cee-a000-2ad2e7615757" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back.iml" beforeDir="false" afterPath="$PROJECT_DIR$/back.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/DeliveryInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/DeliveryInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/controllers/ClientControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/controllers/ClientControllerTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CoverageViewManager">
-    <option name="myElementSize" value="275" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -31,23 +33,11 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1Pk99juoN1LXrLkDlUtVa8zzeUt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectId" id="1RIo3vfRaFhysviTY6jstGE0XgS" />
   <component name="PropertiesComponent">
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.dsoft.tpdsoft.controllers" />
-    </key>
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -61,8 +51,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in back (1)">
-    <configuration name="All in back (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in back">
+    <configuration name="All in back" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="back" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
@@ -70,55 +60,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in back (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="back" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ApiErrorVOTest.apiErrorVOIsEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClientControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="back" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.dsoft.tpdsoft.exceptions.*" />
+          <option name="PATTERN" value="com.dsoft.tpdsoft.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.dsoft.tpdsoft.exceptions" />
-      <option name="MAIN_CLASS_NAME" value="com.dsoft.tpdsoft.exceptions.ApiErrorVOTest" />
-      <option name="METHOD_NAME" value="apiErrorVOIsEmpty" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ClientTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="back" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.dsoft.tpdsoft.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.dsoft.tpdsoft.model" />
-      <option name="MAIN_CLASS_NAME" value="com.dsoft.tpdsoft.model.ClientTest" />
+      <option name="PACKAGE_NAME" value="com.dsoft.tpdsoft.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.dsoft.tpdsoft.controllers.ClientControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.dsoft.tpdsoft.model in back" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TpDsoftApplicationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="back" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.dsoft.tpdsoft.model.*" />
+          <option name="PATTERN" value="com.dsoft.tpdsoft.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.dsoft.tpdsoft.model" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="com.dsoft.tpdsoft" />
+      <option name="MAIN_CLASS_NAME" value="com.dsoft.tpdsoft.TpDsoftApplicationTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -132,11 +99,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in back (1)" />
-        <item itemvalue="JUnit.ClientTest" />
-        <item itemvalue="JUnit.com.dsoft.tpdsoft.model in back" />
-        <item itemvalue="JUnit.All in back (2)" />
-        <item itemvalue="JUnit.ApiErrorVOTest.apiErrorVOIsEmpty" />
+        <item itemvalue="JUnit.All in back" />
+        <item itemvalue="JUnit.ClientControllerTest" />
+        <item itemvalue="JUnit.TpDsoftApplicationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -145,27 +110,13 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8f558565-e50f-417f-bcc9-928f4cd768ed" name="Default Changelist" comment="" />
-      <created>1566407079137</created>
+      <changelist id="b74d0843-2edb-4cee-a000-2ad2e7615757" name="Default Changelist" comment="" />
+      <created>1569361036467</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1566407079137</updated>
-      <workItem from="1566407086344" duration="1622000" />
-      <workItem from="1566441300831" duration="2570000" />
-      <workItem from="1567689125816" duration="11624000" />
-      <workItem from="1568143423076" duration="2334000" />
-      <workItem from="1568158123802" duration="1652000" />
-      <workItem from="1568208551650" duration="9385000" />
-      <workItem from="1568295032606" duration="8267000" />
-      <workItem from="1568640235428" duration="1096000" />
-      <workItem from="1568996193293" duration="81000" />
-      <workItem from="1569333428454" duration="2032000" />
-<<<<<<< HEAD
-      <workItem from="1569355666675" duration="48000" />
-      <workItem from="1569355829498" duration="126000" />
-      <workItem from="1569356015700" duration="58000" />
-=======
->>>>>>> be62ccabcdc97809863a016354d8955b76a529a7
+      <updated>1569361036467</updated>
+      <workItem from="1569361040580" duration="2695000" />
+      <workItem from="1569363780221" duration="2443000" />
     </task>
     <servers />
   </component>
@@ -184,20 +135,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/tp_dsoft$com_dsoft_tpdsoft_model_in_back.ic" NAME="com.dsoft.tpdsoft.model in back Coverage Results" MODIFIED="1568305695202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.dsoft.tpdsoft.model.*</FILTER>
-    </SUITE>
-<<<<<<< HEAD
-    <SUITE FILE_PATH="coverage/tp_dsoft$All_in_back__2_.ic" NAME="All in back (2) Coverage Results" MODIFIED="1568303650806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/tp_dsoft$All_in_back__1_.ic" NAME="All in back (1) Coverage Results" MODIFIED="1569333889603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-=======
->>>>>>> be62ccabcdc97809863a016354d8955b76a529a7
-    <SUITE FILE_PATH="coverage/tp_dsoft$All_in_back__3_.ic" NAME="All in back (3) Coverage Results" MODIFIED="1568301171227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/tp_dsoft$All_in_back.ic" NAME="All in back Coverage Results" MODIFIED="1568301912065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/tp_dsoft$All_in_back__4_.ic" NAME="All in back (4) Coverage Results" MODIFIED="1568301499916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/tp_dsoft$All_in_back__1_.ic" NAME="All in back (1) Coverage Results" MODIFIED="1569333889603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/tp_dsoft$All_in_back__2_.ic" NAME="All in back (2) Coverage Results" MODIFIED="1568303650806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

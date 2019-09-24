@@ -1,17 +1,12 @@
 package com.dsoft.tpdsoft.model;
 
-
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import org.joda.time.DateTime;
-import org.joda.time.DateTime.Property;
 import org.joda.time.LocalTime;
 
 @Entity
@@ -20,14 +15,15 @@ public class DeliveryInfo {
 	@Id @GeneratedValue
 	private Integer id; // TODO do we want it to be saved??
 	
-	private Float price;
+	private float price;
 	
 	private Integer averageTime;
 	
 	private LocalTime from; // int cause LocalDateTime work with this ??
 	
 	private LocalTime to;
-	
+
+	@ElementCollection(targetClass = Integer.class)
 	private List<Integer> ableDays; // mon = 1, tues = 2, wed=....
 	
 	public DeliveryInfo() {}
