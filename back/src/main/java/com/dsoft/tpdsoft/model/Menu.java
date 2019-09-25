@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Size;
 
