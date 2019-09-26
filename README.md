@@ -1,6 +1,7 @@
 # tp-dsoft
 [![Build Status](https://travis-ci.org/khalilfa/tp-dsoft.svg?branch=master)](https://travis-ci.org/khalilfa/tp-dsoft)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7690ba6968814fba9f0b125dbe50dc53)](https://www.codacy.com/manual/khalilfa/tp-dsoft?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=khalilfa/tp-dsoft&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/7690ba6968814fba9f0b125dbe50dc53)](https://www.codacy.com/manual/khalilfa/tp-dsoft?utm_source=github.com&utm_medium=referral&utm_content=khalilfa/tp-dsoft&utm_campaign=Badge_Coverage)
 
 ## Branching Strategy
 
