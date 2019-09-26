@@ -42,7 +42,7 @@ class MapComponent extends React.Component {
         travelMode,
       }, (response, status) => {
         if (status !== 'OK') {
-          alert('Error');
+          customAlert('Error');
         } else {
           this.setState({
             duration: response.rows[0].elements[0].duration.text,
