@@ -41,9 +41,7 @@ class MapComponent extends React.Component {
         destinations: [this.state.destination],
         travelMode,
       }, (response, status) => {
-        if (status !== 'OK') {
-          customAlert('Error');
-        } else {
+        if (status === 'OK') {
           this.setState({
             duration: response.rows[0].elements[0].duration.text,
             distance: response.rows[0].elements[0].distance.value,
