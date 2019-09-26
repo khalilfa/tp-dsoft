@@ -11,7 +11,7 @@ before_install:
 
 
 after_success:
- - java -jar ~/codacy-coverage-reporter-assembly-latest.jar report -l Java -r target/jacoco/jacoco.xml
+ - java -jar ~/codacy-coverage-reporter-assembly-latest.jar report -l Java -r target/site/jacoco/jacoco.xml
 
 install:
  - mvn clean install -Dmaven.compiler.target=1.8 -Dmaven.compiler.source=1.8
