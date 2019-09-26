@@ -1,5 +1,5 @@
 language: java
-sudo: required
+sudo: false
 jdk:
  - oraclejdk8
 
@@ -7,10 +7,11 @@ before_install:
  - cd back
  - chmod +x mvnw
  - sudo apt-get install jq
+ - wget -O ~/codacy-coverage-reporter-assembly-latest.jar $(curl https://api.github.com/repos/codacy/codacy-coverage-reporter/releases/latest | jq -r .assets[0].browser_download_url)
+
 
 after_success:
- - curl -Ls -o codacy-coverage-reporter-assembly.jar $(curl -Ls https://api.github.com/repos/codacy/codacy-coverage-reporter/releases/latest | jq -r '.assets | map({content_type, browser_download_url} | select(.content_type | contains("java-archive"))) | .[0].browser_download_url')
- - java -jar codacy-coverage-reporter-assembly.jar report -l Java -r jacoco.xml
+ - java -jar ~/codacy-coverage-reporter-assembly-latest.jar report -l Java -r target/jacoco/jacoco.xml
 
 install:
  - mvn clean install -Dmaven.compiler.target=1.8 -Dmaven.compiler.source=1.8
