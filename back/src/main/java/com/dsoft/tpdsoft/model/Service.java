@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -13,15 +15,19 @@ import org.joda.time.LocalTime;
 @Entity
 public class Service extends AttentionSchedule{
 	
-	@NotBlank
+	@Id @GeneratedValue
+	private Integer id;
+	
+	@NotBlank(message="Name cant be blank")
 	private String name;
 	
-	@NotBlank
+	@NotBlank(message="Locality cant be blank")
 	private String locality;
 	
 	private String gmapLocation; // TODO pass gmpap service or similar
 	
-	@Size(min=30, max=200)
+	@Size(min=30, message="Type at least 30 chatacters")
+	@Size(max=200, message="Too long description")
 	private String serviceDesciption;
 	
 	private String urlSite;
@@ -30,6 +36,7 @@ public class Service extends AttentionSchedule{
 	
 	private PhoneNumber phoneNumber; // TODO validate characteristic and number per se
 	
+	@Size(max=20, message = "20 menus admitted")
 	private List<Menu> menus;
 	
 	@Email(message= "Ïnvalid mail format")
@@ -49,6 +56,18 @@ public class Service extends AttentionSchedule{
 		this.email = email;
 		this.menus = new ArrayList<Menu>();
 	}
+	
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
 
 	public String getName() {
 		return name;

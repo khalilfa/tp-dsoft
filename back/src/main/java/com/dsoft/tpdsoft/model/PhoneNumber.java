@@ -14,7 +14,7 @@ public class PhoneNumber {
 	public Integer getCharacteristic() {
 		return characteristic;
 	}
-
+	
 	public void setCharacteristic(Integer characteristic) {
 		this.characteristic = characteristic;
 	}
