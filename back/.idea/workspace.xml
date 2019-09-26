@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b74d0843-2edb-4cee-a000-2ad2e7615757" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/TpDsoftApplicationTest.java" beforeDir="false" />
-    </list>
+    <list default="true" id="b74d0843-2edb-4cee-a000-2ad2e7615757" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +110,7 @@
       <workItem from="1569361040580" duration="2695000" />
       <workItem from="1569363780221" duration="2443000" />
       <workItem from="1569464227451" duration="735000" />
+      <workItem from="1569467466155" duration="700000" />
     </task>
     <servers />
   </component>
