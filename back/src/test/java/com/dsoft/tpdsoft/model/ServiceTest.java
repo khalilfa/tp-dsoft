@@ -5,7 +5,8 @@ import org.joda.time.LocalTime;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
+
 
 import java.util.ArrayList;
 import java.util.List;
