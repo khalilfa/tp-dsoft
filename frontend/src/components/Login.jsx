@@ -13,7 +13,7 @@ function Login() {
         <h1 className="app-name col align-self-center">ViandasYa</h1>
       </div>
       <div className="login row col-md-4 offset-md-4">
-        <h1 className="login-title col-md-9 aling-self-left">
+        <h1 className="login-title col-md-8 aling-self-left">
           Ingreso
         </h1>
         <img className="login-with-icon col" src={LoginWithFacebook} alt="Login with facebook" />

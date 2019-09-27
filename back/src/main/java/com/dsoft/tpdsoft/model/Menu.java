@@ -2,18 +2,17 @@ package com.dsoft.tpdsoft.model;
 
 import java.util.ArrayList;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+
+import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Size;
-
-import org.springframework.data.annotation.Id;
 
 
 @Entity
 public class Menu {
 	
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue
 	private Integer id;
 	
 	@Size(min=4, max=30)
@@ -23,10 +22,11 @@ public class Menu {
 	private String description;
 	
 	private ArrayList<Category> categories; // TODO validate at least one category
-	
+
+	@OneToOne(cascade = CascadeType.ALL)
 	private DeliveryInfo deliveryInfo;
 	
-	private Float price;
+	private float price;
 	
 	@Max(20)
 	private Integer maxSalesPerDay;

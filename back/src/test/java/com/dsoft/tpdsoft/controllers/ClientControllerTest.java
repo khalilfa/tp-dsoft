@@ -2,8 +2,8 @@ package com.dsoft.tpdsoft.controllers;
 
 import com.dsoft.tpdsoft.model.Client;
 import com.dsoft.tpdsoft.repositories.ClientRepository;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 import org.mockito.AdditionalAnswers;
 
 import java.util.Optional;
@@ -14,8 +14,8 @@ public class ClientControllerTest {
     private ClientRepository clientRepository = mock(ClientRepository.class);
     private ClientController clientController;
 
-    @BeforeEach
-    void init() {
+    @Before
+    public void init() {
         clientController = new ClientController(clientRepository);
     }
 
