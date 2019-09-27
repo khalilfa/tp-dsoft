@@ -3,7 +3,6 @@ package com.dsoft.tpdsoft.model;
 import org.joda.time.LocalTime;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
@@ -30,17 +29,17 @@ public class ServiceTest {
 	private Validator validator;
 	
 	@Mock
-	PhoneNumber phoneNumber;
+	private PhoneNumber phoneNumber;
 	
-	String description;
+	private String description;
 	
-	LocalTime from;
+	private LocalTime from;
 	
-	LocalTime to;
+	private LocalTime to;
 	
-	List<Integer> ableDays;
+	private List<Integer> ableDays;
 	
-	Float kmRatio = 10f; 
+	private Float kmRatio = 10f; 
 	
 	@Rule public MockitoRule mockitoRule = MockitoJUnit.rule(); // instance mock objects
 	
@@ -158,10 +157,7 @@ public class ServiceTest {
 		
 		Set<ConstraintViolation<Service>> violations = validator.validate(service);
 		assertTrue(! violations.isEmpty());
-		
-		ConstraintViolation<Service> blankNameViolation = violations.iterator().next();
-		
-		//assertEquals(blankNameViolation.getMessage(),"no puede estar vacío");
+	
 	}
 	
 	@Test
@@ -223,7 +219,7 @@ public class ServiceTest {
 		this.service.setEmail(invalidEmail);
 		Set<ConstraintViolation<Service>> violations = validator.validate(service);
 		
-		assertTrue(! violations.isEmpty());
+		assertFalse( violations.isEmpty() );
 		
 		String invalidEmailMessage = "Ïnvalid mail format";
 		ConstraintViolation<Service> violation = violations.iterator().next();
