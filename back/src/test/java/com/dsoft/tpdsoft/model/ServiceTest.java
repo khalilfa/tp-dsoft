@@ -29,16 +29,13 @@ public class ServiceTest {
 	private Validator validator;
 	
 	@Mock
+	private AttentionSchedule attentionSchedule;
+	
+	@Mock
 	private PhoneNumber phoneNumber;
 	
 	private String description;
-	
-	private LocalTime from;
-	
-	private LocalTime to;
-	
-	private List<Integer> ableDays;
-	
+		
 	private Float kmRatio = 10f; 
 	
 	@Rule public MockitoRule mockitoRule = MockitoJUnit.rule(); // instance mock objects
@@ -47,12 +44,8 @@ public class ServiceTest {
 	
 	@Before
 	public void setUp() {
-		this.from = new LocalTime(16,00);
-		this.to = new LocalTime(21,00);
 		this.description = "lorem ipsum sit amet consecutor vladimificator ureds bla bla";
-		this.ableDays = new ArrayList<Integer>();
-		
-		this.service = new Service(from, to, ableDays,
+		this.service = new Service(attentionSchedule,
 									"bar de cholo",
 								   "kilmes",
 								   "gmap Api",
@@ -73,17 +66,15 @@ public class ServiceTest {
 	public void testGetters() {
 		this.service.setId(1);
 		assertEquals(service.getId(),new Integer(1));
-		assertEquals(service.getFrom(),from);
-		assertEquals(service.getTo(),to);
-		assertEquals(service.getAbleDays(),ableDays);
-		assertEquals(service.getName(),"bar de cholo" );
-		assertEquals(service.getLocality(),"kilmes" );
-		assertEquals(service.getGmapLocation(),"gmap Api");
-		assertEquals(service.getServiceDesciption(), description);
-		assertEquals(service.getUrlSite(),"cholo.com" );
-		assertEquals(service.getKmRatioDelivery(),kmRatio );
-		assertEquals(service.getPhoneNumber(),phoneNumber);
-		assertEquals(service.getEmail(),"juajua@jiji.com");
+		assertEquals(attentionSchedule, this.service.getAttentionSchedule());
+		assertEquals("bar de cholo",service.getName() );
+		assertEquals("kilmes",this.service.getLocality());
+		assertEquals("gmap Api",service.getGmapLocation());
+		assertEquals(description,service.getServiceDesciption() );
+		assertEquals("cholo.com",service.getUrlSite() );
+		assertEquals(kmRatio,service.getKmRatioDelivery() );
+		assertEquals(phoneNumber,service.getPhoneNumber());
+		assertEquals("juajua@jiji.com",service.getEmail());
 	}
 	
 	@Test
@@ -103,16 +94,7 @@ public class ServiceTest {
 	@Test
 	public void testSetters() {
 		// test each one in order as in the constructor
-		
-		this.service.setFrom(from);
-		assertEquals(this.service.getFrom(), from);
-		
-		this.service.setTo(to);
-		assertEquals(this.service.getTo(), to);
-		
-		this.service.setAbleDays(ableDays);
-		assertEquals(this.service.getAbleDays(), ableDays);
-		
+				
 		this.service.setLocality("bernal");
 		assertEquals(this.service.getLocality(), "bernal");
 		

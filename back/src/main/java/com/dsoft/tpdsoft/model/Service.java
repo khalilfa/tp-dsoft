@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 import org.joda.time.LocalTime;
 
 @Entity
-public class Service extends AttentionSchedule{
+public class Service{
 	
 	@Id @GeneratedValue
 	private Integer id;
@@ -23,6 +23,8 @@ public class Service extends AttentionSchedule{
 	
 	@NotBlank(message="Locality cant be blank")
 	private String locality;
+	
+	private AttentionSchedule attentionSchedule;
 	
 	private String gmapLocation; // TODO pass gmpap service or similar
 	
@@ -42,10 +44,10 @@ public class Service extends AttentionSchedule{
 	@Email(message= "Ïnvalid mail format")
 	private String email;
 	
-	public Service(LocalTime from, LocalTime to, List<Integer> ableDays,
+	public Service(AttentionSchedule attentionSchedule,
 			String name, String locality, String gmapLocation, String serviceDescription,
 			String urlSite, Float kmRatioDelivery, PhoneNumber phoneNumber, String email) {
-		super(from, to, ableDays);
+		this.attentionSchedule = attentionSchedule;
 		this.name = name;
 		this.locality = locality;
 		this.gmapLocation = gmapLocation;
@@ -57,7 +59,15 @@ public class Service extends AttentionSchedule{
 		this.menus = new ArrayList<Menu>();
 	}
 	
-	
+	public Service() { }
+
+	public AttentionSchedule getAttentionSchedule() {
+		return attentionSchedule;
+	}
+
+	public void setAttentionSchedule(AttentionSchedule attentionSchedule) {
+		this.attentionSchedule = attentionSchedule;
+	}
 
 	public Integer getId() {
 		return id;
@@ -66,9 +76,7 @@ public class Service extends AttentionSchedule{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-
-
+	
 	public String getName() {
 		return name;
 	}
@@ -149,6 +157,8 @@ public class Service extends AttentionSchedule{
 		this.menus.remove(menu);
 	}
 	
-	public void updateMenu() {} // TODO update with the specifics fields given
+	public void updateMenu() {
+		// TODO update with the specifics fields given
+	} 
 
 }
