@@ -1,14 +1,9 @@
 package com.dsoft.tpdsoft.model;
 
-import org.joda.time.LocalTime;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -164,7 +159,7 @@ public class ServiceTest {
 		this.service.setServiceDesciption("less than 30 :( ");
 		Set<ConstraintViolation<Service>> violations = validator.validate(service);
 		
-		assertTrue(! violations.isEmpty());
+		assertFalse( violations.isEmpty() );
 		
 		ConstraintViolation<Service> violation = violations.iterator().next();
 		String minDescriptionViolationMessage = "Type at least 30 chatacters";
