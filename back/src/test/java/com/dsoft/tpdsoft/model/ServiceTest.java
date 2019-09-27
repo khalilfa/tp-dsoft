@@ -196,7 +196,7 @@ public class ServiceTest {
 		this.service.setServiceDesciption("lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca lorem ipsum sit amet ca ");
 		Set<ConstraintViolation<Service>> violations = validator.validate(service);
 		
-		assertTrue(! violations.isEmpty());
+		assertFalse( violations.isEmpty());
 		
 		ConstraintViolation<Service> violation = violations.iterator().next();
 		String maxDescriptionViolationMessage = "Too long description";
