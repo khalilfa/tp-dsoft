@@ -4,9 +4,9 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/7690ba6968814fba9f0b125dbe50dc53)](https://www.codacy.com/manual/khalilfa/tp-dsoft?utm_source=github.com&utm_medium=referral&utm_content=khalilfa/tp-dsoft&utm_campaign=Badge_Coverage)
 
 ## URLs
-Deployed backend: `https://viandasya-back.herokuapp.com/`
-Deployed frontend: `https://viandasya-front.herokuapp.com/`
-Ci: `https://travis-ci.org/khalilfa/tp-dsoft`
+Deployed backend: `https://viandasya-back.herokuapp.com/` <br />
+Deployed frontend: `https://viandasya-front.herokuapp.com/` <br />
+Ci: `https://travis-ci.org/khalilfa/tp-dsoft` <br />
 
 ## Branching Strategy
 
