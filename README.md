@@ -3,6 +3,11 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7690ba6968814fba9f0b125dbe50dc53)](https://www.codacy.com/manual/khalilfa/tp-dsoft?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=khalilfa/tp-dsoft&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/7690ba6968814fba9f0b125dbe50dc53)](https://www.codacy.com/manual/khalilfa/tp-dsoft?utm_source=github.com&utm_medium=referral&utm_content=khalilfa/tp-dsoft&utm_campaign=Badge_Coverage)
 
+## URLs
+Deployed backend: `https://viandasya-back.herokuapp.com/`
+Deployed frontend: `https://viandasya-front.herokuapp.com/`
+Ci: `https://travis-ci.org/khalilfa/tp-dsoft`
+
 ## Branching Strategy
 
 Para resolver cada _issue_ se crea un branch con el número y una referencia al nombre: `issue-NN-descripcion-breve`.
@@ -20,3 +25,11 @@ Si se logró hacer el _merge_ correctamente el _branch_ debiese ser eliminado.
 
 Dentro del la carpeta /back ejectutar el siguiente comando: 
 > mvn spring-boot:run
+
+## Start backend project
+
+Primero instalar todas las dependencias dentro del directorio del proyecto con npm:
+> npm install
+
+Despues se puede ejecutar el proyecto:
+> npm start
