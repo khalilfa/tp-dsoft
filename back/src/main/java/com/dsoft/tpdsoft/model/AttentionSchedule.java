@@ -29,7 +29,12 @@ public class AttentionSchedule {
 	}
 	
 	public AttentionSchedule() { }
-
+	
+	public Integer getId(){}
+	
+	public void setId(Integer id){
+		this.id = id;
+	} 
 	public LocalTime getFrom() {
 		return from;
 	}
