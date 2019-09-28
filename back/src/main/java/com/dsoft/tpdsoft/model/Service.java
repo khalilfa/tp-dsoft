@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -22,6 +24,7 @@ public class Service{
 	@NotBlank(message="Locality cant be blank")
 	private String locality;
 	
+	@OneToOne
 	private AttentionSchedule attentionSchedule;
 	
 	private String gmapLocation; // TODO pass gmpap service or similar
@@ -34,9 +37,11 @@ public class Service{
 	
 	private Float kmRatioDelivery;
 	
+	@OneToOne
 	private PhoneNumber phoneNumber; // TODO validate characteristic and number per se
 	
 	@Size(max=20, message = "20 menus admitted")
+	@OneToMany
 	private List<Menu> menus;
 	
 	@Email(message= "Ïnvalid mail format")

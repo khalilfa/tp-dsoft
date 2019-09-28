@@ -1,7 +1,15 @@
 package com.dsoft.tpdsoft.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class PhoneNumber {
-	// TODO
+	// TODO Validation
+	
+	@Id @GeneratedValue
+	private Integer id;
 	
 	private Integer characteristic;
 	private Integer number;
@@ -10,6 +18,8 @@ public class PhoneNumber {
 		this.characteristic = characteristic;
 		this.number = number;
 	}
+	
+	public PhoneNumber() {}
 
 	public Integer getCharacteristic() {
 		return characteristic;
