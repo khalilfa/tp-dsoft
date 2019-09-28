@@ -1,0 +1,21 @@
+====== RELEASE NOTE  ==========
+
+---------------------------------------------------------------------
+TAG 1.0.0
+---------------------------------------------------------------------
+NEW FEATURES:
+* Backend and frontend projects in monorepo.
+* Backend deployed with heroku in https://viandasya-back.herokuapp.com/
+* Backend model: Classes Service, Client with persistence annotations
+* Client api: Can create and get a user with the API
+* Frontend deployed with heroku in https://viandasya-front.herokuapp.com/
+* Frontend has a prototype login form in the index
+* Frontend has a prototype register form in https://viandasya-front.herokuapp.com/register
+* Frontend has a map with three points and two points conected with the travel distance and duration in https://viandasya-front.herokuapp.com/maps
+
+NOTES:
+* There aren't any validation in the frontend login form
+* There aren't any validation in the frontend register form
+* Coverage more than 90%
+* Problem with postgres alter tables
+
