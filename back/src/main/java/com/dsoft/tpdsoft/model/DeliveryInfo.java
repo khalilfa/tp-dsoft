@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import org.joda.time.LocalTime;
-
+/*
 @Entity
 public class DeliveryInfo extends AttentionSchedule{
 
@@ -68,3 +68,4 @@ public class DeliveryInfo extends AttentionSchedule{
 	
 	
 }
+*/

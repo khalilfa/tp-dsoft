@@ -1,36 +1,41 @@
 package com.dsoft.tpdsoft.model;
 
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Entity
+@Table(name = "clients")
 public class Client {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     private Integer id;
 
-    @NotEmpty(message = "Name can´t be blank")
+    @NotBlank(message = "Name can´t be blank")
+    @Column(name = "name")
     private String name;
 
-    @NotEmpty(message = "LastName can´t be blank")
+    @NotBlank(message = "LastName can´t be blank")
+    @Column(name = "last_name")
     private String lastName;
 
-    @NotEmpty(message = "Email can´t be blank")
+    @NotBlank(message = "Email can´t be blank")
     @Email(message = "Invalid email format")
+    @Column(name = "email")
     private String email;
 
-    @NotEmpty(message = "Address can´t be blank")
+    @NotBlank(message = "Address can´t be blank")
+    @Column(name = "address")
     private String address;
 
-    @NotEmpty(message = "Password can´t be blank")
+    @NotBlank(message = "Password can´t be blank")
+    @Column(name = "password")
     private String password;
 
-    public Client(){
-
-    }
+    public Client(){}
 
     public Client(String name, String lastName, String email, String address, String password) {
         this.name = name;
