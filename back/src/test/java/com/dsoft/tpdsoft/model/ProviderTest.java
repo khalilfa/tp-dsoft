@@ -25,10 +25,10 @@ public class ProviderTest {
 
 	@Mock
 	private AttentionSchedule attentionSchedule;
-/*
+
 	@Mock
 	private File logo;
-	*/
+
 	@Rule public MockitoRule mockitoRule = MockitoJUnit.rule(); // instance mock objects
 	
 	private Provider provider;
@@ -37,7 +37,7 @@ public class ProviderTest {
 	public void setUp() {
 		this.provider = new Provider(attentionSchedule,
 									"bar de cholo",
-									/*logo,*/
+									logo,
 									"kilmes",
 								   	"gmap Api",
 								   	"Lo de cholo vende las mejores birras artesanales",

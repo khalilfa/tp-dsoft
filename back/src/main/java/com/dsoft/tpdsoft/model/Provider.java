@@ -16,11 +16,12 @@ public class Provider {
 	@NotBlank(message="Name cant be blank")
 	@Column(name = "name")
 	private String name;
-/*
+
 	@NotNull(message="Logo cant be blank")
-	@OneToOne(targetEntity = File.class)
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn
 	private File logo;
-*/
+
 	@NotBlank(message="Locality cant be blank")
 	@Column(name = "locality")
 	private String locality;
@@ -62,11 +63,11 @@ public class Provider {
 	public Provider() { }
 
 	public Provider(AttentionSchedule attentionSchedule,
-					String name, /*File logo,*/ String locality, String gmapLocation, String serviceDescription,
+					String name, File logo, String locality, String gmapLocation, String serviceDescription,
 					String urlSite, Integer metersRadioDelivery, String phoneNumber, String email) {
 		//this.schedule = attentionSchedule;
 		this.name = name;
-		//this.logo = logo;
+		this.logo = logo;
 		this.locality = locality;
 		this.gmapLocation = gmapLocation;
 		this.serviceDescription = serviceDescription;
@@ -92,7 +93,7 @@ public class Provider {
 	public void setName(String name) {
 		this.name = name;
 	}
-/*
+
 	public File getLogo() {
 		return logo;
 	}
@@ -100,7 +101,7 @@ public class Provider {
 	public void setLogo(File logo) {
 		this.logo = logo;
 	}
-*/
+
 	public String getLocality() {
 		return locality;
 	}
