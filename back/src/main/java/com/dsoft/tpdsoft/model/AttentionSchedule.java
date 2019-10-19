@@ -1,12 +1,16 @@
 package com.dsoft.tpdsoft.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.sql.Time;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-import org.joda.time.LocalTime;
 
 @Entity
 @Table(name = "schedules")
@@ -19,24 +23,24 @@ public class AttentionSchedule {
 
 	@NotNull
 	@Column(name = "time_from")
-	private Integer from;
+	private LocalTime from;
 
 	@NotNull
 	@Column(name = "time_to")
-	private Integer to;
+	private LocalTime to;
 
-	//@OneToOne(mappedBy = "schedule", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	//private Provider provider;
+	@OneToOne(mappedBy = "schedule")
+	private Provider provider;
 	
-	//@ElementCollection
-	//private List<Integer> ableDays = new ArrayList<>(); // mon=1, tues=2, ...
+	@ElementCollection
+	private List<Integer> ableDays; // mon=1, tues=2, ...
 
 	public AttentionSchedule() {}
 
-	public AttentionSchedule(Integer from, Integer to, List<Integer> ableDays) {
+	public AttentionSchedule(LocalTime from, LocalTime to) {
 		this.from = from;
 		this.to = to;
-		//this.ableDays = ableDays;
+		this.ableDays = new ArrayList<>();
 	}
 
 	public Integer getId() {
@@ -47,27 +51,27 @@ public class AttentionSchedule {
 		this.id = id;
 	}
 
-	public Integer getFrom() {
+	public LocalTime getFrom() {
 		return from;
 	}
 
-	public void setFrom(Integer from) {
+	public void setFrom(LocalTime from) {
 		this.from = from;
 	}
 
-	public Integer getTo() {
+	public LocalTime getTo() {
 		return to;
 	}
 
-	public void setTo(Integer to) {
+	public void setTo(LocalTime to) {
 		this.to = to;
 	}
-/*
+
 	public List<Integer> getAbleDays() {
 		return ableDays;
 	}
 
 	public void setAbleDays(List<Integer> ableDays) {
 		this.ableDays = ableDays;
-	}*/
+	}
 }

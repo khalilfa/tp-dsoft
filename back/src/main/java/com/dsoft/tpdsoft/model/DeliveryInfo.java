@@ -1,3 +1,4 @@
+/*
 package com.dsoft.tpdsoft.model;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import org.joda.time.LocalTime;
-/*
+
 @Entity
 public class DeliveryInfo extends AttentionSchedule{
 
@@ -26,7 +27,7 @@ public class DeliveryInfo extends AttentionSchedule{
 	@ElementCollection(targetClass = Integer.class)
 	private List<Integer> ableDays; // mon = 1, tues = 2, wed=....
 	
-//	public DeliveryInfo() {}
+	public DeliveryInfo() {}
 	
 	public DeliveryInfo(Float price, Integer averageTime, LocalTime from, LocalTime to, List<Integer> ableDays) {
 		super(from, to, ableDays);

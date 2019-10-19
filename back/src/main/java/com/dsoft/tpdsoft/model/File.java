@@ -18,7 +18,7 @@ public class File {
 
     public File() {}
 
-    public File(byte[] data, String filename, Provider provider) {
+    public File(byte[] data, String filename) {
         this.data = data;
         this.filename = filename;
     }
