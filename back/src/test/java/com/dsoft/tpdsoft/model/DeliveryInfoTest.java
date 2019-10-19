@@ -2,8 +2,6 @@ package com.dsoft.tpdsoft.model;
 
 import static org.junit.Assert.*;
 
-import org.joda.time.LocalDateTime;
-import org.joda.time.LocalTime;
 import java.time.DayOfWeek;
 import java.util.ArrayList;
 import java.util.Arrays;

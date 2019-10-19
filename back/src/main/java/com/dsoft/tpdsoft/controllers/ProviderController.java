@@ -1,8 +1,10 @@
 package com.dsoft.tpdsoft.controllers;
 
+import com.dsoft.tpdsoft.model.AttentionSchedule;
 import com.dsoft.tpdsoft.model.File;
 import com.dsoft.tpdsoft.model.Menu;
 import com.dsoft.tpdsoft.model.Provider;
+import com.dsoft.tpdsoft.services.AttentionScheduleService;
 import com.dsoft.tpdsoft.services.FileService;
 import com.dsoft.tpdsoft.services.MenuService;
 import com.dsoft.tpdsoft.services.ProviderService;
@@ -29,11 +31,17 @@ public class ProviderController {
     @Autowired
     private FileService fileService;
 
+    @Autowired
+    private AttentionScheduleService scheduleService;
+
     // ----- PROVIDER OPTIONS -----
     @PostMapping
-    public ResponseEntity<Provider> createProvider(@RequestParam("file") MultipartFile file, @ModelAttribute("provider") Provider provider) {
-        Provider savedProvider = this.providerService.saveProvider(provider);
-        this.fileService.storeFile(file, savedProvider);
+    public ResponseEntity<Provider> createProvider(@RequestPart("provider") Provider provider,
+                                                   @RequestPart("file") MultipartFile file,
+                                                   @RequestPart("schedule") AttentionSchedule attentionSchedule) {
+        AttentionSchedule savedSchedule = this.scheduleService.saveAS(attentionSchedule);
+        File savedFile = this.fileService.storeFile(file);
+        Provider savedProvider = this.providerService.saveProvider(provider, savedFile, savedSchedule);
 
         return ResponseEntity.of(Optional.of(savedProvider));
     }
@@ -103,7 +111,25 @@ public class ProviderController {
     public ResponseEntity updateLogo(@RequestParam("file") MultipartFile file, @PathVariable Integer id) {
         Provider provider = this.providerService.getProvider(id);
         Integer logoId = provider.getLogo().getId();
-        this.fileService.updateFile(file, logoId, provider);
+        this.fileService.updateFile(file, logoId);
+
+        return ResponseEntity.ok().build();
+    }
+
+    // ----- SCHEDULE OPTIONS -----
+    @GetMapping("/{id}/schedule")
+    public ResponseEntity<AttentionSchedule> getSchedule(@PathVariable Integer id) {
+        Provider provider = this.providerService.getProvider(id);
+        AttentionSchedule schedule = provider.getAttentionSchedule();
+
+        return ResponseEntity.of(Optional.of(schedule));
+    }
+
+    @PutMapping("/{id}/schedule")
+    public ResponseEntity updateSchedule(@PathVariable Integer id, @RequestBody AttentionSchedule schedule) {
+        Provider provider = this.providerService.getProvider(id);
+        Integer scheduleId = provider.getAttentionSchedule().getId();
+        this.scheduleService.updateAS(schedule, scheduleId);
 
         return ResponseEntity.ok().build();
     }

@@ -1,5 +1,7 @@
 package com.dsoft.tpdsoft.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +22,7 @@ public class Provider {
 	@NotNull(message="Logo cant be blank")
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn
+	@JsonIgnore
 	private File logo;
 
 	@NotBlank(message="Locality cant be blank")
@@ -47,10 +50,10 @@ public class Provider {
 	@Column(name = "phone")
 	private String phoneNumber;
 
-	/*@NotNull(message = "Enter a attention schedule")
+	@NotNull(message = "Enter a attention schedule")
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id")
-	private AttentionSchedule schedule;*/
+	@JoinColumn
+	private AttentionSchedule schedule;
 
 	@NotNull(message = "Enter a meter radio delivery")
 	@Column(name = "radio")
@@ -65,7 +68,7 @@ public class Provider {
 	public Provider(AttentionSchedule attentionSchedule,
 					String name, File logo, String locality, String gmapLocation, String serviceDescription,
 					String urlSite, Integer metersRadioDelivery, String phoneNumber, String email) {
-		//this.schedule = attentionSchedule;
+		this.schedule = attentionSchedule;
 		this.name = name;
 		this.logo = logo;
 		this.locality = locality;
@@ -149,7 +152,7 @@ public class Provider {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-/*
+
 	public AttentionSchedule getAttentionSchedule() {
 		return this.schedule;
 	}
@@ -157,7 +160,7 @@ public class Provider {
 	public void setAttentionSchedule(AttentionSchedule attentionSchedule) {
 		this.schedule = attentionSchedule;
 	}
-*/
+
 	public Integer getMetersRadioDelivery() {
 		return metersRadioDelivery;
 	}

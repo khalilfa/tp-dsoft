@@ -2,6 +2,8 @@ package com.dsoft.tpdsoft.services;
 
 import com.dsoft.tpdsoft.exceptions.NotFoundException;
 import com.dsoft.tpdsoft.exceptions.StorageException;
+import com.dsoft.tpdsoft.model.AttentionSchedule;
+import com.dsoft.tpdsoft.model.File;
 import com.dsoft.tpdsoft.model.Provider;
 import com.dsoft.tpdsoft.repositories.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +14,10 @@ public class ProviderService {
     @Autowired
     ProviderRepository providerRepository;
 
-    public Provider saveProvider(Provider provider) {
+    public Provider saveProvider(Provider provider, File logo, AttentionSchedule schedule) {
         try {
+            provider.setAttentionSchedule(schedule);
+            provider.setLogo(logo);
             Provider savedProvider = this.providerRepository.save(provider);
             return savedProvider;
         } catch (Exception ex) {
