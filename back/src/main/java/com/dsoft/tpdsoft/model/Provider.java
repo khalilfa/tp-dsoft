@@ -63,6 +63,9 @@ public class Provider {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "provider")
 	private List<Menu> menuList = new ArrayList<>();
 
+	@Column(name = "credit")
+	private Double credit = 0.0;
+
 	public Provider() { }
 
 	public Provider(AttentionSchedule attentionSchedule,
@@ -79,6 +82,22 @@ public class Provider {
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.menuList = new ArrayList<Menu>();
+	}
+
+	public void addCredit(Double credit) {
+		this.credit += credit;
+	}
+
+	public void addMenu(Menu menu) {
+		this.menuList.add(menu);
+	}
+
+	public void deleteMenu(Menu menu) {
+		this.menuList.remove(menu);
+	}
+
+	public void substractCredit(Double credit) {
+		this.credit -= credit;
 	}
 
 	public Integer getId() {
@@ -125,8 +144,8 @@ public class Provider {
 		return serviceDescription;
 	}
 
-	public void setServiceDescription(String serviceDesciption) {
-		this.serviceDescription = serviceDesciption;
+	public void setServiceDescription(String serviceDescription) {
+		this.serviceDescription = serviceDescription;
 	}
 
 	public String getUrlSite() {
@@ -153,12 +172,12 @@ public class Provider {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public AttentionSchedule getAttentionSchedule() {
-		return this.schedule;
+	public AttentionSchedule getSchedule() {
+		return schedule;
 	}
 
-	public void setAttentionSchedule(AttentionSchedule attentionSchedule) {
-		this.schedule = attentionSchedule;
+	public void setSchedule(AttentionSchedule schedule) {
+		this.schedule = schedule;
 	}
 
 	public Integer getMetersRadioDelivery() {
@@ -169,19 +188,19 @@ public class Provider {
 		this.metersRadioDelivery = metersRadioDelivery;
 	}
 
-	public List<Menu> getMenus() {
+	public List<Menu> getMenuList() {
 		return menuList;
 	}
 
-	public void setMenus(List<Menu> menus) {
-		this.menuList = menus;
+	public void setMenuList(List<Menu> menuList) {
+		this.menuList = menuList;
 	}
 
-	public void addMenu(Menu menu) {
-		this.menuList.add(menu);
+	public Double getCredit() {
+		return credit;
 	}
 
-	public void deleteMenu(Menu menu) {
-		this.menuList.remove(menu);
+	public void setCredit(Double credit) {
+		this.credit = credit;
 	}
 }

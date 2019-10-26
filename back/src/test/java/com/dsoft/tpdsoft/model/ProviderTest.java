@@ -73,10 +73,10 @@ public class ProviderTest {
 		Menu menu = Mockito.mock(Menu.class);
 		
 		this.provider.addMenu(menu);
-		assertEquals(this.provider.getMenus().get(0), menu);
+		assertEquals(this.provider.getMenuList().get(0), menu);
 		
 		this.provider.deleteMenu(menu);
-		assertTrue(this.provider.getMenus().isEmpty());
+		assertTrue(this.provider.getMenuList().isEmpty());
 	}
 	
 	// setters
