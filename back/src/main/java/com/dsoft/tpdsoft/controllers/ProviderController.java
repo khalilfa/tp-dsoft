@@ -120,7 +120,7 @@ public class ProviderController {
     @GetMapping("/{id}/schedule")
     public ResponseEntity<AttentionSchedule> getSchedule(@PathVariable Integer id) {
         Provider provider = this.providerService.getProvider(id);
-        AttentionSchedule schedule = provider.getAttentionSchedule();
+        AttentionSchedule schedule = provider.getSchedule();
 
         return ResponseEntity.of(Optional.of(schedule));
     }
@@ -128,9 +128,16 @@ public class ProviderController {
     @PutMapping("/{id}/schedule")
     public ResponseEntity updateSchedule(@PathVariable Integer id, @RequestBody AttentionSchedule schedule) {
         Provider provider = this.providerService.getProvider(id);
-        Integer scheduleId = provider.getAttentionSchedule().getId();
+        Integer scheduleId = provider.getSchedule().getId();
         this.scheduleService.updateAS(schedule, scheduleId);
 
         return ResponseEntity.ok().build();
+    }
+
+    // ----- CREDIT OPTIONS -----
+    @PostMapping("/{id}/credit/{credit}")
+    public ResponseEntity<Provider> substractCredit(@PathVariable Integer id, @PathVariable Double credit) {
+        Provider savedProvider = this.providerService.substractCredit(id, credit);
+        return ResponseEntity.of(Optional.of(savedProvider));
     }
 }

@@ -33,6 +33,9 @@ public class Client {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "credit")
+    private Double credit = 0.0;
+
     public Client(){}
 
     public Client(String name, String lastName, String email, String address, String password) {
@@ -41,6 +44,14 @@ public class Client {
         this.email = email;
         this.address = address;
         this.password = password;
+    }
+
+    public void addCredit(Double credit) {
+        this.credit += credit;
+    }
+
+    public void substractCredit(Double credit) {
+        this.credit -= credit;
     }
 
     public Integer getId() {
@@ -89,5 +100,13 @@ public class Client {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Double getCredit() {
+        return credit;
+    }
+
+    public void setCredit(Double credit) {
+        this.credit = credit;
     }
 }

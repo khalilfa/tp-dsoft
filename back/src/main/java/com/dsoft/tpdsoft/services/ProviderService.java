@@ -16,7 +16,7 @@ public class ProviderService {
 
     public Provider saveProvider(Provider provider, File logo, AttentionSchedule schedule) {
         try {
-            provider.setAttentionSchedule(schedule);
+            provider.setSchedule(schedule);
             provider.setLogo(logo);
             Provider savedProvider = this.providerRepository.save(provider);
             return savedProvider;
@@ -46,5 +46,11 @@ public class ProviderService {
         } catch (Exception ex) {
             throw new StorageException("Could not update the provider with id: " + id, ex);
         }
+    }
+
+    public Provider substractCredit(Integer id, Double credit) {
+        Provider provider = this.getProvider(id);
+        provider.substractCredit(credit);
+        return this.updateProvider(provider, id);
     }
 }
