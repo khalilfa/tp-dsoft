@@ -23,13 +23,21 @@ public class Bill {
 	public String deposit(Float mount){
 		if( this.canDeposit(mount)) {
 		 this.balance = this.balance + mount;
-		 return "Mount deposit correctly";
+		 return canDepositMessage();
 		}
-		return "Cant deposit, mount passed overcome maxi permitted";
+		return cantDepositMessage();
+	}
+
+	public String canDepositMessage() {
+		return "Mount deposit correctly";
+	}
+
+	public String cantDepositMessage() {
+		return "Cant deposit, mount passed overcome max permitted";
 	}
 	
 	private boolean canDeposit(Float mount) {
-		return mount + this.balance > this.maxPermitted();
+		return mount + this.balance <= this.maxPermitted();
 	}
 
 	private float maxPermitted() {
@@ -40,9 +48,17 @@ public class Bill {
 		
 		if( this.canExtract(mount) ) {
 			this.balance = this.balance - mount;
-			return "Mount extracted correctly";
+			return canExtractMessage();
 		}
 		
+		return cantExtractMessage();
+	}
+
+	public String canExtractMessage() {
+		return "Mount extracted correctly";
+	}
+
+	public String cantExtractMessage() {
 		return "Can't extract this mount";
 	}
 
