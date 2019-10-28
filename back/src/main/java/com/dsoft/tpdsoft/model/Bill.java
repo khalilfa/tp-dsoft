@@ -12,8 +12,6 @@ import lombok.Setter;
 @Setter
 public class Bill {
 	
-	@Min(0)
-	@Max(100000)
 	private Float balance;
 	
 	public Bill() {}
@@ -22,11 +20,35 @@ public class Bill {
 		this.balance = balance;
 	}
 	
-	public void deposit(Float mount) {
-		this.balance = this.balance + mount; 
+	public String deposit(Float mount){
+		if( this.canDeposit(mount)) {
+		 this.balance = this.balance + mount;
+		 return "Mount deposit correctly";
+		}
+		return "Cant deposit, mount passed overcome maxi permitted";
 	}
 	
-	public void extract(Float mount) {
-		this.balance = this.balance - mount;
+	private boolean canDeposit(Float mount) {
+		return mount + this.balance > this.maxPermitted();
 	}
+
+	private float maxPermitted() {
+		return 10000;
+	}
+
+	public String extract(Float mount) {
+		
+		if( this.canExtract(mount) ) {
+			this.balance = this.balance - mount;
+			return "Mount extracted correctly";
+		}
+		
+		return "Can't extract this mount";
+	}
+
+	private boolean canExtract(Float mount) {
+		
+		return mount <= this.balance;
+	}
+	
 }
