@@ -1,10 +1,5 @@
 package com.dsoft.tpdsoft.model;
 
-import java.math.BigDecimal;
-
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-
 import lombok.Getter;
 import lombok.Setter;
 
