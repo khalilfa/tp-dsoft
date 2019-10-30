@@ -98,20 +98,21 @@ public class Menu {
 
 	public Menu() {}
 
-	public Menu(String name,
-				String description,
-				Double deliveryPrice,
-				LocalDate validFrom,
-				LocalDate validTo,
-				LocalTime deliveryFrom,
-				LocalTime deliveryTo,
-				Integer deliveryTime,
-				Double price,
-				Integer cantMin1,
-				Double cantMin1Price,
-				Integer cantMin2,
-				Double cantMin2Price,
-				Integer maxSales) {
+	public Menu(
+			String name,
+			String description,
+			Double deliveryPrice,
+			LocalDate validFrom,
+			LocalDate validTo,
+			LocalTime deliveryFrom,
+			LocalTime deliveryTo,
+			Integer deliveryTime,
+			Double price,
+			Integer cantMin1,
+			Double cantMin1Price,
+			Integer cantMin2,
+			Double cantMin2Price,
+			Integer maxSales) {
 		this.name = name;
 		this.description = description;
 		this.deliveryPrice = deliveryPrice;

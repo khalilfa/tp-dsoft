@@ -83,16 +83,17 @@ public class Provider {
 
 	public Provider() { }
 
-	public Provider(AttentionSchedule attentionSchedule,
-					String name,
-					File logo,
-					String locality,
-					String gmapLocation,
-					String serviceDescription,
-					String urlSite,
-					Integer metersRadioDelivery,
-					String phoneNumber,
-					String email) {
+	public Provider(
+			AttentionSchedule attentionSchedule,
+			String name,
+			File logo,
+			String locality,
+			String gmapLocation,
+			String serviceDescription,
+			String urlSite,
+			Integer metersRadioDelivery,
+			String phoneNumber,
+			String email) {
 		this.schedule = attentionSchedule;
 		this.name = name;
 		this.logo = logo;
