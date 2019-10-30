@@ -1,9 +1,7 @@
 package com.dsoft.tpdsoft.model;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertEquals;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -19,6 +17,8 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
+import static org.junit.Assert.*;
+
 public class ProviderTest {
 	
 	private Validator validator;
@@ -28,6 +28,12 @@ public class ProviderTest {
 
 	@Mock
 	private File logo;
+
+	@Mock
+	private File newFile;
+
+	@Mock
+	private AttentionSchedule newSchedule;
 
 	@Rule public MockitoRule mockitoRule = MockitoJUnit.rule(); // instance mock objects
 	
@@ -51,13 +57,19 @@ public class ProviderTest {
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		validator = factory.getValidator();
 	}
+
+	@Test
+	public void emptyProviderTest() {
+		Provider emptyProvider = new Provider();
+		assertNotNull(emptyProvider);
+	}
 	
 	// getters
 	@Test
 	public void testGetters() {
 		this.provider.setId(1);
 		assertEquals((Integer) 1, provider.getId());
-		//assertEquals(attentionSchedule, this.provider.getAttentionSchedule());
+		assertEquals(attentionSchedule, this.provider.getSchedule());
 		assertEquals("bar de cholo", provider.getName() );
 		assertEquals("kilmes",this.provider.getLocality());
 		assertEquals("gmap Api", provider.getGmapLocation());
@@ -101,6 +113,16 @@ public class ProviderTest {
 		
 		this.provider.setPhoneNumber("5481565321854");
 		assertEquals("5481565321854", this.provider.getPhoneNumber());
+
+		this.provider.setSchedule(this.newSchedule);
+		assertEquals(this.newSchedule, this.provider.getSchedule());
+
+		this.provider.setLogo(this.newFile);
+		assertEquals(this.newFile, this.provider.getLogo());
+
+		ArrayList<Menu> newMenus = new ArrayList<>();
+		this.provider.setMenuList(newMenus);
+		assertEquals(newMenus, this.provider.getMenuList());
 	}
 	
 	@Test
@@ -197,6 +219,17 @@ public class ProviderTest {
 		assertEquals(invalidEmailMessage, violation.getMessage());
 	}
 	
-	//TODO telephone number validation
+	@Test
+	public void add10CreditsToProvider() {
+		this.provider.addCredit(10.0);
+		assertEquals(this.provider.getCredit(), Double.valueOf(10.0));
+	}
+
+	@Test
+	public void substract10CreditsToProviderWith20() {
+		this.provider.setCredit(20.0);
+		this.provider.substractCredit(10.0);
+		assertEquals(this.provider.getCredit(), Double.valueOf(10.0));
+	}
 
 }

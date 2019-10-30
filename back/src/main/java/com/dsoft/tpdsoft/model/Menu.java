@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -60,7 +61,7 @@ public class Menu {
 
 	@NotNull
 	@Column(name = "price")
-	private float price;
+	private Double price;
 
 	@NotNull
 	@Min(10) @Max(70)
@@ -85,6 +86,26 @@ public class Menu {
 	private Integer maxSales;
 
 	public Menu() {}
+
+	public Menu(String name, String description, Double deliveryPrice, LocalDate validFrom, LocalDate validTo,
+				LocalTime deliveryFrom, LocalTime deliveryTo, Integer deliveryTime, Double price, Integer cantMin1,
+				Double cantMin1Price, Integer cantMin2, Double cantMin2Price, Integer maxSales) {
+		this.name = name;
+		this.description = description;
+		this.deliveryPrice = deliveryPrice;
+		this.validFrom = validFrom;
+		this.validTo = validTo;
+		this.deliveryFrom = deliveryFrom;
+		this.deliveryTo = deliveryTo;
+		this.deliveryTime = deliveryTime;
+		this.price = price;
+		this.cantMin1 = cantMin1;
+		this.cantMin1Price = cantMin1Price;
+		this.cantMin2 = cantMin2;
+		this.cantMin2Price = cantMin2Price;
+		this.maxSales = maxSales;
+		this.categories = new ArrayList<>();
+	}
 
 	public Integer getId() {
 		return id;
@@ -174,11 +195,11 @@ public class Menu {
 		this.deliveryTime = deliveryTime;
 	}
 
-	public float getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 

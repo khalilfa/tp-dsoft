@@ -70,4 +70,12 @@ public class AttentionSchedule {
 	public void setAbleDays(List<Integer> ableDays) {
 		this.ableDays = ableDays;
 	}
+
+	public Provider getProvider() {
+		return provider;
+	}
+
+	public void setProvider(Provider provider) {
+		this.provider = provider;
+	}
 }
