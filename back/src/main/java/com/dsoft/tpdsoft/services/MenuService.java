@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MenuService {
     @Autowired
-    MenuRepository menuRepository;
+    private MenuRepository menuRepository;
 
     public Menu saveMenu(Menu menu) {
         try {

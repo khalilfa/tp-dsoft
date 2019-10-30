@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProviderService {
     @Autowired
-    ProviderRepository providerRepository;
+    private ProviderRepository providerRepository;
 
     public Provider saveProvider(Provider provider, File logo, AttentionSchedule schedule) {
         try {

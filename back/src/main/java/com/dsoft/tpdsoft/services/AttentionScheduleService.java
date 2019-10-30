@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AttentionScheduleService {
     @Autowired
-    AttentionScheduleRepository attentionScheduleRepository;
+    private AttentionScheduleRepository attentionScheduleRepository;
 
     public AttentionSchedule saveAS(AttentionSchedule as) {
         try {
