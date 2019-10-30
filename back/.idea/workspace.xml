@@ -2,15 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b74d0843-2edb-4cee-a000-2ad2e7615757" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/ProviderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/ProviderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/exceptions/ApiErrorVO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/exceptions/ApiExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/AttentionSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/AttentionSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Bill.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/DeliveryInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/File.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Provider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/ProviderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/ProviderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/controllers/ClientControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/exceptions/ApiErrorVOTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/model/BillTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/model/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/model/ClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/model/DeliveryInfoTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/model/ProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/model/ProviderTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,6 +23,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="179" />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
@@ -84,22 +92,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="back" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.dsoft.tpdsoft.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.dsoft.tpdsoft.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.dsoft.tpdsoft.controllers.ClientControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProviderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AttentionScheduleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="back" />
       <extension name="coverage">
         <pattern>
@@ -108,23 +101,55 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.dsoft.tpdsoft.model" />
-      <option name="MAIN_CLASS_NAME" value="com.dsoft.tpdsoft.model.ProviderTest" />
+      <option name="MAIN_CLASS_NAME" value="com.dsoft.tpdsoft.model.AttentionScheduleTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TpDsoftApplicationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AttentionScheduleTest.emptyConstructorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="back" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.dsoft.tpdsoft.*" />
+          <option name="PATTERN" value="com.dsoft.tpdsoft.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.dsoft.tpdsoft" />
-      <option name="MAIN_CLASS_NAME" value="com.dsoft.tpdsoft.TpDsoftApplicationTest" />
+      <option name="PACKAGE_NAME" value="com.dsoft.tpdsoft.model" />
+      <option name="MAIN_CLASS_NAME" value="com.dsoft.tpdsoft.model.AttentionScheduleTest" />
+      <option name="METHOD_NAME" value="emptyConstructorTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MenuTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="back" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dsoft.tpdsoft.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.dsoft.tpdsoft.model" />
+      <option name="MAIN_CLASS_NAME" value="com.dsoft.tpdsoft.model.MenuTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MenuTest.gettersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="back" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dsoft.tpdsoft.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.dsoft.tpdsoft.model" />
+      <option name="MAIN_CLASS_NAME" value="com.dsoft.tpdsoft.model.MenuTest" />
+      <option name="METHOD_NAME" value="gettersTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -146,17 +171,19 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.All in back" />
-      <item itemvalue="JUnit.ClientControllerTest" />
-      <item itemvalue="JUnit.ProviderTest" />
-      <item itemvalue="JUnit.TpDsoftApplicationTest" />
       <item itemvalue="Spring Boot.TpDsoftApplication" />
+      <item itemvalue="JUnit.AttentionScheduleTest" />
+      <item itemvalue="JUnit.MenuTest" />
+      <item itemvalue="JUnit.MenuTest.gettersTest" />
+      <item itemvalue="JUnit.AttentionScheduleTest.emptyConstructorTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in back" />
-        <item itemvalue="JUnit.ProviderTest" />
-        <item itemvalue="JUnit.ClientControllerTest" />
-        <item itemvalue="JUnit.TpDsoftApplicationTest" />
+        <item itemvalue="JUnit.AttentionScheduleTest.emptyConstructorTest" />
+        <item itemvalue="JUnit.AttentionScheduleTest" />
+        <item itemvalue="JUnit.MenuTest" />
+        <item itemvalue="JUnit.MenuTest.gettersTest" />
       </list>
     </recent_temporary>
   </component>
@@ -194,6 +221,7 @@
       <workItem from="1571430375955" duration="12709000" />
       <workItem from="1571944798245" duration="160000" />
       <workItem from="1572036651478" duration="10378000" />
+      <workItem from="1572389221106" duration="7271000" />
     </task>
     <servers />
   </component>
@@ -226,5 +254,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/tp_dsoft$All_in_back.ic" NAME="All in back Coverage Results" MODIFIED="1572396321210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

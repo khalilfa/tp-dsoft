@@ -14,15 +14,22 @@ public class ClientTest {
         this.client.setId(1);
     }
 
+    @Test
+    public void emptyConstructorTest() {
+        Client emptyClient = new Client();
+        assertNotNull(emptyClient);
+    }
+
     // Getters and Setters
     @Test
     public void getters() {
-        assertEquals(this.client.getId(), new Integer(1));
+        assertEquals(this.client.getId(), Integer.valueOf(1));
         assertEquals(this.client.getName(), "Pepe");
         assertEquals(this.client.getLastName(), "Argento");
         assertEquals(this.client.getEmail(), "pepe@gmail.com");
         assertEquals(this.client.getAddress(), "Buenos aires");
         assertEquals(this.client.getPassword(), "123456789");
+        assertEquals(this.client.getCredit(), Double.valueOf(0));
     }
 
     @Test
@@ -59,5 +66,24 @@ public class ClientTest {
     public void setPassword() {
         this.client.setPassword("987654321");
         assertEquals(this.client.getPassword(), "987654321");
+    }
+
+    @Test
+    public void setCredit() {
+        this.client.setCredit(20.0);
+        assertEquals(this.client.getCredit(), Double.valueOf(20));
+    }
+
+    @Test
+    public void add10CreditsToTheClient(){
+        this.client.addCredit(10.0);
+        assertEquals(this.client.getCredit(), Double.valueOf(10.0));
+    }
+
+    @Test
+    public void substract10CreditsToTheClientWith20Credits() {
+        this.client.setCredit(20.0);
+        this.client.substractCredit(10.0);
+        assertEquals(this.client.getCredit(), Double.valueOf(10));
     }
 }

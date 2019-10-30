@@ -109,4 +109,5 @@ public class Client {
     public void setCredit(Double credit) {
         this.credit = credit;
     }
+
 }

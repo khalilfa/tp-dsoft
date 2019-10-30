@@ -81,7 +81,7 @@ public class Provider {
 		this.metersRadioDelivery = metersRadioDelivery;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
-		this.menuList = new ArrayList<Menu>();
+		this.menuList = new ArrayList<>();
 	}
 
 	public void addCredit(Double credit) {

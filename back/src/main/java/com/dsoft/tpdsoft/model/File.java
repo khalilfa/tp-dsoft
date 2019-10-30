@@ -46,4 +46,12 @@ public class File {
     public void setData(byte[] data) {
         this.data = data;
     }
+
+    public Provider getProvider() {
+        return provider;
+    }
+
+    public void setProvider(Provider provider) {
+        this.provider = provider;
+    }
 }
