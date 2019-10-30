@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b74d0843-2edb-4cee-a000-2ad2e7615757" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/ProviderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/ProviderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/AttentionSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/AttentionSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/File.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Provider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/model/AttentionScheduleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/model/AttentionScheduleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/model/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/model/ClientTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/model/MenuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/model/MenuTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/model/ProviderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/model/ProviderTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -220,6 +212,7 @@
       <workItem from="1572389221106" duration="7271000" />
       <workItem from="1572397260851" duration="335000" />
       <workItem from="1572397940987" duration="835000" />
+      <workItem from="1572398957784" duration="139000" />
     </task>
     <servers />
   </component>
