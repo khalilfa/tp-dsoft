@@ -6,8 +6,19 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Column;
+import javax.persistence.ManyToOne;
+import javax.persistence.ElementCollection;
+import javax.persistence.JoinColumn;
+import javax.persistence.Enumerated;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Max;
 
 @Entity
 public class Menu {
@@ -87,9 +98,20 @@ public class Menu {
 
 	public Menu() {}
 
-	public Menu(String name, String description, Double deliveryPrice, LocalDate validFrom, LocalDate validTo,
-				LocalTime deliveryFrom, LocalTime deliveryTo, Integer deliveryTime, Double price, Integer cantMin1,
-				Double cantMin1Price, Integer cantMin2, Double cantMin2Price, Integer maxSales) {
+	public Menu(String name,
+				String description,
+				Double deliveryPrice,
+				LocalDate validFrom,
+				LocalDate validTo,
+				LocalTime deliveryFrom,
+				LocalTime deliveryTo,
+				Integer deliveryTime,
+				Double price,
+				Integer cantMin1,
+				Double cantMin1Price,
+				Integer cantMin2,
+				Double cantMin2Price,
+				Integer maxSales) {
 		this.name = name;
 		this.description = description;
 		this.deliveryPrice = deliveryPrice;

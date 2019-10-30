@@ -4,7 +4,13 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Column;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.ElementCollection;
 import javax.validation.constraints.NotNull;
 
 
