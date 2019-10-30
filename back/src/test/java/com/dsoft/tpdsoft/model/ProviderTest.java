@@ -16,7 +16,10 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class ProviderTest {
 	
@@ -147,7 +150,7 @@ public class ProviderTest {
 		this.provider.setName("");
 		
 		Set<ConstraintViolation<Provider>> violations = validator.validate(provider);
-		assertTrue(! violations.isEmpty());
+		assertFalse(violations.isEmpty());
 	
 	}
 	
@@ -157,8 +160,8 @@ public class ProviderTest {
 
 		this.provider.setLocality("");
 		Set<ConstraintViolation<Provider>> violations = validator.validate(provider);
-		
-		assertTrue(! violations.isEmpty());
+
+		assertFalse(violations.isEmpty());
 		
 		ConstraintViolation<Provider> violation = violations.iterator().next();
 		String blankLocalityViolationMessage = "Locality cant be blank";

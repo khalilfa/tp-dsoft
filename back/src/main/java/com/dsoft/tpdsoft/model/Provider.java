@@ -5,8 +5,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.*;
-import javax.validation.constraints.*;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Column;
+import javax.persistence.OneToOne;
+import javax.persistence.CascadeType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.FetchType;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.NotEmpty;
+
 
 @Entity
 public class Provider {
@@ -69,8 +84,15 @@ public class Provider {
 	public Provider() { }
 
 	public Provider(AttentionSchedule attentionSchedule,
-					String name, File logo, String locality, String gmapLocation, String serviceDescription,
-					String urlSite, Integer metersRadioDelivery, String phoneNumber, String email) {
+					String name,
+					File logo,
+					String locality,
+					String gmapLocation,
+					String serviceDescription,
+					String urlSite,
+					Integer metersRadioDelivery,
+					String phoneNumber,
+					String email) {
 		this.schedule = attentionSchedule;
 		this.name = name;
 		this.logo = logo;

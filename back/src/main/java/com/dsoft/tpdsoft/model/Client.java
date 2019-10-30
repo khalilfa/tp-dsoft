@@ -1,8 +1,13 @@
 package com.dsoft.tpdsoft.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.Email;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Column;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Email;
 
 @Entity
 @Table(name = "clients")
