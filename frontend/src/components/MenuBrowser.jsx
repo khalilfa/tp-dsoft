@@ -2,16 +2,30 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
+import ListGroup from 'react-bootstrap/ListGroup'
+import ListGroupItem from 'react-bootstrap/ListGroup'
 
 
 class MenuBrowser extends React.Component {
     constructor(props) { 
         super(props)
         this.state = {
-
+            menues: [],
+            isLoaded: false,
         }
     }
 
+    componentDidMount(){
+        // json mock 
+        fetch('http://www.mocky.io/v2/5dbf3a373300007479a0e551')
+            .then( res => res.json())
+            .then( json => {
+                this.setState({
+                    isLoaded: true,
+                    menues: json,
+                })
+            })
+    }
     
     render(){
         return (
@@ -44,15 +58,16 @@ class MenuBrowser extends React.Component {
                     </DropdownButton>
 
                     <Button variant="secondary" disbled>Buscar</Button>
-
-                    
-
-                </section>
-                {/* Given menu list after aplicate filter */}
-                <section >
-                
                 </section>
             
+                <ListGroup>
+                    
+                        {this.state.menues.map( menu => (
+                            <ListGroup.Item key={menu.id}>
+                                {menu.name}
+                            </ListGroup.Item>
+                        ))};
+                </ListGroup>
             </div>
             
         );
