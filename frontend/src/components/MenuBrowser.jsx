@@ -1,10 +1,9 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import Dropdown from 'react-bootstrap/Dropdown'
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import ListGroup from 'react-bootstrap/ListGroup'
-import ListGroupItem from 'react-bootstrap/ListGroup'
-
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import ListGroup from 'react-bootstrap/ListGroup';
+import input from 'react-bootstrap'
 
 class MenuBrowser extends React.Component {
     constructor(props) { 
@@ -66,8 +65,15 @@ class MenuBrowser extends React.Component {
                             <ListGroup.Item key={menu.id}>
                                 {menu.name}
                             </ListGroup.Item>
-                        ))};
+                        ))}
                 </ListGroup>
+
+                {/* Ordenar por */} 
+                <section>
+                    <h3>Ordenar por:</h3>
+                    <input type="checkbox" aria-label="Precio"></input><p>precio</p>
+                    <input type="checkbox"></input><p>Reputación</p>
+                </section>
             </div>
             
         );
