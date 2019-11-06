@@ -3,7 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import ListGroup from 'react-bootstrap/ListGroup';
-import input from 'react-bootstrap'
+import RadioButton from './RadioButtons.jsx'
+
 
 class MenuBrowser extends React.Component {
     constructor(props) { 
@@ -11,12 +12,14 @@ class MenuBrowser extends React.Component {
         this.state = {
             menues: [],
             isLoaded: false,
+            descrip1: "Min",
+            descrip2: "Max",
         }
     }
 
     componentDidMount(){
         // json mock 
-        fetch('http://www.mocky.io/v2/5dbf3a373300007479a0e551')
+        fetch('http://www.mocky.io/v2/5dc21b1b2f000065004bde52')
             .then( res => res.json())
             .then( json => {
                 this.setState({
@@ -25,7 +28,13 @@ class MenuBrowser extends React.Component {
                 })
             })
     }
-    
+
+    renderButtonsMinMax(d1,d2){
+        return (
+            <RadioButton descrip1={d1} descrip2={d2}/>
+        )
+    }
+
     render(){
         return (
             <div>
@@ -63,7 +72,9 @@ class MenuBrowser extends React.Component {
                     
                         {this.state.menues.map( menu => (
                             <ListGroup.Item key={menu.id}>
-                                {menu.name}
+                                {menu.name}|
+                                {menu.price}| 
+                                {menu.calification} 
                             </ListGroup.Item>
                         ))}
                 </ListGroup>
@@ -71,8 +82,11 @@ class MenuBrowser extends React.Component {
                 {/* Ordenar por */} 
                 <section>
                     <h3>Ordenar por:</h3>
-                    <input type="checkbox" aria-label="Precio"></input><p>precio</p>
-                    <input type="checkbox"></input><p>Reputación</p>
+                    <p>Precio</p>
+                    {this.renderButtonsMinMax("Min","Max")}
+                    {this.renderButtonsMinMax("Mejor","Peor")}
+                    <p>Calificacion</p>
+                    <RadioButton/>
                 </section>
             </div>
             
