@@ -1,5 +1,7 @@
 package com.dsoft.tpdsoft.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +34,7 @@ public class AttentionSchedule {
 	private LocalTime to;
 
 	@OneToOne(mappedBy = "schedule")
+	@JsonIgnore
 	private Provider provider;
 	
 	@ElementCollection
