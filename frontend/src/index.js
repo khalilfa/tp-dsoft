@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './css/bootstrap-multiselect.css';
 import './index.css';
 import App from './App';
 import './i18n';

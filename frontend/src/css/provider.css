@@ -1,0 +1,77 @@
+.provider-view {
+    background-color: whitesmoke;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    border: 3px solid grey;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.menus-container {
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+.menu-edit-column {
+    border-bottom: solid black;
+    border-bottom-width: 3px;
+}
+
+.menu-column {
+    background-color: whitesmoke;
+}
+
+.menu-column-pair {
+    background-color: #CCD1D1;
+}
+
+.menu-column-value {
+    border-bottom: solid black;
+    border-bottom-width: 1px;
+    border-right: solid black;
+    border-right-width: 1px;
+    text-align: center;
+}
+
+.menu-column-title {
+    border-right: solid black;
+    border-right-width: 1px;
+    font-weight: bold;
+}
+
+.button {
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+    margin-left: 20px;
+}
+
+.button:hover {
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+    margin-left: 20px;
+    border: 3px solid #6374DF;
+    border-radius: 10px;
+}
+
+.popup-content {
+    width: 70% !important;
+    height: 50% !important;
+    position: fixed !important;
+    left: 15% !important;
+    top: 10% !important;
+    background: rgb(255, 255, 255);
+    width: 50%;
+    border: 0px !important;
+    padding: 0px !important;
+    border-radius: 10px;
+}
+
+.new-menu-button {
+    width: 80px;
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
