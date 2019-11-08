@@ -1,0 +1,58 @@
+.create-menu-popup {
+    background-color: whitesmoke;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+.field {
+    padding: 5px;
+    padding-left: 15px;
+}
+
+.field input {
+    border-radius: 15px;
+}
+
+.react-time-picker input {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.react-time-picker__wrapper {
+    border-radius: 10px;
+    background-color: white;
+}
+
+.dropdown-toggle {
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.multiselect-container>li>a>label {
+    padding: 2px;
+}
+
+.create-menu-button {
+    margin: 15px;
+    left: 3%;
+}
+
+.create-menu-title {
+    padding: 30px;
+}
+
+.close-popup {
+    text-align: right;
+}
+
+.close-popup-symbol:hover {
+    color: gray;
+}
+
+.close-popup-symbol {
+    background-color: transparent;
+    border: 0px;
+    padding-top: 10px;
+    padding-right: 15px;
+}
