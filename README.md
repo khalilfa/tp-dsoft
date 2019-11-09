@@ -5,7 +5,7 @@
 
 ## URLs
 Deployed backend: `https://viandasya-back.herokuapp.com/` <br />
-Deployed frontend: `https://viandasya-front.herokuapp.com/` <br />
+Deployed frontend: `https://affectionate-wilson-6db372.netlify.com/` <br />
 Ci: `https://travis-ci.org/khalilfa/tp-dsoft` <br />
 
 ## Branching Strategy
@@ -21,12 +21,12 @@ el _merge_.
 
 Si se logró hacer el _merge_ correctamente el _branch_ debiese ser eliminado.
 
-## Start backend project
+## Iniciar proyecto backend
 
 Dentro del la carpeta /back ejectutar el siguiente comando: 
 > mvn spring-boot:run
 
-## Start backend project
+## Iniciar proyecto frontend
 
 Primero instalar todas las dependencias dentro del directorio del proyecto con npm:
 > npm install
