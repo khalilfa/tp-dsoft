@@ -4,6 +4,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Maps from './components/Maps';
 import MenuBrowser from './components/MenuBrowser';
+import Bill from './components/Bill';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Route exact path="/register" component={Register} />
       <Route exact path="/maps" component={Maps} />
       <Route exact path="/browseMenu" component={MenuBrowser} />
+      <Route exact path="/bill" component={Bill} />
     </Router>
   );
 }
