@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import CardPayment from './CardPayment.jsx';
+import '../css/bill.css'
 
 
 class Bill extends React.Component{
@@ -21,9 +22,10 @@ class Bill extends React.Component{
 
     render(){
         return (
-            <div>
-                <p>Su saldo es de: (mock)</p>
-                <Button onClick={this.handleClick}>Agregar saldo</Button>
+            <div id="wrapper"> 
+                <nav></nav> {/* fake nav */}
+                <h2>Su saldo es de: $ 100</h2>
+                <Button variant="success" onClick={this.handleClick}>Agregar saldo</Button>
                 {this.state.paymentComponent}                     
             </div>
         )
