@@ -3,18 +3,18 @@ import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import ListGroup from 'react-bootstrap/ListGroup';
-import RadioButton from './RadioButtons.jsx'
+import RadioButton from './RadioButtons.jsx';
 
 
 class MenuBrowser extends React.Component {
     constructor(props) { 
-        super(props)
+        super(props);
         this.state = {
             menues: [],
             isLoaded: false,
             descrip1: "Min",
             descrip2: "Max",
-        }
+        };
     }
 
     componentDidMount(){
@@ -26,13 +26,13 @@ class MenuBrowser extends React.Component {
                     isLoaded: true,
                     menues: json,
                 })
-            })
+            });
     }
 
     renderButtonsMinMax(d1,d2){
         return (
             <RadioButton descrip1={d1} descrip2={d2}/>
-        )
+        );
     }
 
     render(){

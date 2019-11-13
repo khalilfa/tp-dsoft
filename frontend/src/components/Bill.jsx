@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import CardPayment from './CardPayment.jsx';
-import '../css/bill.css'
+import '../css/bill.css';
 
 
 class Bill extends React.Component{
@@ -10,7 +10,7 @@ class Bill extends React.Component{
        super(props);
        this.state = {
            paymentComponent: null,
-       }
+       };
        this.handleClick = this.handleClick.bind(this);
    } 
 
@@ -28,7 +28,7 @@ class Bill extends React.Component{
                 <Button variant="success" onClick={this.handleClick}>Agregar saldo</Button>
                 {this.state.paymentComponent}                     
             </div>
-        )
+        );
     }
 }
 
