@@ -4,12 +4,13 @@ import { withTranslation } from 'react-i18next';
 import Login from './components/Login';
 import Register from './components/Register';
 import Maps from './components/Maps';
-import LanguageButton from './components/LanguageButton';
 import Provider from './components/Provider';
+import GeneralNavbar from './components/GeneralNavbar';
 
 const App = ({ t }) => (
   <div>
-    <LanguageButton />
+
+    <GeneralNavbar />
     <Router>
       <Route exact path="/" render={(props) => <Login {...props} t={t} />} />
       <Route exact path="/register" render={(props) => <Register {...props} t={t} />} />
