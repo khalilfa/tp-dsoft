@@ -13,9 +13,6 @@ public class File {
     @Lob
     private byte[] data;
 
-    @OneToOne(mappedBy = "logo")
-    private Provider provider;
-
     public File() {}
 
     public File(byte[] data, String filename) {

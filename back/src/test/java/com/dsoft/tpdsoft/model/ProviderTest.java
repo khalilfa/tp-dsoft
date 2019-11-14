@@ -126,7 +126,7 @@ public class ProviderTest {
 		this.provider.setName("");
 		
 		Set<ConstraintViolation<Provider>> violations = validator.validate(provider);
-		assertTrue(! violations.isEmpty());
+		assertFalse( violations.isEmpty());
 	
 	}
 	

@@ -84,8 +84,6 @@ public class Menu {
 	@Column(name = "max_sales")
 	private Integer maxSales;
 
-	public Menu() {}
-
 	public Integer getId() {
 		return id;
 	}

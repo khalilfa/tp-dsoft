@@ -31,8 +31,6 @@ public class AttentionSchedule {
 	@ElementCollection
 	private List<Integer> ableDays; // mon=1, tues=2, ...
 
-	public AttentionSchedule() {}
-
 	public AttentionSchedule(LocalTime from, LocalTime to) {
 		this.from = from;
 		this.to = to;

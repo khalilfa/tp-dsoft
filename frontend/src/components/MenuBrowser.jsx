@@ -25,7 +25,7 @@ class MenuBrowser extends React.Component {
                 this.setState({
                     isLoaded: true,
                     menues: json,
-                })
+                });
             });
     }
 
