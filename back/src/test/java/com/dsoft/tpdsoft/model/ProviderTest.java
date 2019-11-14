@@ -137,7 +137,7 @@ public class ProviderTest {
 		this.provider.setLocality("");
 		Set<ConstraintViolation<Provider>> violations = validator.validate(provider);
 		
-		assertTrue(! violations.isEmpty());
+		assertFalse( violations.isEmpty());
 		
 		ConstraintViolation<Provider> violation = violations.iterator().next();
 		String blankLocalityViolationMessage = "Locality cant be blank";
