@@ -4,9 +4,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Column;
+import javax.persistence.ManyToOne;
+import javax.persistence.ElementCollection;
+import javax.persistence.JoinColumn;
+import javax.persistence.Enumerated;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Max;
 
 @Entity
 public class Menu {
@@ -60,7 +72,7 @@ public class Menu {
 
 	@NotNull
 	@Column(name = "price")
-	private float price;
+	private Double price;
 
 	@NotNull
 	@Min(10) @Max(70)
@@ -83,6 +95,40 @@ public class Menu {
 	@NotNull
 	@Column(name = "max_sales")
 	private Integer maxSales;
+
+	public Menu() {}
+
+	public Menu(
+			String name,
+			String description,
+			Double deliveryPrice,
+			LocalDate validFrom,
+			LocalDate validTo,
+			LocalTime deliveryFrom,
+			LocalTime deliveryTo,
+			Integer deliveryTime,
+			Double price,
+			Integer cantMin1,
+			Double cantMin1Price,
+			Integer cantMin2,
+			Double cantMin2Price,
+			Integer maxSales) {
+		this.name = name;
+		this.description = description;
+		this.deliveryPrice = deliveryPrice;
+		this.validFrom = validFrom;
+		this.validTo = validTo;
+		this.deliveryFrom = deliveryFrom;
+		this.deliveryTo = deliveryTo;
+		this.deliveryTime = deliveryTime;
+		this.price = price;
+		this.cantMin1 = cantMin1;
+		this.cantMin1Price = cantMin1Price;
+		this.cantMin2 = cantMin2;
+		this.cantMin2Price = cantMin2Price;
+		this.maxSales = maxSales;
+		this.categories = new ArrayList<>();
+	}
 
 	public Integer getId() {
 		return id;
@@ -172,11 +218,11 @@ public class Menu {
 		this.deliveryTime = deliveryTime;
 	}
 
-	public float getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 
