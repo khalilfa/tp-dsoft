@@ -13,6 +13,8 @@ export default class Provider extends React.Component {
     };
 
     this.deleteMenu = this.deleteMenu.bind(this);
+    this.createMenu = this.createMenu.bind(this);
+    this.updateMenu = this.updateMenu.bind(this);
   }
 
   componentDidMount() {
@@ -34,13 +36,35 @@ export default class Provider extends React.Component {
       .catch((error) => console.info(error));
   }
 
+  createMenu(data) {
+    axios.post('http://127.0.0.1:8080/provider/3/menu', data)
+      .then((res) => res.data)
+      .then((menuList) => {
+        const { provider } = this.state;
+        provider.menuList = menuList;
+        this.setState({ provider });
+      })
+      .catch((error) => console.info(error));
+  }
+
+  updateMenu(data, idMenu) {
+    axios.put(`http://127.0.0.1:8080/provider/3/menu/${idMenu}`, data)
+      .then((res) => res.data)
+      .then((menuList) => {
+        const { provider } = this.state;
+        provider.menuList = menuList;
+        this.setState({ provider });
+      })
+      .catch((error) => console.info(error));
+  }
 
   render() {
     const { menuList } = this.state.provider;
+    const { t } = this.props;
     return (
       <div className="provider-view">
         <div className="row">
-          <h1 className="provider-name col-md-11">Provider</h1>
+          <h1 className="provider-name col-md-11">{t('Provider')}</h1>
           <Popup
             modal
             trigger={(
@@ -49,10 +73,16 @@ export default class Provider extends React.Component {
               </button>
             )}
           >
-            {(close) => <CreateMenu close={close} />}
+            {(close) => <CreateMenu t={t} close={close} createMenu={this.createMenu} />}
           </Popup>
         </div>
-        <ServicesList className="row" menuList={menuList} deleteMenu={this.deleteMenu} />
+        <ServicesList
+          t={t}
+          className="row"
+          menuList={menuList}
+          deleteMenu={this.deleteMenu}
+          updateMenu={this.updateMenu}
+        />
       </div>
     );
   }
