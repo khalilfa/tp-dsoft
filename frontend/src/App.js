@@ -17,8 +17,8 @@ const App = ({ t }) => (
       <Route exact path="/register" render={(props) => <Register {...props} t={t} />} />
       <Route exact path="/maps" render={(props) => <Maps {...props} t={t} />} />
       <Route exact path="/provider" render={(props) => <Provider {...props} t={t} />} />
-      <Route exact path="/bill" render={(props) => <Bill {...props} t={t}  />} />
-      <Route exact path="/browseMenu" render={(props) => <MenuBrowser {...props} t={t}  />} />
+      <Route exact path="/bill" render={(props) => <Bill {...props} t={t} />} />
+      <Route exact path="/browseMenu" render={(props) => <MenuBrowser {...props} t={t} />} />
     </Router>
   </div>
 );
