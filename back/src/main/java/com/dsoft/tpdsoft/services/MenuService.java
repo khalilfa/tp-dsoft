@@ -3,6 +3,7 @@ package com.dsoft.tpdsoft.services;
 import com.dsoft.tpdsoft.exceptions.NotFoundException;
 import com.dsoft.tpdsoft.exceptions.StorageException;
 import com.dsoft.tpdsoft.model.Menu;
+import com.dsoft.tpdsoft.model.Provider;
 import com.dsoft.tpdsoft.repositories.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,9 +39,10 @@ public class MenuService {
         }
     }
 
-    public Menu updateMenu(Menu menu, Integer id) {
+    public Menu updateMenu(Menu menu, Integer id, Provider provider) {
         try {
             menu.setId(id);
+            menu.setProvider(provider);
             Menu savedMenu = this.menuRepository.save(menu);
             return savedMenu;
         } catch (Exception ex) {
