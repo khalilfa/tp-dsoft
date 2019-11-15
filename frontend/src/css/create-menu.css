@@ -14,8 +14,14 @@
 }
 
 .react-time-picker input {
-    margin-right: 5px;
-    margin-left: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: white !important;
+}
+
+.react-time-picker select {
+    background-color: white !important;
+    border-radius: 10px;
 }
 
 .react-time-picker__wrapper {
@@ -55,4 +61,8 @@
     border: 0px;
     padding-top: 10px;
     padding-right: 15px;
+}
+
+.valid {
+    margin-top: 5%;
 }

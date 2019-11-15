@@ -32,6 +32,9 @@
     border-right: solid black;
     border-right-width: 1px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu-column-title {
@@ -61,7 +64,7 @@
     height: 50% !important;
     position: fixed !important;
     left: 15% !important;
-    top: 10% !important;
+    top: 5% !important;
     background: rgb(255, 255, 255);
     width: 50%;
     border: 0px !important;
