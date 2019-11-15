@@ -28,6 +28,7 @@ const MenuEditRow = ({ keyId, individualMenu, deleteMenu, updateMenu, t }) => {
         >
           {(close) => (
             <CreateMenu
+              t={t}
               close={close}
               idMenu={individualMenu.id}
               updateMenu={updateMenu}

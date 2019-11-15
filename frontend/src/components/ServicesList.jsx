@@ -14,6 +14,7 @@ const ServicesList = ({ menuList, deleteMenu, updateMenu, t }) => {
         </div>
         {menuList.map((individualMenu, key) => (
           <MenuEditRow
+            t={t}
             individualMenu={individualMenu}
             key={key}
             keyId={key}
