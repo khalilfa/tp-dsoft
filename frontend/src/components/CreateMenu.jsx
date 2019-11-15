@@ -88,7 +88,6 @@ export default class CreateMenu extends React.Component {
     } else {
       this.props.updateMenu(this.state, this.props.idMenu);
     }
-    console.log(newData);
     e.preventDefault();
   }
 
