@@ -2,6 +2,7 @@ import React from 'react';
 import { Input } from '@material-ui/core';
 import '../css/create-provider.css';
 import TimeSelect from './TimeSelect';
+import Map from './Map';
 
 export default class CreateProvider extends React.Component {
   constructor(props) {
@@ -27,10 +28,30 @@ export default class CreateProvider extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChangeFrom = this.handleChangeFrom.bind(this);
+    this.handleChangeTo = this.handleChangeTo.bind(this);
   }
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleChangeFrom(from) {
+    const lastSchedule = this.state.schedule;
+    const schedule = {
+      ...lastSchedule,
+      from,
+    };
+    this.setState({ schedule });
+  }
+
+  handleChangeTo(to) {
+    const lastSchedule = this.state.schedule;
+    const schedule = {
+      ...lastSchedule,
+      to,
+    };
+    this.setState({ schedule });
   }
 
   handleSubmit(e) {
@@ -136,6 +157,30 @@ export default class CreateProvider extends React.Component {
                 onChange={this.handleChange}
               />
             </div>
+
+            <div className="row field">
+              <label className="col-md-4 d-flex align-items-center">
+                {t('Open from')}:
+              </label>
+              <TimeSelect
+                className="col-md-6"
+                time={this.state.schedule.from}
+                handleChange={this.handleChangeFrom}
+                t={t}
+              />
+            </div>
+
+            <div className="row field">
+              <label className="col-md-4 d-flex align-items-center">
+                {t('Open to')}:
+              </label>
+              <TimeSelect
+                className="col-md-6"
+                time={this.state.schedule.to}
+                handleChange={this.handleChangeTo}
+                t={t}
+              />
+            </div>
           </div>
 
           <div className="col-md-6">
@@ -153,8 +198,8 @@ export default class CreateProvider extends React.Component {
             </div>
 
             <div className="row field">
-              <label className="col-md-4">{t('Open from')}: </label>
-              <TimeSelect />
+              <label className="col-md-10">{t('Select your address')}: </label>
+              <Map locality="Bernal" />
             </div>
           </div>
         </form>

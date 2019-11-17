@@ -9,7 +9,6 @@ import Provider from './components/Provider';
 import MenuBrowser from './components/MenuBrowser';
 import Bill from './components/Bill';
 import CreateProvider from './components/CreateProvider';
-import TimeSelect from './components/TimeSelect';
 
 const App = ({ t }) => (
   <div>
@@ -22,7 +21,6 @@ const App = ({ t }) => (
       <Route exact path="/bill" render={(props) => <Bill {...props} t={t} />} />
       <Route exact path="/browseMenu" render={(props) => <MenuBrowser {...props} t={t} />} />
       <Route exact path="/createProvider" render={(props) => <CreateProvider {...props} t={t} />} />
-      <Route exact path="/test" render={(props) => <TimeSelect {...props} t={t} />} />
     </Router>
   </div>
 );
