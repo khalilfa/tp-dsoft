@@ -26,7 +26,6 @@ class Register extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    alert(`${this.state.name} ${this.state.lastname}`);
   }
 
   render() {

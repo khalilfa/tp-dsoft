@@ -10,6 +10,8 @@ import Grid from '@material-ui/core/Grid';
 import './css/indexGrid.css';
 import Checked from "./resources/check-mark.png";
 import RightSideImg from "./resources/hamburger.png";
+import MenuBrowser from './components/MenuBrowser';
+import Bill from './components/Bill';
 
 const CheckedIcon = () => {
   return (
@@ -42,10 +44,12 @@ function App ({ t }) {
         <Route exact path="/register" render={(props) => <Register {...props} t={t} />} />
         <Route exact path="/maps" render={(props) => <Maps {...props} t={t} />} />
         <Route exact path="/provider" render={(props) => <Provider {...props} t={t} />} />
+        <Route exact path="/bill" render={(props) => <Bill {...props} t={t} />} />
+        <Route exact path="/browseMenu" render={(props) => <MenuBrowser {...props} t={t} />} />
       </Router>
     </div>
   );
-    
-    }
+}
+
 
 export default withTranslation()(App);

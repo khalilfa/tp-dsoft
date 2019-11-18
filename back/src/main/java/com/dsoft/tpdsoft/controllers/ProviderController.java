@@ -67,14 +67,14 @@ public class ProviderController {
 
     // ----- MENU OPTIONS -----
     @PostMapping("/{id}/menu")
-    public ResponseEntity<Provider> createMenu(@RequestBody Menu menu, @PathVariable Integer id) {
+    public ResponseEntity<List<Menu>> createMenu(@RequestBody Menu menu, @PathVariable Integer id) {
         Provider provider = this.providerService.getProvider(id);
         menu.setProvider(provider);
         Menu savedMenu = this.menuService.saveMenu(menu);
 
         provider.addMenu(savedMenu);
         Provider savedProvider = this.providerService.updateProvider(provider, id);
-        return ResponseEntity.of(Optional.of(savedProvider));
+        return ResponseEntity.of(Optional.of(savedProvider.getMenuList()));
     }
 
     @GetMapping("/{idProvider}/menu/{idMenu}")
@@ -84,11 +84,12 @@ public class ProviderController {
     }
 
     @PutMapping("/{idProvider}/menu/{idMenu}")
-    public ResponseEntity<Menu> updateMenu(@PathVariable Integer idProvider,
+    public ResponseEntity<List<Menu>> updateMenu(@PathVariable Integer idProvider,
                                            @PathVariable Integer idMenu,
                                            @RequestBody Menu menu) {
-        Menu savedMenu = this.menuService.updateMenu(menu, idMenu);
-        return ResponseEntity.of(Optional.of(savedMenu));
+        Provider provider = this.providerService.getProvider(idProvider);
+        this.menuService.updateMenu(menu, idMenu, provider);
+        return ResponseEntity.of(Optional.of(provider.getMenuList()));
     }
 
     @DeleteMapping("/{idProvider}/menu/{idMenu}")

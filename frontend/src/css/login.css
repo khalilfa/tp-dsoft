@@ -10,25 +10,6 @@
     padding: 15px;
 }
 
-.app-logo {
-    font-family: "Montserrat", sans-serif;
-    font-size: 50px;
-    font-family: 'Libre Baskerville', serif;
-    background-color: white; 
-    color: #6374DF; 
-    padding: 3px;
-    padding-right: 10px;
-    border-radius: 60px;
-    border: 3px solid grey;
-    font-style: italic;
-}
-
-.app-name {
-    font-weight: 900;
-    color: white;
-    font-style: italic;
-}
-
 .login-with-icon {
     border: 1px solid #ddd;
     border-radius: 50px;
