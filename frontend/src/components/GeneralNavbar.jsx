@@ -5,15 +5,16 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import LogoViandasYa from '../resources/fork.png';
 import Typography  from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import LanguageButton from './LanguageButton'
 
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
+        marginBottom: 20,
     },
     viandasYaIcon: {
         marginRight: theme.spacing(2),
-        width: "5%"
+        width: 60
     },
     appBar: {
         backgroundColor:"#58e0a5"
@@ -37,9 +38,7 @@ export default function GeneralNavbar() {
                     <Typography variant="h6" color="textPrimary" className={classes.title}>
                         ViandasYa
                     </Typography>
-                    <Button>
-                        boton
-                    </Button>
+                    <LanguageButton/>
                 </Toolbar>
             </AppBar>
         </div>

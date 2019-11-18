@@ -6,18 +6,43 @@ import Register from './components/Register';
 import Maps from './components/Maps';
 import Provider from './components/Provider';
 import GeneralNavbar from './components/GeneralNavbar';
+import Grid from '@material-ui/core/Grid';
+import makeStyles  from '@material-ui/core/styles/makeStyles';
+import { red, blue } from '@material-ui/core/colors';
 
-const App = ({ t }) => (
-  <div>
+const useStyles = makeStyles(theme => ({
+  root: { 
+    flexGrow: 1
+  },
+  right: {
+   backgroundColor: red, 
+  },
+  left: {
+    backgroundColor: blue, 
+  }
+}));
 
-    <GeneralNavbar />
-    <Router>
-      <Route exact path="/" render={(props) => <Login {...props} t={t} />} />
-      <Route exact path="/register" render={(props) => <Register {...props} t={t} />} />
-      <Route exact path="/maps" render={(props) => <Maps {...props} t={t} />} />
-      <Route exact path="/provider" render={(props) => <Provider {...props} t={t} />} />
-    </Router>
-  </div>
-);
+//function classes(){ return useStyles()}
+
+function App ({ t }) {
+
+  const foo = "foo"
+  return (
+    <div>
+      <GeneralNavbar />
+      {/*    <Grid container>
+        <Grid className={classes.right} item xs={6}></Grid>
+        <Grid className={classes.left} item xs={6}></Grid>
+      </Grid>  */}
+      <Router>
+        <Route exact path="/" render={(props) => <Login {...props} t={t} />} />
+        <Route exact path="/register" render={(props) => <Register {...props} t={t} />} />
+        <Route exact path="/maps" render={(props) => <Maps {...props} t={t} />} />
+        <Route exact path="/provider" render={(props) => <Provider {...props} t={t} />} />
+      </Router>
+    </div>
+  )
+    
+    };
 
 export default withTranslation()(App);
