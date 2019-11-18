@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import LogoViandasYa from '../resources/fork.png';
 import Typography  from '@material-ui/core/Typography';
-import LanguageButton from './LanguageButton'
+import LanguageButton from './LanguageButton';
 
 const useStyles = makeStyles(theme => ({
     root: {
