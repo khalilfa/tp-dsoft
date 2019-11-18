@@ -15,7 +15,7 @@ const CheckedIcon = () => {
   return (
     <span><img src={Checked} className="checkedIcon"/></span>
   );
-}
+};
 
 function App ({ t }) {
 
@@ -44,8 +44,8 @@ function App ({ t }) {
         <Route exact path="/provider" render={(props) => <Provider {...props} t={t} />} />
       </Router>
     </div>
-  )
+  );
     
-    };
+    }
 
 export default withTranslation()(App);
