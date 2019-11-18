@@ -166,6 +166,7 @@ export default class CreateMenu extends React.Component {
                 options={this.state.options}
                 onChangeCategories={this.handleChange}
                 categories={this.state.categories}
+                name="categories"
               />
             </div>
 

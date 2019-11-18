@@ -16,7 +16,7 @@ const MenuProps = {
   },
 };
 
-export default function MultipleSelect({ options, onChangeCategories, categories }) {
+export default function MultipleSelect({ options, onChangeCategories, categories, name }) {
   const selectValue = (selected) => (categories.length > 2 ? ['Varios...'] : (selected).join(', '));
 
   return (
@@ -25,7 +25,7 @@ export default function MultipleSelect({ options, onChangeCategories, categories
       id="demo-mutiple-checkbox"
       multiple
       value={categories}
-      name="categories"
+      name={name}
       onChange={onChangeCategories}
       input={<Input />}
       renderValue={selectValue}

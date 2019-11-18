@@ -1,13 +1,25 @@
 import React from 'react';
 import { Input } from '@material-ui/core';
 import '../css/create-provider.css';
+import Axios from 'axios';
 import TimeSelect from './TimeSelect';
+import Multiselect from './Multiselect';
 import Map from './Map';
 
 export default class CreateProvider extends React.Component {
   constructor(props) {
     super(props);
+    const { t } = this.props;
     this.state = {
+      options: [
+        t('Monday'),
+        t('Tuesday'),
+        t('Wednesday'),
+        t('Thursday'),
+        t('Friday'),
+        t('Saturday'),
+        t('Sunday'),
+      ],
       name: '',
       logo: undefined,
       locality: '',
@@ -24,12 +36,17 @@ export default class CreateProvider extends React.Component {
       metersRadioDelivery: '',
       menuList: [],
       credit: 0,
+      completeLocality: undefined,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeFrom = this.handleChangeFrom.bind(this);
     this.handleChangeTo = this.handleChangeTo.bind(this);
+    this.handleLocalityChange = this.handleLocalityChange.bind(this);
+    this.handleGmapLocationChange = this.handleGmapLocationChange.bind(this);
+    this.handleChangeAbleDays = this.handleChangeAbleDays.bind(this);
+    this.handleChangeLogo = this.handleChangeLogo.bind(this);
   }
 
   handleChange(e) {
@@ -54,8 +71,58 @@ export default class CreateProvider extends React.Component {
     this.setState({ schedule });
   }
 
+  handleLocalityChange(e) {
+    const completeLocality = e.target.value;
+    this.setState({ completeLocality });
+  }
+
+  handleGmapLocationChange(gmapLocation) {
+    this.setState({ gmapLocation });
+  }
+
+  handleChangeAbleDays(e) {
+    const lastSchedule = this.state.schedule;
+    const ableDays = e.target.value;
+    const schedule = {
+      ...lastSchedule,
+      ableDays,
+    };
+    this.setState({ schedule });
+  }
+
+  handleChangeLogo(e) {
+    this.setState({ logo: e.target.files[0] });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
+    const url = 'http://localhost:8080/provider';
+    const formData = new FormData();
+    const config = {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    };
+    const { schedule } = this.state;
+    const { logo } = this.state;
+    const provider = {
+      name: this.state.name,
+      locality: this.state.locality,
+      gmapLocation: this.state.gmapLocation,
+      serviceDescription: this.state.serviceDescription,
+      urlSite: this.state.urlSite,
+      email: this.state.email,
+      phoneNumber: this.state.phoneNumber,
+      metersRadioDelivery: this.state.metersRadioDelivery,
+    };
+
+    formData.append('file', logo);
+    formData.append('provider', provider);
+    formData.append('schedule', schedule);
+
+    Axios.post(url, formData, config)
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error));
   }
 
   render() {
@@ -89,8 +156,7 @@ export default class CreateProvider extends React.Component {
                 accept="image/*"
                 required
                 name="logo"
-                value={this.state.logo}
-                onChange={this.handleChange}
+                onChange={this.handleChangeLogo}
               />
             </div>
 
@@ -146,15 +212,13 @@ export default class CreateProvider extends React.Component {
             </div>
 
             <div className="row field">
-              <label className="col-md-4">{t('Locality')}: </label>
-              <Input
+              <label className="col-md-4">{t('Open days')}: </label>
+              <Multiselect
                 className="col-md-6"
-                type="text"
-                required
-                pattern="\S+.*"
-                name="locality"
-                value={this.state.locality}
-                onChange={this.handleChange}
+                options={this.state.options}
+                onChangeCategories={this.handleChangeAbleDays}
+                categories={this.state.schedule.ableDays}
+                name="ableDays"
               />
             </div>
 
@@ -181,11 +245,33 @@ export default class CreateProvider extends React.Component {
                 t={t}
               />
             </div>
+
+            <button type="submit" className="btn btn-secondary col-md-3">
+              {t('Create')}
+            </button>
           </div>
 
           <div className="col-md-6">
             <div className="row field">
-              <label className="col-md-4">{t('Radius in meters')}: </label>
+              <label className="col-md-4">
+                {t('Locality')}:
+              </label>
+              <Input
+                className="col-md-6"
+                type="text"
+                required
+                pattern="\S+.*"
+                name="locality"
+                value={this.state.locality}
+                onChange={this.handleChange}
+                onBlur={this.handleLocalityChange}
+              />
+            </div>
+
+            <div className="row field">
+              <label className="col-md-4">
+                {t('Radius in meters')}:
+              </label>
               <Input
                 className="col-md-6"
                 type="number"
@@ -199,9 +285,13 @@ export default class CreateProvider extends React.Component {
 
             <div className="row field">
               <label className="col-md-10">{t('Select your address')}: </label>
-              <Map locality="Bernal" />
+              <Map
+                locality={this.state.completeLocality}
+                changePosition={this.handleGmapLocationChange}
+              />
             </div>
           </div>
+
         </form>
       </div>
     );
