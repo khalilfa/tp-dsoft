@@ -11,7 +11,7 @@ const LanguageButton = ({ t, i18n }) => (
     customLabels={{ US: 'English', AR: 'Español' }}
     placeholder={t('Select Language')}
     defaultCountry="US"
-    selectedSize={22}
+    selectedSize={18}
     onSelect={(countryCode) => i18n.changeLanguage(countryCode)}
   />
 );

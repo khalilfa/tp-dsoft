@@ -9,10 +9,14 @@ import GeneralNavbar from './components/GeneralNavbar';
 import Grid from '@material-ui/core/Grid';
 import makeStyles  from '@material-ui/core/styles/makeStyles';
 import { red, blue } from '@material-ui/core/colors';
+import './css/indexGrid.css'
 
 const useStyles = makeStyles(theme => ({
   root: { 
     flexGrow: 1
+  },
+  grid: {
+    height: 1500,
   },
   right: {
    backgroundColor: red, 
@@ -26,14 +30,14 @@ const useStyles = makeStyles(theme => ({
 
 function App ({ t }) {
 
-  const foo = "foo"
+  const classes = useStyles();
   return (
     <div>
       <GeneralNavbar />
-      {/*    <Grid container>
-        <Grid className={classes.right} item xs={6}></Grid>
-        <Grid className={classes.left} item xs={6}></Grid>
-      </Grid>  */}
+        <Grid container className="wrapper">
+          <Grid className="right" item xs={6}></Grid>
+          <Grid className="left" item xs={6}></Grid>
+        </Grid>
       <Router>
         <Route exact path="/" render={(props) => <Login {...props} t={t} />} />
         <Route exact path="/register" render={(props) => <Register {...props} t={t} />} />
