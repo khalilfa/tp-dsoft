@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 export default function GeneralNavbar() {
 
     const classes = useStyles();
-
+    const [userIsLogged, setUserIsLogged] = useState(false);
     return (
         <div className={classes.root}>
             <AppBar className={classes.appBar} position="static">
