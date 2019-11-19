@@ -1,5 +1,4 @@
 package com.dsoft.tpdsoft.controllers;
-import com.dsoft.tpdsoft.model.Category;
 import com.dsoft.tpdsoft.model.Menu;
 import com.dsoft.tpdsoft.services.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;

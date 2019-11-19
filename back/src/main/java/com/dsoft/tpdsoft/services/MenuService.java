@@ -40,7 +40,7 @@ public class MenuService {
             List<Menu> menus = this.menuRepository.findByCategoriesIn(newCategory);
             return menus;
         } catch (Exception e) {
-            throw new NotFoundException("Could not get the menus with categories: " + category.toString(), e);
+            throw new NotFoundException("Could not get the menus with categories: " + category, e);
         }
     }
 
