@@ -88,7 +88,6 @@ export default class CreateMenu extends React.Component {
     } else {
       this.props.updateMenu(this.state, this.props.idMenu);
     }
-    console.log(newData);
     e.preventDefault();
   }
 
@@ -167,6 +166,7 @@ export default class CreateMenu extends React.Component {
                 options={this.state.options}
                 onChangeCategories={this.handleChange}
                 categories={this.state.categories}
+                name="categories"
               />
             </div>
 
