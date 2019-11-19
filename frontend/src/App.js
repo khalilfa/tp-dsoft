@@ -9,6 +9,8 @@ import MenuBrowser from './components/MenuBrowser';
 import Bill from './components/Bill';
 import CreateProvider from './components/CreateProvider';
 import LanguageButton from './components/LanguageButton';
+import Client from './components/Client';
+import SimpleSelect from './components/SimpleSelect';
 
 function App({ t }) {
   return (
@@ -16,12 +18,14 @@ function App({ t }) {
       <LanguageButton />
       <Router>
         <Route exact path="/" render={(props) => <Index {...props} t={t} />} />
+        <Route exact path="/client/:idClient" render={(props) => <Client {...props} t={t} />} />
         <Route exact path="/register" render={(props) => <Register {...props} t={t} />} />
         <Route exact path="/maps" render={(props) => <Maps {...props} t={t} />} />
         <Route exact path="/provider" render={(props) => <Provider {...props} t={t} />} />
         <Route exact path="/bill" render={(props) => <Bill {...props} t={t} />} />
         <Route exact path="/browseMenu" render={(props) => <MenuBrowser {...props} t={t} />} />
         <Route exact path="/createProvider" render={(props) => <CreateProvider {...props} t={t} />} />
+        <Route exact path="/test" render={(props) => <SimpleSelect {...props} t={t} />} />
       </Router>
     </div>
   );
