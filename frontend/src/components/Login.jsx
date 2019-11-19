@@ -1,18 +1,20 @@
 import React from 'react';
-import '../css/login.css';
+
 import { Link } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import LoginWithFacebook from '../resources/facebook-icon.png';
 import LoginWithGoogle from '../resources/google-icon.png';
 
+function handleClick(event) {
+  event.preventDefault();
+  console.log('you know');
+}
+
 const Login = ({ t }) => (
+
   <div className="app">
-    <div className="app-title row col-ms-4 offset-md-4">
-      <span className="app-logo">V⅄</span>
-      <h1 className="app-name col align-self-center">ViandasYa</h1>
-    </div>
-    <div className="login row col-md-4 offset-md-4">
-      <h1 className="login-title col-md-8 aling-self-left">
+    <div>
+      <h1 className="col-md-8 aling-self-left">
         {t('Login')}
       </h1>
       <img className="login-with-icon col" src={LoginWithFacebook} alt={t('Login with facebook')} />
@@ -32,7 +34,7 @@ const Login = ({ t }) => (
         </Form.Group>
 
         <div>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" onClick={handleClick}>
             {t('Enter')}
           </Button>
           <p className="register-text">

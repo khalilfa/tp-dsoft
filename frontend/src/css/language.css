@@ -1,7 +1,7 @@
 .language-menu {
     background-color: white;
-    border: 2px solid grey;
-    border-radius: 7px;
+    border: 1px solid black;
+    border-radius: 3px;
 }
 
 .country-flag img {

@@ -67,6 +67,11 @@ const resources = {
       'Repeat password': 'Repita su contraseña',
       'Enter phone number': 'Ingrese su numero de telefono',
       'Enter address': 'Ingrese su direccion',
+      'Make your menu order and we will send it to you by delivery':'Hacé tu pedido de menú y te lo envíamos por delivery',
+      'Search your menu by location, category or price you want':'Buscá tu menú por ubicación, categoría o precio que desee',
+      'We have a wide variety of beer, you know':'Tenemos una amplia variedad de cervezas, vos sabés que sí'
+
+
     },
   },
 };
