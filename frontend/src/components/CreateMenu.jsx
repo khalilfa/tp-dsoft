@@ -4,6 +4,7 @@ import TimePicker from 'react-time-picker';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider,
   KeyboardDatePicker } from '@material-ui/pickers';
+import { Input } from '@material-ui/core';
 import Multiselect from './Multiselect';
 import '../css/create-menu.css';
 
@@ -130,8 +131,8 @@ export default class CreateMenu extends React.Component {
 
           <div className="col-md-6">
             <div className="row field">
-              <label className="col-md-4">{t('Name')}: </label>
-              <input
+              <label className="col-md-4 float-right">{t('Name')}: </label>
+              <Input
                 className="col-md-6"
                 type="text"
                 required
@@ -145,8 +146,8 @@ export default class CreateMenu extends React.Component {
             </div>
 
             <div className="row field">
-              <label className="col-md-4">{t('Description')}: </label>
-              <input
+              <label className="col-md-4 float-right">{t('Description')}: </label>
+              <Input
                 className="col-md-6"
                 type="text"
                 required
@@ -172,7 +173,7 @@ export default class CreateMenu extends React.Component {
 
             <div className="row field">
               <label className="col-md-4">{t('Delivery price')}: </label>
-              <input
+              <Input
                 className="col-md-6"
                 type="number"
                 required
@@ -186,7 +187,7 @@ export default class CreateMenu extends React.Component {
 
             <div className="row field">
               <label className="col-md-4">{t('Delivery time')}: </label>
-              <input
+              <Input
                 className="col-md-6"
                 type="number"
                 required
@@ -198,7 +199,7 @@ export default class CreateMenu extends React.Component {
 
             <div className="row field">
               <label className="col-md-4">{t('Individual price')}: </label>
-              <input
+              <Input
                 className="col-md-6"
                 type="number"
                 required
@@ -210,7 +211,7 @@ export default class CreateMenu extends React.Component {
 
             <div className="row field">
               <label className="col-md-4">{t('Min. amount')} 1: </label>
-              <input
+              <Input
                 className="col-md-6"
                 type="number"
                 required
@@ -224,7 +225,7 @@ export default class CreateMenu extends React.Component {
 
             <div className="row field">
               <label className="col-md-4">{t('Amount price')} 1: </label>
-              <input
+              <Input
                 className="col-md-6"
                 type="number"
                 required
@@ -238,7 +239,7 @@ export default class CreateMenu extends React.Component {
 
             <div className="row field">
               <label className="col-md-4">{t('Min. amount')} 2: </label>
-              <input
+              <Input
                 className="col-md-6"
                 type="number"
                 min="40"
@@ -251,7 +252,7 @@ export default class CreateMenu extends React.Component {
 
             <div className="row field">
               <label className="col-md-4">{t('Amount price')} 2: </label>
-              <input
+              <Input
                 className="col-md-6"
                 type="number"
                 min="0"
@@ -264,7 +265,7 @@ export default class CreateMenu extends React.Component {
 
             <div className="row field">
               <label className="col-md-4">{t('Max. sales')}: </label>
-              <input
+              <Input
                 className="col-md-6"
                 type="number"
                 required
@@ -277,7 +278,7 @@ export default class CreateMenu extends React.Component {
 
           <div className="col-md-6">
             <div className="row field">
-              <label className="col-md-4">{t('Delivery from')}: </label>
+              <label className="col-md-4 d-flex align-items-center">{t('Delivery from')}: </label>
               <TimePicker
                 className="react-time-picker col-md-6"
                 format="h:m a"
@@ -293,7 +294,7 @@ export default class CreateMenu extends React.Component {
             </div>
 
             <div className="row field">
-              <label className="col-md-4">{t('Delivery to')}: </label>
+              <label className="col-md-4 d-flex align-items-center">{t('Delivery to')}: </label>
               <TimePicker
                 className="react-time-picker col-md-6"
                 format="h:m a"

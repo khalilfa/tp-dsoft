@@ -34,8 +34,6 @@ export default class CreateProvider extends React.Component {
         ableDays: [],
       },
       metersRadioDelivery: '',
-      menuList: [],
-      credit: 0,
       completeLocality: undefined,
     };
 
