@@ -18,7 +18,12 @@ export default class Provider extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://127.0.0.1:8080/provider/3')
+    this.getProvider();
+  }
+
+  getProvider() {
+    const { idProvider } = this.props.match.params;
+    axios.get(`http://127.0.0.1:8080/provider/${idProvider}`)
       .then((res) => {
         const provider = res.data;
         this.setState({ provider });

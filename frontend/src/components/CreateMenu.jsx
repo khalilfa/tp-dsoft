@@ -262,7 +262,9 @@ export default class CreateMenu extends React.Component {
                 onChange={this.handleChange}
               />
             </div>
+          </div>
 
+          <div className="col-md-6">
             <div className="row field">
               <label className="col-md-4">{t('Max. sales')}: </label>
               <Input
@@ -274,9 +276,7 @@ export default class CreateMenu extends React.Component {
                 onChange={this.handleChange}
               />
             </div>
-          </div>
 
-          <div className="col-md-6">
             <div className="row field">
               <label className="col-md-4 d-flex align-items-center">{t('Delivery from')}: </label>
               <TimePicker
