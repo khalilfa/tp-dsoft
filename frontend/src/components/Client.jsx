@@ -12,6 +12,10 @@ import sushiVeganIcon from '../resources/sushi-vegan-icon.png';
 import shoppingCartIcon from '../resources/shopping-cart-icon.svg';
 import SimpleSelect from './SimpleSelect';
 import MenuRow from './MenuRow';
+import Grid from '@material-ui/core/Grid';
+import Select from '@material-ui/core/Select';
+import { MenuItem } from '@material-ui/core';
+import SearchMenus from './SearchMenus';
 
 
 export default class Client extends React.Component {
@@ -67,18 +71,22 @@ export default class Client extends React.Component {
     const { menus } = this.state;
     const menusRows = menus.map((menu, key) => <MenuRow key={key} {...menu} />);
     return (
+      <div>
+        <Grid container>
+          <Grid item className="left" xs={4}>
+            <SearchMenus />
+          </Grid >
+          <Grid item className="right" xs={8}>
+
+          </Grid>
+        </Grid>
+
+      </div>  
+    );
+  }
+}
+{/*
       <div className="client-container col">
-        <div className="client-header row">
-          <h1 className="client-name col-md-11">{name}</h1>
-          <div className="col-md-1 align-self-center d-flex justify-content-center">
-            <input
-              type="image"
-              alt="config client"
-              src={configButton}
-              className="client-config-button"
-            />
-          </div>
-        </div>
 
         <div className="client-navbar row">
           <div className="client-navbar-option col-md-1">
@@ -167,10 +175,7 @@ export default class Client extends React.Component {
           {menusRows}
         </div>
       </div>
-    );
-  }
-}
-
+*/}
 Client.defaultProps = {
   name: 'Pepe',
   lastName: 'Argento',
