@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function GeneralNavbar() {
+export default function GeneralNavbar( {t} ) {
   const classes = useStyles();
   const [rol, setRol] = React.useState("Client");
   const handleChange = event => {
@@ -52,13 +52,13 @@ export default function GeneralNavbar() {
 
           <img className={classes.personImg} src={UserIcon} />
           <FormControl>
-            <InputLabel>User Rol</InputLabel>
+            <InputLabel>{t("User Rol")}</InputLabel>
             <Select className={classes.userRoleSelect}
               value={rol}
               onChange={handleChange}
             >
-              <MenuItem value="Provider">Provider</MenuItem>
-              <MenuItem value="Client">Client</MenuItem>
+              <MenuItem value="Provider">{t("Provider")}</MenuItem>
+              <MenuItem value="Client">{t("Client")}</MenuItem>
             </Select>
           </FormControl>
           <LanguageButton />
