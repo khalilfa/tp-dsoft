@@ -6,12 +6,12 @@ import LoginWithFacebook from '../resources/facebook-icon.png';
 import LoginWithGoogle from '../resources/google-icon.png';
 
 function handleClick(event) {
-  event.preventDefault();
-  console.log('you know');
+    event.preventDefault();
+    console.log("you know");
 }
 
 const Login = ({ t }) => (
-
+  
   <div className="app">
     <div>
       <h1 className="col-md-8 aling-self-left">
@@ -38,7 +38,7 @@ const Login = ({ t }) => (
             {t('Enter')}
           </Button>
           <p className="register-text">
-            {t('If you have not account, ')}<Link to="/register" className="register">{t('register')}!</Link>
+            {/*{t('If you have not account, ')}<Link to="/register" className="register">{t('register')}!</Link>*/}
           </p>
         </div>
       </Form>
