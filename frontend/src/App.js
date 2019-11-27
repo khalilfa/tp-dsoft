@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import Register from './components/Register';
 import Maps from './components/Maps';
@@ -7,13 +7,13 @@ import Provider from './components/Provider';
 import MenuBrowser from './components/MenuBrowser';
 import Bill from './components/Bill';
 import CreateProvider from './components/CreateProvider';
-import LanguageButton from './components/LanguageButton';
 import GeneralNavbar from './components/GeneralNavbar'
 import Client from './components/Client';
 import Checked from './resources/check-mark.png';
 import RightSideImg from "./resources/hamburger.png";
 import Grid from '@material-ui/core/Grid';
 import Login from './components/Login';
+import './css/indexGrid.css'
 
 const CheckedIcon = () => {
   return (
@@ -22,14 +22,24 @@ const CheckedIcon = () => {
 };
 
 function App({ t }) {
+
+  const [user,setUser] = React.useState(null);
+
   return (
     <div>
-      <GeneralNavbar />
+      <Router>
+        <div>
+          <GeneralNavbar t={t}/>
+          <Switch>
+            <Route exact path="/browseMenu" render={(props) => <MenuBrowser {...props} t={t} />} />
+            <Route exact path="/" render={(props) => <Login {...props} t={t} />} />
+          </Switch>    
+        </div>
+      </Router>
+                     
       {/*<Grid container className="wrapper">
         <Grid className="left" item xs={6}>
-          <Router>
-            <Route exact path="/" render={(props) => <Login {...props} t={t} />} />    
-          </Router>  
+          <Login onLogged={(rol, userName) => handleLog()}t={t}/>
         </Grid>
 
         <Grid className="right" item xs={6}>
@@ -41,9 +51,13 @@ function App({ t }) {
           <img className="hamburgerImg"src={RightSideImg}/>
         </Grid>
 
-      </Grid> */}
+      </Grid>
+       */}
+      {/*<Router>
       
-      <Router>
+        <Switch>
+            todo aca adentro
+        </Switch>
         <Route exact path="/client/:idClient" render={(props) => <Client {...props} t={t} />} />
         <Route exact path="/register" render={(props) => <Register {...props} t={t} />} />
         <Route exact path="/maps" render={(props) => <Maps {...props} t={t} />} />
@@ -51,7 +65,7 @@ function App({ t }) {
         <Route exact path="/bill" render={(props) => <Bill {...props} t={t} />} />
         <Route exact path="/browseMenu" render={(props) => <MenuBrowser {...props} t={t} />} />
         <Route exact path="/createProvider" render={(props) => <CreateProvider {...props} t={t} />} />
-      </Router>
+      </Router>*/}
     </div>
   );
 }
