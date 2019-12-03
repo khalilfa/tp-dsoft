@@ -10,6 +10,7 @@ export default class Provider extends React.Component {
     super(props);
     this.state = {
       provider: {},
+      idProvider: this.props.match.params.idProvider,
     };
 
     this.deleteMenu = this.deleteMenu.bind(this);
@@ -22,8 +23,7 @@ export default class Provider extends React.Component {
   }
 
   getProvider() {
-    const { idProvider } = this.props.match.params;
-    axios.get(`http://127.0.0.1:8080/provider/${idProvider}`)
+    axios.get(`http://127.0.0.1:8080/provider/${this.state.idProvider}`)
       .then((res) => {
         const provider = res.data;
         this.setState({ provider });
@@ -32,7 +32,7 @@ export default class Provider extends React.Component {
   }
 
   deleteMenu(idMenu) {
-    axios.delete(`http://127.0.0.1:8080/provider/3/menu/${idMenu}`)
+    axios.delete(`http://127.0.0.1:8080/provider/${this.state.idProvider}/menu/${idMenu}`)
       .then((res) => {
         const { provider } = this.state;
         provider.menuList = res.data;
@@ -42,7 +42,7 @@ export default class Provider extends React.Component {
   }
 
   createMenu(data) {
-    axios.post('http://127.0.0.1:8080/provider/3/menu', data)
+    axios.post(`http://127.0.0.1:8080/provider/${this.state.idProvider}/menu`, data)
       .then((res) => res.data)
       .then((menuList) => {
         const { provider } = this.state;
@@ -53,7 +53,7 @@ export default class Provider extends React.Component {
   }
 
   updateMenu(data, idMenu) {
-    axios.put(`http://127.0.0.1:8080/provider/3/menu/${idMenu}`, data)
+    axios.put(`http://127.0.0.1:8080/provider/${this.state.idProvider}/menu/${idMenu}`, data)
       .then((res) => res.data)
       .then((menuList) => {
         const { provider } = this.state;
