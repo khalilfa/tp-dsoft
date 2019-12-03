@@ -33,7 +33,7 @@ public class MenuService {
             throw new NotFoundException("Could not get the menus");
         }
     }
-
+/*
     public List<Menu> getByCategory(String category) {
         try {
             Category newCategory = Category.valueOf(category);
@@ -43,7 +43,7 @@ public class MenuService {
             throw new NotFoundException("Could not get the menus with categories: " + category, e);
         }
     }
-
+*/
     public Menu getMenu(Integer id) {
         try {
             Menu menu = this.menuRepository.findById(id).get();

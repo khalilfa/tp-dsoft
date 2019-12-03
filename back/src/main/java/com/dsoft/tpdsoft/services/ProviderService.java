@@ -25,6 +25,15 @@ public class ProviderService {
         }
     }
 
+    public Provider saveProvider(Provider provider) {
+        try {
+            Provider savedProvider = this.providerRepository.save(provider);
+            return savedProvider;
+        } catch (Exception ex) {
+            throw new StorageException("Could not save the provider: " + provider.getName(), ex);
+        }
+    }
+
     public Provider getProvider(Integer id) {
         return this.providerRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Could not get provider with id: " + id));
