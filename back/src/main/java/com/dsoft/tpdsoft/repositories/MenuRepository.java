@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface MenuRepository extends JpaRepository<Menu, Integer> {
-    List<Menu> findByCategoriesIn(Category category);
+    // List<Menu> findByCategoriesIn(Category category);
 }

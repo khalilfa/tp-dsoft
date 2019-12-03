@@ -2,20 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b74d0843-2edb-4cee-a000-2ad2e7615757" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_9_16.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_9_16.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_11_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_11_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_11_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_1_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_1_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_1_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_1_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_1_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_1_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_1_9_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/ProviderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/ProviderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back.iml" beforeDir="false" afterPath="$PROJECT_DIR$/back.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/repositories/MenuRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/repositories/MenuRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/MenuService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/CreateMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/CreateMenu.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/MenuEditRow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/MenuEditRow.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Provider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/Provider.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/ServicesList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/ServicesList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/css/create-menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/css/create-menu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/css/provider.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/css/provider.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/ProviderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/ProviderService.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,10 +67,17 @@
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
+        <option name="jdkForImporter" value="#JAVA_HOME" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectId" id="1RIo3vfRaFhysviTY6jstGE0XgS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
@@ -56,29 +85,19 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.dsoft.tpdsoft.model" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Spring Boot.TpDsoftApplication">
     <configuration name="All in back" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -157,9 +176,9 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <envs>
         <env name="SPRING_JPA_HIBERNATE_DIALECT" value="org.hibernate.dialect.PostgreSQLDialect" />
-        <env name="SPRING_JPA_DATABASE_DDL" value="$SPRING_JPA_DATABASE_DDL$" />
-        <env name="SPRING_DATASOURCE_PASSWORD" value="$SPRING_DATASOURCE_PASSWORD$" />
-        <env name="SPRING_DATASOURCE_USERNAME" value="$SPRING_DATASOURCE_USERNAME$" />
+        <env name="SPRING_JPA_DATABASE_DDL" value="update" />
+        <env name="SPRING_DATASOURCE_PASSWORD" value="123456789" />
+        <env name="SPRING_DATASOURCE_USERNAME" value="postgres" />
         <env name="SPRING_DATASOURCE_URL" value="jdbc:postgresql://localhost:5432/viandasya" />
       </envs>
       <method v="2">
@@ -183,6 +202,18 @@
         <item itemvalue="JUnit.MenuTest.gettersTest" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -232,6 +263,10 @@
       <workItem from="1573737497527" duration="706000" />
       <workItem from="1573739519918" duration="4193000" />
       <workItem from="1573825616388" duration="2801000" />
+      <workItem from="1574165476268" duration="1384000" />
+      <workItem from="1574168009984" duration="7158000" />
+      <workItem from="1574186466927" duration="87000" />
+      <workItem from="1575382741312" duration="10626000" />
     </task>
     <servers />
   </component>
@@ -264,6 +299,72 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="388" y="98" width="800" height="677" key="#Assign_Data_Sources" timestamp="1575393778103">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state x="388" y="98" width="800" height="677" key="#Assign_Data_Sources/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575393778103" />
+    <state x="348" y="124" width="800" height="677" key="#Configure_Path_Variables" timestamp="1575382791816">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state x="348" y="124" width="800" height="677" key="#Configure_Path_Variables/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575382791816" />
+    <state x="348" y="124" width="800" height="677" key="#Notifications" timestamp="1575382760052">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state x="348" y="124" width="800" height="677" key="#Notifications/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575382760052" />
+    <state x="211" y="120" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575395633246">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state x="211" y="120" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575395633246" />
+    <state x="594" y="354" width="308" height="216" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1575383276461">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state x="594" y="354" width="308" height="216" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575383276461" />
+    <state x="490" y="226" width="515" height="472" key="EnvironmentVariablesDialog" timestamp="1575395631479">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state x="490" y="226" width="515" height="472" key="EnvironmentVariablesDialog/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575395631479" />
+    <state width="1327" height="219" key="GridCell.Tab.0.bottom" timestamp="1575396815491">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state width="1327" height="219" key="GridCell.Tab.0.bottom/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575396815491" />
+    <state width="1327" height="219" key="GridCell.Tab.0.center" timestamp="1575396815491">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state width="1327" height="219" key="GridCell.Tab.0.center/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575396815491" />
+    <state width="1327" height="219" key="GridCell.Tab.0.left" timestamp="1575396815491">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state width="1327" height="219" key="GridCell.Tab.0.left/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575396815491" />
+    <state width="1327" height="219" key="GridCell.Tab.0.right" timestamp="1575396815491">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state width="1327" height="219" key="GridCell.Tab.0.right/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575396815491" />
+    <state width="1327" height="219" key="GridCell.Tab.1.bottom" timestamp="1575396815492">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state width="1327" height="219" key="GridCell.Tab.1.bottom/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575396815492" />
+    <state width="1327" height="219" key="GridCell.Tab.1.center" timestamp="1575396815492">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state width="1327" height="219" key="GridCell.Tab.1.center/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575396815492" />
+    <state width="1327" height="219" key="GridCell.Tab.1.left" timestamp="1575396815491">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state width="1327" height="219" key="GridCell.Tab.1.left/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575396815491" />
+    <state width="1327" height="219" key="GridCell.Tab.1.right" timestamp="1575396815492">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state width="1327" height="219" key="GridCell.Tab.1.right/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575396815492" />
+    <state x="242" y="97" key="SettingsEditor" timestamp="1575394027984">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state x="242" y="97" key="SettingsEditor/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575394027984" />
+    <state x="409" y="291" key="com.intellij.ide.util.TipDialog" timestamp="1575382744108">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state x="409" y="291" key="com.intellij.ide.util.TipDialog/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575382744108" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/tp_dsoft$All_in_back.ic" NAME="All in back Coverage Results" MODIFIED="1572396321210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
