@@ -27,15 +27,6 @@ public class MenuService {
         }
     }
 
-    public List<Menu> getAllMenus() {
-        try {
-            List<Menu> menus = (List<Menu>) this.menuRepository.findAll();
-            return menus;
-        } catch (Exception e) {
-            throw new NotFoundException("Could not get the menus");
-        }
-    }
-
     public Page<Menu> getAllPageableMenus(Pageable pageable) {
         try {
             Page<Menu> menus = this.menuRepository.findAll(pageable);
