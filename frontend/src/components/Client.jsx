@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import '../css/client.css';
-import configButton from '../resources/config-button.png';
+/*import configButton from '../resources/config-button.png';
 import pizzaIcon from '../resources/pizza-icon.png';
 import beerIcon from '../resources/beer-icon.png';
 import sushiIcon from '../resources/sushi-icon.png';
@@ -10,12 +10,12 @@ import hamburguerIcon from '../resources/hamburguer-icon.png';
 import icecreamIcon from '../resources/icecream-icon.png';
 import sushiVeganIcon from '../resources/sushi-vegan-icon.png';
 import shoppingCartIcon from '../resources/shopping-cart-icon.svg';
-import SimpleSelect from './SimpleSelect';
+import SimpleSelect from './SimpleSelect';*/
 import MenuRow from './MenuRow';
 import Grid from '@material-ui/core/Grid';
-import Select from '@material-ui/core/Select';
-import { MenuItem } from '@material-ui/core';
-import SearchMenus from './SearchMenus';
+//import SearchMenus from './SearchMenus';
+import MenuListSide from './MenuListSide';
+import FilterSide from './FilterSide';
 
 
 export default class Client extends React.Component {
@@ -38,7 +38,6 @@ export default class Client extends React.Component {
         credit: this.props.credit,
       },
     };
-
     this.handleChangeFilter = this.handleChangeFilter.bind(this);
   }
 
@@ -66,27 +65,48 @@ export default class Client extends React.Component {
   }
 
   render() {
+  
     const { t } = this.props;
-    const { name } = this.state.client;
+    //const { name } = this.state.client;
     const { menus } = this.state;
-    const menusRows = menus.map((menu, key) => <MenuRow key={key} {...menu} />);
+    //const menusRows = menus.map((menu, key) => <MenuRow key={key} {...menu} />);
     return (
-      <div>
-        <Grid container>
-          <Grid item className="left" xs={4}>
-            <SearchMenus />
-          </Grid >
-          <Grid item className="right" xs={8}>
-
-          </Grid>
+      <Grid container className="wrapperClient">
+        <Grid  className="leftClient" item xs={4}>
+          <FilterSide t={t}/>
         </Grid>
+        <Grid item className="rightClient" xs={8}>
+          <MenuListSide t={t} menus={this.state.menus}/>
+        </Grid>
+      </Grid>
+      
+    
 
-      </div>  
     );
   }
 }
-{/*
-      <div className="client-container col">
+
+Client.defaultProps = {
+  name: 'Pepe',
+  lastName: 'Argento',
+  email: 'pepe_argento@gmail.com',
+  address: 'Las heras nº3244',
+  password: 'pepito',
+  credit: 500,
+};
+ /*
+       <div className="client-container col">
+        <div className="client-header row">
+          <h1 className="client-name col-md-11">{name}</h1>
+          <div className="col-md-1 align-self-center d-flex justify-content-center">
+            <input
+              type="image"
+              alt="config client"
+              src={configButton}
+              className="client-config-button"
+            />
+          </div>
+        </div>
 
         <div className="client-navbar row">
           <div className="client-navbar-option col-md-1">
@@ -161,26 +181,13 @@ export default class Client extends React.Component {
           </div>
 
           <div className="menu-filters col-md-3 align-self-center d-flex justify-content-center">
-            <SimpleSelect
-              items={this.state.filters}
-              handleChange={this.handleChangeFilters}
-              selector={this.state.filter}
-              selectorName="Filter"
-              t={t}
-            />
+            
           </div>
         </div>
 
         <div className="menu-list">
           {menusRows}
         </div>
-      </div>
-*/}
-Client.defaultProps = {
-  name: 'Pepe',
-  lastName: 'Argento',
-  email: 'pepe_argento@gmail.com',
-  address: 'Las heras nº3244',
-  password: 'pepito',
-  credit: 500,
-};
+    </div>
+ 
+ */

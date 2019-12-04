@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  userRoleSection: {
+    display: "none"
+  },
   userRoleSelect: {
     width:100
   },
@@ -33,11 +36,10 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function GeneralNavbar( {t} ) {
+export default function GeneralNavbar( {t,user,rol} ) {
   const classes = useStyles();
-  const [rol, setRol] = React.useState("Client");
   const handleChange = event => {
-    setRol(event.target.value);
+  //  setRol(event.target.value);
   }
   return (
     <div className={classes.root}>
@@ -49,19 +51,21 @@ export default function GeneralNavbar( {t} ) {
           <Typography variant="h6" color="textPrimary" className={classes.title}>
               ViandasYa
           </Typography>
-
-          <img className={classes.personImg} src={UserIcon} />
-          <FormControl>
-            <InputLabel>{t("User Rol")}</InputLabel>
-            <Select className={classes.userRoleSelect}
-              value={rol}
-              onChange={handleChange}
-            >
-              <MenuItem value="Provider">{t("Provider")}</MenuItem>
-              <MenuItem value="Client">{t("Client")}</MenuItem>
-            </Select>
-          </FormControl>
+          <div className={classes.userRoleSection}>
+            <img className={classes.personImg} src={UserIcon} />
+            <FormControl>
+              <InputLabel>{t("User Rol")}</InputLabel>
+              <Select className={classes.userRoleSelect}
+                value={rol}
+                onChange={handleChange}
+              >
+                <MenuItem value="Provider">{t("Provider")}</MenuItem>
+                <MenuItem value="Client">{t("Client")}</MenuItem>
+              </Select>
+            </FormControl>
+          </div>
           <LanguageButton />
+          
         </Toolbar>
       </AppBar>
     </div>

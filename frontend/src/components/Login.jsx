@@ -5,12 +5,13 @@ import { Form, Button } from 'react-bootstrap';
 import LoginWithFacebook from '../resources/facebook-icon.png';
 import LoginWithGoogle from '../resources/google-icon.png';
 
-function handleClick(event) {
-    event.preventDefault();
-    console.log("you know");
+function handleClick() {
+
 }
 
-const Login = ({ t }) => (
+
+
+const Login = ({ t,onLogged}) => (
   
   <div className="app">
     <div>
@@ -34,8 +35,8 @@ const Login = ({ t }) => (
         </Form.Group>
 
         <div>
-          <Button variant="primary" type="submit" onClick={handleClick}>
-            {t('Enter')}
+          <Button variant="primary" onClick={ onLogged }>
+            <Link to="/home"> {t('Enter')} </Link>
           </Button>
           <p className="register-text">
             {/*{t('If you have not account, ')}<Link to="/register" className="register">{t('register')}!</Link>*/}

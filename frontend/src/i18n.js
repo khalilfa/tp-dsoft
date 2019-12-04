@@ -75,7 +75,9 @@ const resources = {
       'We have a wide variety of beer, you know':'Tenemos una amplia variedad de cervezas, vos sabés que sí',
       'User Rol':'Rol del usuario',
       'Provider':'Proveedor',
-      'Client':'Cliente'
+      'Client':'Cliente',
+      'Sort menus by':'Ordenar menus por',
+      'Show menus on map':'Mostrar menus en mapa'
     },
   },
 };

@@ -22,7 +22,8 @@
     "react-scripts": "3.1.1",
     "react-time-picker": "^3.7.2",
     "reactjs-popup": "^1.5.0",
-    "recompose": "^0.30.0"
+    "recompose": "^0.30.0",
+    "use-react-router": "^1.0.7"
   },
   "scripts": {
     "start": "react-scripts start",

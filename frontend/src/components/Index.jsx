@@ -9,10 +9,11 @@ const CheckedIcon = () => (
   <span><img src={Checked} className="checkedIcon" alt="Check" /></span>
 );
 
-const Index = ({ t }) => (
+const Index = ({ t,onLogged }) => (
   <Grid container className="wrapper">
     <Grid className="left" item xs={6}>
-      <Login t={t} />
+
+      <Login t={t} onLogged={onLogged}/>
     </Grid>
     <Grid className="right" item xs={6}>
       <div className="textContainer">
