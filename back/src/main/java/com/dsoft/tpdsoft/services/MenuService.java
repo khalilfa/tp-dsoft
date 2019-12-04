@@ -7,6 +7,8 @@ import com.dsoft.tpdsoft.model.Menu;
 import com.dsoft.tpdsoft.model.Provider;
 import com.dsoft.tpdsoft.repositories.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,7 +29,16 @@ public class MenuService {
 
     public List<Menu> getAllMenus() {
         try {
-            List<Menu> menus = this.menuRepository.findAll();
+            List<Menu> menus = (List<Menu>) this.menuRepository.findAll();
+            return menus;
+        } catch (Exception e) {
+            throw new NotFoundException("Could not get the menus");
+        }
+    }
+
+    public Page<Menu> getAllPageableMenus(Pageable pageable) {
+        try {
+            Page<Menu> menus = this.menuRepository.findAll(pageable);
             return menus;
         } catch (Exception e) {
             throw new NotFoundException("Could not get the menus");

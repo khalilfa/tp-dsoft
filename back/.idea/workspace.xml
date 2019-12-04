@@ -2,41 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b74d0843-2edb-4cee-a000-2ad2e7615757" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_9_16.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_9_16.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_11_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_11_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_11_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_26.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_26.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_1_9_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_1_9_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_1_9_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_1_9_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_1_9_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_1_9_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_1_9_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_23.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back.iml" beforeDir="false" afterPath="$PROJECT_DIR$/back.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/repositories/MenuRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/repositories/MenuRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/MenuService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/ProviderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/ProviderService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,6 +236,7 @@
       <workItem from="1574168009984" duration="7158000" />
       <workItem from="1574186466927" duration="87000" />
       <workItem from="1575382741312" duration="10626000" />
+      <workItem from="1575401680703" duration="2203000" />
     </task>
     <servers />
   </component>
@@ -325,38 +295,38 @@
       <screen x="67" y="27" width="1373" height="873" />
     </state>
     <state x="490" y="226" width="515" height="472" key="EnvironmentVariablesDialog/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575395631479" />
-    <state width="1327" height="219" key="GridCell.Tab.0.bottom" timestamp="1575396815491">
+    <state width="1327" height="219" key="GridCell.Tab.0.bottom" timestamp="1575424510425">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
-    <state width="1327" height="219" key="GridCell.Tab.0.bottom/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575396815491" />
-    <state width="1327" height="219" key="GridCell.Tab.0.center" timestamp="1575396815491">
+    <state width="1327" height="219" key="GridCell.Tab.0.bottom/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575424510425" />
+    <state width="1327" height="219" key="GridCell.Tab.0.center" timestamp="1575424510424">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
-    <state width="1327" height="219" key="GridCell.Tab.0.center/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575396815491" />
-    <state width="1327" height="219" key="GridCell.Tab.0.left" timestamp="1575396815491">
+    <state width="1327" height="219" key="GridCell.Tab.0.center/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575424510424" />
+    <state width="1327" height="219" key="GridCell.Tab.0.left" timestamp="1575424510424">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
-    <state width="1327" height="219" key="GridCell.Tab.0.left/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575396815491" />
-    <state width="1327" height="219" key="GridCell.Tab.0.right" timestamp="1575396815491">
+    <state width="1327" height="219" key="GridCell.Tab.0.left/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575424510424" />
+    <state width="1327" height="219" key="GridCell.Tab.0.right" timestamp="1575424510424">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
-    <state width="1327" height="219" key="GridCell.Tab.0.right/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575396815491" />
-    <state width="1327" height="219" key="GridCell.Tab.1.bottom" timestamp="1575396815492">
+    <state width="1327" height="219" key="GridCell.Tab.0.right/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575424510424" />
+    <state width="1327" height="219" key="GridCell.Tab.1.bottom" timestamp="1575424510425">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
-    <state width="1327" height="219" key="GridCell.Tab.1.bottom/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575396815492" />
-    <state width="1327" height="219" key="GridCell.Tab.1.center" timestamp="1575396815492">
+    <state width="1327" height="219" key="GridCell.Tab.1.bottom/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575424510425" />
+    <state width="1327" height="219" key="GridCell.Tab.1.center" timestamp="1575424510425">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
-    <state width="1327" height="219" key="GridCell.Tab.1.center/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575396815492" />
-    <state width="1327" height="219" key="GridCell.Tab.1.left" timestamp="1575396815491">
+    <state width="1327" height="219" key="GridCell.Tab.1.center/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575424510425" />
+    <state width="1327" height="219" key="GridCell.Tab.1.left" timestamp="1575424510425">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
-    <state width="1327" height="219" key="GridCell.Tab.1.left/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575396815491" />
-    <state width="1327" height="219" key="GridCell.Tab.1.right" timestamp="1575396815492">
+    <state width="1327" height="219" key="GridCell.Tab.1.left/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575424510425" />
+    <state width="1327" height="219" key="GridCell.Tab.1.right" timestamp="1575424510425">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
-    <state width="1327" height="219" key="GridCell.Tab.1.right/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575396815492" />
+    <state width="1327" height="219" key="GridCell.Tab.1.right/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575424510425" />
     <state x="242" y="97" key="SettingsEditor" timestamp="1575394027984">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
