@@ -79,3 +79,7 @@
     position:absolute;
     right: 10px;
  }
+
+ .MuiSwitch-colorPrimary{
+     color: #dd22dd;
+ }
