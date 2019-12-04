@@ -27,14 +27,6 @@ public class MainController {
         return "Hello, I am running";
     }
 
-    /*
-    @GetMapping("/menus")
-    public ResponseEntity<List<Menu>> getAllMenus() {
-        List<Menu> menus = this.menuService.getAllMenus();
-        return ResponseEntity.of(Optional.of(menus));
-    }
-     */
-
     @GetMapping("/menus")
     public ResponseEntity<Page<Menu>> getAllPageableMenus(
             @RequestParam(name = "page", defaultValue = "0") Integer page,
