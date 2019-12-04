@@ -25,6 +25,6 @@ export default function SearchMenus(){
                 </Select>
             </span> 
         </h4>
-    )
+    );
     
 }

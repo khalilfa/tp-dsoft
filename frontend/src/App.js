@@ -6,7 +6,7 @@ import Maps from './components/Maps';
 import Provider from './components/Provider';
 import Bill from './components/Bill';
 import CreateProvider from './components/CreateProvider';
-import GeneralNavbar from './components/GeneralNavbar'
+import GeneralNavbar from './components/GeneralNavbar';
 import Client from './components/Client';
 import Index from './components/Index';
 import HomePageClient from './components/HomePageClient';

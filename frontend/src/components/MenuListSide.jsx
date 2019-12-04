@@ -18,11 +18,11 @@ const useStyles = makeStyles({
         width: "90%",
         verticalAlign: "bottom",
     }
-})
+});
 
 function MenuListSide({menus,t}){
     const classes = useStyles();
-    return(
+    return (
         <div className={classes.wrapper} >
             <section className={classes.switchSection}>
                 <span>{t("Show menus on map")}</span>
@@ -35,7 +35,7 @@ function MenuListSide({menus,t}){
 
             </section>
         </div>
-    )
+    );
 }
 
 export default MenuListSide;

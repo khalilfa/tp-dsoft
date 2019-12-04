@@ -74,7 +74,6 @@ const resources = {
       'Search your menu by location, category or price you want':'Buscá tu menú por ubicación, categoría o precio que desee',
       'We have a wide variety of beer, you know':'Tenemos una amplia variedad de cervezas, vos sabés que sí',
       'User Rol':'Rol del usuario',
-      'Provider':'Proveedor',
       'Client':'Cliente',
       'Sort menus by':'Ordenar menus por',
       'Show menus on map':'Mostrar menus en mapa'

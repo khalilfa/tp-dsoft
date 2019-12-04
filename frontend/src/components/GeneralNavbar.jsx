@@ -8,7 +8,7 @@ import LogoViandasYa from '../resources/fork.png';
 import LanguageButton from './LanguageButton';
 import Select from '@material-ui/core/Select';
 import { FormControl, InputLabel, MenuItem } from '@material-ui/core';
-import UserIcon from '../resources/user.png'
+import UserIcon from '../resources/user.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,7 +40,7 @@ export default function GeneralNavbar( {t,user,rol} ) {
   const classes = useStyles();
   const handleChange = event => {
   //  setRol(event.target.value);
-  }
+  };
   return (
     <div className={classes.root}>
       <AppBar className={classes.appBar} position="static">
