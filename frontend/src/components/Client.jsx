@@ -12,12 +12,15 @@ import sushiVeganIcon from '../resources/sushi-vegan-icon.png';
 import shoppingCartIcon from '../resources/shopping-cart-icon.svg';
 import MenuRow from './MenuRow';
 import Pagination from './Pagination';
+import FilterSide from './FilterSide';
+import Grid from '@material-ui/core/Grid';
+import MenuListSide from './MenuListSide';
 /*
 import SimpleSelect from './SimpleSelect';
-import Grid from '@material-ui/core/Grid';
+
 import SearchMenus from './SearchMenus';
-import MenuListSide from './MenuListSide';
-import FilterSide from './FilterSide';
+
+
 */
 
 
@@ -77,7 +80,38 @@ export default class Client extends React.Component {
     const { menus, pageable, page } = this.state;
     const menusRows = menus.map((menu, key) => <MenuRow key={key} {...menu} />);
     const { name } = this.state.client;
+    
     return (
+      <Grid container className="wrapperClient">
+        <Grid className="leftClient" item xs={4}>
+          <FilterSide t={t} />
+        </Grid>
+        <Grid item className="rightClient" xs={8}>
+          <MenuListSide t={t} menus={this.state.menus} />
+        </Grid>
+      </Grid>
+    );
+  }
+}
+
+Client.defaultProps = {
+  name: 'Pepe',
+  lastName: 'Argento',
+  email: 'pepe_argento@gmail.com',
+  address: 'Las heras nº3244',
+  password: 'pepito',
+  credit: 500,
+};
+
+/*
+    const { t } = this.props;
+    return (
+      
+    );
+*/
+
+
+/*return (
       <div className="client-container col">
         <div className="client-header row">
           <h1 className="client-name col-md-11">{name}</h1>
@@ -174,29 +208,4 @@ export default class Client extends React.Component {
           <Pagination {...pageable} page={page} getMenus={this.getMenus} />
         </div>
       </div>
-    );
-  }
-}
-
-Client.defaultProps = {
-  name: 'Pepe',
-  lastName: 'Argento',
-  email: 'pepe_argento@gmail.com',
-  address: 'Las heras nº3244',
-  password: 'pepito',
-  credit: 500,
-};
-
-/*
-    const { t } = this.props;
-    return (
-      <Grid container className="wrapperClient">
-        <Grid className="leftClient" item xs={4}>
-          <FilterSide t={t} />
-        </Grid>
-        <Grid item className="rightClient" xs={8}>
-          <MenuListSide t={t} menus={this.state.menus} />
-        </Grid>
-      </Grid>
-    );
-*/
+    ); */

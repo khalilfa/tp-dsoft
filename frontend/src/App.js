@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import Index from './components/Index';
 import Register from './components/Register';
@@ -10,20 +10,25 @@ import CreateProvider from './components/CreateProvider';
 import LanguageButton from './components/LanguageButton';
 import Client from './components/Client';
 import SimpleSelect from './components/SimpleSelect';
+import GeneralNavbar from './components/GeneralNavbar';
 
 function App({ t }) {
   return (
     <div>
-      <LanguageButton />
+      
       <Router>
-        <Route exact path="/" render={(props) => <Index {...props} t={t} />} />
-        <Route exact path="/client/:idClient" render={(props) => <Client {...props} t={t} />} />
-        <Route exact path="/register" render={(props) => <Register {...props} t={t} />} />
-        <Route exact path="/maps" render={(props) => <Maps {...props} t={t} />} />
-        <Route exact path="/provider/:idProvider" render={(props) => <Provider {...props} t={t} />} />
-        <Route exact path="/bill" render={(props) => <Bill {...props} t={t} />} />
-        <Route exact path="/createProvider" render={(props) => <CreateProvider {...props} t={t} />} />
-        <Route exact path="/test" render={(props) => <SimpleSelect {...props} t={t} />} />
+        <GeneralNavbar t={t} />
+        <Switch>
+          <Route exact path="/" render={(props) => <Index {...props} t={t} />} />
+          <Route exact path="/client/:idClient" render={(props) => <Client {...props} t={t} />} />
+          <Route exact path="/register" render={(props) => <Register {...props} t={t} />} />
+          <Route exact path="/maps" render={(props) => <Maps {...props} t={t} />} />
+          <Route exact path="/provider/:idProvider" render={(props) => <Provider {...props} t={t} />} />
+          <Route exact path="/bill" render={(props) => <Bill {...props} t={t} />} />
+          <Route exact path="/createProvider" render={(props) => <CreateProvider {...props} t={t} />} />
+          <Route exact path="/test" render={(props) => <SimpleSelect {...props} t={t} />} />
+        </Switch>
+        
       </Router>
     </div>
   );
