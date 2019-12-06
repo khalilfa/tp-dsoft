@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b74d0843-2edb-4cee-a000-2ad2e7615757" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/ItemService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/ProviderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/ProviderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/AttentionSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/AttentionSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Provider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/repositories/AttentionScheduleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/AttentionScheduleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/FileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/MainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/MainService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/model/AttentionScheduleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/dsoft/tpdsoft/model/AttentionScheduleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/CreateProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/CreateProvider.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/TimeSelect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/TimeSelect.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/ClientService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +25,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -248,6 +241,8 @@
       <workItem from="1575401680703" duration="2203000" />
       <workItem from="1575469411420" duration="2451000" />
       <workItem from="1575631123623" duration="11445000" />
+      <workItem from="1575648153733" duration="11784000" />
+      <workItem from="1575666510841" duration="1370000" />
     </task>
     <servers />
   </component>
@@ -298,10 +293,10 @@
       <screen x="67" y="27" width="1373" height="873" />
     </state>
     <state x="211" y="120" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575395633246" />
-    <state x="561" y="149" width="374" height="626" key="#com.intellij.ide.util.MemberChooser" timestamp="1575637318444">
+    <state x="561" y="149" width="374" height="626" key="#com.intellij.ide.util.MemberChooser" timestamp="1575654413989">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
-    <state x="561" y="149" width="374" height="626" key="#com.intellij.ide.util.MemberChooser/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575637318444" />
+    <state x="561" y="149" width="374" height="626" key="#com.intellij.ide.util.MemberChooser/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575654413989" />
     <state x="594" y="354" width="308" height="216" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1575383276461">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
@@ -314,38 +309,38 @@
       <screen x="67" y="27" width="1373" height="873" />
     </state>
     <state x="490" y="226" width="515" height="472" key="EnvironmentVariablesDialog/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575395631479" />
-    <state width="1327" height="219" key="GridCell.Tab.0.bottom" timestamp="1575647266463">
+    <state width="1327" height="219" key="GridCell.Tab.0.bottom" timestamp="1575667880141">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
-    <state width="1327" height="219" key="GridCell.Tab.0.bottom/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575647266463" />
-    <state width="1327" height="219" key="GridCell.Tab.0.center" timestamp="1575647266463">
+    <state width="1327" height="219" key="GridCell.Tab.0.bottom/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575667880141" />
+    <state width="1327" height="219" key="GridCell.Tab.0.center" timestamp="1575667880141">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
-    <state width="1327" height="219" key="GridCell.Tab.0.center/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575647266463" />
-    <state width="1327" height="219" key="GridCell.Tab.0.left" timestamp="1575647266463">
+    <state width="1327" height="219" key="GridCell.Tab.0.center/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575667880141" />
+    <state width="1327" height="219" key="GridCell.Tab.0.left" timestamp="1575667880141">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
-    <state width="1327" height="219" key="GridCell.Tab.0.left/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575647266463" />
-    <state width="1327" height="219" key="GridCell.Tab.0.right" timestamp="1575647266463">
+    <state width="1327" height="219" key="GridCell.Tab.0.left/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575667880141" />
+    <state width="1327" height="219" key="GridCell.Tab.0.right" timestamp="1575667880141">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
-    <state width="1327" height="219" key="GridCell.Tab.0.right/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575647266463" />
-    <state width="1327" height="219" key="GridCell.Tab.1.bottom" timestamp="1575647266464">
+    <state width="1327" height="219" key="GridCell.Tab.0.right/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575667880141" />
+    <state width="1327" height="219" key="GridCell.Tab.1.bottom" timestamp="1575667880141">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
-    <state width="1327" height="219" key="GridCell.Tab.1.bottom/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575647266464" />
-    <state width="1327" height="219" key="GridCell.Tab.1.center" timestamp="1575647266464">
+    <state width="1327" height="219" key="GridCell.Tab.1.bottom/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575667880141" />
+    <state width="1327" height="219" key="GridCell.Tab.1.center" timestamp="1575667880141">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
-    <state width="1327" height="219" key="GridCell.Tab.1.center/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575647266464" />
-    <state width="1327" height="219" key="GridCell.Tab.1.left" timestamp="1575647266464">
+    <state width="1327" height="219" key="GridCell.Tab.1.center/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575667880141" />
+    <state width="1327" height="219" key="GridCell.Tab.1.left" timestamp="1575667880141">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
-    <state width="1327" height="219" key="GridCell.Tab.1.left/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575647266464" />
-    <state width="1327" height="219" key="GridCell.Tab.1.right" timestamp="1575647266464">
+    <state width="1327" height="219" key="GridCell.Tab.1.left/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575667880141" />
+    <state width="1327" height="219" key="GridCell.Tab.1.right" timestamp="1575667880141">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
-    <state width="1327" height="219" key="GridCell.Tab.1.right/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575647266464" />
+    <state width="1327" height="219" key="GridCell.Tab.1.right/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575667880141" />
     <state x="242" y="97" key="SettingsEditor" timestamp="1575394027984">
       <screen x="67" y="27" width="1373" height="873" />
     </state>
@@ -354,6 +349,10 @@
       <screen x="67" y="27" width="1373" height="873" />
     </state>
     <state x="409" y="291" key="com.intellij.ide.util.TipDialog/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575382744108" />
+    <state x="416" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1575650392715">
+      <screen x="67" y="27" width="1373" height="873" />
+    </state>
+    <state x="416" y="212" width="672" height="678" key="search.everywhere.popup/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575650392715" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/tp_dsoft$All_in_back.ic" NAME="All in back Coverage Results" MODIFIED="1572396321210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
