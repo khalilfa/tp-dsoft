@@ -29,6 +29,7 @@ const useStyles = makeStyles({
 function MenuListSide({t,menus}){
     const classes = useStyles();
     const menuRows = menus.map( (menu,key) => <MenuRow key={key} {...menu} />);
+
     return (
         <div className={classes.wrapper} >
 
