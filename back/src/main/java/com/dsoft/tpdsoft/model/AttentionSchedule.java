@@ -6,13 +6,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Column;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.ElementCollection;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 
@@ -36,9 +30,10 @@ public class AttentionSchedule {
 	@OneToOne(mappedBy = "schedule")
 	@JsonIgnore
 	private Provider provider;
-	
+
 	@ElementCollection
-	private List<Integer> ableDays; // mon=1, tues=2, ...
+	@Enumerated
+	private List<Day> ableDays; // mon=1, tues=2, ...
 
 	public AttentionSchedule() {}
 
@@ -72,11 +67,11 @@ public class AttentionSchedule {
 		this.to = to;
 	}
 
-	public List<Integer> getAbleDays() {
+	public List<Day> getAbleDays() {
 		return ableDays;
 	}
 
-	public void setAbleDays(List<Integer> ableDays) {
+	public void setAbleDays(List<Day> ableDays) {
 		this.ableDays = ableDays;
 	}
 

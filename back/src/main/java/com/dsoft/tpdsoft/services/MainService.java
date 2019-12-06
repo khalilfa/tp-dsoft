@@ -28,10 +28,10 @@ public class MainService {
 
         // GENERATE PROVIDERS
         AttentionSchedule attentionSchedule = new AttentionSchedule(LocalTime.of(9, 30), LocalTime.of(22, 30));
-        ArrayList<Integer> ableDays = new ArrayList<>();
-        ableDays.add(1);
-        ableDays.add(2);
-        ableDays.add(3);
+        ArrayList<Day> ableDays = new ArrayList<>();
+        ableDays.add(Day.Monday);
+        ableDays.add(Day.Tuesday);
+        ableDays.add(Day.Wednesday);
         attentionSchedule.setAbleDays(ableDays);
 
         File logo = new File();
