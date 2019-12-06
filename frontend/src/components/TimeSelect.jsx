@@ -13,7 +13,9 @@ export default function TimeSelect({ time, handleChange, className, t }) {
   }
 
   const sendTime = (selectedTime) => {
-    const stringTime = `${selectedTime.getHours()}:${selectedTime.getMinutes()}`;
+    const zeroMin = selectedTime.getMinutes() < 10 ? '0' : '';
+    const zeroHour = selectedTime.getHours() < 10 ? '0' : '';
+    const stringTime = `${zeroHour}${selectedTime.getHours()}:${zeroMin}${selectedTime.getMinutes()}`;
     handleChange(stringTime);
   };
 

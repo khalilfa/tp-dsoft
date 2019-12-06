@@ -10,6 +10,7 @@ export default class CreateProvider extends React.Component {
   constructor(props) {
     super(props);
     const { t } = this.props;
+    const date = new Date();
     this.state = {
       options: [
         t('Monday'),
@@ -29,8 +30,8 @@ export default class CreateProvider extends React.Component {
       email: '',
       phoneNumber: '',
       schedule: {
-        from: '',
-        to: '',
+        from: `${date.getHours()}:${date.getMinutes()}`,
+        to: `${date.getHours()}:${date.getMinutes()}`,
         ableDays: [],
       },
       metersRadioDelivery: '',
@@ -94,15 +95,7 @@ export default class CreateProvider extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const url = 'http://localhost:8080/provider';
-    const formData = new FormData();
-    const config = {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    };
-    const { schedule } = this.state;
-    const { logo } = this.state;
+    const { schedule, logo } = this.state;
     const provider = {
       name: this.state.name,
       locality: this.state.locality,
@@ -112,15 +105,18 @@ export default class CreateProvider extends React.Component {
       email: this.state.email,
       phoneNumber: this.state.phoneNumber,
       metersRadioDelivery: this.state.metersRadioDelivery,
+      schedule,
     };
 
+    const formData = new FormData();
     formData.append('file', logo);
-    formData.append('provider', provider);
-    formData.append('schedule', schedule);
 
-    Axios.post(url, formData, config)
-      .then((res) => console.log(res))
-      .catch((error) => console.log(error));
+    Axios.post('http://localhost:8080/provider', provider)
+      .then((res) => res.data)
+      .then((data) => {
+        Axios.post(`http://localhost:8080/provider/${data.id}/logo`, formData);
+      })
+      .catch((error) => console.info(error));
   }
 
   render() {
@@ -191,6 +187,7 @@ export default class CreateProvider extends React.Component {
                 type="text"
                 required
                 pattern="\d{13}"
+                minLength="13"
                 name="phoneNumber"
                 value={this.state.phoneNumber}
                 onChange={this.handleChange}
