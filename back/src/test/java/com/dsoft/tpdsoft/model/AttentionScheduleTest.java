@@ -65,8 +65,8 @@ public class AttentionScheduleTest {
 
     @Test
     public void setAbleDaysTest() {
-        ArrayList<Integer> ableDays = new ArrayList<Integer>();
-        ableDays.add(1);
+        ArrayList<Day> ableDays = new ArrayList<Day>();
+        ableDays.add(Day.Monday);
         this.attentionSchedule.setAbleDays(ableDays);
         assertEquals(this.attentionSchedule.getAbleDays(), ableDays);
     }

@@ -14,22 +14,6 @@ public class FileService {
     @Autowired
     private FileRepository fileRepository;
 
-    public File storeFile(MultipartFile file) {
-        String filename = StringUtils.cleanPath(file.getOriginalFilename());
-
-        try {
-            if(filename.contains("..")) {
-                throw new StorageException("Sorry! Filename contains invalid path sequence " + filename);
-            }
-
-            File newFile = new File(file.getBytes(), filename);
-
-            return this.fileRepository.save(newFile);
-        } catch (Exception e) {
-            throw new StorageException("Could not save the file with name: " + filename, e);
-        }
-    }
-
     public File getFile(Integer id) {
         return this.fileRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Could not get the file with id: " + id));

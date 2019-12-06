@@ -34,7 +34,7 @@ public class Provider {
 	@Column(name = "name")
 	private String name;
 
-	@NotNull(message="Logo cant be blank")
+	// @NotNull(message="Logo cant be blank")
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn
 	@JsonIgnore
@@ -81,7 +81,9 @@ public class Provider {
 	@Column(name = "credit")
 	private Double credit = 0.0;
 
-	public Provider() { }
+	public Provider() {
+		this.logo = new File();
+	}
 
 	public Provider(
 			AttentionSchedule attentionSchedule,
