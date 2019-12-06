@@ -1,13 +1,12 @@
 package com.dsoft.tpdsoft.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Column;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "clients")
@@ -39,9 +38,17 @@ public class Client {
     private String password;
 
     @Column(name = "credit")
-    private Double credit = 0.0;
+    private Double credit;
 
-    public Client(){}
+    @NotNull
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn
+    private ShoppingCart shoppingCart;
+
+    public Client(){
+        this.credit = 0.0;
+        this.shoppingCart = new ShoppingCart();
+    }
 
     public Client(String name, String lastName, String email, String address, String password) {
         this.name = name;
@@ -49,6 +56,8 @@ public class Client {
         this.email = email;
         this.address = address;
         this.password = password;
+        this.shoppingCart = new ShoppingCart();
+        this.credit = 0.0;
     }
 
     public void addCredit(Double credit) {
@@ -113,6 +122,26 @@ public class Client {
 
     public void setCredit(Double credit) {
         this.credit = credit;
+    }
+
+    public ShoppingCart getShoppingCart() {
+        return shoppingCart;
+    }
+
+    public void setShoppingCart(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
+
+    public void addItemToCart(Item item) {
+        this.shoppingCart.addItem(item);
+    }
+
+    public boolean hasItemWithItem(Menu menu) {
+        return this.shoppingCart.hasItemWithItem(menu);
+    }
+
+    public Item getItemWithMenu(Menu menu) {
+        return this.shoppingCart.getItemWithMenu(menu);
     }
 
 }
