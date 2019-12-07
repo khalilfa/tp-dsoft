@@ -2,13 +2,12 @@ package com.dsoft.tpdsoft.services;
 
 import com.dsoft.tpdsoft.exceptions.NotFoundException;
 import com.dsoft.tpdsoft.exceptions.StorageException;
-import com.dsoft.tpdsoft.model.Client;
-import com.dsoft.tpdsoft.model.Item;
-import com.dsoft.tpdsoft.model.Menu;
-import com.dsoft.tpdsoft.model.ShoppingCart;
+import com.dsoft.tpdsoft.model.*;
 import com.dsoft.tpdsoft.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ClientService {
@@ -81,5 +80,11 @@ public class ClientService {
         this.itemService.updateItemQuantity(itemId, itemQ);
         Client client = this.getClient(clientId);
         return client.getShoppingCart();
+    }
+
+    public List<Summary> getSummaries(Integer id) {
+        Client client = this.getClient(id);
+        List<Summary> summaries = client.getSummaries();
+        return summaries;
     }
 }

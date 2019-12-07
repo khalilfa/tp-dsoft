@@ -143,10 +143,12 @@ public class ProviderController {
         return ResponseEntity.ok().build();
     }
 
-    // ----- CREDIT OPTIONS -----
+    // ----- OPERATIONS -----
     @PostMapping("/{id}/credit/{credit}")
     public ResponseEntity<Provider> substractCredit(@PathVariable Integer id, @PathVariable Double credit) {
         Provider savedProvider = this.providerService.substractCredit(id, credit);
         return ResponseEntity.of(Optional.of(savedProvider));
     }
+
+
 }

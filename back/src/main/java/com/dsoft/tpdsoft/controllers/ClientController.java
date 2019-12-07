@@ -1,9 +1,10 @@
 package com.dsoft.tpdsoft.controllers;
 
 import com.dsoft.tpdsoft.model.Client;
-import com.dsoft.tpdsoft.model.Item;
 import com.dsoft.tpdsoft.model.ShoppingCart;
+import com.dsoft.tpdsoft.model.Summary;
 import com.dsoft.tpdsoft.services.ClientService;
+import com.dsoft.tpdsoft.services.SummaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,9 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
+    @Autowired
+    private SummaryService summaryService;
+
     public ClientController(ClientService service) {
         this.clientService = service;
     }
@@ -33,12 +37,6 @@ public class ClientController {
     public ResponseEntity<Client> getClient(@PathVariable Integer id) {
         Client client = this.clientService.getClient(id);
         return ResponseEntity.of(Optional.of(client));
-    }
-
-    @PostMapping("/{id}/credit/{credit}")
-    public ResponseEntity<Client> addCredit(@PathVariable Integer id, @PathVariable Double credit) {
-        Client savedClient = this.clientService.addCredit(id, credit);
-        return ResponseEntity.of(Optional.of(savedClient));
     }
 
     //----- SHOPPING CART -----
@@ -68,5 +66,25 @@ public class ClientController {
                                                            @RequestParam("itemQ") Integer itemQ) {
         ShoppingCart cart = this.clientService.updateItemQuantity(clientId, itemId, itemQ);
         return ResponseEntity.of(Optional.of(cart));
+    }
+
+    // ----- OPERATIONS -----
+    @PostMapping("/{id}/credit/{credit}")
+    public ResponseEntity<Client> addCredit(@PathVariable Integer id, @PathVariable Double credit) {
+        Client savedClient = this.clientService.addCredit(id, credit);
+        return ResponseEntity.of(Optional.of(savedClient));
+    }
+
+    @PostMapping("/{id}/buy")
+    public ResponseEntity<Summary> buyItems(@PathVariable Integer id) {
+        Client client = this.clientService.getClient(id);
+        Summary summary = this.summaryService.generateAndSaveSummaries(client);
+        return ResponseEntity.of(Optional.of(summary));
+    }
+
+    @GetMapping("/{id}/summaries")
+    public ResponseEntity<List<Summary>> getSummaries(@PathVariable Integer id) {
+        List<Summary> summaries = this.clientService.getSummaries(id);
+        return ResponseEntity.of(Optional.of(summaries));
     }
 }

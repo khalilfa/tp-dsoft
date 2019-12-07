@@ -9,7 +9,7 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "menu_id")
     private Menu menu;
 
