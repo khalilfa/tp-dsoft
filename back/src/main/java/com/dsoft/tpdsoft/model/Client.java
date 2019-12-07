@@ -7,6 +7,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "clients")
@@ -45,9 +47,14 @@ public class Client {
     @JoinColumn
     private ShoppingCart shoppingCart;
 
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Summary> summaries;
+
     public Client(){
         this.credit = 0.0;
         this.shoppingCart = new ShoppingCart();
+        this.summaries = new ArrayList<>();
     }
 
     public Client(String name, String lastName, String email, String address, String password) {
@@ -58,6 +65,7 @@ public class Client {
         this.password = password;
         this.shoppingCart = new ShoppingCart();
         this.credit = 0.0;
+        this.summaries = new ArrayList<>();
     }
 
     public void addCredit(Double credit) {
@@ -124,6 +132,18 @@ public class Client {
         this.credit = credit;
     }
 
+    public List<Summary> getSummaries() {
+        return summaries;
+    }
+
+    public void setSummaries(List<Summary> summaries) {
+        this.summaries = summaries;
+    }
+
+    public void addSummary(Summary summary) {
+        this.summaries.add(summary);
+    }
+
     public ShoppingCart getShoppingCart() {
         return shoppingCart;
     }
@@ -142,6 +162,10 @@ public class Client {
 
     public Item getItemWithMenu(Menu menu) {
         return this.shoppingCart.getItemWithMenu(menu);
+    }
+
+    public void resetShoppingCart() {
+        this.shoppingCart.resetItems();
     }
 
 }

@@ -2,7 +2,6 @@ package com.dsoft.tpdsoft.services;
 
 import com.dsoft.tpdsoft.exceptions.NotFoundException;
 import com.dsoft.tpdsoft.exceptions.StorageException;
-import com.dsoft.tpdsoft.model.Category;
 import com.dsoft.tpdsoft.model.Menu;
 import com.dsoft.tpdsoft.model.Provider;
 import com.dsoft.tpdsoft.repositories.MenuRepository;
@@ -10,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class MenuService {

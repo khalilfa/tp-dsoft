@@ -34,7 +34,7 @@ public class Provider {
 	@Column(name = "name")
 	private String name;
 
-	// @NotNull(message="Logo cant be blank")
+	@NotNull(message="Logo cant be blank")
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn
 	@JsonIgnore
@@ -76,13 +76,19 @@ public class Provider {
 	
 	@Size(max=20, message = "20 menus admitted")
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "provider")
-	private List<Menu> menuList = new ArrayList<>();
+	private List<Menu> menuList;
 
 	@Column(name = "credit")
-	private Double credit = 0.0;
+	private Double credit;
+
+	@OneToMany(mappedBy = "provider", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Summary> summaries;
 
 	public Provider() {
 		this.logo = new File();
+		this.menuList = new ArrayList<>();
+		this.summaries = new ArrayList<>();
+		this.credit = 0.0;
 	}
 
 	public Provider(
@@ -106,7 +112,9 @@ public class Provider {
 		this.metersRadioDelivery = metersRadioDelivery;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
+		this.credit = 0.0;
 		this.menuList = new ArrayList<>();
+		this.summaries = new ArrayList<>();
 	}
 
 	public void addCredit(Double credit) {
@@ -227,5 +235,17 @@ public class Provider {
 
 	public void setCredit(Double credit) {
 		this.credit = credit;
+	}
+
+	public List<Summary> getSummaries() {
+		return summaries;
+	}
+
+	public void setSummaries(List<Summary> summaries) {
+		this.summaries = summaries;
+	}
+
+	public void addSummary(Summary summary) {
+		this.summaries.add(summary);
 	}
 }

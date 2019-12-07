@@ -70,4 +70,8 @@ public class ShoppingCart {
         return this.items.stream().filter(i -> i.getMenu().getId().equals(menu.getId())).findAny().get();
     }
 
+    public void resetItems() {
+        this.items = new ArrayList<>();
+    }
+
 }
