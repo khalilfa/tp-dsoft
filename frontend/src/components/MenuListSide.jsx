@@ -29,23 +29,37 @@ const useStyles = makeStyles({
 function MenuListSide({t,menus}){
     const classes = useStyles();
     const menuRows = menus.map( (menu,key) => <MenuRow key={key} {...menu} />);
-
+    const [switchedChange,setSwitchedChange] = React.useState(false);
+    
+    function f(){
+        if(!switchedChange){
+            setSwitchedChange(true);
+        }else{
+            setSwitchedChange(false);
+        }
+        
+    }
     return (
         <div className={classes.wrapper} >
 
             <section className={classes.switchSection}>
                 <span>{t("Show menus on map")}</span>
-                <Switch color="default" />
+                <Switch onChange={ () => f()} color="default" />
             </section>
 
             {/* menu list */}
 
             <section className={classes.menusSection}>
-                <List>  {/** aria-laber */}
+            {switchedChange
+             ? <p>Render menus on map to do</p>
+             : <List>
                     {menuRows}
                 </List>
+            }
+                
                 
             </section>
+
         </div>
     );
 }
