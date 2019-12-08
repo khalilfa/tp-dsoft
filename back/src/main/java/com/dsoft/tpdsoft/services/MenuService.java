@@ -2,6 +2,7 @@ package com.dsoft.tpdsoft.services;
 
 import com.dsoft.tpdsoft.exceptions.NotFoundException;
 import com.dsoft.tpdsoft.exceptions.StorageException;
+import com.dsoft.tpdsoft.model.Category;
 import com.dsoft.tpdsoft.model.Menu;
 import com.dsoft.tpdsoft.model.Provider;
 import com.dsoft.tpdsoft.repositories.MenuRepository;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class MenuService {
@@ -35,17 +38,15 @@ public class MenuService {
             throw new NotFoundException("Could not get the menus");
         }
     }
-/*
     public List<Menu> getByCategory(String category) {
         try {
             Category newCategory = Category.valueOf(category);
-            List<Menu> menus = this.menuRepository.findByCategoriesIn(newCategory);
+            List<Menu> menus = this.menuRepository.findAllByCategories(newCategory);
             return menus;
         } catch (Exception e) {
             throw new NotFoundException("Could not get the menus with categories: " + category, e);
         }
     }
-*/
     public Menu getMenu(Integer id) {
         try {
             Menu menu = this.menuRepository.findById(id).get();

@@ -2,21 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b74d0843-2edb-4cee-a000-2ad2e7615757" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back.iml" beforeDir="false" afterPath="$PROJECT_DIR$/back.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/ProviderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/ProviderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Provider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/ShoppingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/ShoppingCart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Summary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/model/Summary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/ClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/repositories/MenuRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/repositories/MenuRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/MenuService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/ProviderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/ProviderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/SummaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dsoft/tpdsoft/services/SummaryService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +39,7 @@
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
-        <option name="jdkForImporter" value="#JAVA_HOME" />
+        <option name="jdkForImporter" value="11" />
         <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
@@ -73,7 +64,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -256,6 +247,8 @@
       <workItem from="1575669283308" duration="9111000" />
       <workItem from="1575754961672" duration="5705000" />
       <workItem from="1575805314770" duration="16986000" />
+      <workItem from="1575844469666" duration="146000" />
+      <workItem from="1575844652724" duration="2191000" />
     </task>
     <servers />
   </component>
@@ -324,49 +317,54 @@
       <screen x="67" y="27" width="1373" height="873" />
     </state>
     <state x="490" y="226" width="515" height="472" key="EnvironmentVariablesDialog/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575395631479" />
-    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1575842065771">
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1575844606152">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1575842065771" />
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1575844606152" />
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1575847663659">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1575847663659" />
     <state width="1327" height="219" key="GridCell.Tab.0.bottom/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575681331835" />
-    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1575842065770">
+    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1575847663658">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1575842065770" />
+    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1575847663658" />
     <state width="1327" height="219" key="GridCell.Tab.0.center/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575681331835" />
-    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1575842065770">
+    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1575847663657">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1575842065770" />
+    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1575847663657" />
     <state width="1327" height="219" key="GridCell.Tab.0.left/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575681331834" />
-    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1575842065771">
+    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1575847663658">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1575842065771" />
+    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1575847663658" />
     <state width="1327" height="219" key="GridCell.Tab.0.right/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575681331835" />
-    <state width="1253" height="175" key="GridCell.Tab.1.bottom" timestamp="1575842065774">
+    <state width="1253" height="175" key="GridCell.Tab.1.bottom" timestamp="1575847663661">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.1.bottom/67.27.1299.741@67.27.1299.741" timestamp="1575842065774" />
+    <state width="1253" height="175" key="GridCell.Tab.1.bottom/67.27.1299.741@67.27.1299.741" timestamp="1575847663661" />
     <state width="1327" height="219" key="GridCell.Tab.1.bottom/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575681331835" />
-    <state width="1253" height="175" key="GridCell.Tab.1.center" timestamp="1575842065772">
+    <state width="1253" height="175" key="GridCell.Tab.1.center" timestamp="1575847663659">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.1.center/67.27.1299.741@67.27.1299.741" timestamp="1575842065772" />
+    <state width="1253" height="175" key="GridCell.Tab.1.center/67.27.1299.741@67.27.1299.741" timestamp="1575847663659" />
     <state width="1327" height="219" key="GridCell.Tab.1.center/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575681331835" />
-    <state width="1253" height="175" key="GridCell.Tab.1.left" timestamp="1575842065771">
+    <state width="1253" height="175" key="GridCell.Tab.1.left" timestamp="1575847663659">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.1.left/67.27.1299.741@67.27.1299.741" timestamp="1575842065771" />
+    <state width="1253" height="175" key="GridCell.Tab.1.left/67.27.1299.741@67.27.1299.741" timestamp="1575847663659" />
     <state width="1327" height="219" key="GridCell.Tab.1.left/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575681331835" />
-    <state width="1253" height="175" key="GridCell.Tab.1.right" timestamp="1575842065773">
+    <state width="1253" height="175" key="GridCell.Tab.1.right" timestamp="1575847663660">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.1.right/67.27.1299.741@67.27.1299.741" timestamp="1575842065773" />
+    <state width="1253" height="175" key="GridCell.Tab.1.right/67.27.1299.741@67.27.1299.741" timestamp="1575847663660" />
     <state width="1327" height="219" key="GridCell.Tab.1.right/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575681331835" />
-    <state x="242" y="97" key="SettingsEditor" timestamp="1575394027984">
-      <screen x="67" y="27" width="1373" height="873" />
+    <state x="233" y="38" key="SettingsEditor" timestamp="1575844783037">
+      <screen x="67" y="27" width="1299" height="741" />
     </state>
+    <state x="233" y="38" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1575844783037" />
     <state x="242" y="97" key="SettingsEditor/67.27.1373.873/1440.0.1920.1080@67.27.1373.873" timestamp="1575394027984" />
     <state x="391" y="251" key="com.intellij.ide.util.TipDialog" timestamp="1575754967410">
       <screen x="67" y="27" width="1299" height="741" />
