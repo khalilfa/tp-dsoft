@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClientService {
@@ -19,6 +20,9 @@ public class ClientService {
 
     @Autowired
     private ItemService itemService;
+
+    @Autowired
+    private SummaryService summaryService;
 
     public Client saveClient(Client client) {
         try {
@@ -84,7 +88,18 @@ public class ClientService {
 
     public List<Summary> getSummaries(Integer id) {
         Client client = this.getClient(id);
-        List<Summary> summaries = client.getSummaries();
-        return summaries;
+        return client.getSummaries();
+    }
+
+    public Optional<Summary> buyItems(Integer clientId) {
+        Client client = this.getClient(clientId);
+        Optional<Summary> optionalSummary = Optional.empty();
+        if(client.getCredit() >= client.getShoppingCart().getTotal()) {
+            client.setCredit(client.getCredit() - client.getShoppingCart().getTotal());
+            Summary summary = this.summaryService.generateAndSaveSummaries(client);
+            optionalSummary = Optional.of(summary);
+        }
+
+        return optionalSummary;
     }
 }

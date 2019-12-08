@@ -82,6 +82,7 @@ public class Provider {
 	private Double credit;
 
 	@OneToMany(mappedBy = "provider", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<Summary> summaries;
 
 	public Provider() {

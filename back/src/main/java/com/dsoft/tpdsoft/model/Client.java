@@ -157,7 +157,7 @@ public class Client {
     }
 
     public boolean hasItemWithItem(Menu menu) {
-        return this.shoppingCart.hasItemWithItem(menu);
+        return this.shoppingCart.hasItemWithMenu(menu);
     }
 
     public Item getItemWithMenu(Menu menu) {

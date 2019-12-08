@@ -52,17 +52,19 @@ public class ShoppingCart {
         this.items.add(item);
     }
 
+
     public Double getTotal() {
         Double total = 0.0;
 
         for (Item item : this.items) {
             total += item.totalPrice();
+            total += item.getMenu().getDeliveryPrice() * item.getQuantity();
         }
 
         return total;
     }
 
-    public boolean hasItemWithItem(Menu menu) {
+    public boolean hasItemWithMenu(Menu menu) {
         return this.items.stream().anyMatch(i -> i.getMenu().getId().equals(menu.getId()));
     }
 

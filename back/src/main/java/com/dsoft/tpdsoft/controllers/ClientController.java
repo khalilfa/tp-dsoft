@@ -6,6 +6,7 @@ import com.dsoft.tpdsoft.model.Summary;
 import com.dsoft.tpdsoft.services.ClientService;
 import com.dsoft.tpdsoft.services.SummaryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -76,10 +77,12 @@ public class ClientController {
     }
 
     @PostMapping("/{id}/buy")
-    public ResponseEntity<Summary> buyItems(@PathVariable Integer id) {
-        Client client = this.clientService.getClient(id);
-        Summary summary = this.summaryService.generateAndSaveSummaries(client);
-        return ResponseEntity.of(Optional.of(summary));
+    public ResponseEntity buyItems(@PathVariable Integer id) {
+        Optional<Summary> optionalSummary = this.clientService.buyItems(id);
+        if (optionalSummary.isPresent()) {
+            return ResponseEntity.of(optionalSummary);
+        }
+        return new ResponseEntity("The client does not have enough credit", HttpStatus.NOT_ACCEPTABLE);
     }
 
     @GetMapping("/{id}/summaries")

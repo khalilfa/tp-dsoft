@@ -1,24 +1,19 @@
 package com.dsoft.tpdsoft.services;
 
 import com.dsoft.tpdsoft.exceptions.StorageException;
-import com.dsoft.tpdsoft.model.Client;
-import com.dsoft.tpdsoft.model.Item;
-import com.dsoft.tpdsoft.model.Provider;
-import com.dsoft.tpdsoft.model.Summary;
+import com.dsoft.tpdsoft.model.*;
 import com.dsoft.tpdsoft.repositories.SummaryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SummaryService {
     @Autowired
     private SummaryRepository summaryRepository;
-
-    @Autowired
-    private ClientService clientService;
 
     @Autowired
     private ProviderService providerService;
@@ -35,16 +30,42 @@ public class SummaryService {
     public List<Summary> generateProviderSummaries(List<Item> items) {
         List<Summary> summaries = new ArrayList<>();
         for (Item item : items) {
-            Provider provider = item.getMenu().getProvider();
+            Menu menu = item.getMenu();
+            Provider provider = menu.getProvider();
+            Item newItem = new Item(menu, item.getQuantity());
+
+            summaries = this.generateProviderSummary(newItem, summaries, provider);
+        }
+
+        summaries.forEach(summary ->{
+            Provider provider = summary.getProvider();
+            provider.setCredit(provider.getCredit() + summary.getTotal());
+            this.providerService.saveProvider(summary.getProvider());
+        });
+        return summaries;
+    }
+
+    public List<Summary> generateProviderSummary(Item item, List<Summary> summaries, Provider provider) {
+        Integer providerId = provider.getId();
+        Optional<Summary> optionalSummary = this.getSummaryWithProviderWithId(summaries, providerId);
+        if(optionalSummary.isPresent()) {
+            optionalSummary.get().addItem(item);
+            provider.addSummary(optionalSummary.get());
+        } else {
             Summary summary = new Summary();
             summary.setProvider(provider);
             summary.addItem(item);
             summaries.add(summary);
             provider.addSummary(summary);
-
-            this.saveSummary(summary);
         }
+
         return summaries;
+    }
+
+    public Optional<Summary> getSummaryWithProviderWithId(List<Summary> summaries, Integer providerId) {
+        return summaries.stream()
+                .filter(summary -> summary.getItems().get(0).getItemProviderId().equals(providerId))
+                .findAny();
     }
 
     public Summary generateClientSummary(List<Item> items, Client client) {
@@ -61,9 +82,7 @@ public class SummaryService {
 
     public Summary generateAndSaveSummaries(Client client) {
         List<Item> items = new ArrayList<>(client.getShoppingCart().getItems());
-        List<Summary> providerSummaries = this.generateProviderSummaries(items);
-        Summary clientSummary = this.generateClientSummary(items, client);
-
-        return clientSummary;
+        this.generateProviderSummaries(items);
+        return this.generateClientSummary(items, client);
     }
 }

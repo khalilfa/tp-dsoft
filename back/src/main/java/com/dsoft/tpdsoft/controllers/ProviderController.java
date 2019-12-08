@@ -1,9 +1,6 @@
 package com.dsoft.tpdsoft.controllers;
 
-import com.dsoft.tpdsoft.model.AttentionSchedule;
-import com.dsoft.tpdsoft.model.File;
-import com.dsoft.tpdsoft.model.Menu;
-import com.dsoft.tpdsoft.model.Provider;
+import com.dsoft.tpdsoft.model.*;
 import com.dsoft.tpdsoft.services.FileService;
 import com.dsoft.tpdsoft.services.MenuService;
 import com.dsoft.tpdsoft.services.ProviderService;
@@ -96,8 +93,7 @@ public class ProviderController {
 
     @DeleteMapping("/{idProvider}/menu/{idMenu}")
     public ResponseEntity<List<Menu>> deleteMenu(@PathVariable Integer idProvider, @PathVariable Integer idMenu) {
-        this.menuService.deleteMenu(idMenu);
-        Provider provider = this.providerService.getProvider(idProvider);
+        Provider provider = this.menuService.deleteMenu(idMenu, idProvider);
         return ResponseEntity.of(Optional.of(provider.getMenuList()));
     }
 
@@ -148,6 +144,12 @@ public class ProviderController {
     public ResponseEntity<Provider> substractCredit(@PathVariable Integer id, @PathVariable Double credit) {
         Provider savedProvider = this.providerService.substractCredit(id, credit);
         return ResponseEntity.of(Optional.of(savedProvider));
+    }
+
+    @GetMapping("/{id}/summaries")
+    public ResponseEntity<List<Summary>> getSummaries(@PathVariable Integer id) {
+        List<Summary> summaries = this.providerService.getSummaries(id);
+        return ResponseEntity.of(Optional.of(summaries));
     }
 
 

@@ -5,9 +5,12 @@ import com.dsoft.tpdsoft.exceptions.StorageException;
 import com.dsoft.tpdsoft.model.AttentionSchedule;
 import com.dsoft.tpdsoft.model.File;
 import com.dsoft.tpdsoft.model.Provider;
+import com.dsoft.tpdsoft.model.Summary;
 import com.dsoft.tpdsoft.repositories.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ProviderService {
@@ -61,5 +64,10 @@ public class ProviderService {
         Provider provider = this.getProvider(id);
         provider.substractCredit(credit);
         return this.updateProvider(provider, id);
+    }
+
+    public List<Summary> getSummaries(Integer id) {
+        Provider provider = this.getProvider(id);
+        return provider.getSummaries();
     }
 }
