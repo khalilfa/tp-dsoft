@@ -15,6 +15,9 @@ public class MenuService {
     @Autowired
     private MenuRepository menuRepository;
 
+    @Autowired
+    private ProviderService providerService;
+
     public Menu saveMenu(Menu menu) {
         try {
             Menu savedMenu = this.menuRepository.save(menu);
@@ -52,11 +55,15 @@ public class MenuService {
         }
     }
 
-    public void deleteMenu(Integer id) {
+    public Provider deleteMenu(Integer idMenu, Integer idProvider) {
         try {
-            this.menuRepository.deleteById(id);
+            Provider provider = this.providerService.getProvider(idProvider);
+            Menu menu = this.getMenu(idMenu);
+            provider.deleteMenu(menu);
+
+            return this.providerService.saveProvider(provider);
         } catch (Exception ex) {
-            throw new NotFoundException("Could not delete the menu with id: " + id, ex);
+            throw new NotFoundException("Could not delete the menu with id: " + idMenu, ex);
         }
     }
 

@@ -88,6 +88,7 @@ public class Summary {
 
         for (Item item : this.items) {
             total += item.totalPrice();
+            total += item.getMenu().getDeliveryPrice() * item.getQuantity();
         }
 
         return total;
