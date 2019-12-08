@@ -76,7 +76,10 @@ const resources = {
       'User Rol':'Rol del usuario',
       'Client':'Cliente',
       'Sort menus by':'Ordenar menus por',
-      'Show menus on map':'Mostrar menus en mapa'
+      'Show menus on map':'Mostrar menus en mapa',
+      'Vegan':'Vegano',
+      'Ice cream':'Helado',
+      'Categories':'Categorías',
     },
   },
 };
