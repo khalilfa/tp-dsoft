@@ -36,13 +36,13 @@ public class MainController {
 
         return ResponseEntity.of(Optional.of(menus));
     }
-/*
+
     @GetMapping("/menus/filter")
-    public ResponseEntity<List<Menu>> getMenusByCategories(@RequestParam String category) {
+    public ResponseEntity<List<Menu>> getMenusByCategories(@RequestParam(name = "category") String category) {
         List<Menu> menus = this.menuService.getByCategory(category);
         return ResponseEntity.of(Optional.of(menus));
     }
-*/
+
     @PostMapping("/load-data")
     public void loadData() {
         this.mainService.loadData();

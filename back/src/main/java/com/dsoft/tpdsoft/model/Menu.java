@@ -36,7 +36,7 @@ public class Menu {
 	private Provider provider;
 
 	@ElementCollection
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private List<Category> categories; // TODO validate at least one category
 
 	@Column(name = "delivery_price")
