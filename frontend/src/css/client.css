@@ -76,3 +76,10 @@
  .MuiSwitch-colorPrimary{
      color: #dd22dd;
  }
+
+ .pagination {
+     display: block;
+     margin:auto;
+     text-align: center;
+    
+ }

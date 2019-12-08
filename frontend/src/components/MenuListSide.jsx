@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 import MenuRow from './MenuRow';
 import List from '@material-ui/core/List';
+import Axios from 'axios';
+import Pagination from './Pagination';
 
 const useStyles = makeStyles({
     wrapper: {
@@ -27,11 +29,11 @@ const useStyles = makeStyles({
 });
 
 function MenuListSide({t,menus}){
+
     const classes = useStyles();
-    const menuRows = menus.map( (menu,key) => <MenuRow key={key} {...menu} />);
     const [switchedChange,setSwitchedChange] = React.useState(false);
-    
-    function f(){
+
+    function handleChange(){
         if(!switchedChange){
             setSwitchedChange(true);
         }else{
@@ -40,26 +42,26 @@ function MenuListSide({t,menus}){
         
     }
     return (
+        
         <div className={classes.wrapper} >
 
             <section className={classes.switchSection}>
                 <span>{t("Show menus on map")}</span>
-                <Switch onChange={ () => f()} color="default" />
+                <Switch onChange={ () => handleChange()} color="default" />
             </section>
 
             {/* menu list */}
 
             <section className={classes.menusSection}>
-            {switchedChange
-             ? <p>Render menus on map to do</p>
-             : <List>
-                    {menuRows}
-                </List>
-            }
-                
+                {switchedChange
+                    ? <p>Render menus on map to do</p>
+                    : <List>
+                        {menus.map( (menu,key) => <MenuRow key={key} {...menu} />)}
+                      </List>
+                }
+
                 
             </section>
-
         </div>
     );
 }
