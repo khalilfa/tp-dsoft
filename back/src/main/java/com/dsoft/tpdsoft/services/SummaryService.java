@@ -18,6 +18,9 @@ public class SummaryService {
     @Autowired
     private ProviderService providerService;
 
+    @Autowired
+    private SendMailService sendMailService;
+
     public Summary saveSummary(Summary summary) {
         try {
             Summary savedSummary = this.summaryRepository.save(summary);
@@ -27,25 +30,27 @@ public class SummaryService {
         }
     }
 
-    public List<Summary> generateProviderSummaries(List<Item> items) {
+    public List<Summary> generateProviderSummaries(List<Item> items, Client client) {
         List<Summary> summaries = new ArrayList<>();
         for (Item item : items) {
             Menu menu = item.getMenu();
             Provider provider = menu.getProvider();
             Item newItem = new Item(menu, item.getQuantity());
 
-            summaries = this.generateProviderSummary(newItem, summaries, provider);
+            summaries = this.generateProviderSummary(newItem, summaries, provider, client);
         }
 
         summaries.forEach(summary ->{
             Provider provider = summary.getProvider();
             provider.setCredit(provider.getCredit() + summary.getTotal());
             this.providerService.saveProvider(summary.getProvider());
+            // Send an email to a provider
+            this.sendMailService.sendMailToProvider(summary);
         });
         return summaries;
     }
 
-    public List<Summary> generateProviderSummary(Item item, List<Summary> summaries, Provider provider) {
+    public List<Summary> generateProviderSummary(Item item, List<Summary> summaries, Provider provider, Client client) {
         Integer providerId = provider.getId();
         Optional<Summary> optionalSummary = this.getSummaryWithProviderWithId(summaries, providerId);
         if(optionalSummary.isPresent()) {
@@ -54,6 +59,7 @@ public class SummaryService {
         } else {
             Summary summary = new Summary();
             summary.setProvider(provider);
+            summary.setClient(client);
             summary.addItem(item);
             summaries.add(summary);
             provider.addSummary(summary);
@@ -76,13 +82,15 @@ public class SummaryService {
         client.resetShoppingCart();
 
         this.saveSummary(summary);
+        // Send an email to client
+        this.sendMailService.sendMailToClient(summary);
 
         return summary;
     }
 
     public Summary generateAndSaveSummaries(Client client) {
         List<Item> items = new ArrayList<>(client.getShoppingCart().getItems());
-        this.generateProviderSummaries(items);
+        this.generateProviderSummaries(items, client);
         return this.generateClientSummary(items, client);
     }
 }

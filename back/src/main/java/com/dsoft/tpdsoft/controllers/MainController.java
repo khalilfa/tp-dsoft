@@ -2,6 +2,7 @@ package com.dsoft.tpdsoft.controllers;
 import com.dsoft.tpdsoft.model.Menu;
 import com.dsoft.tpdsoft.services.MainService;
 import com.dsoft.tpdsoft.services.MenuService;
+import com.dsoft.tpdsoft.services.SendMailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -9,7 +10,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET})
@@ -21,6 +21,9 @@ public class MainController {
 
     @Autowired
     private MainService mainService;
+
+    @Autowired
+    private SendMailService sendMailService;
 
     @GetMapping("/")
     public String index() {
