@@ -80,6 +80,9 @@ const resources = {
       'Vegan':'Vegano',
       'Ice cream':'Helado',
       'Categories':'Categorías',
+      'By category':'Por categoría',
+      'Beer':'Cerveza',
+      'Hamburguer':'Hambuerguesa'
     },
   },
 };

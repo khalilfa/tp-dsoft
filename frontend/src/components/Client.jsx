@@ -72,11 +72,11 @@ export default class Client extends React.Component {
     const { menus, pageable, page } = this.state;
     
     return (
-      <Grid container className="wrapperClient">
-        <Grid className="leftClient" item xs={3}>
-          <FilterSide t={t} />
+      <Grid container>
+        <Grid item xs={3}>
+          <FilterSide t={t} menus={this.state.menus}/>
         </Grid>
-        <Grid item className="rightClient" xs={9}>
+        <Grid item xs={9}>
           <MenuListSide t={t} menus={this.state.menus} />
           <div className="pagination">
             <Pagination  {...pageable} page={page} getMenus={this.getMenus} />
