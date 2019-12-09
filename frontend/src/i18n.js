@@ -82,7 +82,8 @@ const resources = {
       'Categories':'Categorías',
       'By category':'Por categoría',
       'Beer':'Cerveza',
-      'Hamburguer':'Hambuerguesa'
+      'Hamburguer':'Hambuerguesa',
+      'By min/max price':'Por min/max precio'
     },
   },
 };

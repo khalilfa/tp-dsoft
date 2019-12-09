@@ -23,13 +23,14 @@ const useStyles = makeStyles({
     }
 })
 
-export default function FilterByCategory( {t}){
+export default function FilterByCategory( {t,filterByCategory}){
 
     const classes = useStyles();
-    const [category,setCategory] = React.useState('');
+    const [category,setCategory] = React.useState('Vegan');
                 
     const handleChange = event =>{
         setCategory(event.target.value);
+        filterByCategory();
     }
 
     return (

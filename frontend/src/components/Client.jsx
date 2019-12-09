@@ -1,16 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
 import '../css/client.css';
-import configButton from '../resources/config-button.png';
-import pizzaIcon from '../resources/pizza-icon.png';
-import beerIcon from '../resources/beer-icon.png';
-import sushiIcon from '../resources/sushi-icon.png';
-import empanadaIcon from '../resources/empanada-icon.png';
-import hamburguerIcon from '../resources/hamburguer-icon.png';
-import icecreamIcon from '../resources/icecream-icon.png';
-import sushiVeganIcon from '../resources/sushi-vegan-icon.png';
-import shoppingCartIcon from '../resources/shopping-cart-icon.svg';
-import MenuRow from './MenuRow';
 import Pagination from './Pagination';
 import FilterSide from './FilterSide';
 import Grid from '@material-ui/core/Grid';
@@ -70,7 +60,7 @@ export default class Client extends React.Component {
   render() {
     const { t } = this.props;
     const { menus, pageable, page } = this.state;
-    
+
     return (
       <Grid container>
         <Grid item xs={3}>
