@@ -8,7 +8,6 @@ import Select from '@material-ui/core/Select';
 import { FormControl, InputLabel, MenuItem } from '@material-ui/core';
 import LogoViandasYa from '../resources/fork.png';
 import LanguageButton from './LanguageButton';
-// import UserIcon from '../resources/user.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {

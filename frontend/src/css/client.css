@@ -52,13 +52,6 @@
     background-color: #f4f4f4;
 }
 
-.menu-row {
-    color: black;
-    background-color: #DBDBDB;
-    border-radius: 1000px;
-    border: 2px solid grey;
-    margin: 4px;
-}
 
 .buy-icon {
     width: 30px;
@@ -82,4 +75,16 @@
 
  .MuiSwitch-colorPrimary{
      color: #dd22dd;
+ }
+
+ .pagination {
+     display: block;
+     margin:auto;
+     text-align: center;
+    
+ }
+ 
+ .categorySelect {
+    margin-top: -20;
+    width: 150;
  }
