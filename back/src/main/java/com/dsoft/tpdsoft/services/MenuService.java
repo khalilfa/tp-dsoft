@@ -11,8 +11,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class MenuService {
     @Autowired
@@ -38,15 +36,25 @@ public class MenuService {
             throw new NotFoundException("Could not get the menus");
         }
     }
-    public List<Menu> getByCategory(String category) {
+    public Page<Menu> getByCategory(String category, Pageable pageable) {
         try {
             Category newCategory = Category.valueOf(category);
-            List<Menu> menus = this.menuRepository.findAllByCategories(newCategory);
+            Page<Menu> menus = this.menuRepository.findAllByCategories(newCategory, pageable);
             return menus;
         } catch (Exception e) {
             throw new NotFoundException("Could not get the menus with categories: " + category, e);
         }
     }
+
+    public Page<Menu> getByNameAndDescription(String filter, Pageable pageable) {
+        try {
+            Page<Menu> menus = this.menuRepository.findByNameContainingOrDescriptionContaining(filter, filter, pageable);
+            return menus;
+        } catch (Exception e) {
+            throw new NotFoundException("Could not get the menus with name: " + filter, e);
+        }
+    }
+
     public Menu getMenu(Integer id) {
         try {
             Menu menu = this.menuRepository.findById(id).get();

@@ -37,9 +37,23 @@ public class MainController {
         return ResponseEntity.of(Optional.of(menus));
     }
 
-    @GetMapping("/menus/filter")
-    public ResponseEntity<List<Menu>> getMenusByCategories(@RequestParam(name = "category") String category) {
-        List<Menu> menus = this.menuService.getByCategory(category);
+    @GetMapping("/menus/filter/category")
+    public ResponseEntity<Page<Menu>> getMenusByCategories(
+            @RequestParam(name = "category") String category,
+            @RequestParam(name = "page", defaultValue = "0") Integer page,
+            @RequestParam(name = "elements", defaultValue = "5") Integer elements) {
+        Pageable pageRequest = PageRequest.of(page, elements);
+        Page<Menu> menus = this.menuService.getByCategory(category, pageRequest);
+        return ResponseEntity.of(Optional.of(menus));
+    }
+
+    @GetMapping("menus/filter")
+    public ResponseEntity<Page<Menu>> getMenusByNameAndDescription(
+            @RequestParam(name = "filter") String filter,
+            @RequestParam(name = "page", defaultValue = "0") Integer page,
+            @RequestParam(name = "elements", defaultValue = "5") Integer elements) {
+        Pageable pageRequest = PageRequest.of(page, elements);
+        Page<Menu> menus = this.menuService.getByNameAndDescription(filter, pageRequest);
         return ResponseEntity.of(Optional.of(menus));
     }
 
