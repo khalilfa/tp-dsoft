@@ -54,7 +54,7 @@ export default function MenuRow({ name, description, price }){
           <img className={classes.menuImage} src={MockMenuImage} alt="mockMenuimage" />
           <Grid container >
           <Grid item xs={6}>
-            <ListItemText primary={NameDescriptionBlock({name, description})} />
+            <NameDescriptionBlock name={name} description={description}/>
           </Grid>
           <Grid item xs={4}>
             <ListItemText>$ {price}</ListItemText>
