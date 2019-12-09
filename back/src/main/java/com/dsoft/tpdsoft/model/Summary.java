@@ -30,13 +30,9 @@ public class Summary {
     @JoinColumn(name = "summary_id")
     private List<Item> items;
 
-    @PrePersist
-    public void prePersist() {
-        this.createAt = new Date();
-    }
-
     public Summary() {
         this.items = new ArrayList<>();
+        this.createAt = new Date();
     }
 
     public Integer getId() {
