@@ -21,17 +21,17 @@ const useStyles = makeStyles({
         width: 30,
         marginLeft: 5
     }
-})
+});
 
 export default function FilterByCategory( {t,filterByCategory}){
 
     const classes = useStyles();
     const [category,setCategory] = React.useState('Vegan');
                 
-    const handleChange = event =>{
+    const handleChange = event => {
         setCategory(event.target.value);
         filterByCategory();
-    }
+    };
 
     return (
         <FormControl className={classes.select}>

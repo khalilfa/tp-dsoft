@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import MockMenuImage from '../resources/pizzaMenuImage.jpg';
 import Grid from '@material-ui/core/Grid';
 
-const useStyles = makeStyles(theme =>({
+const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.paper,
     height: 100,
@@ -32,7 +32,17 @@ const useStyles = makeStyles(theme =>({
   },
 }));
 
+function NameDescriptionBlock( {name, description} ){
 
+  const classes = useStyles();
+  return (
+    <div className={classes.boxNameDesc}>
+      <p className={classes.menuName}>{name}</p>
+      <p className={classes.menuDescription}>{description}</p>
+    </div>
+  );
+  
+}
 
 export default function MenuRow({ name, description, price }){
 
@@ -59,17 +69,7 @@ export default function MenuRow({ name, description, price }){
   );
 }
 
-function NameDescriptionBlock( {name, description} ){
 
-  const classes = useStyles();
-  return (
-    <div className={classes.boxNameDesc}>
-      <p className={classes.menuName}>{name}</p>
-      <p className={classes.menuDescription}>{description}</p>
-    </div>
-  );
-  
-}
 /**
  *     <h3 className="col-md-2 align-self-center">{name}</h3>
     <h3 className="col-md-6 align-self-center">{description}</h3>

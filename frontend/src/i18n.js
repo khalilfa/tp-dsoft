@@ -79,7 +79,6 @@ const resources = {
       'Show menus on map':'Mostrar menus en mapa',
       'Vegan':'Vegano',
       'Ice cream':'Helado',
-      'Categories':'Categorías',
       'By category':'Por categoría',
       'Beer':'Cerveza',
       'Hamburguer':'Hambuerguesa',

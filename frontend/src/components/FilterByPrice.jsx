@@ -7,16 +7,16 @@ import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles({
 
-})
+});
 export default function FilterByPrice({t,filterByPrice}){
 
     const classes = useStyles();
     const [category,setCategory] = React.useState('Min');
                 
-    const handleChange = event =>{
+    const handleChange = event => {
         setCategory(event.target.value);
         /*{filterByPrice};*/
-    }
+    };
 
     return (
         <FormControl className={classes.select}>

@@ -8,7 +8,7 @@ const useStyles = makeStyles({
   button: {
     backgroundColor: "#fff",
   } 
-})
+});
 
 const Pagination = ({ totalPages, page, getMenus }) => {
   const indexes = [];

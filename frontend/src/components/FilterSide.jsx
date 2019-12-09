@@ -10,7 +10,7 @@ const useStyles = makeStyles({
         marginTop: 20,
         marginLeft: 10,
     },
-})
+});
 
 function FilterSide({t}) {
     const classes = useStyles();    
