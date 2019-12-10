@@ -14,9 +14,7 @@ import java.util.List;
 @Table(name = "clients")
 public class Client {
     @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Integer id;
+    private String username;
 
     @NotBlank(message = "Name can´t be blank")
     @Column(name = "name")
@@ -47,6 +45,10 @@ public class Client {
     @JoinColumn
     private ShoppingCart shoppingCart;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn
+    private Provider provider;
+
     @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Summary> summaries;
@@ -57,7 +59,8 @@ public class Client {
         this.summaries = new ArrayList<>();
     }
 
-    public Client(String name, String lastName, String email, String address, String password) {
+    public Client(String username, String name, String lastName, String email, String address, String password) {
+        this.username = username;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
@@ -76,12 +79,20 @@ public class Client {
         this.credit -= credit;
     }
 
-    public Integer getId() {
-        return id;
+    public String getUsername() {
+        return username;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Provider getProvider() {
+        return provider;
+    }
+
+    public void setProvider(Provider provider) {
+        this.provider = provider;
     }
 
     public String getName() {

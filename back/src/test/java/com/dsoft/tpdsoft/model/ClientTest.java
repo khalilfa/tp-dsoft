@@ -11,8 +11,7 @@ public class ClientTest {
 
     @Before
     public void before() {
-        this.client = new Client("Pepe", "Argento", "pepe@gmail.com", "Buenos aires", "123456789");
-        this.client.setId(1);
+        this.client = new Client("pepito", "Pepe", "Argento", "pepe@gmail.com", "Buenos aires", "123456789");
     }
 
     @Test
@@ -24,7 +23,7 @@ public class ClientTest {
     // Getters and Setters
     @Test
     public void getters() {
-        assertEquals(this.client.getId(), Integer.valueOf(1));
+        assertEquals(this.client.getUsername(), "pepito");
         assertEquals(this.client.getName(), "Pepe");
         assertEquals(this.client.getLastName(), "Argento");
         assertEquals(this.client.getEmail(), "pepe@gmail.com");
@@ -34,9 +33,9 @@ public class ClientTest {
     }
 
     @Test
-    public void setId(){
-        this.client.setId(2);
-        assertEquals(this.client.getId(), new Integer(2));
+    public void setUsername(){
+        this.client.setUsername("pepito02");
+        assertEquals(this.client.getUsername(), "pepito02");
     }
 
     @Test

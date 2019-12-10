@@ -21,10 +21,19 @@ public class MainService {
 
     public void loadData() {
         // GENERATE A CLIENT
-        Client client = new Client("Juan", "Perez", "facundokhalil@hotmail.com",
+        Client client = new Client("khalilfa", "Juan", "Perez", "facundokhalil@hotmail.com",
                 "Las heras 324", "nombrecomun123");
 
         client.addCredit(500.0);
+
+        Client clientProvider1 = new Client("provider1", "Juan", "Perez", "facundokhalil@hotmail.com",
+                "Las heras 324", "nombrecomun123");
+
+        Client clientProvider2 = new Client("provider2", "Juan", "Perez", "facundokhalil@hotmail.com",
+                "Las heras 324", "nombrecomun123");
+
+        Client clientProvider3 = new Client("provider3", "Juan", "Perez", "facundokhalil@hotmail.com",
+                "Las heras 324", "nombrecomun123");
 
         // GENERATE PROVIDERS
         AttentionSchedule attentionSchedule = new AttentionSchedule(LocalTime.of(9, 30), LocalTime.of(22, 30));
@@ -51,9 +60,18 @@ public class MainService {
                 "wwww.antares.com", 800, "0541165853218",
                 "facundokhalil@hotmail.com");
 
-        Provider savedProvider1 = providerService.saveProvider(provider1);
-        Provider savedProvider2 = providerService.saveProvider(provider2);
-        Provider savedProvider3 = providerService.saveProvider(provider3);
+        clientProvider1.setProvider(provider1);
+        clientProvider2.setProvider(provider2);
+        clientProvider3.setProvider(provider3);
+
+        /*Persist clients*/
+        this.clientService.saveClient(clientProvider1);
+        this.clientService.saveClient(clientProvider2);
+        this.clientService.saveClient(clientProvider3);
+
+        Provider savedProvider1 = providerService.saveProvider(provider1, clientProvider1.getUsername());
+        Provider savedProvider2 = providerService.saveProvider(provider2, clientProvider2.getUsername());
+        Provider savedProvider3 = providerService.saveProvider(provider3, clientProvider3.getUsername());
 
         // GENERATE MENUS
         ArrayList<Category> pizzaCategory = new ArrayList<>();
@@ -177,6 +195,9 @@ public class MainService {
 
         // Persistence
         clientService.saveClient(client);
+        clientService.saveClient(clientProvider1);
+        clientService.saveClient(clientProvider2);
+        clientService.saveClient(clientProvider3);
 
         menuService.saveMenu(menu1);
         menuService.saveMenu(menu2);
@@ -192,8 +213,8 @@ public class MainService {
         menuService.saveMenu(menu12);
         menuService.saveMenu(menu13);
 
-        providerService.saveProvider(savedProvider1);
-        providerService.saveProvider(savedProvider2);
-        providerService.saveProvider(savedProvider3);
+        providerService.updateProvider(savedProvider1, savedProvider1.getId());
+        providerService.updateProvider(savedProvider2, savedProvider2.getId());
+        providerService.updateProvider(savedProvider3, savedProvider3.getId());
     }
 }

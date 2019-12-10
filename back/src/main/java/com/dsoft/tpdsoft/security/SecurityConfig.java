@@ -8,13 +8,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.oauth2.core.DelegatingOAuth2TokenValidator;
 import org.springframework.security.oauth2.core.OAuth2TokenValidator;
 import org.springframework.security.oauth2.jwt.*;
+import org.springframework.stereotype.Component;
 
 @EnableWebSecurity
+@Component
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http.csrf().disable().authorizeRequests()
+                .mvcMatchers("/").permitAll()
+                .mvcMatchers("/load-data").permitAll()
                 .mvcMatchers("/menus").authenticated()
                 .mvcMatchers("/menus/filter/category").authenticated()
                 .mvcMatchers("/menus/filter").authenticated()

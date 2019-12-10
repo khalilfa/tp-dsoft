@@ -21,6 +21,9 @@ public class SummaryService {
     @Autowired
     private SendMailService sendMailService;
 
+    @Autowired
+    private ClientService clientService;
+
     public Summary saveSummary(Summary summary) {
         try {
             Summary savedSummary = this.summaryRepository.save(summary);
@@ -43,7 +46,7 @@ public class SummaryService {
         summaries.forEach(summary ->{
             Provider provider = summary.getProvider();
             provider.setCredit(provider.getCredit() + summary.getTotal());
-            this.providerService.saveProvider(summary.getProvider());
+            this.providerService.updateProvider(provider, provider.getId());
             // Send an email to a provider
             this.sendMailService.sendMailToProvider(summary);
         });
@@ -81,7 +84,7 @@ public class SummaryService {
         client.addSummary(summary);
         client.resetShoppingCart();
 
-        this.saveSummary(summary);
+        this.clientService.updateClient(client.getUsername(), client);
         // Send an email to client
         this.sendMailService.sendMailToClient(summary);
 

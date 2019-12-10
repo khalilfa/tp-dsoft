@@ -26,21 +26,25 @@ public class ClientService {
 
     public Client saveClient(Client client) {
         try {
-            Client savedClient = this.clientRepository.save(client);
-            return savedClient;
+            if (this.clientRepository.existsById(client.getUsername())){
+               return null;
+            } else {
+                Client savedClient = this.clientRepository.save(client);
+                return savedClient;
+            }
         } catch (Exception e) {
             throw new StorageException("Could not save the client: " + client.getName(), e);
         }
     }
 
-    public Client getClient(Integer id) {
+    public Client getClient(String id) {
         return this.clientRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Could not get a client with id: " + id));
     }
 
-    public Client updateClient(Integer id, Client client) {
+    public Client updateClient(String username, Client client) {
         try {
-            client.setId(id);
+            client.setUsername(username);
             Client savedClient = this.clientRepository.save(client);
             return savedClient;
         } catch (Exception e) {
@@ -48,14 +52,14 @@ public class ClientService {
         }
     }
 
-    public Client addCredit(Integer id, Double credit) {
-        Client client = this.getClient(id);
+    public Client addCredit(String username, Double credit) {
+        Client client = this.getClient(username);
         client.addCredit(credit);
-        return this.saveClient(client);
+        return this.updateClient(username, client);
     }
 
-    public Client addItemToCart(Integer clientId, Integer menuId, Integer menuQ) {
-        Client client = this.getClient(clientId);
+    public Client addItemToCart(String clientUsername, Integer menuId, Integer menuQ) {
+        Client client = this.getClient(clientUsername);
         Menu menu = this.menuService.getMenu(menuId);
 
         if (client.hasItemWithItem(menu)) {
@@ -66,33 +70,33 @@ public class ClientService {
             client.addItemToCart(newItem);
         }
 
-        return this.saveClient(client);
+        return this.updateClient(clientUsername, client);
     }
 
-    public ShoppingCart getCart(Integer id) {
-        Client client = this.getClient(id);
+    public ShoppingCart getCart(String username) {
+        Client client = this.getClient(username);
         return client.getShoppingCart();
     }
 
-    public ShoppingCart deleteItem(Integer clientId, Integer itemId) {
+    public ShoppingCart deleteItem(String username, Integer itemId) {
         this.itemService.deleteItem(itemId);
-        Client client = this.getClient(clientId);
+        Client client = this.getClient(username);
         return client.getShoppingCart();
     }
 
-    public ShoppingCart updateItemQuantity(Integer clientId, Integer itemId, Integer itemQ) {
+    public ShoppingCart updateItemQuantity(String username, Integer itemId, Integer itemQ) {
         this.itemService.updateItemQuantity(itemId, itemQ);
-        Client client = this.getClient(clientId);
+        Client client = this.getClient(username);
         return client.getShoppingCart();
     }
 
-    public List<Summary> getSummaries(Integer id) {
-        Client client = this.getClient(id);
+    public List<Summary> getSummaries(String username) {
+        Client client = this.getClient(username);
         return client.getSummaries();
     }
 
-    public Optional<Summary> buyItems(Integer clientId) {
-        Client client = this.getClient(clientId);
+    public Optional<Summary> buyItems(String username) {
+        Client client = this.getClient(username);
         Optional<Summary> optionalSummary = Optional.empty();
         if(client.getCredit() >= client.getShoppingCart().getTotal()) {
             client.setCredit(client.getCredit() - client.getShoppingCart().getTotal());

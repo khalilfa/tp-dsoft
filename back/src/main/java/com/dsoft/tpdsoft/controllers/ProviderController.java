@@ -32,8 +32,9 @@ public class ProviderController {
     // ----- PROVIDER OPTIONS ----
 
     @PostMapping
-    public ResponseEntity<Provider> createProvider(@RequestBody Provider provider) {
-        Provider savedProvider = this.providerService.saveProvider(provider);
+    public ResponseEntity<Provider> createProvider(@RequestBody Provider provider,
+                                                   @RequestParam(name = "username", required = true) String username) {
+        Provider savedProvider = this.providerService.saveProvider(provider, username);
 
         return ResponseEntity.of(Optional.of(savedProvider));
     }
@@ -134,7 +135,7 @@ public class ProviderController {
         Integer scheduleId = provider.getSchedule().getId();
         schedule.setId(scheduleId);
         provider.setSchedule(schedule);
-        providerService.saveProvider(provider);
+        providerService.updateProvider(provider, id);
 
         return ResponseEntity.ok().build();
     }
