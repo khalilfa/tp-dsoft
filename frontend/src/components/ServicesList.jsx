@@ -13,35 +13,6 @@ import editButton from '../resources/edit-button.jpg';
 import deleteButton from '../resources/delete-button.png';
 import CreateMenu from './CreateMenu';
 
-const ServicesList = ({ menuList, deleteMenu, updateMenu, t }) => {
-  const list = menuList
-    ? (
-      <div className="menus-container col">
-        <div className="menu-edit-column row">
-          <div className="menu-column-title col-sm-3">{t('Name')}:</div>
-          <div className="menu-column-title col-sm-3">{t('Price')}:</div>
-          <div className="menu-column-title col-sm-3">{t('Max')}:</div>
-          <div className="menu-column-title col-sm-3">{t('Options')}:</div>
-        </div>
-        {menuList.map((individualMenu, key) => (
-          <MenuEditRow
-            t={t}
-            individualMenu={individualMenu}
-            key={key}
-            keyId={key}
-            deleteMenu={deleteMenu}
-            updateMenu={updateMenu}
-          />
-        ))}
-      </div>
-    )
-    : <h1>{t('Loading')}...</h1>;
-  return list;
-};
-
-
-export  {ServicesList};
-
 const useStyles = makeStyles({
     root: {
       width: '100%',
@@ -58,7 +29,7 @@ const useStyles = makeStyles({
     }
 })
 
-const ServicesListBis =({menuList, deleteMenu, updateMenu, t }) =>{
+const ServicesList =({menuList, deleteMenu, updateMenu, t }) =>{
   const classes = useStyles();
   const list = menuList
   ? (
@@ -115,4 +86,4 @@ const ServicesListBis =({menuList, deleteMenu, updateMenu, t }) =>{
     return list;
 }
 
-export {ServicesListBis};
+export default ServicesList;
