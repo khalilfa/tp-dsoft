@@ -11,7 +11,6 @@ import Bill from './components/Bill';
 import CreateProvider from './components/CreateProvider';
 import LanguageButton from './components/LanguageButton';
 import Client from './components/Client';
-import SimpleSelect from './components/SimpleSelect';
 import Profile from './components/Profile';
 import history from './utils/history';
 import PrivateRoute from './components/PrivateRoute';

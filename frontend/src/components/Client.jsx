@@ -24,20 +24,16 @@ import FilterSide from './FilterSide';
 export default class Client extends React.Component {
   constructor(props) {
     super(props);
-    const { t } = this.props;
+    const { state } = this.props.location;
     this.state = {
-      filters: [
-        t('Max price'),
-        t('Min price'),
-      ],
       filter: undefined,
       pageable: undefined,
       menus: [],
       page: 0,
       client: {
-        name: this.props.name,
+        name: state.name,
         lastName: this.props.lastName,
-        email: this.props.email,
+        email: state.email,
         address: this.props.address,
         password: this.props.password,
         credit: this.props.credit,
