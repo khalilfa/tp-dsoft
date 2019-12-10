@@ -15,9 +15,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .mvcMatchers("/public").permitAll()
-                .mvcMatchers("/private").authenticated()
-                .mvcMatchers("/private-scoped").hasAuthority("SCOPE_read:messages")
+                .mvcMatchers("/menus").authenticated()
+                .mvcMatchers("/menus/filter/category").authenticated()
+                .mvcMatchers("/menus/filter").authenticated()
+                .mvcMatchers("/client/").authenticated()
+                .mvcMatchers("/client/{id}").authenticated()
+                .mvcMatchers("/client/{id}/cart").authenticated()
+                .mvcMatchers("/client/{clientId}/cart").authenticated()
+                .mvcMatchers("/client/{id}/credit/{credit}").authenticated()
+                .mvcMatchers("/client/{id}/buy").authenticated()
+                .mvcMatchers("/client/{id}/summaries").authenticated()
+                .mvcMatchers("/provider/{id}/logo").authenticated()
+                .mvcMatchers("/provider/{id}").authenticated()
+                .mvcMatchers("/provider/{id}/menu").authenticated()
+                .mvcMatchers("/provider/{idProvider}/menu/{idMenu}").authenticated()
+                .mvcMatchers("/provider/{id}/schedule").authenticated()
+                .mvcMatchers("/provider/{id}/credit/{credit}").authenticated()
+                .mvcMatchers("/provider/{id}/summaries").authenticated()
                 .and()
                 .oauth2ResourceServer().jwt();
     }

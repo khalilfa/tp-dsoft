@@ -4,7 +4,6 @@ import com.dsoft.tpdsoft.model.Client;
 import com.dsoft.tpdsoft.model.ShoppingCart;
 import com.dsoft.tpdsoft.model.Summary;
 import com.dsoft.tpdsoft.services.ClientService;
-import com.dsoft.tpdsoft.services.SummaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +19,6 @@ import java.util.Optional;
 public class ClientController {
     @Autowired
     private ClientService clientService;
-
-    @Autowired
-    private SummaryService summaryService;
 
     public ClientController(ClientService service) {
         this.clientService = service;

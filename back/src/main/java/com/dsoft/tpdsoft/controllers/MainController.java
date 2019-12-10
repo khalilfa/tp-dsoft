@@ -1,9 +1,7 @@
 package com.dsoft.tpdsoft.controllers;
 import com.dsoft.tpdsoft.model.Menu;
-import com.dsoft.tpdsoft.model.Message;
 import com.dsoft.tpdsoft.services.MainService;
 import com.dsoft.tpdsoft.services.MenuService;
-import com.dsoft.tpdsoft.services.SendMailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,9 +20,6 @@ public class MainController {
 
     @Autowired
     private MainService mainService;
-
-    @Autowired
-    private SendMailService sendMailService;
 
     @GetMapping("/")
     public String index() {
@@ -64,22 +59,5 @@ public class MainController {
     @PostMapping("/load-data")
     public void loadData() {
         this.mainService.loadData();
-    }
-
-
-    // ----------------- PRUEBA AUTH0 ----------------------
-    @GetMapping(value = "/public")
-    public Message publicEndpoint() {
-        return new Message("All good. You DO NOT need to be authenticated to call /api/public.");
-    }
-
-    @GetMapping(value = "/private")
-    public Message privateEndpoint() {
-        return new Message("All good. You can see this because you are Authenticated.");
-    }
-
-    @GetMapping(value = "/private-scoped")
-    public Message privateScopedEndpoint() {
-        return new Message("All good. You can see this because you are Authenticated with a Token granted the 'read:messages' scope");
     }
 }
