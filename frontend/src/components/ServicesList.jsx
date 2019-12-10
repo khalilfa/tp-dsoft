@@ -8,6 +8,10 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Popup from 'reactjs-popup';
+import editButton from '../resources/edit-button.jpg';
+import deleteButton from '../resources/delete-button.png';
+import CreateMenu from './CreateMenu';
 
 const ServicesList = ({ menuList, deleteMenu, updateMenu, t }) => {
   const list = menuList
@@ -46,6 +50,12 @@ const useStyles = makeStyles({
     table: {
       minWidth: 650,
     },
+    nameRow:{
+      width: "50%",
+    },
+    nameRow:{
+      width: "25%",
+    }
 })
 
 const ServicesListBis =({menuList, deleteMenu, updateMenu, t }) =>{
@@ -56,19 +66,45 @@ const ServicesListBis =({menuList, deleteMenu, updateMenu, t }) =>{
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>{t('Name')}:</TableCell>
-            <TableCell align="right">{t('Price')}:</TableCell>
-            <TableCell align="right">{t('Max')}:</TableCell>
-            <TableCell align="right">{t('Options')}:</TableCell>
+            <TableCell className={classes.nameRow} >{t('Name')}:</TableCell>
+            <TableCell className={classes.nameRow} >{t('Price')}:</TableCell>
+            <TableCell className={classes.nameRow} >{t('Max')}:</TableCell>
+            <TableCell className={classes.nameRow} >{t('Options')}:</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {menuList.map(menu => (
-            <TableRow>
-              <TableCell>{menu.name}</TableCell>
+            <TableRow key={menu.name}>
+              <TableCell component="th" scope="name">{menu.name}</TableCell>
               <TableCell>{menu.price}</TableCell>
               <TableCell>{menu.maxSales}</TableCell>
-              <TableCell>foo</TableCell>
+              <TableCell>
+                <div className="menu-column-value col-sm-3">
+                  <input
+                    type="image"
+                    className="button"
+                    src={deleteButton}
+                    alt="delete button"
+                    onClick={() => deleteMenu(menu.id)}
+                  />
+                  <Popup
+                    modal
+                    trigger={(
+                      <input type="image" className="button" src={editButton} alt="edit button" />
+                      )}
+                  >
+                    {(close) => (
+                      <CreateMenu
+                        t={t}
+                        close={close}
+                        idMenu={menu.id}
+                        updateMenu={updateMenu}
+                        {...menu}
+                      />
+                    )}
+                  </Popup>
+                </div>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

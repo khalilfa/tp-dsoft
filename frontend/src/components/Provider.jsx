@@ -75,7 +75,7 @@ export default class Provider extends React.Component {
           <Popup
             modal
             trigger={(
-              <Button style={{backgroundColor: "#58e0a5"}} type="button" className="new-menu-button">
+              <Button style={{backgroundColor: "#fff"}} type="button" className="new-menu-button">
                 +
               </Button>
             )}

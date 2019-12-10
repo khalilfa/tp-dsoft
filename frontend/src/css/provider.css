@@ -1,9 +1,9 @@
 body{
-    background-color: #fff;
+    background-color: #e8e8e8;
 }
 
 .provider-view {
-    background-color: #fff;
+    background-color: #e8e8e8;
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 15px;
@@ -33,11 +33,6 @@ body{
 }
 
 .menu-column-value {
-    border-bottom: solid black;
-    border-bottom-width: 1px;
-    border-right: solid black;
-    border-right-width: 1px;
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,7 +76,8 @@ body{
 .new-menu-button {
     width: 80px;
     height: 40px;
-    margin-right: 10px;
+    margin-left: 25px;
     margin-top: 5px;
     background-color: #58e0a5;
+    border: 1px solid black;
 }
