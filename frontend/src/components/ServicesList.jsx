@@ -21,15 +21,12 @@ const useStyles = makeStyles({
     table: {
       minWidth: 650,
     },
-    nameRow:{
-      width: "50%",
-    },
-    nameRow:{
+    row:{
       width: "25%",
     }
-})
+});
 
-const ServicesList =({menuList, deleteMenu, updateMenu, t }) =>{
+const ServicesList = ({menuList, deleteMenu, updateMenu, t }) => {
   const classes = useStyles();
   const list = menuList
   ? (
@@ -37,10 +34,10 @@ const ServicesList =({menuList, deleteMenu, updateMenu, t }) =>{
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell className={classes.nameRow} >{t('Name')}:</TableCell>
-            <TableCell className={classes.nameRow} >{t('Price')}:</TableCell>
-            <TableCell className={classes.nameRow} >{t('Max')}:</TableCell>
-            <TableCell className={classes.nameRow} >{t('Options')}:</TableCell>
+            <TableCell className={classes.row} >{t('Name')}:</TableCell>
+            <TableCell className={classes.row} >{t('Price')}:</TableCell>
+            <TableCell className={classes.row} >{t('Max')}:</TableCell>
+            <TableCell className={classes.row} >{t('Options')}:</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -84,6 +81,6 @@ const ServicesList =({menuList, deleteMenu, updateMenu, t }) =>{
     ):
       <h1>{t('Loading')}...</h1>;
     return list;
-}
+};
 
 export default ServicesList;
