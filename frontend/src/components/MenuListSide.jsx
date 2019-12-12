@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 import MenuRow from './MenuRow';
 import List from '@material-ui/core/List';
-import Axios from 'axios';
-import Pagination from './Pagination';
 
 const useStyles = makeStyles({
     wrapper: {

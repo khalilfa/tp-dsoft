@@ -60,10 +60,10 @@ export default class Client extends React.Component {
     return (
       <Grid container>
         <Grid item xs={3}>
-          <FilterSide t={t} menus={this.state.menus}/>
+          <FilterSide t={t} menus={menus}/>
         </Grid>
         <Grid item xs={9}>
-          <MenuListSide t={t} menus={this.state.menus} />
+          <MenuListSide t={t} menus={menus} />
           <div className="pagination">
             <Pagination  {...pageable} page={page} getMenus={this.getMenus} />
           </div>

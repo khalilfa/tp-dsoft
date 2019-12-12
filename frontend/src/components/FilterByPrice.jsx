@@ -11,12 +11,7 @@ const useStyles = makeStyles({
 export default function FilterByPrice({t,filterByPrice}){
 
     const classes = useStyles();
-    const [category,setCategory] = React.useState('Min');
-                
-    const handleChange = event => {
-        setCategory(event.target.value);
-        /*{filterByPrice};*/
-    };
+    const [category] = React.useState('Min');
 
     return (
         <FormControl className={classes.select}>

@@ -40,13 +40,13 @@ export default function FilterByCategory( {t,filterByCategory}){
                 value={category}
                 onChange={(e) => handleChange(e)}
             >
-                    <MenuItem value="Vegan">{t("Vegan")}<img className={classes.img} src={veganIcon} /></MenuItem>
-                    <MenuItem value="Sushi">Sushi<img className={classes.img} src={sushiIcon} /></MenuItem>
-                    <MenuItem value="Pizza">Pizza<img className={classes.img} src={pizzaIcon} /></MenuItem>
-                    <MenuItem value="Empanada">Empanada<img className={classes.img} src={empanadaIcon} /></MenuItem>
-                    <MenuItem value="Ice Cream">{t("Ice cream")}<img className={classes.img} src={icecreamIcon} /></MenuItem>
-                    <MenuItem value="Beer">{t("Beer")}<img className={classes.img} src={beerIcon} /></MenuItem>
-                    <MenuItem value="Hambuerguer">{t("Hamburguer")}<img className={classes.img} src={hamburguerIcon} /></MenuItem>
+                    <MenuItem value="Vegan">{t("Vegan")}<img className={classes.img} src={veganIcon} alt="Sushi vegan" /></MenuItem>
+                    <MenuItem value="Sushi">Sushi<img className={classes.img} src={sushiIcon} alt="Sushi" /></MenuItem>
+                    <MenuItem value="Pizza">Pizza<img className={classes.img} src={pizzaIcon} alt="Pizza" /></MenuItem>
+                    <MenuItem value="Empanada">Empanada<img className={classes.img} src={empanadaIcon} alt="Empanada" /></MenuItem>
+                    <MenuItem value="Ice Cream">{t("Ice cream")}<img className={classes.img} src={icecreamIcon} alt="Ice-cream" /></MenuItem>
+                    <MenuItem value="Beer">{t("Beer")}<img className={classes.img} src={beerIcon} alt="Beer" /></MenuItem>
+                    <MenuItem value="Hambuerguer">{t("Hamburguer")}<img className={classes.img} src={hamburguerIcon} alt="Hamburguer" /></MenuItem>
             </Select>
         </FormControl>
     );

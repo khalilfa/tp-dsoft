@@ -1,5 +1,4 @@
 import React from 'react';
-import MenuEditRow from './MenuEditRow';
 import '../css/provider.css';
 import { makeStyles } from '@material-ui/core';
 import Table from '@material-ui/core/Table';
