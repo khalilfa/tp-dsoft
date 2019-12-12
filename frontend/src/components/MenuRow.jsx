@@ -60,7 +60,7 @@ export default function MenuRow({ name, description, price }){
             <ListItemText>$ {price}</ListItemText>
           </Grid>
           <Grid item xs={2}>
-              <img className={classes.shoppingCartIcon} src={ShoppingCartIcon}/>
+              <img className={classes.shoppingCartIcon} src={ShoppingCartIcon} alt="Shopping cart"/>
           </Grid>
         </Grid>
       </ListItem>

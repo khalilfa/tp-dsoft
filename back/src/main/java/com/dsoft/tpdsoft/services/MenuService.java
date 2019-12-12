@@ -70,7 +70,7 @@ public class MenuService {
             Menu menu = this.getMenu(idMenu);
             provider.deleteMenu(menu);
 
-            return this.providerService.saveProvider(provider);
+            return this.providerService.updateProvider(provider, idProvider);
         } catch (Exception ex) {
             throw new NotFoundException("Could not delete the menu with id: " + idMenu, ex);
         }

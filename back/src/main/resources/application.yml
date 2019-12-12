@@ -1,0 +1,8 @@
+auth0:
+  audience: https://tp-dsoft/
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://tp-dsoft.auth0.com/

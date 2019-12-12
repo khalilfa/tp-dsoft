@@ -2,10 +2,7 @@ package com.dsoft.tpdsoft.services;
 
 import com.dsoft.tpdsoft.exceptions.NotFoundException;
 import com.dsoft.tpdsoft.exceptions.StorageException;
-import com.dsoft.tpdsoft.model.AttentionSchedule;
-import com.dsoft.tpdsoft.model.File;
-import com.dsoft.tpdsoft.model.Provider;
-import com.dsoft.tpdsoft.model.Summary;
+import com.dsoft.tpdsoft.model.*;
 import com.dsoft.tpdsoft.repositories.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +13,9 @@ import java.util.List;
 public class ProviderService {
     @Autowired
     private ProviderRepository providerRepository;
+
+    @Autowired
+    private ClientService clientService;
 
     public Provider saveProvider(Provider provider, File logo, AttentionSchedule schedule) {
         try {
@@ -28,9 +28,11 @@ public class ProviderService {
         }
     }
 
-    public Provider saveProvider(Provider provider) {
+    public Provider saveProvider(Provider provider, String username) {
         try {
+            Client client = this.clientService.getClient(username);
             Provider savedProvider = this.providerRepository.save(provider);
+            client.setProvider(savedProvider);
             return savedProvider;
         } catch (Exception ex) {
             throw new StorageException("Could not save the provider: " + provider.getName(), ex);
