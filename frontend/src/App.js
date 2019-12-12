@@ -2,7 +2,6 @@ import React from 'react';
 import { withTranslation } from 'react-i18next';
 import { Router, Route, Switch } from 'react-router-dom';
 import Index from './components/Index';
-import NavBar from './components/NavBar';
 import { useAuth0 } from './react-auth0-spa';
 import Register from './components/Register';
 import Maps from './components/Maps';
@@ -14,21 +13,24 @@ import Client from './components/Client';
 import Profile from './components/Profile';
 import history from './utils/history';
 import PrivateRoute from './components/PrivateRoute';
+import NavBar from './components/NavBar';
 
 
 function App({ t }) {
-  const { loading } = useAuth0();
+  const { loading, isAuthenticated } = useAuth0();
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
+  const navBar = isAuthenticated ? <NavBar /> : null;
+
   return (
-    <div>
+    <div className="container">
       <Router history={history}>
-        <header>
+        <header className="row">
           <LanguageButton />
-          <NavBar />
+          { navBar }
         </header>
 
         <Switch>

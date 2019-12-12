@@ -1,8 +1,22 @@
 .language-menu {
-    background-color: white;
-    border: 1px solid black;
+    background: rgba(61, 61, 61, 0.7);
     border-radius: 3px;
-    margin-left: 20px;
+    color: white;
+    font-size: 17px !important;
+}
+
+.flag-option:hover {
+    background: rgba(103, 131, 78, 0.7) !important;
+}
+
+.arrow-down {
+    color: white !important;
+}
+
+.flag-options {
+    background: rgba(61, 61, 61, 0.9) !important;
+    border: 0px !important;
+    font-size: 17px !important;
 }
 
 .country-flag img {

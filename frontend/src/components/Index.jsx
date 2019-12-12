@@ -1,18 +1,16 @@
 import React from 'react';
-import '../css/indexGrid.css';
-import Grid from '@material-ui/core/Grid';
+import '../css/index.css';
 import Checked from '../resources/check-mark.png';
 import RightSideImg from '../resources/hamburger.png';
 import { useAuth0 } from '../react-auth0-spa';
-import Login from './Login';
 import history from '../utils/history';
 
 const CheckedIcon = () => (
   <span><img src={Checked} className="checkedIcon" alt="Check" /></span>
 );
 
-const Index = ({ t, onLogged }) => {
-  const { user } = useAuth0();
+const Index = ({ t }) => {
+  const { user, loginWithRedirect } = useAuth0();
 
   if (user) {
     history.push(`/client/${user.nickname}`, user);
@@ -20,21 +18,22 @@ const Index = ({ t, onLogged }) => {
 
 
   return (
-    <Grid container className="wrapper">
-      <Grid className="left" item xs={6}>
-
-        <Login t={t} onLogged={onLogged} />
-      </Grid>
-      <Grid className="right" item xs={6}>
-        <div className="textContainer">
-          <p><CheckedIcon />{t('Make your menu order and we will send it to you by delivery')}</p>
-          <p><CheckedIcon />{t('Search your menu by location, category or price you want')}</p>
-          <p><CheckedIcon />{t('We have a wide variety of beer, you know')}</p>
+    <div className="index-info row">
+      <h1 className="title col-12">ViandasYa</h1>
+      <div className="col-md-6 col-sm-12">
+        <p className="text-item"><CheckedIcon /> {t('Make your menu order and we will send it to you by delivery')}</p>
+        <p className="text-item"><CheckedIcon /> {t('Search your menu by location, category or price you want')}</p>
+        <p className="text-item"><CheckedIcon /> {t('We have a wide variety of beer, you know')}</p>
+      </div>
+      <div className="burger-img col-md-4 col-sm-12 offset-md-2">
+        <img src={RightSideImg} alt="hamburger" />
+      </div>
+      <div
+        className="login-button col-md-8 col-sm-12 offset-md-2"
+        onClick={() => loginWithRedirect({})}>
+          {t('Enter')}
         </div>
-        <img className="hamburgerImg" src={RightSideImg} alt="hamburger" />
-      </Grid>
-    </Grid>
+    </div>
   );
 };
-
 export default Index;
