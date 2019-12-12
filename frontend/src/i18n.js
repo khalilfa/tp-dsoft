@@ -76,7 +76,14 @@ const resources = {
       'User Rol':'Rol del usuario',
       'Client':'Cliente',
       'Sort menus by':'Ordenar menus por',
-      'Show menus on map':'Mostrar menus en mapa'
+      'Show menus on map':'Mostrar menus en mapa',
+      'Vegan':'Vegano',
+      'Ice cream':'Helado',
+      'By category':'Por categoría',
+      'Beer':'Cerveza',
+      'Hamburguer':'Hambuerguesa',
+      'By min/max price':'Por min/max precio',
+      'My menus for sale':'Mis menus en venta'
     },
   },
 };

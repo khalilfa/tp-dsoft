@@ -4,6 +4,8 @@ import Popup from 'reactjs-popup';
 import CreateMenu from './CreateMenu';
 import ServicesList from './ServicesList';
 import '../css/provider.css';
+import Button from '@material-ui/core/Button';
+
 
 export default class Provider extends React.Component {
   constructor(props) {
@@ -69,21 +71,20 @@ export default class Provider extends React.Component {
     return (
       <div className="provider-view">
         <div className="row">
-          <h1 className="provider-name col-md-11">{t('Provider')}</h1>
+          <h3 className="provider-name col-md-11">{t('My menus for sale')}</h3>
           <Popup
             modal
             trigger={(
-              <button type="button" className="new-menu-button">
+              <Button style={{backgroundColor: "#fff"}} type="button" className="new-menu-button">
                 +
-              </button>
+              </Button>
             )}
           >
             {(close) => <CreateMenu t={t} close={close} createMenu={this.createMenu} />}
           </Popup>
         </div>
-        <ServicesList
+        <ServicesList 
           t={t}
-          className="row"
           menuList={menuList}
           deleteMenu={this.deleteMenu}
           updateMenu={this.updateMenu}
