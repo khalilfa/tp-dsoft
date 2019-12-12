@@ -29,10 +29,6 @@ public class Provider {
 	@GeneratedValue
 	@Column(name = "id")
 	private Integer id;
-
-	@OneToOne(mappedBy = "provider", cascade = CascadeType.ALL)
-	@JsonIgnore
-	private Client client;
 	
 	@NotBlank(message="Name cant be blank")
 	@Column(name = "name")
