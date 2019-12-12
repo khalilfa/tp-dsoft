@@ -5,9 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-color: #e8e8e8;
+  background: url("./resources/background-image.jpg") no-repeat center center fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-color: #cccccc !important;
 }
 
 code {
