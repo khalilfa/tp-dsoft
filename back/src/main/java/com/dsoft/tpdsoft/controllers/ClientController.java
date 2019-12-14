@@ -24,6 +24,12 @@ public class ClientController {
         this.clientService = service;
     }
 
+    @GetMapping("/exist")
+    public Boolean addClient(@RequestParam(name = "email") String email) {
+        Boolean exist = this.clientService.existClient(email);
+        return exist;
+    }
+
     @PostMapping
     public ResponseEntity<Client> addClient(@Valid @RequestBody Client client) {
         Client savedClient = this.clientService.saveClient(client);

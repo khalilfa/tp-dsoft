@@ -24,6 +24,14 @@ public class ClientService {
     @Autowired
     private SummaryService summaryService;
 
+    public Boolean existClient(String email) {
+        try {
+            return this.clientRepository.existsById(email);
+        } catch (Exception e) {
+            throw new NotFoundException("Query failed: ", e);
+        }
+    }
+
     public Client saveClient(Client client) {
         try {
             if (this.clientRepository.existsById(client.getEmail())){
