@@ -42,20 +42,31 @@ export default class CartClient extends React.Component {
         return (
             <>
                 {isLoaded ?
-                    <Foo cart={cart}/> :
-                    // {cart.items.map( item => <p>{item.quantity}</p>)} :    
+                    <ItemPurchased cart={cart}/> :
                     <h1>loadinggg...</h1>
                 }
-
-
-                
             </>
         );
     }
 }
 
-const Foo = (props) => {
+const ItemPurchased = props => {
     return  <div>
-                {props.cart.items.map( item => <p>{item.quantity}</p>)}
+                {props.cart.items.map( item => <RowItemPurchases {...item}/>) }
             </div>
+}
+
+
+
+function RowItemPurchases({id,menu,quantity}) {
+    const { name, deliveryFrom, deliveryTo, price} = menu;
+    return (
+        <>
+            <p>{name}</p>
+            <p>{price}</p>
+            <p>{id}</p>
+            <p>{quantity}</p>
+        </>
+    )
+    
 }
