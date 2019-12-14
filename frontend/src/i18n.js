@@ -41,6 +41,7 @@ const resources = {
       Vegan: 'Vegano',
       Hamburguer: 'Hambuerguesa',
       Client: 'Cliente',
+      'Add to cart': 'Agregar al carro',
       'Name / Description': 'Nombre / Descripcion',
       'Max price': 'Precio max',
       'Min price': 'Precio min',

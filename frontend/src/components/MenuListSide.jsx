@@ -19,9 +19,9 @@ const useStyles = makeStyles({
   },
 });
 
-function MenuListSide({ menus, t }) {
+function MenuListSide({ menus, t, openMenu }) {
   const classes = useStyles();
-  const menuList = menus.map((menu, key) => <MenuRow key={key} {...menu} />);
+  const menuList = menus.map((menu, key) => <MenuRow key={key} menu={menu} openMenu={openMenu} />);
   const emptyMenus = <h3 className={`${classes.text} col-12`}>No existe ningun menu...</h3>;
 
   return (

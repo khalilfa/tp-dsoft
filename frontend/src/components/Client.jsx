@@ -4,6 +4,7 @@ import Axios from 'axios';
 import Pagination from './Pagination';
 import MenuListSide from './MenuListSide';
 import SimpleSelect from './SimpleSelect';
+import history from '../utils/history';
 
 export default class Client extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ export default class Client extends React.Component {
     this.handleChangeCategory = this.handleChangeCategory.bind(this);
     this.getMenus = this.getMenus.bind(this);
     this.getMenusByFilters = this.getMenusByFilters.bind(this);
+    this.openMenu = this.openMenu.bind(this);
   }
 
   componentDidMount() {
@@ -46,7 +48,6 @@ export default class Client extends React.Component {
     Axios.get(url)
       .then((res) => res.data)
       .then((pageable) => {
-        console.log(pageable);
         this.setState({ pageable, page, menus: pageable.content });
       });
   }
@@ -59,6 +60,11 @@ export default class Client extends React.Component {
   handleChangeCategory(e) {
     const category = e.target.value;
     this.setState({ category }, () => this.getMenusByFilters());
+  }
+
+  openMenu(id, menu) {
+    const user = this.props.match.params.idClient;
+    history.push(`/client/${user}/menu/${id}`, menu);
   }
 
   render() {
@@ -90,7 +96,7 @@ export default class Client extends React.Component {
         </div>
 
         <div className="menu-list col-md-8">
-          <MenuListSide t={t} menus={menus} />
+          <MenuListSide t={t} menus={menus} openMenu={this.openMenu} />
           <Pagination
             totalPages={pageable ? pageable.totalPages : 0}
             page={page}
