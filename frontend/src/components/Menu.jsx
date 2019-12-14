@@ -2,9 +2,9 @@ import React from 'react';
 import '../css/menu.css';
 import pizzaImg from '../resources/pizza-menu-image.jpg';
 
-const Client = (props) => {
+const Menu = (props) => {
   const { t } = props;
-  const { name, description, price, deliveryPrice } = props.history.location.state;
+  const { name, description, deliveryTime, price, deliveryPrice } = props.history.location.state;
   return (
     <div className="menu-view row justify-content-center">
       <div className="col-12 align-self-center">
@@ -21,18 +21,23 @@ const Client = (props) => {
         <div className="row justify-content-center">
 
           <div className="col-12">
-            <h4>Description:</h4>
+            <h4>{t('Description')}:</h4>
             <p>{description}</p>
           </div>
 
           <div className="col-12">
-            <h4>Price:</h4>
-            <p>{price}</p>
+            <h4>{t('Price')}:</h4>
+            <p>${price}</p>
           </div>
 
           <div className="col-12">
-            <h4>Delivery price:</h4>
-            <p>{deliveryPrice}</p>
+            <h4>{t('Delivery price')}:</h4>
+            <p>${deliveryPrice}</p>
+          </div>
+
+          <div className="col-12">
+            <h4>{t('Delivery time')}:</h4>
+            <p>{deliveryTime} {t('minutes')}</p>
           </div>
 
           <div
@@ -48,4 +53,4 @@ const Client = (props) => {
   );
 };
 
-export default Client;
+export default Menu;
