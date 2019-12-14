@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/client.css';
 import { makeStyles } from '@material-ui/core/styles';
-import MockMenuImage from '../resources/pizzaMenuImage.jpg';
+import MockMenuImage from '../resources/pizza-menu-image.jpg';
 import ShoppingCartIcon from '../resources/shopping-cart-icon.svg';
 
 const useStyles = makeStyles(() => ({
@@ -35,14 +35,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function MenuRow({ id, name, description, price, openMenu }) {
+export default function MenuRow(props) {
   const classes = useStyles();
+  const { id, name, description, price } = props.menu;
+  const { openMenu } = props;
 
   return (
     <div className={`${classes.menuRow} row`}>
-      {/* <div className="col-3" role="button" onClick={() => openMenu(id)}>
-
-      </div> */}
       <img className={`${classes.menuImage} col-2`} src={MockMenuImage} alt="mockMenuimage" />
 
       <div className="col-6 align-self-center">
@@ -50,7 +49,7 @@ export default function MenuRow({ id, name, description, price, openMenu }) {
           <div
             className={`${classes.menuName} col-12 align-self-center`}
             role="button"
-            onClick={() => openMenu(id)}
+            onClick={() => openMenu(id, props.menu)}
           >
             {name}
           </div>
