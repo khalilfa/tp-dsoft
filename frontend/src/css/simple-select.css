@@ -1,0 +1,20 @@
+.select {
+    color: white !important;
+    border-color: white;
+}
+
+.MuiFormLabel-root {
+    color: white !important;
+}
+
+.MuiInputBase-root {
+    background: rgba(0, 0, 0, 0.4) !important;
+}
+
+.PrivateNotchedOutline-root-83 {
+    border-color: white !important;
+}
+
+.MuiSvgIcon-root path {
+    color: white;
+}

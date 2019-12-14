@@ -30,25 +30,42 @@ public class MenuService {
 
     public Page<Menu> getAllPageableMenus(Pageable pageable) {
         try {
-            Page<Menu> menus = this.menuRepository.findAll(pageable);
+            Page<Menu> menus = this.menuRepository.findAllByOrderByNameAsc(pageable);
             return menus;
         } catch (Exception e) {
             throw new NotFoundException("Could not get the menus");
         }
     }
-    public Page<Menu> getByCategory(String category, Pageable pageable) {
+
+    public Page<Menu> getByFilters(String category, String price, Pageable pageable) {
         try {
-            Category newCategory = Category.valueOf(category);
-            Page<Menu> menus = this.menuRepository.findAllByCategories(newCategory, pageable);
+            Page<Menu> menus;
+            if (category.equals("")) {
+                if (price.equals("Maximum")){
+                    menus = this.menuRepository.findAllByOrderByPriceDesc(pageable);
+                } else {
+                    menus = this.menuRepository.findAllByOrderByPriceAsc(pageable);
+                }
+            } else {
+                Category newCategory = Category.valueOf(category);
+                if(price.equals("")) {
+                    menus = this.menuRepository.findAllByCategoriesOrderByNameAsc(newCategory, pageable);
+                } else if (price.equals("Maximum")){
+                    menus = this.menuRepository.findAllByCategoriesOrderByPriceDesc(newCategory, pageable);
+                } else {
+                    menus = this.menuRepository.findAllByCategoriesOrderByPriceAsc(newCategory, pageable);
+                }
+            }
+
             return menus;
         } catch (Exception e) {
-            throw new NotFoundException("Could not get the menus with categories: " + category, e);
+            throw new NotFoundException("Could not get the menus", e);
         }
     }
 
     public Page<Menu> getByNameAndDescription(String filter, Pageable pageable) {
         try {
-            Page<Menu> menus = this.menuRepository.findByNameContainingOrDescriptionContaining(filter, filter, pageable);
+            Page<Menu> menus = this.menuRepository.findAllByNameContainingOrDescriptionContaining(filter, filter, pageable);
             return menus;
         } catch (Exception e) {
             throw new NotFoundException("Could not get the menus with name: " + filter, e);

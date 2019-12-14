@@ -27,6 +27,7 @@
     border-style: dotted;
     border-color: black;
     border-width: 2px;
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .login-button:hover {

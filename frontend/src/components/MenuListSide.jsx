@@ -1,67 +1,37 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import Switch from '@material-ui/core/Switch';
+import { makeStyles } from '@material-ui/core/styles';
 import MenuRow from './MenuRow';
-import List from '@material-ui/core/List';
 
 const useStyles = makeStyles({
-    wrapper: {
-        textAlign: "center",
-        marginBottom:10,
-        marginTop:10,
-        lineHeight: "50px"  
-    },
-    switchSection:{
-        marginTop:"15px",
-        margin: "auto",
-        backgroundColor: "#fff",
-        height: 50,
-        borderRadius: 5,
-        width: "90%",
-        verticalAlign: "bottom",
-    },
-    menusSection: {
-        width: "90%",
-        margin: "auto",
-    }
+  menu: {
+    color: 'black',
+  },
+  text: {
+    color: 'white',
+    textAlign: 'center',
+    margin: '10px',
+  },
+  menuListContainer: {
+    paddingTop: '10px',
+  },
+  menuTitle: {
+    marginLeft: '5px',
+  },
 });
 
-function MenuListSide({t,menus}){
+function MenuListSide({ menus, t }) {
+  const classes = useStyles();
+  const menuList = menus.map((menu, key) => <MenuRow key={key} {...menu} />);
+  const emptyMenus = <h3 className={`${classes.text} col-12`}>No existe ningun menu...</h3>;
 
-    const classes = useStyles();
-    const [switchedChange,setSwitchedChange] = React.useState(false);
-
-    function handleChange(){
-        if(!switchedChange){
-            setSwitchedChange(true);
-        }else{
-            setSwitchedChange(false);
-        }
-        
-    }
-    return (
-        
-        <div className={classes.wrapper} >
-
-            <section className={classes.switchSection}>
-                <span>{t("Show menus on map")}</span>
-                <Switch onChange={ () => handleChange()} color="default" />
-            </section>
-
-            {/* menu list */}
-
-            <section className={classes.menusSection}>
-                {switchedChange
-                    ? <p>Render menus on map to do</p>
-                    : <List>
-                        {menus.map( (menu,key) => <MenuRow key={key} {...menu} />)}
-                      </List>
-                }
-
-                
-            </section>
-        </div>
-    );
+  return (
+    <div className={`${classes.menuListContainer} row justify-content-center`}>
+      <h1 className={`${classes.menuTitle} col-12 align-self-center`}>{t('Menu list')}</h1>
+      <div className={`${classes.menu} col-12`}>
+        {(menus.length !== 0) ? menuList : emptyMenus}
+      </div>
+    </div>
+  );
 }
 
 export default MenuListSide;
