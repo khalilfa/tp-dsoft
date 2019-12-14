@@ -14,6 +14,7 @@ import Profile from './components/Profile';
 import history from './utils/history';
 import PrivateRoute from './components/PrivateRoute';
 import NavBar from './components/NavBar';
+import CartClient from './components/CartClient';
 
 
 function App({ t }) {
@@ -42,6 +43,7 @@ function App({ t }) {
           <PrivateRoute exact path="/provider/:idProvider" render={(props) => <Provider {...props} t={t} />} />
           <PrivateRoute exact path="/bill" render={(props) => <Bill {...props} t={t} />} />
           <PrivateRoute exact path="/createProvider" render={(props) => <CreateProvider {...props} t={t} />} />
+          <PrivateRoute exact path="/client/:idClient/cart" render={(props) => <CartClient {...props} t={t} />} />
         </Switch>
       </Router>
     </div>
