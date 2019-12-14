@@ -36,13 +36,14 @@ public class MainController {
         return ResponseEntity.of(Optional.of(menus));
     }
 
-    @GetMapping("/menus/filter/category")
-    public ResponseEntity<Page<Menu>> getMenusByCategories(
-            @RequestParam(name = "category") String category,
+    @GetMapping("/menus/filters")
+    public ResponseEntity<Page<Menu>> getMenusByPrice(
+            @RequestParam(name = "category", defaultValue = "") String category,
+            @RequestParam(name = "price", defaultValue = "") String price,
             @RequestParam(name = "page", defaultValue = "0") Integer page,
             @RequestParam(name = "elements", defaultValue = "5") Integer elements) {
         Pageable pageRequest = PageRequest.of(page, elements);
-        Page<Menu> menus = this.menuService.getByCategory(category, pageRequest);
+        Page<Menu> menus = this.menuService.getByFilters(category, price, pageRequest);
         return ResponseEntity.of(Optional.of(menus));
     }
 

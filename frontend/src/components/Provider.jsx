@@ -75,7 +75,7 @@ export default class Provider extends React.Component {
           <Popup
             modal
             trigger={(
-              <Button style={{backgroundColor: "#fff"}} type="button" className="new-menu-button">
+              <Button style={{ backgroundColor: '#fff' }} type="button" className="new-menu-button">
                 +
               </Button>
             )}
@@ -83,7 +83,7 @@ export default class Provider extends React.Component {
             {(close) => <CreateMenu t={t} close={close} createMenu={this.createMenu} />}
           </Popup>
         </div>
-        <ServicesList 
+        <ServicesList
           t={t}
           menuList={menuList}
           deleteMenu={this.deleteMenu}

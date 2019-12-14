@@ -1,35 +1,29 @@
 import React from 'react';
-import Axios from 'axios';
 import '../css/client.css';
+import Axios from 'axios';
 import Pagination from './Pagination';
-import FilterSide from './FilterSide';
-import Grid from '@material-ui/core/Grid';
 import MenuListSide from './MenuListSide';
+import SimpleSelect from './SimpleSelect';
 
 export default class Client extends React.Component {
   constructor(props) {
     super(props);
-    const { state } = this.props.location;
     this.state = {
-      filter: undefined,
+      categories: ['PIZZA', 'BEER', 'SUSHI', 'EMPANADAS', 'SUSHIVEGAN', 'HAMBURGUER', 'ICECREAM'],
+      filters: ['Minimum', 'Maximum'],
+      filter: '',
+      category: '',
       pageable: undefined,
       menus: [],
       page: 0,
-      client: {
-        name: state.name,
-        lastName: this.props.lastName,
-        email: state.email,
-        address: this.props.address,
-        password: this.props.password,
-        credit: this.props.credit,
-      },
     };
     this.handleChangeFilter = this.handleChangeFilter.bind(this);
+    this.handleChangeCategory = this.handleChangeCategory.bind(this);
     this.getMenus = this.getMenus.bind(this);
+    this.getMenusByFilters = this.getMenusByFilters.bind(this);
   }
 
   componentDidMount() {
-    this.getClient();
     this.getMenus();
   }
 
@@ -41,148 +35,153 @@ export default class Client extends React.Component {
       });
   }
 
-  getClient() {
-    const clientId = this.props.match.params.idClient;
-    Axios.get(`http://127.0.0.1:8080/client/${clientId}`)
+  getMenusByFilters(page = 0) {
+    const { category, filter, categories, filters } = this.state;
+    const selectedCategory = category === '' ? '' : `category=${categories[category]}`;
+    const selectedPrice = filter === '' ? '' : `price=${filters[filter]}`;
+    const existCategory = selectedCategory === '' ? '' : '&';
+    const existPrice = selectedPrice === '' ? '' : '&';
+    const urlFilters = selectedCategory + existCategory + selectedPrice + existPrice;
+    const url = `http://127.0.0.1:8080/menus/filters?${urlFilters}page=${page}&elements=${5}`;
+    Axios.get(url)
       .then((res) => res.data)
-      .then((client) => this.setState({ client }));
+      .then((pageable) => {
+        console.log(pageable);
+        this.setState({ pageable, page, menus: pageable.content });
+      });
   }
 
   handleChangeFilter(e) {
     const filter = e.target.value;
-    this.setState({ filter });
+    this.setState({ filter }, () => this.getMenusByFilters());
+  }
+
+  handleChangeCategory(e) {
+    const category = e.target.value;
+    this.setState({ category }, () => this.getMenusByFilters());
   }
 
   render() {
     const { t } = this.props;
-    const { menus, pageable, page } = this.state;
+    const { menus, pageable, page, category, filter, categories, filters } = this.state;
 
     return (
-      <Grid container>
-        <Grid item xs={3}>
-          <FilterSide t={t} menus={menus}/>
-        </Grid>
-        <Grid item xs={9}>
-          <MenuListSide t={t} menus={menus} />
-          <div className="pagination">
-            <Pagination  {...pageable} page={page} getMenus={this.getMenus} />
+      <div className="client-view row">
+
+        <div className="filters col-md-4">
+          <div className="row justify-content-center">
+            <SimpleSelect
+              className="filter col-md-10"
+              items={categories}
+              t={t}
+              selector={category}
+              handleChange={this.handleChangeCategory}
+              selectorName="Category"
+            />
+            <SimpleSelect
+              className="filter col-md-10"
+              items={filters}
+              t={t}
+              selector={filter}
+              handleChange={this.handleChangeFilter}
+              selectorName="Min / Max"
+            />
           </div>
-        </Grid>
-      </Grid>
+        </div>
+
+        <div className="menu-list col-md-8">
+          <MenuListSide t={t} menus={menus} />
+          <Pagination
+            totalPages={pageable ? pageable.totalPages : 0}
+            page={page}
+            getMenus={this.getMenusByFilters}
+          />
+        </div>
+
+      </div>
     );
   }
 }
 
-Client.defaultProps = {
-  name: 'Pepe',
-  lastName: 'Argento',
-  email: 'pepe_argento@gmail.com',
-  address: 'Las heras nº3244',
-  password: 'pepito',
-  credit: 500,
-};
+// const Client = (props) => {
+//   const [pageable, setPageable] = useState(undefined);
+//   const [menus, setMenus] = useState([]);
+//   const [page, setPage] = useState(0);
+//   const [filter, setFilter] = useState('');
+//   const [category, setCategory] = useState('');
+//   const { t } = props;
+//   const { getTokenSilently } = useAuth0();
+//   const categories = ['PIZZA', 'BEER', 'SUSHI', 'EMPANADAS', 'SUSHIVEGAN', 'HAMBURGUER', 'ICECREAM'];
+//   const filters = ['Minimo', 'Maximo'];
 
-/*
-    const { t } = this.props;
-    return (
-      
-    );
-*/
+//   const getMenus = async (selectedPage = 0) => {
+//     try {
+//       getTokenSilently()
+//         .then((token) => {
+//           const url = `http://127.0.0.1:8080/menus?page=${selectedPage}&elements=${5}`;
+//           const config = {
+//             headers: {
+//               Authorization: `Bearer ${token}`,
+//             },
+//           };
 
+//           Axios.get(url)
+//             .then((res) => res.data)
+//             .then((data) => setMenus(data.content))
+//             .catch((error) => console.log(error));
+//         })
+//         .catch((error) => console.log(error));
 
-/*const foo = () => (
-      <div className="client-container col">
-        <div className="client-header row">
-          <h1 className="client-name col-md-11">{name}</h1>
-          <div className="col-md-1 align-self-center d-flex justify-content-center">
-            <input
-              type="image"
-              alt="config client"
-              src={configButton}
-              className="client-config-button"
-            />
-          </div>
-        </div>
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
 
-        <div className="client-navbar row">
-          <div className="client-navbar-option col-md-1">
-            {t('Client')}
-          </div>
-          <div className="client-navbar-option col-md-1">
-            {t('Provider')}
-          </div>
-          <div className="client-buy-options row col-md-2 offset-md-8">
-            <input
-              className="shopping-cart"
-              type="image"
-              src={shoppingCartIcon}
-              alt="Shopping Cart"
-            />
+//   const handleChangeFilter = (e) => {
+//     const selectedFilter = e.target.value;
+//     setFilter(selectedFilter);
+//   };
 
-            <h4 className="client-credit">
-              ${this.state.credit ? this.state.credit : 0}
-            </h4>
-          </div>
-        </div>
+//   const handleChangeCategory = (e) => {
+//     const selectedCategory = e.target.value;
+//     setCategory(selectedCategory);
+//   };
 
-        <div className="menu-options row">
-          <div className="category-filters col-md-9">
-            <input
-              type="image"
-              src={pizzaIcon}
-              alt="Pizza"
-              className="category-filter col-md-1"
-            />
-            <input
-              type="image"
-              src={beerIcon}
-              alt="Beer"
-              className="category-filter col-md-1"
-            />
+//   useEffect(() => {
+//     getMenus();
+//   });
 
-            <input
-              type="image"
-              src={sushiIcon}
-              alt="Sushi"
-              className="category-filter col-md-1"
-            />
+//   return (
+//     <div className="client-view row">
 
-            <input
-              type="image"
-              src={empanadaIcon}
-              alt="Empanadas"
-              className="category-filter col-md-1"
-            />
+//       <div className="filters col-md-4">
+//         <div className="row justify-content-center">
+//           <SimpleSelect
+//             className="filter col-md-10"
+//             items={categories}
+//             t={t}
+//             selectorName="Category"
+//             selector={category}
+//             handleChange={handleChangeCategory}
+//           />
+//           <SimpleSelect
+//             className="filter col-md-10"
+//             items={filters}
+//             t={t}
+//             selectorName="Min / Max"
+//             selector={filter}
+//             handleChange={handleChangeFilter}
+//           />
+//         </div>
+//       </div>
 
-            <input
-              type="image"
-              src={hamburguerIcon}
-              alt="Hamburguer"
-              className="category-filter col-md-1"
-            />
+//       <div className="menu-list col-md-8">
+//         <MenuListSide t={t} menus={menus} />
+//         <Pagination {...pageable} page={page} getMenus={getMenus} />
+//       </div>
 
-            <input
-              type="image"
-              src={icecreamIcon}
-              alt="Ice-cream"
-              className="category-filter col-md-1"
-            />
+//     </div>
+//   );
+// };
 
-            <input
-              type="image"
-              src={sushiVeganIcon}
-              alt="Pizza"
-              className="category-filter col-md-1"
-            />
-          </div>
-
-          <div className="menu-filters col-md-3 align-self-center d-flex justify-content-center" />
-        </div>
-
-        <div className="menu-list">
-          {menusRows}
-        </div>
-          
-
-      </div>
-    );*/
+// export default Client;
