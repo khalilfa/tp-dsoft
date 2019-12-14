@@ -21,18 +21,18 @@ public class MainService {
 
     public void loadData() {
         // GENERATE A CLIENT
-        Client client = new Client("khalilfa", "Juan", "Perez", "facundokhalil@hotmail.com",
+        Client client = new Client("facundokhalil@hotmail.com", "Juan", "Perez",
                 "Las heras 324", "nombrecomun123");
 
         client.addCredit(500.0);
 
-        Client clientProvider1 = new Client("provider1", "Juan", "Perez", "facundokhalil@hotmail.com",
+        Client clientProvider1 = new Client("facundokhalil@gmail.com", "Juan", "Perez",
                 "Las heras 324", "nombrecomun123");
 
-        Client clientProvider2 = new Client("provider2", "Juan", "Perez", "facundokhalil@hotmail.com",
+        Client clientProvider2 = new Client("provider2@hotmail.com", "Juan", "Perez",
                 "Las heras 324", "nombrecomun123");
 
-        Client clientProvider3 = new Client("provider3", "Juan", "Perez", "facundokhalil@hotmail.com",
+        Client clientProvider3 = new Client("provider3@hotmail.com", "Juan", "Perez",
                 "Las heras 324", "nombrecomun123");
 
         // GENERATE PROVIDERS
@@ -69,9 +69,9 @@ public class MainService {
         this.clientService.saveClient(clientProvider2);
         this.clientService.saveClient(clientProvider3);
 
-        Provider savedProvider1 = providerService.saveProvider(provider1, clientProvider1.getUsername());
-        Provider savedProvider2 = providerService.saveProvider(provider2, clientProvider2.getUsername());
-        Provider savedProvider3 = providerService.saveProvider(provider3, clientProvider3.getUsername());
+        Provider savedProvider1 = providerService.saveProvider(provider1, clientProvider1.getEmail());
+        Provider savedProvider2 = providerService.saveProvider(provider2, clientProvider2.getEmail());
+        Provider savedProvider3 = providerService.saveProvider(provider3, clientProvider3.getEmail());
 
         // GENERATE MENUS
         ArrayList<Category> pizzaCategory = new ArrayList<>();
