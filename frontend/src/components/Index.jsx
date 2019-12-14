@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/index.css';
+import Axios from 'axios';
 import Checked from '../resources/check-mark.png';
 import RightSideImg from '../resources/hamburger.png';
 import { useAuth0 } from '../react-auth0-spa';
@@ -12,8 +13,27 @@ const CheckedIcon = () => (
 const Index = ({ t }) => {
   const { user, loginWithRedirect } = useAuth0();
 
+  const createClientIfNotExist = () => {
+    const { email } = user;
+    const urlExist = `http://127.0.0.1:8080/client/exist?email=${email}`;
+    const client = {
+      email,
+      name: user.given_name,
+      lastName: user.family_name,
+    };
+    Axios.get(urlExist)
+      .then((res) => res.data)
+      .then((data) => {
+        if (!data) {
+          return 0;
+        }
+      });
+  };
+
   if (user) {
-    history.push(`/client/${user.nickname}`, user);
+    console.log(user);
+    // createClientIfNotExist();
+    // history.push(`/client/${user.nickname}`, user);
   }
 
 

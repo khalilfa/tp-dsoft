@@ -22,18 +22,18 @@ public class MainService {
     public void loadData() {
         // GENERATE A CLIENT
         Client client = new Client("facundokhalil@hotmail.com", "Juan", "Perez",
-                "Las heras 324", "nombrecomun123");
+                "Las heras 324");
 
         client.addCredit(500.0);
 
         Client clientProvider1 = new Client("facundokhalil@gmail.com", "Juan", "Perez",
-                "Las heras 324", "nombrecomun123");
+                "Las heras 324");
 
         Client clientProvider2 = new Client("provider2@hotmail.com", "Juan", "Perez",
-                "Las heras 324", "nombrecomun123");
+                "Las heras 324");
 
         Client clientProvider3 = new Client("provider3@hotmail.com", "Juan", "Perez",
-                "Las heras 324", "nombrecomun123");
+                "Las heras 324");
 
         // GENERATE PROVIDERS
         AttentionSchedule attentionSchedule = new AttentionSchedule(LocalTime.of(9, 30), LocalTime.of(22, 30));

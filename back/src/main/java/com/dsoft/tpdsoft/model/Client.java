@@ -25,13 +25,8 @@ public class Client {
     @Column(name = "last_name")
     private String lastName;
 
-    @NotBlank(message = "Address can´t be blank")
     @Column(name = "address")
     private String address;
-
-    @NotBlank(message = "Password can´t be blank")
-    @Column(name = "password")
-    private String password;
 
     @Column(name = "credit")
     private Double credit;
@@ -55,12 +50,11 @@ public class Client {
         this.summaries = new ArrayList<>();
     }
 
-    public Client(String email, String name, String lastName, String address, String password) {
+    public Client(String email, String name, String lastName, String address) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
         this.address = address;
-        this.password = password;
         this.shoppingCart = new ShoppingCart();
         this.credit = 0.0;
         this.summaries = new ArrayList<>();
@@ -112,14 +106,6 @@ public class Client {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public Double getCredit() {
