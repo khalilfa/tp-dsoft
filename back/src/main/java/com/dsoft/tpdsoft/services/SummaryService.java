@@ -84,7 +84,7 @@ public class SummaryService {
         client.addSummary(summary);
         client.resetShoppingCart();
 
-        this.clientService.updateClient(client.getUsername(), client);
+        this.clientService.updateClient(client.getEmail(), client);
         // Send an email to client
         this.sendMailService.sendMailToClient(summary);
 
