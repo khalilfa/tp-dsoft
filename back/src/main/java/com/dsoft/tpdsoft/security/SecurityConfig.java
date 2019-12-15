@@ -17,8 +17,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
-                .mvcMatchers("/").permitAll()
-                .mvcMatchers("/load-data").permitAll()
+                .mvcMatchers("/*").permitAll()
+                /*.mvcMatchers("/load-data").permitAll()
                 .mvcMatchers("/menus").authenticated()
                 .mvcMatchers("/menus/filter/category").authenticated()
                 .mvcMatchers("/menus/filter").authenticated()
@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/provider/{idProvider}/menu/{idMenu}").authenticated()
                 .mvcMatchers("/provider/{id}/schedule").authenticated()
                 .mvcMatchers("/provider/{id}/credit/{credit}").authenticated()
-                .mvcMatchers("/provider/{id}/summaries").authenticated()
+                .mvcMatchers("/provider/{id}/summaries").authenticated()*/
                 .and()
                 .oauth2ResourceServer().jwt();
     }

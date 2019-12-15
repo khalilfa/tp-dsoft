@@ -21,18 +21,18 @@ public class MainService {
 
     public void loadData() {
         // GENERATE A CLIENT
-        Client client = new Client("khalilfa", "Juan", "Perez", "facundokhalil@hotmail.com",
+        Client client = new Client("facundokhalil@hotmail.com", "Juan", "Perez",
                 "Las heras 324", "nombrecomun123");
 
         client.addCredit(500.0);
 
-        Client clientProvider1 = new Client("provider1", "Juan", "Perez", "facundokhalil@hotmail.com",
+        Client clientProvider1 = new Client("facundokhalil@gmail.com", "Juan", "Perez",
                 "Las heras 324", "nombrecomun123");
 
-        Client clientProvider2 = new Client("provider2", "Juan", "Perez", "facundokhalil@hotmail.com",
+        Client clientProvider2 = new Client("provider2@hotmail.com", "Juan", "Perez",
                 "Las heras 324", "nombrecomun123");
 
-        Client clientProvider3 = new Client("provider3", "Juan", "Perez", "facundokhalil@hotmail.com",
+        Client clientProvider3 = new Client("provider3@hotmail.com", "Juan", "Perez",
                 "Las heras 324", "nombrecomun123");
 
         // GENERATE PROVIDERS
@@ -69,9 +69,9 @@ public class MainService {
         this.clientService.saveClient(clientProvider2);
         this.clientService.saveClient(clientProvider3);
 
-        Provider savedProvider1 = providerService.saveProvider(provider1, clientProvider1.getUsername());
-        Provider savedProvider2 = providerService.saveProvider(provider2, clientProvider2.getUsername());
-        Provider savedProvider3 = providerService.saveProvider(provider3, clientProvider3.getUsername());
+        Provider savedProvider1 = providerService.saveProvider(provider1, clientProvider1.getEmail());
+        Provider savedProvider2 = providerService.saveProvider(provider2, clientProvider2.getEmail());
+        Provider savedProvider3 = providerService.saveProvider(provider3, clientProvider3.getEmail());
 
         // GENERATE MENUS
         ArrayList<Category> pizzaCategory = new ArrayList<>();
@@ -92,14 +92,14 @@ public class MainService {
         Menu menu1 = new Menu("Pizza - Muzzarella", "Pizza de muzzarella a la parrilla",
                 30.0, LocalDate.of(2019, 10, 1), LocalDate.of(2019, 12,
                 30), LocalTime.of(9, 30), LocalTime.of(22, 30), 30,
-                300.0, 10, 250.0, 40, 200.0, 300);
+                400.0, 10, 250.0, 40, 200.0, 300);
         menu1.setCategories(pizzaCategory);
         menu1.setProvider(savedProvider2);
         savedProvider2.addMenu(menu1);
 
         Menu menu2 = new Menu("Pizza - Napolitana", "Pizza napolitana a la parrilla", 30.0,
                 LocalDate.of(2019, 10, 1), LocalDate.of(2019, 12, 30),
-                LocalTime.of(9, 30), LocalTime.of(22, 30), 30, 300.0,
+                LocalTime.of(9, 30), LocalTime.of(22, 30), 30, 450.0,
                 10, 250.0, 40, 200.0, 300);
         menu2.setCategories(pizzaCategory);
         menu2.setProvider(savedProvider2);
@@ -108,14 +108,14 @@ public class MainService {
         Menu menu3 = new Menu("Pizza - rellena", "Pizza rellena a la parrilla",
                 30.0, LocalDate.of(2019, 10, 1), LocalDate.of(2019, 12,
                 30), LocalTime.of(9, 30), LocalTime.of(22, 30), 30,
-                300.0, 10, 250.0, 40, 200.0, 300);
+                500.0, 10, 250.0, 40, 200.0, 300);
         menu3.setCategories(pizzaCategory);
         menu3.setProvider(savedProvider2);
         savedProvider2.addMenu(menu3);
 
         Menu menu4 = new Menu("Pizza - Palmito", "Pizza con palmitos a la parrilla", 30.0,
                 LocalDate.of(2019, 10, 1), LocalDate.of(2019, 12, 30),
-                LocalTime.of(9, 30), LocalTime.of(22, 30), 30, 300.0,
+                LocalTime.of(9, 30), LocalTime.of(22, 30), 30, 550.0,
                 10, 250.0, 40, 200.0, 300);
         menu4.setCategories(pizzaCategory);
         menu4.setProvider(savedProvider2);

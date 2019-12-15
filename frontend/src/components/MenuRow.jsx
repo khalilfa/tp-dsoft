@@ -1,85 +1,72 @@
 import React from 'react';
 import '../css/client.css';
-import ShoppingCartIcon from '../resources/shopping-cart-icon.svg';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
-import MockMenuImage from '../resources/pizzaMenuImage.jpg';
-import Grid from '@material-ui/core/Grid';
+import MockMenuImage from '../resources/pizza-menu-image.jpg';
+import ShoppingCartIcon from '../resources/shopping-cart-icon.svg';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    backgroundColor: theme.palette.background.paper,
-    height: 100,
+const useStyles = makeStyles(() => ({
+  menuImage: {
+    borderRadius: '6px',
+    padding: '5px',
   },
-  menuImage:{
-    width: "15%",
-    marginRight: "12px",
-  },
-  menuName:{
-    fontSize: "16px",
-    
+  menuName: {
+    fontSize: '16px',
   },
   menuDescription: {
-    fontSize: "14px",
+    fontSize: '14px',
   },
-  boxNameDesc:{
-    marginRight: "10px",
+  shoppingCartIcon: {
+    width: '30%',
+    '&:hover': {
+      width: '40%',
+    },
   },
-  shoppingCartIcon:{
-    width:"30%"
+  menuRow: {
+    background: 'rgba(0, 0, 0, 0.4)',
+    marginBottom: '10px',
+    marginRight: '5px',
+    marginLeft: '5px',
+    borderRadius: '5px',
+    border: '1px solid #ddd',
+    color: '#e8e8e8',
+    '&:hover': {
+      background: 'rgba(103, 131, 78, 0.7)',
+    },
   },
 }));
 
-function NameDescriptionBlock( {name, description} ){
-
+export default function MenuRow(props) {
   const classes = useStyles();
-  return (
-    <div className={classes.boxNameDesc}>
-      <p className={classes.menuName}>{name}</p>
-      <p className={classes.menuDescription}>{description}</p>
-    </div>
-  );
-  
-}
-
-export default function MenuRow({ name, description, price }){
-
-  const classes = useStyles();  
+  const { id, name, description, price } = props.menu;
+  const { openMenu } = props;
 
   return (
-    <div>
-      <ListItem className={classes.root}>
-          <img className={classes.menuImage} src={MockMenuImage} alt="mockMenuimage" />
-          <Grid container >
-          <Grid item xs={6}>
-            <NameDescriptionBlock name={name} description={description}/>
-          </Grid>
-          <Grid item xs={4}>
-            <ListItemText>$ {price}</ListItemText>
-          </Grid>
-          <Grid item xs={2}>
-              <img className={classes.shoppingCartIcon} src={ShoppingCartIcon} alt="Shopping cart"/>
-          </Grid>
-        </Grid>
-      </ListItem>
-      <Divider />
+    <div className={`${classes.menuRow} row`}>
+      <img className={`${classes.menuImage} col-2`} src={MockMenuImage} alt="mockMenuimage" />
+
+      <div className="col-6 align-self-center">
+        <div className="row">
+          <div
+            className={`${classes.menuName} col-12 align-self-center`}
+            role="button"
+            onClick={() => openMenu(id, props.menu)}
+          >
+            {name}
+          </div>
+
+          <div className={`${classes.menuDescription} col-12 align-self-center`}>
+            {description}
+          </div>
+        </div>
+      </div>
+
+      <div className="col-2 align-self-center">
+        ${price}
+      </div>
+
+      <div className="col-2 align-self-center">
+        <img className={classes.shoppingCartIcon} src={ShoppingCartIcon} alt="Shopping cart" />
+      </div>
     </div>
   );
 }
-
-
-/**
- *     <h3 className="col-md-2 align-self-center">{name}</h3>
-    <h3 className="col-md-6 align-self-center">{description}</h3>
-    <h3 className="col-md-1 align-self-center">${price}</h3>
-    <div className="col-md-3 align-self-center d-flex justify-content-end">
-      <input
-        className="buy-icon"
-        type="image"
-        src={shoppingCartIcon}
-        alt="Shopping Cart"
-      />
-    </div>
- */

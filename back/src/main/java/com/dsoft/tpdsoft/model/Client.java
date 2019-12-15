@@ -1,6 +1,5 @@
 package com.dsoft.tpdsoft.model;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -14,7 +13,9 @@ import java.util.List;
 @Table(name = "clients")
 public class Client {
     @Id
-    private String username;
+    @NotBlank(message = "Email can´t be blank")
+    @Email(message = "Invalid email format")
+    private String email;
 
     @NotBlank(message = "Name can´t be blank")
     @Column(name = "name")
@@ -23,11 +24,6 @@ public class Client {
     @NotBlank(message = "LastName can´t be blank")
     @Column(name = "last_name")
     private String lastName;
-
-    @NotBlank(message = "Email can´t be blank")
-    @Email(message = "Invalid email format")
-    @Column(name = "email")
-    private String email;
 
     @NotBlank(message = "Address can´t be blank")
     @Column(name = "address")
@@ -59,8 +55,7 @@ public class Client {
         this.summaries = new ArrayList<>();
     }
 
-    public Client(String username, String name, String lastName, String email, String address, String password) {
-        this.username = username;
+    public Client(String email, String name, String lastName, String address, String password) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
@@ -77,14 +72,6 @@ public class Client {
 
     public void substractCredit(Double credit) {
         this.credit -= credit;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public Provider getProvider() {

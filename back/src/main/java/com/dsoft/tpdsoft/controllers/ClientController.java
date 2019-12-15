@@ -34,60 +34,62 @@ public class ClientController {
         }
     }
 
-    @GetMapping("/{username}")
-    public ResponseEntity<Client> getClient(@PathVariable String username) {
-        Client client = this.clientService.getClient(username);
+    @GetMapping
+    public ResponseEntity<Client> getClient(@RequestParam(name = "email") String email) {
+        Client client = this.clientService.getClient(email);
         return ResponseEntity.of(Optional.of(client));
     }
 
     //----- SHOPPING CART -----
-    @GetMapping("/{username}/cart")
-    public ResponseEntity<ShoppingCart> getCart(@PathVariable String username) {
-        ShoppingCart cart = this.clientService.getCart(username);
+    @GetMapping("/cart")
+    public ResponseEntity<ShoppingCart> getCart(@RequestParam(name = "email") String email) {
+        ShoppingCart cart = this.clientService.getCart(email);
         return ResponseEntity.of(Optional.of(cart));
     }
 
-    @PostMapping("/{username}/cart")
-    public ResponseEntity<Client> addItem(@PathVariable String username,
+    @PostMapping("/cart")
+    public ResponseEntity<Client> addItem(@RequestParam(name = "email") String email,
                                           @RequestParam("menuId") Integer menuId,
                                           @RequestParam("menuQ") Integer menuQ) {
-        Client savedClient = this.clientService.addItemToCart(username, menuId, menuQ);
+        Client savedClient = this.clientService.addItemToCart(email, menuId, menuQ);
         return ResponseEntity.of(Optional.of(savedClient));
     }
 
-    @DeleteMapping("/{username}/cart")
-    public ResponseEntity<ShoppingCart> deleteItem(@PathVariable String username, @RequestParam("itemId") Integer itemId) {
-        ShoppingCart cart = this.clientService.deleteItem(username, itemId);
+    @DeleteMapping("/cart")
+    public ResponseEntity<ShoppingCart> deleteItem(@RequestParam(name = "email") String email,
+                                                   @RequestParam("itemId") Integer itemId) {
+        ShoppingCart cart = this.clientService.deleteItem(email, itemId);
         return ResponseEntity.of(Optional.of(cart));
     }
 
-    @PutMapping("/{username}/cart")
-    public ResponseEntity<ShoppingCart> updateItemQuantity(@PathVariable String username,
+    @PutMapping("/cart")
+    public ResponseEntity<ShoppingCart> updateItemQuantity(@RequestParam(name = "email") String email,
                                                            @RequestParam("itemId") Integer itemId,
                                                            @RequestParam("itemQ") Integer itemQ) {
-        ShoppingCart cart = this.clientService.updateItemQuantity(username, itemId, itemQ);
+        ShoppingCart cart = this.clientService.updateItemQuantity(email, itemId, itemQ);
         return ResponseEntity.of(Optional.of(cart));
     }
 
     // ----- OPERATIONS -----
-    @PostMapping("/{username}/credit/{credit}")
-    public ResponseEntity<Client> addCredit(@PathVariable String username, @PathVariable Double credit) {
-        Client savedClient = this.clientService.addCredit(username, credit);
+    @PostMapping("/credit/{credit}")
+    public ResponseEntity<Client> addCredit(@RequestParam(name = "email") String email,
+                                            @PathVariable Double credit) {
+        Client savedClient = this.clientService.addCredit(email, credit);
         return ResponseEntity.of(Optional.of(savedClient));
     }
 
-    @PostMapping("/{username}/buy")
-    public ResponseEntity buyItems(@PathVariable String username) {
-        Optional<Summary> optionalSummary = this.clientService.buyItems(username);
+    @PostMapping("/buy")
+    public ResponseEntity buyItems(@RequestParam(name = "email") String email) {
+        Optional<Summary> optionalSummary = this.clientService.buyItems(email);
         if (optionalSummary.isPresent()) {
             return ResponseEntity.of(optionalSummary);
         }
         return new ResponseEntity("The client does not have enough credit", HttpStatus.NOT_ACCEPTABLE);
     }
 
-    @GetMapping("/{username}/summaries")
-    public ResponseEntity<List<Summary>> getSummaries(@PathVariable String username) {
-        List<Summary> summaries = this.clientService.getSummaries(username);
+    @GetMapping("/summaries")
+    public ResponseEntity<List<Summary>> getSummaries(@RequestParam(name = "email") String email) {
+        List<Summary> summaries = this.clientService.getSummaries(email);
         return ResponseEntity.of(Optional.of(summaries));
     }
 }

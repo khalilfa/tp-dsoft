@@ -1,40 +1,28 @@
-.checkedIcon{
-    width: 40px;
-}
-
-.index-info {
+.menu-view {
     background: rgba(61, 61, 61, 0.7);
     color: white;
-}
-
-.text-item {
     padding: 10px;
 }
 
-.burger-img img {
-    height: 200px;
+.menu-image {
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
-.title {
-    margin: 20px;
-}
-
-.login-button {
+.add-cart-button {
     text-align: center;
-    font-size: 35px;
+    font-size: 20px;
     padding: 10px;
-    margin-bottom: 30px;
     border-style: dotted;
     border-color: black;
     border-width: 2px;
     background: rgba(0, 0, 0, 0.4);
 }
 
-.login-button:hover {
+.add-cart-button:hover {
     text-align: center;
-    font-size: 35px;
+    font-size: 20px;
     padding: 10px;
-    margin-bottom: 30px;
     border-style: dotted;
     border-color: black;
     border-width: 2px;

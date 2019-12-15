@@ -9,6 +9,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MenuRepository extends PagingAndSortingRepository<Menu, Integer> {
-    Page<Menu> findAllByCategories(Category category, Pageable pageable);
-    Page<Menu> findByNameContainingOrDescriptionContaining(String name, String description, Pageable pageable);
+    Page<Menu> findAllByOrderByNameAsc(Pageable pageable);
+    Page<Menu> findAllByCategoriesOrderByNameAsc(Category category, Pageable pageable);
+    Page<Menu> findAllByOrderByPriceAsc(Pageable pageable);
+    Page<Menu> findAllByOrderByPriceDesc(Pageable pageable);
+    Page<Menu> findAllByCategoriesOrderByPriceAsc(Category category, Pageable pageable);
+    Page<Menu> findAllByCategoriesOrderByPriceDesc(Category category, Pageable pageable);
+    Page<Menu> findAllByNameContainingOrDescriptionContaining(String name, String description, Pageable pageable);
 }

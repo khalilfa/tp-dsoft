@@ -29,10 +29,12 @@ const Index = ({ t }) => {
         <img src={RightSideImg} alt="hamburger" />
       </div>
       <div
+        role="button"
         className="login-button col-md-8 col-sm-12 offset-md-2"
-        onClick={() => loginWithRedirect({})}>
-          {t('Enter')}
-        </div>
+        onClick={() => loginWithRedirect({})}
+      >
+        {t('Enter')}
+      </div>
     </div>
   );
 };
