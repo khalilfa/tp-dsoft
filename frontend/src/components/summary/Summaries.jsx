@@ -1,0 +1,52 @@
+import React, { useEffect, useState } from 'react';
+import Axios from 'axios';
+import { useAuth0 } from '../../react-auth0-spa';
+import '../../css/main.css';
+import SummaryRow from './SummaryRow';
+
+
+const Summaries = ({ t }) => {
+  const { user } = useAuth0();
+  const { email } = user;
+
+  const [summaries, setSummaries] = useState([]);
+  useEffect(() => {
+    const urlGetSummaries = `http://127.0.0.1:8080/client/summaries?email=${email}`;
+    Axios.get(urlGetSummaries)
+      .then((res) => res.data)
+      .then((data) => setSummaries(data));
+  }, []);
+
+  const summariesList = summaries
+    .map((summary, key) => <SummaryRow key={key} id={key} summary={summary} t={t} />);
+
+  return (
+    <div className="component-container row">
+      <div className="col-12">
+        <div className="main-list-container row">
+          <div className="main-title col-12">
+            <h2>{t('Summaries')}</h2>
+          </div>
+          <div className="col-12">
+            <div className="row">
+              <div className="col-5 align-self-center">
+                <h4>{t('Create at')}:</h4>
+              </div>
+              <div className="col-3 align-self-center">
+                <h4>{t('Items')}:</h4>
+              </div>
+              <div className="col-4 align-self-center">
+                <h4>{t('Total')}:</h4>
+              </div>
+            </div>
+          </div>
+          <div className="col-12">
+            {summariesList}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Summaries;
