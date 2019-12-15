@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/index.css';
+import '../css/main.css';
 import Axios from 'axios';
 import Checked from '../resources/check-mark.png';
 import RightSideImg from '../resources/hamburger.png';
@@ -50,7 +51,7 @@ const Index = ({ t }) => {
       </div>
       <div
         role="button"
-        className="login-button col-md-8 col-sm-12 offset-md-2"
+        className="main-button login-button col-md-8 col-sm-12 offset-md-2"
         onClick={() => loginWithRedirect({})}
       >
         {t('Enter')}

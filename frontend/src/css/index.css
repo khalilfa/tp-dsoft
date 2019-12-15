@@ -20,23 +20,13 @@
 }
 
 .login-button {
-    text-align: center;
     font-size: 35px;
     padding: 10px;
     margin-bottom: 30px;
-    border-style: dotted;
-    border-color: black;
-    border-width: 2px;
-    background: rgba(0, 0, 0, 0.4);
 }
 
 .login-button:hover {
-    text-align: center;
     font-size: 35px;
     padding: 10px;
     margin-bottom: 30px;
-    border-style: dotted;
-    border-color: black;
-    border-width: 2px;
-    background: rgba(103, 131, 78, 0.7);
 }

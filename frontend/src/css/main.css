@@ -1,0 +1,30 @@
+.component-container {
+    background: rgba(61, 61, 61, 0.7);
+    color: white;
+}
+
+.MuiInput-underline:after {
+    border-color: rgba(103, 131, 78, 1) !important;
+}
+
+.text-input-edit {
+    color: white !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    padding-left: 5px !important;
+}
+
+.main-button {
+    text-align: center;
+    border-style: dotted;
+    border-color: black;
+    border-width: 2px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.main-button:hover {
+    text-align: center;
+    border-style: dotted;
+    border-color: black;
+    border-width: 2px;
+    background: rgba(103, 131, 78, 0.7);
+}
