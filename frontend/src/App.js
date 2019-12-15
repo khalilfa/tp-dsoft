@@ -18,6 +18,7 @@ import CartClient from './components/CartClient';
 
 
 import Menu from './components/Menu';
+import EditClient from './components/EditClient';
 
 
 function App({ t }) {
@@ -41,6 +42,7 @@ function App({ t }) {
           <Route exact path="/" render={(props) => <Index {...props} t={t} />} />
           <PrivateRoute exact path="/profile" render={(props) => <Profile {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient" render={(props) => <Client {...props} t={t} />} />
+          <PrivateRoute exact path="/client/:idClient/edit" render={(props) => <EditClient {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/menu/:idMenu" render={(props) => <Menu {...props} t={t} />} />
           <PrivateRoute exact path="/register" render={(props) => <Register {...props} t={t} />} />
           <PrivateRoute exact path="/maps" render={(props) => <Maps {...props} t={t} />} />
