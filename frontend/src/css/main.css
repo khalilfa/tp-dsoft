@@ -3,6 +3,14 @@
     color: white;
 }
 
+.main-title {
+    border-style: dotted;
+    border-color: rgb(150, 149, 149);
+    border-width: 0px;
+    border-bottom-width: 2px;
+    margin-bottom: 10px;
+}
+
 .MuiInput-underline:after {
     border-color: rgba(103, 131, 78, 1) !important;
 }
@@ -27,4 +35,29 @@
     border-color: black;
     border-width: 2px;
     background: rgba(103, 131, 78, 0.7);
+}
+
+.main-row {
+    background: rgba(0, 0, 0, 0.4);
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    color: #e8e8e8;
+}
+
+.main-row:hover {
+    background: rgba(103, 131, 78, 0.7);
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    color: #e8e8e8;
+}
+
+.main-menu-text-item {
+    padding-top: 10px;
+}
+
+.main-list-container {
+    padding-left: 10px;
+    padding-right: 10px;
 }

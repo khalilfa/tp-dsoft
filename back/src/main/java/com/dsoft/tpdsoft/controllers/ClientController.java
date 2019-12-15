@@ -5,6 +5,9 @@ import com.dsoft.tpdsoft.model.ShoppingCart;
 import com.dsoft.tpdsoft.model.Summary;
 import com.dsoft.tpdsoft.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -100,8 +103,12 @@ public class ClientController {
     }
 
     @GetMapping("/summaries")
-    public ResponseEntity<List<Summary>> getSummaries(@RequestParam(name = "email") String email) {
-        List<Summary> summaries = this.clientService.getSummaries(email);
+    public ResponseEntity<Page<Summary>> getSummaries(
+            @RequestParam(name = "email") String email,
+            @RequestParam(name = "page", defaultValue = "0") Integer page,
+            @RequestParam(name="elements", defaultValue = "5") Integer elements) {
+        Pageable pageRequest = PageRequest.of(page, elements);
+        Page<Summary> summaries = this.clientService.getSummaries(email ,pageRequest);
         return ResponseEntity.of(Optional.of(summaries));
     }
 }

@@ -31,7 +31,7 @@ const EditClient = ({ t }) => {
 
   return (
     <div className="component-container row justify-content-center">
-      <div className="edit-client-title col-12">
+      <div className="main-title col-12">
         <h2>{t('Edit information')}</h2>
       </div>
       <div className="col-md-6 col-12 order-md-1 order-2">
