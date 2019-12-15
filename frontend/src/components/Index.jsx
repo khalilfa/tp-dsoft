@@ -16,24 +16,24 @@ const Index = ({ t }) => {
   const createClientIfNotExist = () => {
     const { email } = user;
     const urlExist = `http://127.0.0.1:8080/client/exist?email=${email}`;
-    const client = {
+    const urlCreateClient = 'http://127.0.0.1:8080/client/';
+    const newClient = {
       email,
       name: user.given_name,
       lastName: user.family_name,
     };
     Axios.get(urlExist)
       .then((res) => res.data)
-      .then((data) => {
-        if (!data) {
-          return 0;
+      .then((exist) => {
+        if (!exist) {
+          Axios.post(urlCreateClient, newClient);
         }
       });
   };
 
   if (user) {
-    console.log(user);
-    // createClientIfNotExist();
-    // history.push(`/client/${user.nickname}`, user);
+    createClientIfNotExist();
+    history.push(`/client/${user.nickname}`, user);
   }
 
 
