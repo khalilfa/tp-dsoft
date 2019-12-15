@@ -42,6 +42,8 @@ const resources = {
       Hamburguer: 'Hambuerguesa',
       Client: 'Cliente',
       minutes: 'minutos',
+      'Last name': 'Apellido',
+      'Client picture': 'Foto del client',
       'Edit information': 'Editar informacion',
       'Add to cart': 'Agregar al carro',
       'Name / Description': 'Nombre / Descripcion',

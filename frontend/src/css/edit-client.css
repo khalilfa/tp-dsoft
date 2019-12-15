@@ -1,0 +1,23 @@
+.edit-colum {
+    margin-bottom: 10px;
+}
+
+.edit-client-title {
+    border-style: dotted;
+    border-color: rgb(150, 149, 149);
+    border-width: 0px;
+    border-bottom-width: 2px;
+    margin-bottom: 10px;
+}
+
+.client-picture {
+    width: 300px;
+    border-radius: 8px;
+}
+
+.save-button {
+    font-size: 20px;
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
