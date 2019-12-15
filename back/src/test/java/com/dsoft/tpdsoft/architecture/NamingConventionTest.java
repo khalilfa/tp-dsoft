@@ -3,7 +3,6 @@ package com.dsoft.tpdsoft.architecture;
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
-import org.junit.Test;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 

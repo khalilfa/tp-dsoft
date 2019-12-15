@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 @AnalyzeClasses(packages = "src.main.java.com.dsoft.tpdsoft")
-public class Inheritance {
+public class InheritanceTest {
 
     @ArchTest
     static ArchRule allRepositoriesShouldExtendJpaRepository =
