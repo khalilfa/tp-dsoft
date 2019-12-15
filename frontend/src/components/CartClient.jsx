@@ -1,6 +1,12 @@
 import React from 'react';
 import Axios from 'axios';
-
+import { makeStyles } from '@material-ui/styles';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Grid from '@material-ui/core/Grid';
+import PopOver from './PopOver';
+import SimpleRating from './Rating'
 
 export default class CartClient extends React.Component {
 
@@ -42,7 +48,8 @@ export default class CartClient extends React.Component {
         return (
             <>
                 {isLoaded ?
-                    <ItemPurchased cart={cart}/> :
+                    <ShowItems cart={cart} />:
+                    
                     <h1>loadinggg...</h1>
                 }
             </>
@@ -50,7 +57,27 @@ export default class CartClient extends React.Component {
     }
 }
 
-const ItemPurchased = props => {
+const useStyles = makeStyles({
+    container: {
+        width: "80%",
+        backgroundColor: "#fff",
+    }
+})
+
+function ShowItems({cart}) {
+    
+    const classes = useStyles();
+
+    return (
+        <div className={classes.container}>
+            <h3>My bought menus</h3>
+            <ItemsPurchased cart={cart} />
+            
+        </div>
+    );
+}
+
+const ItemsPurchased = props => {
     return  <div>
                 {props.cart.items.map( item => <RowItemPurchases {...item}/>) }
             </div>
@@ -61,12 +88,29 @@ const ItemPurchased = props => {
 function RowItemPurchases({id,menu,quantity}) {
     const { name, deliveryFrom, deliveryTo, price} = menu;
     return (
-        <>
-            <p>{name}</p>
-            <p>{price}</p>
-            <p>{id}</p>
-            <p>{quantity}</p>
-        </>
-    )
-    
+        <div>
+            <ListItem>
+                <Grid container>
+                    <Grid item xs={3}>
+                        {name}
+                    </Grid>
+                    <Grid item xs={3}>
+                        Precio: {price}
+                    </Grid>
+                    <Grid item xs={3}>
+                        <PopOver deliveryFrom={deliveryFrom} deliveryTo={deliveryTo}/>                        
+                    </Grid>
+                    <Grid item xs={3}>
+                        <p>Calificar</p>
+                        <SimpleRating />
+                    </Grid>
+                </Grid>
+            </ListItem>
+            <Divider />
+        </div>
+    );
 }
+
+{/* <p>{name}</p>
+<p>{price}</p>
+<p>{quantity}</p> */}
