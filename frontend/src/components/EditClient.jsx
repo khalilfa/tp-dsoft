@@ -21,7 +21,7 @@ const EditClient = ({ t }) => {
         setLastName(data.lastName);
         setAddress(data.address);
       });
-  }, []);
+  }, [urlGetClient]);
 
   const updateClient = () => {
     const client = { name, lastName, address, email };

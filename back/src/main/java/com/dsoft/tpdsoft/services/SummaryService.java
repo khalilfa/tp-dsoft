@@ -1,9 +1,12 @@
 package com.dsoft.tpdsoft.services;
 
+import com.dsoft.tpdsoft.exceptions.NotFoundException;
 import com.dsoft.tpdsoft.exceptions.StorageException;
 import com.dsoft.tpdsoft.model.*;
 import com.dsoft.tpdsoft.repositories.SummaryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -30,6 +33,15 @@ public class SummaryService {
             return savedSummary;
         } catch (Exception ex) {
             throw new StorageException("Could not save the summary: ", ex);
+        }
+    }
+
+    public Page<Summary> getClientSummaries(Client client, Pageable pageable) {
+        try {
+            Page<Summary> summaries = this.summaryRepository.findAllByClientOrderByCreateAtAsc(client, pageable);
+            return summaries;
+        } catch (Exception ex) {
+            throw new NotFoundException("Could not get the summaries", ex);
         }
     }
 

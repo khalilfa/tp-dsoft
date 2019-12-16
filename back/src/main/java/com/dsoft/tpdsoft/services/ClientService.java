@@ -5,6 +5,8 @@ import com.dsoft.tpdsoft.exceptions.StorageException;
 import com.dsoft.tpdsoft.model.*;
 import com.dsoft.tpdsoft.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -98,9 +100,10 @@ public class ClientService {
         return client.getShoppingCart();
     }
 
-    public List<Summary> getSummaries(String clientEmail) {
+    public Page<Summary> getSummaries(String clientEmail, Pageable pageable) {
         Client client = this.getClient(clientEmail);
-        return client.getSummaries();
+        Page<Summary> summaries = this.summaryService.getClientSummaries(client, pageable);
+        return summaries;
     }
 
     public Optional<Summary> buyItems(String clientEmail) {
