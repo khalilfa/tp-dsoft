@@ -33,8 +33,8 @@ public class ProviderController {
 
     @PostMapping
     public ResponseEntity<Provider> createProvider(@RequestBody Provider provider,
-                                                   @RequestParam(name = "username", required = true) String username) {
-        Provider savedProvider = this.providerService.saveProvider(provider, username);
+                                                   @RequestParam(name = "email", required = true) String email) {
+        Provider savedProvider = this.providerService.saveProvider(provider, email);
 
         return ResponseEntity.of(Optional.of(savedProvider));
     }

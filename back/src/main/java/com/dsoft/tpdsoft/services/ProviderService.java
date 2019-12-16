@@ -28,9 +28,9 @@ public class ProviderService {
         }
     }
 
-    public Provider saveProvider(Provider provider, String username) {
+    public Provider saveProvider(Provider provider, String email) {
         try {
-            Client client = this.clientService.getClient(username);
+            Client client = this.clientService.getClient(email);
             Provider savedProvider = this.providerRepository.save(provider);
             client.setProvider(savedProvider);
             return savedProvider;
