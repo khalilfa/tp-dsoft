@@ -1,27 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Axios from 'axios';
 import { useAuth0 } from '../../react-auth0-spa';
 import '../../css/main.css';
 import SummaryRow from './SummaryRow';
-
+import Pagination from '../Pagination';
 
 const Summaries = ({ t }) => {
   const { user } = useAuth0();
   const { email } = user;
 
+  const [pageable, setPageable] = useState({});
+  const [page, setPage] = useState(0);
   const [summaries, setSummaries] = useState([]);
-  useEffect(() => {
-    const urlGetSummaries = `http://127.0.0.1:8080/client/summaries?email=${email}`;
+
+  const getSummariesByPage = useCallback((pageNumber = 0) => {
+    const urlGetSummaries = `http://127.0.0.1:8080/client/summaries?email=${email}&page=${pageNumber}&elements=5`;
     Axios.get(urlGetSummaries)
       .then((res) => res.data)
-      .then((data) => setSummaries(data));
-  }, []);
+      .then((data) => {
+        setSummaries(data.content);
+        setPageable(data);
+        setPage(pageNumber);
+      });
+  }, [email]);
+
+  useEffect(() => {
+    getSummariesByPage();
+  }, [getSummariesByPage]);
 
   const summariesList = summaries
     .map((summary, key) => <SummaryRow key={key} id={key} summary={summary} t={t} />);
 
   return (
-    <div className="component-container row">
+    <div className="component-container row justify-content-center">
       <div className="col-12">
         <div className="main-list-container row">
           <div className="main-title col-12">
@@ -44,6 +55,13 @@ const Summaries = ({ t }) => {
             {summariesList}
           </div>
         </div>
+      </div>
+      <div className="col-12">
+        <Pagination
+          totalPages={pageable ? pageable.totalPages : 0}
+          page={page}
+          getMenus={getSummariesByPage}
+        />
       </div>
     </div>
   );
