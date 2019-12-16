@@ -1,13 +1,24 @@
 package com.dsoft.tpdsoft.model;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+
+import java.util.List;
+import java.util.regex.Matcher;
+
+import static org.junit.Assert.*;
 
 public class ClientTest {
+
+    @Mock
+    private Menu menu;
+    @Mock
+    private ShoppingCart shoppingCart;
+    private List<Summary> summaries;
     private Client client;
+
 
     @Before
     public void before() {
@@ -61,6 +72,35 @@ public class ClientTest {
     }
 
     @Test
+    public void setSummaryTest() {
+        client.setSummaries(summaries);
+        assertEquals(summaries,client.getSummaries());
+    }
+
+    @Test
+    public void addSummaryTest() {
+        Summary summary = Mockito.mock(Summary.class);
+        client.addSummary(summary);
+        assertFalse(client.getSummaries().isEmpty());
+    }
+
+    @Test
+    public void itHaveToHaveAnItemInShoppingCartWhenAdded() {
+        // first is empty
+        assertTrue(client.getShoppingCart().getItems().isEmpty());
+        Item item = Mockito.mock(Item.class);
+        client.addItemToCart(item);
+        // has an item
+        assertFalse(client.getShoppingCart().getItems().isEmpty());
+    }
+
+    @Test
+    public void setShoppingCartTest() {
+        client.setShoppingCart(shoppingCart);
+        assertEquals(shoppingCart,client.getShoppingCart());
+    }
+
+    @Test
     public void add10CreditsToTheClient(){
         this.client.addCredit(10.0);
         assertEquals(this.client.getCredit(), Double.valueOf(10.0));
@@ -72,4 +112,27 @@ public class ClientTest {
         this.client.substractCredit(10.0);
         assertEquals(this.client.getCredit(), Double.valueOf(10));
     }
+
+    @Test
+    public void hasItemWithMenuTest() {
+        // TODO correct method name
+        ShoppingCart shoppingCart1= Mockito.mock(ShoppingCart.class);
+        client.setShoppingCart(shoppingCart1);
+        Mockito.when(shoppingCart1.hasItemWithMenu(Mockito.any())).thenReturn(true);
+
+        assertTrue(client.hasItemWithItem(Mockito.any()));
+    }
+
+    @Test
+    public void getItemMenuTest() {
+        ShoppingCart shoppingCart1= Mockito.mock(ShoppingCart.class);
+        Item item = Mockito.mock(Item.class);
+        client.setShoppingCart(shoppingCart1);
+        Mockito.when(shoppingCart1.getItemWithMenu(Mockito.any())).thenReturn(item);
+
+        assertEquals(item,client.getItemWithMenu(Mockito.any()));
+    }
+
+
+
 }
