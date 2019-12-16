@@ -1,15 +1,14 @@
-body{
-    background-color: #e8e8e8;
-}
-
-.create-provider {
-    width: 100%;
-    background-color: white;
-    margin-top: 20px;
-    padding: 10px;
-}
-
 .map-container {
     border: 1px solid grey;
     border-radius: 10px;
+}
+
+.create-provider-button {
+    padding: 5px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.form-item {
+    margin-bottom: 10px;
 }

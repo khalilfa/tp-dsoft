@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import Popup from 'reactjs-popup';
-import CreateMenu from './CreateMenu';
-import ServicesList from './ServicesList';
-import '../css/provider.css';
 import Button from '@material-ui/core/Button';
+import CreateMenu from '../CreateMenu';
+import ServicesList from '../ServicesList';
+import '../../css/provider.css';
 
 
 export default class Provider extends React.Component {

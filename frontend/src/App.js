@@ -5,9 +5,9 @@ import Index from './components/Index';
 import { useAuth0 } from './react-auth0-spa';
 import Register from './components/Register';
 import Maps from './components/Maps';
-import Provider from './components/Provider';
+import Provider from './components/provider/Provider';
 import Bill from './components/Bill';
-import CreateProvider from './components/CreateProvider';
+import CreateProvider from './components/provider/CreateProvider';
 import LanguageButton from './components/LanguageButton';
 import Client from './components/Client';
 import Profile from './components/Profile';
@@ -47,7 +47,7 @@ function App({ t }) {
           <PrivateRoute exact path="/maps" render={(props) => <Maps {...props} t={t} />} />
           <PrivateRoute exact path="/provider/:idProvider" render={(props) => <Provider {...props} t={t} />} />
           <PrivateRoute exact path="/bill" render={(props) => <Bill {...props} t={t} />} />
-          <PrivateRoute exact path="/createProvider" render={(props) => <CreateProvider {...props} t={t} />} />
+          <PrivateRoute exact path="/client/:idClient/createProvider" render={(props) => <CreateProvider {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/cart" render={(props) => <CartClient {...props} t={t} />} />
         </Switch>
       </Router>
