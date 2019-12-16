@@ -58,6 +58,7 @@ public class ShoppingCartTest {
     public void addItemTest() {
         Item item = Mockito.mock(Item.class);
         shoppingCart.addItem(item);
+        Assert.assertFalse(shoppingCart.getItems().isEmpty());
     }
 
     @Test

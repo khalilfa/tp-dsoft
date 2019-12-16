@@ -4,16 +4,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-
 import java.util.List;
-import java.util.regex.Matcher;
-
 import static org.junit.Assert.*;
 
 public class ClientTest {
 
-    @Mock
-    private Menu menu;
     @Mock
     private ShoppingCart shoppingCart;
     private List<Summary> summaries;
