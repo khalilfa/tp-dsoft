@@ -44,7 +44,7 @@ function App({ t }) {
           <PrivateRoute exact path="/client/:idClient/edit" render={(props) => <EditClient {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/menu/:idMenu" render={(props) => <Menu {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/provider/:idProvider" render={(props) => <Provider {...props} t={t} />} />
-          <PrivateRoute exact path="/client/:idClient/provider/:idProvider/createMenu" render={(props) => <CreateMenu {...props} t={t} />} />
+          <PrivateRoute exact path="/client/:idClient/provider/:idProvider/modifyMenu" render={(props) => <CreateMenu {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/createProvider" render={(props) => <CreateProvider {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/cart" render={(props) => <CartClient {...props} t={t} />} />
           <PrivateRoute exact path="/maps" render={(props) => <Maps {...props} t={t} />} />

@@ -37,7 +37,7 @@ const Provider = (props) => {
   };
 
   const openCreateMenu = () => {
-    history.push(`/client/${nickname}/provider/${idProvider}/createMenu`);
+    history.push(`/client/${nickname}/provider/${idProvider}/modifyMenu`);
   };
 
   const menuListRender = provider.menuList.map((menu, key) => (
@@ -47,13 +47,28 @@ const Provider = (props) => {
       deleteMenu={deleteMenu}
       individualMenu={menu}
       t={t}
+      nickname={nickname}
+      idProvider={idProvider}
     />
   ));
+
+  const goBack = () => {
+    history.push(`/client/${nickname}`);
+  };
 
   return (
     <div className="row component-container">
       <div className="main-title col-12">
-        <h2>{t('My menus for sale')}</h2>
+        <div className="row">
+          <div className="col-md-2 col-2 align-self-center">
+            <h4><button type="button" className="go-back-button" onClick={goBack}>{'<<'}</button></h4>
+          </div>
+          <div className="col-md-8 offset-md-2 col-10">
+            <h2>
+              {t('My menus for sale')}
+            </h2>
+          </div>
+        </div>
       </div>
       <div className="col-12">
         <div className="row main-list-container">
