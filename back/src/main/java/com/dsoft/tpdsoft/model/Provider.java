@@ -75,7 +75,7 @@ public class Provider {
 	private Integer metersRadioDelivery;
 	
 	@Size(max=20, message = "20 menus admitted")
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "provider")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "provider")
 	private List<Menu> menuList;
 
 	@Column(name = "credit")

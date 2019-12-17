@@ -30,7 +30,7 @@ public class Menu {
 	@Column(name = "description")
 	private String description;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn
 	@JsonIgnore
 	private Provider provider;

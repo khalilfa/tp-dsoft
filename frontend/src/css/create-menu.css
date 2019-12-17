@@ -1,9 +1,3 @@
-.create-menu-popup {
-    background-color: whitesmoke;
-    border: 3px solid black;
-    border-radius: 10px;
-}
-
 .field {
     padding: 5px;
     padding-left: 15px;
@@ -11,22 +5,22 @@
 
 .field input {
     border-radius: 15px;
+    color: white;
 }
 
 .react-time-picker input {
     margin-right: 10px;
     margin-left: 10px;
-    background-color: white !important;
 }
 
 .react-time-picker select {
-    background-color: white !important;
     border-radius: 10px;
+    color: white;
 }
 
 .react-time-picker__wrapper {
     border-radius: 10px;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .dropdown-toggle {
@@ -39,6 +33,11 @@
     padding: 2px;
 }
 
+.MuiSelect-root {
+    color: white !important;
+    margin-left: 15px !important;
+}
+
 .create-menu-button {
     margin: 15px;
     left: 3%;
@@ -48,21 +47,11 @@
     padding: 30px;
 }
 
-.close-popup {
-    text-align: right;
-}
-
-.close-popup-symbol:hover {
-    color: gray;
-}
-
-.close-popup-symbol {
-    background-color: transparent;
-    border: 0px;
-    padding-top: 10px;
-    padding-right: 15px;
-}
-
 .valid {
     margin-top: 5%;
+}
+
+.create-menu-button {
+    color: white;
+    padding: 5px;
 }
