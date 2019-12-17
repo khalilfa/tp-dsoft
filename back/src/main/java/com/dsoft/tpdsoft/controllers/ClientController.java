@@ -4,6 +4,8 @@ import com.dsoft.tpdsoft.model.Client;
 import com.dsoft.tpdsoft.model.ShoppingCart;
 import com.dsoft.tpdsoft.model.Summary;
 import com.dsoft.tpdsoft.services.ClientService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,6 +22,9 @@ import java.util.Optional;
 @RestController
 @RequestMapping(path = "/client")
 public class ClientController {
+
+    Logger clientLogger = LoggerFactory.getLogger(ClientController.class);
+
     @Autowired
     private ClientService clientService;
 
@@ -36,9 +41,12 @@ public class ClientController {
     @PostMapping
     public ResponseEntity<Client> addClient(@Valid @RequestBody Client client) {
         Client savedClient = this.clientService.saveClient(client);
+
         if (savedClient == null) {
             return new ResponseEntity("Username already exist", HttpStatus.NOT_FOUND);
+
         } else {
+            clientLogger.info("A user with name"+ client.getName() +" was created correctly");
             return ResponseEntity.of(Optional.of(savedClient));
         }
     }
@@ -67,13 +75,16 @@ public class ClientController {
                                           @RequestParam("menuId") Integer menuId,
                                           @RequestParam("menuQ") Integer menuQ) {
         Client savedClient = this.clientService.addItemToCart(email, menuId, menuQ);
+        clientLogger.info("An item with id" + menuId.toString() + " and was bought by" + email);
         return ResponseEntity.of(Optional.of(savedClient));
     }
 
     @DeleteMapping("/cart")
     public ResponseEntity<ShoppingCart> deleteItem(@RequestParam(name = "email") String email,
                                                    @RequestParam("itemId") Integer itemId) {
+
         ShoppingCart cart = this.clientService.deleteItem(email, itemId);
+        clientLogger.info("an item with id "+ itemId.toString()+ " was deleted by " + email);
         return ResponseEntity.of(Optional.of(cart));
     }
 
@@ -90,6 +101,7 @@ public class ClientController {
     public ResponseEntity<Client> addCredit(@RequestParam(name = "email") String email,
                                             @PathVariable Double credit) {
         Client savedClient = this.clientService.addCredit(email, credit);
+        clientLogger.info(String.format("%d credit was added to client with email %s"),credit,email);
         return ResponseEntity.of(Optional.of(savedClient));
     }
 

@@ -26,13 +26,13 @@ public class MainService {
 
         client.addCredit(500.0);
 
-        Client clientProvider1 = new Client("facundokhalil@gmail.com", "Juan", "Perez",
+        Client clientProvider1 = new Client("josecito@gmail.com", "Juan", "Perez",
                 "Las heras 324");
 
-        Client clientProvider2 = new Client("provider2@hotmail.com", "Juan", "Perez",
+        Client clientProvider2 = new Client("chinguen@hotmail.com", "Juan", "Perez",
                 "Las heras 324");
 
-        Client clientProvider3 = new Client("provider3@hotmail.com", "Juan", "Perez",
+        Client clientProvider3 = new Client("alguienmas@hotmail.com", "Juan", "Perez",
                 "Las heras 324");
 
         // GENERATE PROVIDERS
