@@ -85,6 +85,7 @@ public class MenuService {
         try {
             Provider provider = this.providerService.getProvider(idProvider);
             Menu menu = this.getMenu(idMenu);
+            menu.setProvider(null);
             provider.deleteMenu(menu);
 
             return this.providerService.updateProvider(provider, idProvider);

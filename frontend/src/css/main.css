@@ -65,3 +65,14 @@
 .MuiInputBase-root {
     width: 188px;
 }
+
+.go-back-button {
+    background-color: transparent;
+    border-width: 0px;
+    color: white;
+}
+
+.go-back-button:hover {
+    color: coral;
+    border-width: 0px;
+}
