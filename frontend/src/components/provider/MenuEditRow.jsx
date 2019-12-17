@@ -3,9 +3,15 @@ import '../../css/provider.css';
 import '../../css/main.css';
 import editButton from '../../resources/edit-button.jpg';
 import deleteButton from '../../resources/delete-button.png';
+import history from '../../utils/history';
 
-const MenuEditRow = ({ keyId, individualMenu, deleteMenu }) => {
+const MenuEditRow = ({ keyId, nickname, idProvider, individualMenu, deleteMenu }) => {
   const par = (keyId % 2) === 0 ? 'menu-column-pair row' : 'menu-column row';
+
+  const openEditMenu = () => {
+    history.push(`/client/${nickname}/provider/${idProvider}/modifyMenu`, { menuId: individualMenu.id });
+  };
+
   return (
     <div className={`main-row ${par}`}>
       <div className="menu-column-value col-3">{ individualMenu.name }</div>
@@ -23,7 +29,7 @@ const MenuEditRow = ({ keyId, individualMenu, deleteMenu }) => {
             />
           </div>
           <div className="col-1 offset-1">
-            <input type="image" className="button" src={editButton} alt="edit button" />
+            <input type="image" className="button" src={editButton} alt="edit button" onClick={openEditMenu} />
           </div>
         </div>
       </div>
