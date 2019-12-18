@@ -15,7 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin(origins = "*", methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.PUT})
@@ -31,6 +30,13 @@ public class ClientController {
     public ClientController(ClientService service) {
         this.clientService = service;
     }
+
+    @GetMapping("/provider")
+    public Boolean hasProvider(@RequestParam(name = "email") String email) {
+        Boolean exist = this.clientService.hasProvider(email);
+        return  exist;
+    }
+
 
     @GetMapping("/exist")
     public Boolean addClient(@RequestParam(name = "email") String email) {

@@ -7,7 +7,6 @@ import Maps from './components/Maps';
 import Provider from './components/provider/Provider';
 import Bill from './components/Bill';
 import CreateProvider from './components/provider/CreateProvider';
-import LanguageButton from './components/LanguageButton';
 import Client from './components/Client';
 import Profile from './components/Profile';
 import history from './utils/history';
@@ -18,6 +17,7 @@ import Menu from './components/Menu';
 import EditClient from './components/EditClient';
 import Summaries from './components/summary/Summaries';
 import CreateMenu from './components/provider/CreateMenu';
+import LanguageButton from './components/LanguageButton';
 
 function App({ t }) {
   const { loading, isAuthenticated } = useAuth0();
@@ -26,14 +26,15 @@ function App({ t }) {
     return <div>Loading...</div>;
   }
 
-  const navBar = isAuthenticated ? <NavBar /> : null;
+  const navBar = isAuthenticated ? <NavBar /> : <LanguageButton />;
 
   return (
     <div className="container">
       <Router history={history}>
         <header className="row">
-          <LanguageButton />
-          { navBar }
+          <div className="col-12">
+            { navBar }
+          </div>
         </header>
 
         <Switch>

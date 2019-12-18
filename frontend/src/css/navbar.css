@@ -1,0 +1,20 @@
+.client-navbar {
+    background: transparent;
+    width: 50px;
+}
+
+.dropdown-toggle {
+    background-color: transparent !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    border-width: 0px !important;
+}
+
+.dropdown-toggle::after{
+    display: none !important;
+}
+
+.client-image-navbar {
+    width: 50px;
+    border-radius: 50px;
+}

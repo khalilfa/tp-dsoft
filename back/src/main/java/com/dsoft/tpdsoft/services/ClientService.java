@@ -34,6 +34,11 @@ public class ClientService {
         }
     }
 
+    public Boolean hasProvider(String email) {
+        Client client = this.getClient(email);
+        return client.hasProvider();
+    }
+
     public Client saveClient(Client client) {
         try {
             if (this.clientRepository.existsById(client.getEmail())){
@@ -47,9 +52,9 @@ public class ClientService {
         }
     }
 
-    public Client getClient(String id) {
-        return this.clientRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Could not get a client with id: " + id));
+    public Client getClient(String email) {
+        return this.clientRepository.findById(email)
+                .orElseThrow(() -> new NotFoundException("Could not get a client with id: " + email));
     }
 
     public Client updateClient(String email, Client client) {
