@@ -12,7 +12,7 @@ import Profile from './components/Profile';
 import history from './utils/history';
 import PrivateRoute from './components/PrivateRoute';
 import NavBar from './components/NavBar';
-import CartClient from './components/CartClient';
+import ClientCart from './components/ClientCart';
 import Menu from './components/Menu';
 import EditClient from './components/EditClient';
 import Summaries from './components/summary/Summaries';
@@ -57,7 +57,7 @@ function App({ t }) {
           <PrivateRoute exact path="/client/:idClient/provider/:idProvider" render={(props) => <Provider {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/provider/:idProvider/modifyMenu" render={(props) => <CreateMenu {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/createProvider" render={(props) => <CreateProvider {...props} t={t} setExistProvider={setExistProvider} />} />
-          <PrivateRoute exact path="/client/:idClient/cart" render={(props) => <CartClient {...props} t={t} />} />
+          <PrivateRoute exact path="/client/:idClient/cart" render={(props) => <ClientCart {...props} t={t} />} />
           <PrivateRoute exact path="/maps" render={(props) => <Maps {...props} t={t} />} />
           <PrivateRoute exact path="/bill" render={(props) => <Bill {...props} t={t} />} />
         </Switch>
