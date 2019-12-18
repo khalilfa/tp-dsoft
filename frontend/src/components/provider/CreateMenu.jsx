@@ -302,10 +302,7 @@ const CreateMenu = (props) => {
                 required
                 name="deliveryFrom"
                 value={deliveryFrom}
-                onChange={(data) => {
-                  setDeliveryFrom(data);
-                  console.log(data);
-                }}
+                onChange={(data) => setDeliveryFrom(data)}
               />
             </div>
 

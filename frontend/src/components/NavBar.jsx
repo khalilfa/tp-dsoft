@@ -11,10 +11,6 @@ const NavBar = ({ existProvider, existClient, setExistProvider }) => {
   const { nickname, email } = user;
   const [client, setClient] = useState({});
 
-  console.log(existProvider);
-  console.log(email);
-
-
   useEffect(() => {
     if (existProvider) {
       Axios.get(`http://127.0.0.1:8080/client?email=${email}`)
@@ -24,7 +20,6 @@ const NavBar = ({ existProvider, existClient, setExistProvider }) => {
   }, [existProvider, email]);
 
   useEffect(() => {
-    console.log(existClient);
     if (existClient) {
       Axios.get(`http://127.0.0.1:8080/client/provider?email=${email}`)
         .then((res) => res.data)
