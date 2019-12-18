@@ -24,6 +24,10 @@ function App({ t }) {
   const [existClient, setExistClient] = useState(false);
   const [existProvider, setExistProvider] = useState(false);
   const [isDolarCurrency,setIsDolarCurrency] = useState(true);
+  
+  const setIsDolarCurrencyLB = () => { // LB = language button
+    setIsDolarCurrency(!isDolarCurrency);
+  } 
 
   if (loading) {
     return <div>Loading...</div>;
@@ -35,6 +39,7 @@ function App({ t }) {
         existProvider={existProvider}
         existClient={existClient}
         setExistProvider={setExistProvider}
+        changeDolarCurrency={setIsDolarCurrencyLB}
       />
     )
     : <LanguageButton />;

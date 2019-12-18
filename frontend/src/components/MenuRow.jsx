@@ -66,7 +66,7 @@ export default function MenuRow(props) {
       </div>
 
       <div className="col-2 align-self-center">
-        { isDolarCurrency ? convertToDolar({price}) : `${price}` }
+        { isDolarCurrency ? convertToDolar({price}) : `$ ${price}` }
       </div>
 
       <div className="col-2 align-self-center">
