@@ -31,9 +31,11 @@ class Map extends React.Component {
   changeLocation(locality) {
     Axios.post(`https://maps.googleapis.com/maps/api/geocode/json?address=${locality}+Argentina&key=AIzaSyBv2vHmt_qxUUL8SilJ_jwL3d1h0Lr90Jc`)
       .then((res) => {
-        const { location } = res.data.results[0].geometry;
-        const latLng = new this.google.maps.LatLng(location.lat, location.lng);
-        this.map.current.panTo(latLng);
+        if (res.data.status === 'OK') {
+          const { location } = res.data.results[0].geometry;
+          const latLng = new this.google.maps.LatLng(location.lat, location.lng);
+          this.map.current.panTo(latLng);
+        }
       });
   }
 
@@ -67,7 +69,7 @@ class Map extends React.Component {
 
 const MapC = compose(
   withProps({
-    googleMapURL: 'https://maps.googleapis.com/maps/api/jskey=%REACT_APP_GMAPS_KEY%?v=3.exp&libraries=geometry,drawing,places',
+    googleMapURL: 'https://maps.googleapis.com/maps/api/jskey=AIzaSyBv2vHmt_qxUUL8SilJ_jwL3d1h0Lr90Jc?v=3.exp&libraries=geometry,drawing,places',
     loadingElement: <div className="col-md-12" style={{ height: '100%' }} />,
     containerElement: <div className="col-md-12" style={{ height: '330px' }} />,
     mapElement: <div className="map-container" style={{ height: '100%' }} />,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withTranslation } from 'react-i18next';
 import { Router, Route, Switch } from 'react-router-dom';
 import Index from './components/Index';
@@ -21,12 +21,22 @@ import LanguageButton from './components/LanguageButton';
 
 function App({ t }) {
   const { loading, isAuthenticated } = useAuth0();
+  const [existClient, setExistClient] = useState(false);
+  const [existProvider, setExistProvider] = useState(false);
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  const navBar = isAuthenticated ? <NavBar /> : <LanguageButton />;
+  const navBar = isAuthenticated
+    ? (
+      <NavBar
+        existProvider={existProvider}
+        existClient={existClient}
+        setExistProvider={setExistProvider}
+      />
+    )
+    : <LanguageButton />;
 
   return (
     <div className="container">
@@ -38,7 +48,7 @@ function App({ t }) {
         </header>
 
         <Switch>
-          <Route exact path="/" render={(props) => <Index {...props} t={t} />} />
+          <Route exact path="/" render={(props) => <Index {...props} t={t} setExistClient={setExistClient} />} />
           <PrivateRoute exact path="/profile" render={(props) => <Profile {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient" render={(props) => <Client {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/summaries" render={(props) => <Summaries {...props} t={t} />} />
@@ -46,7 +56,7 @@ function App({ t }) {
           <PrivateRoute exact path="/client/:idClient/menu/:idMenu" render={(props) => <Menu {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/provider/:idProvider" render={(props) => <Provider {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/provider/:idProvider/modifyMenu" render={(props) => <CreateMenu {...props} t={t} />} />
-          <PrivateRoute exact path="/client/:idClient/createProvider" render={(props) => <CreateProvider {...props} t={t} />} />
+          <PrivateRoute exact path="/client/:idClient/createProvider" render={(props) => <CreateProvider {...props} t={t} setExistProvider={setExistProvider} />} />
           <PrivateRoute exact path="/client/:idClient/cart" render={(props) => <CartClient {...props} t={t} />} />
           <PrivateRoute exact path="/maps" render={(props) => <Maps {...props} t={t} />} />
           <PrivateRoute exact path="/bill" render={(props) => <Bill {...props} t={t} />} />

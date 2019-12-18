@@ -1,14 +1,12 @@
 import React from 'react';
 import Rating from '@material-ui/lab/Rating';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 export default function SimpleRating() {
   const [value, setValue] = React.useState(0);
 
-  function handleChange(e,v){
-      setValue(v);
-      // pegarle al endpoint TODO
+  function handleChange(e, v) {
+    setValue(v);
   }
   return (
     <div>
@@ -16,7 +14,7 @@ export default function SimpleRating() {
         <Rating
           name="simple-controlled"
           value={value}
-          onChange={(e,value) => handleChange(e,value)}
+          onChange={(e, newValue) => handleChange(e, newValue)}
         />
       </Box>
     </div>

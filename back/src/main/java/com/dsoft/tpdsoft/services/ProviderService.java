@@ -5,9 +5,11 @@ import com.dsoft.tpdsoft.exceptions.StorageException;
 import com.dsoft.tpdsoft.model.*;
 import com.dsoft.tpdsoft.repositories.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProviderService {
@@ -17,22 +19,12 @@ public class ProviderService {
     @Autowired
     private ClientService clientService;
 
-    public Provider saveProvider(Provider provider, File logo, AttentionSchedule schedule) {
-        try {
-            provider.setSchedule(schedule);
-            provider.setLogo(logo);
-            Provider savedProvider = this.providerRepository.save(provider);
-            return savedProvider;
-        } catch (Exception ex) {
-            throw new StorageException("Could not save the provider: " + provider.getName(), ex);
-        }
-    }
-
     public Provider saveProvider(Provider provider, String email) {
         try {
             Client client = this.clientService.getClient(email);
             Provider savedProvider = this.providerRepository.save(provider);
             client.setProvider(savedProvider);
+            this.clientService.updateClient(email, client);
             return savedProvider;
         } catch (Exception ex) {
             throw new StorageException("Could not save the provider: " + provider.getName(), ex);
@@ -55,8 +47,7 @@ public class ProviderService {
     public Provider updateProvider(Provider provider, Integer id) {
         try {
             provider.setId(id);
-            Provider savedProvider = this.providerRepository.save(provider);
-            return savedProvider;
+            return this.providerRepository.save(provider);
         } catch (Exception ex) {
             throw new StorageException("Could not update the provider with id: " + id, ex);
         }
