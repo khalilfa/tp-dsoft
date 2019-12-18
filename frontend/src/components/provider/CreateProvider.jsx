@@ -6,9 +6,13 @@ import Axios from 'axios';
 import TimeSelect from '../TimeSelect';
 import Multiselect from '../Multiselect';
 import Map from '../Map';
+import { useAuth0 } from '../../react-auth0-spa';
+import history from '../../utils/history';
 
-const CreateProvider = (props) => {
-  const { t } = props;
+const CreateProvider = ({ t, setExistProvider }) => {
+  const { user } = useAuth0();
+  const { nickname } = user;
+  const clientEmail = user.email;
   const date = new Date();
   const options = [t('Monday'), t('Tuesday'), t('Wednesday'), t('Thursday'), t('Friday'), t('Saturday'),
     t('Sunday')];
@@ -25,7 +29,7 @@ const CreateProvider = (props) => {
   const [to, setTo] = useState(`${date.getHours()}:${date.getMinutes()}`);
   const [ableDays, setAbleDays] = useState([]);
   const [metersRadioDelivery, setMetersRadioDelivery] = useState('');
-  const [completeLocality, setCompleteLocality] = useState(undefined);
+  const [completeLocality, setCompleteLocality] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,10 +47,15 @@ const CreateProvider = (props) => {
     const formData = new FormData();
     formData.append('file', logo);
 
-    Axios.post('http://localhost:8080/provider', provider)
+    Axios.post(`http://localhost:8080/provider?email=${clientEmail}`, provider)
       .then((res) => res.data)
       .then((data) => {
-        Axios.post(`http://localhost:8080/provider/${data.id}/logo`, formData);
+        Axios.post(`http://localhost:8080/provider/${data.id}/logo`, formData)
+          .then(() => {
+            setExistProvider(true);
+            history.push(`/client/${nickname}/provider/${data.id}`);
+          })
+          .catch((error) => console.info(error));
       })
       .catch((error) => console.info(error));
   };
@@ -178,6 +187,7 @@ const CreateProvider = (props) => {
                     {t('Open from')}:
                   </label>
                   <TimeSelect
+                    idTimePiker="timePikerFrom"
                     className="col-md-6 col-6 align-self-center"
                     time={from}
                     handleChange={(newFrom) => setFrom(newFrom)}
@@ -193,6 +203,7 @@ const CreateProvider = (props) => {
                     {t('Open to')}:
                   </label>
                   <TimeSelect
+                    idTimePiker="timePikerTo"
                     className="col-md-6 col-6 align-self-center"
                     time={to}
                     handleChange={(newTo) => setTo(newTo)}

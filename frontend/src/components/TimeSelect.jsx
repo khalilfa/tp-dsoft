@@ -4,7 +4,7 @@ import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider,
   KeyboardTimePicker } from '@material-ui/pickers';
 
-export default function TimeSelect({ time, handleChange, className, t }) {
+export default function TimeSelect({ idTimePiker, time, handleChange, className, t }) {
   const newTime = new Date();
   if (time) {
     const timeList = time.split(':');
@@ -24,7 +24,7 @@ export default function TimeSelect({ time, handleChange, className, t }) {
       <KeyboardTimePicker
         className={className}
         margin="normal"
-        id="time-picker"
+        id={idTimePiker}
         label={t('Select time')}
         value={newTime}
         onChange={sendTime}

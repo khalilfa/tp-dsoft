@@ -11,4 +11,9 @@
 
 .form-item {
     margin-bottom: 10px;
+    color: white;
+}
+
+.MuiInputBase-root {
+    color: white !important;
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../css/index.css';
 import '../css/main.css';
 import Axios from 'axios';
@@ -11,7 +11,7 @@ const CheckedIcon = () => (
   <span><img src={Checked} className="checkedIcon" alt="Check" /></span>
 );
 
-const Index = ({ t }) => {
+const Index = ({ t, setExistClient }) => {
   const { user, loginWithRedirect } = useAuth0();
 
   const createClientIfNotExist = () => {
@@ -27,10 +27,21 @@ const Index = ({ t }) => {
       .then((res) => res.data)
       .then((exist) => {
         if (!exist) {
-          Axios.post(urlCreateClient, newClient);
+          Axios.post(urlCreateClient, newClient)
+            .then(() => setExistClient(true))
+            .catch((error) => console.info(error));
         }
       });
   };
+
+  useEffect(() => {
+    if (user) {
+      const { email } = user;
+      Axios.get(`http://127.0.0.1:8080/client/exist?email=${email}`)
+        .then((res) => res.data)
+        .then((data) => setExistClient(data));
+    }
+  }, [user, setExistClient]);
 
   if (user) {
     createClientIfNotExist();

@@ -39,7 +39,7 @@ public class ClientController {
 
 
     @GetMapping("/exist")
-    public Boolean addClient(@RequestParam(name = "email") String email) {
+    public Boolean existClient(@RequestParam(name = "email") String email) {
         Boolean exist = this.clientService.existClient(email);
         return exist;
     }
