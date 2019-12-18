@@ -23,6 +23,7 @@ function App({ t }) {
   const { loading, isAuthenticated } = useAuth0();
   const [existClient, setExistClient] = useState(false);
   const [existProvider, setExistProvider] = useState(false);
+  const [isDolarCurrency,setIsDolarCurrency] = useState(true);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -38,6 +39,7 @@ function App({ t }) {
     )
     : <LanguageButton />;
 
+
   return (
     <div className="container">
       <Router history={history}>
@@ -50,7 +52,7 @@ function App({ t }) {
         <Switch>
           <Route exact path="/" render={(props) => <Index {...props} t={t} setExistClient={setExistClient} />} />
           <PrivateRoute exact path="/profile" render={(props) => <Profile {...props} t={t} />} />
-          <PrivateRoute exact path="/client/:idClient" render={(props) => <Client {...props} t={t} />} />
+          <PrivateRoute exact path="/client/:idClient" render={(props) => <Client {...props} t={t} isDolarCurrency={isDolarCurrency}/>} />
           <PrivateRoute exact path="/client/:idClient/summaries" render={(props) => <Summaries {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/edit" render={(props) => <EditClient {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/menu/:idMenu" render={(props) => <Menu {...props} t={t} />} />

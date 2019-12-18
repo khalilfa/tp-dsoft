@@ -39,6 +39,11 @@ export default function MenuRow(props) {
   const classes = useStyles();
   const { id, name, description, price } = props.menu;
   const { openMenu } = props;
+  const { isDolarCurrency } = props;
+
+  function convertToDolar(obj){
+    return "u$s " +(obj.price / 60).toFixed(2);;
+  }
 
   return (
     <div className={`${classes.menuRow} row`}>
@@ -61,7 +66,7 @@ export default function MenuRow(props) {
       </div>
 
       <div className="col-2 align-self-center">
-        ${price}
+        { isDolarCurrency ? convertToDolar({price}) : `${price}` }
       </div>
 
       <div className="col-2 align-self-center">
