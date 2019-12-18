@@ -42,7 +42,7 @@ export default function MenuRow(props) {
   const { isDolarCurrency } = props;
 
   function convertToDolar(obj){
-    return "u$s " +(obj.price / 60).toFixed(2);;
+    return "u$s " +(obj.price / 60).toFixed(2);
   }
 
   return (

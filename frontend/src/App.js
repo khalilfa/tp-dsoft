@@ -27,7 +27,7 @@ function App({ t }) {
   
   const setIsDolarCurrencyLB = () => { // LB = language button
     setIsDolarCurrency(!isDolarCurrency);
-  } 
+  }; 
 
   if (loading) {
     return <div>Loading...</div>;

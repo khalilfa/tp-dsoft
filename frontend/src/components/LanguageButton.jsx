@@ -25,7 +25,7 @@ const LanguageButton = ({ t, i18n, className ,changeDolarCurrency}) => {
         />
       </div>
     </div>
-  )
+  );
 };
 
 export default withTranslation()(LanguageButton);
