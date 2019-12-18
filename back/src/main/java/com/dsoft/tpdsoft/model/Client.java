@@ -152,4 +152,8 @@ public class Client {
         this.shoppingCart.resetItems();
     }
 
+    public Boolean hasProvider() {
+        return this.provider != null;
+    }
+
 }
