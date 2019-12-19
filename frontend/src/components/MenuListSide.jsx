@@ -45,11 +45,11 @@ function MenuListSide({ menus, t, openMenu, isDolarCurrency }) {
       isDolarCurrency={isDolarCurrency}
     />
   ));
-  const emptyMenus = <h3 className={`${classes.text} col-12`}>{t('There are no menus')}...</h3>;
+  const emptyMenus = <h3 className={`${classes.text} col-12`}>{t('There are no menus...')}</h3>;
 
   return (
     <div className={`${classes.menuListContainer} row justify-content-center`}>
-      <h1 className={`${classes.menuTitle} col-12 align-self-center`}>{t('Menu list')}</h1>
+      <h1 className={`${classes.menuTitle} col-12 align-self-center main-title`}>{t('Menu list')}</h1>
       <div className={`${classes.menu} col-12`}>
         {(menus.length !== 0) ? menuList : emptyMenus}
       </div>

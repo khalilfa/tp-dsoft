@@ -115,6 +115,7 @@ const CreateProvider = ({ t, setExistProvider }) => {
                     pattern="\S+.*"
                     minLength="30"
                     maxLength="200"
+                    required
                     name="serviceDescription"
                     value={serviceDescription}
                     onChange={(e) => setServiceDescription(e.target.value)}
