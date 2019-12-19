@@ -58,8 +58,11 @@ public class ClientService {
 
     public Client updateClient(String email, Client client) {
         try {
-            client.setEmail(email);
-            Client savedClient = this.clientRepository.save(client);
+            Client getClient = this.getClient(email);
+            getClient.setName(client.getName());
+            getClient.setLastName(client.getLastName());
+            getClient.setAddress(client.getAddress());
+            Client savedClient = this.clientRepository.save(getClient);
             return savedClient;
         } catch (Exception e) {
             throw new StorageException("Could not save the client: " + client.getName(), e);

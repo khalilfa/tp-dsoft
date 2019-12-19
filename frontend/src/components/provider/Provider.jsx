@@ -63,10 +63,13 @@ const Provider = (props) => {
           <div className="col-md-2 col-2 align-self-center">
             <h4><button type="button" className="go-back-button" onClick={goBack}>{'<<'}</button></h4>
           </div>
-          <div className="col-md-8 offset-md-2 col-10">
+          <div className="col-md-6 offset-md-2 col-9">
             <h2>
               {t('My menus for sale')}
             </h2>
+          </div>
+          <div className="provider-credit col-md-2 col-1 align-self-center">
+            <h4>{provider ? provider.credit : 0}</h4>
           </div>
         </div>
       </div>

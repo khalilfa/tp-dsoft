@@ -1,33 +1,77 @@
-import React from 'react';
-import Button from 'react-bootstrap/Button';
-import CardPayment from './CardPayment.jsx';
+/* eslint-disable no-alert */
+import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
+import { Input } from '@material-ui/core';
+import { useAuth0 } from '../react-auth0-spa';
+import history from '../utils/history';
 import '../css/bill.css';
+import '../css/main.css';
 
-class Bill extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      paymentComponent: null,
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
+const Bill = ({ t }) => {
+  const { user } = useAuth0();
+  const { email } = user;
+  const [client, setClient] = useState(null);
+  const [credit, setCredit] = useState(null);
+  const [update, setUpdate] = useState(false);
 
-  handleClick() {
-    this.setState({
-      paymentComponent: <CardPayment />,
-    });
-  }
+  useEffect(() => {
+    Axios.get(`http://127.0.0.1:8080/client?email=${email}`)
+      .then((res) => res.data)
+      .then((data) => setClient(data));
+    setUpdate(false);
+  }, [email, update]);
 
-  render() {
-    return (
-      <div id="wrapper">
-        <nav /> {/* fake nav */}
-        <h2>Su saldo es de: $ 100</h2>
-        <Button variant="success" onClick={this.handleClick}>Agregar saldo</Button>
-        {this.state.paymentComponent}
+  const chargeCredit = () => {
+    if (credit) {
+      Axios.post(`http://127.0.0.1:8080/client/credit/${credit}?email=${email}`)
+        .then(() => {
+          setUpdate(true);
+          alert(t('The credit was deposited'));
+        });
+    } else {
+      alert('Enter an amount');
+    }
+  };
+
+  const goBack = () => {
+    history.goBack();
+  };
+
+  return (
+    <div className="component-container row">
+      <div className="main-title col-12">
+        <div className="row">
+          <div className="col-md-2 col-2 align-self-center">
+            <h4><button type="button" className="go-back-button" onClick={() => goBack()}>{'<<'}</button></h4>
+          </div>
+          <div className="col-md-8 offset-md-2 col-10">
+            <h2>{t('Charge credit')}</h2>
+          </div>
+        </div>
       </div>
-    );
-  }
-}
+      <div className="col-12">
+        <div className="row d-flex justify-content-between">
+          <div className="col-md-4">
+            <h2>{t('Credit to deposit')}</h2>
+          </div>
+          <div className="col-md-4">
+            <h2>{t('Your balance is')}: $ {client ? client.credit : 0}</h2>
+          </div>
+        </div>
+      </div>
+      <div className="input-credit-bill col-md-3">
+        <Input onChange={(e) => setCredit(e.target.value)} />
+      </div>
+      <div className="w-100" />
+      <div
+        role="button"
+        className="load-data-bill-button main-button col-md-3"
+        onClick={() => chargeCredit()}
+      >
+        {t('Load data')}
+      </div>
+    </div>
+  );
+};
 
 export default Bill;

@@ -71,11 +71,16 @@ const ClientCart = ({ t }) => {
           });
       } else {
         alert(t('Not enough credit'));
+        history.push(`/client/${nickname}/bill`);
       }
     } else {
       alert(t('There is no address'));
       history.push(`/client/${nickname}/edit`);
     }
+  };
+
+  const goBack = () => {
+    history.goBack();
   };
 
   const menuList = cart
@@ -90,10 +95,13 @@ const ClientCart = ({ t }) => {
           <div className="main-list-container row">
             <div className="main-title col-12">
               <div className="row d-flex justify-content-between">
-                <div className="col-md-5">
+                <div className="col-md-2 col-2 align-self-center">
+                  <h4><button type="button" className="go-back-button" onClick={() => goBack()}>{'<<'}</button></h4>
+                </div>
+                <div className="col-md-4 col-8 align-self-center">
                   <h2>{t('Shopping cart')}</h2>
                 </div>
-                <div className="col-md-1 col-5 align-self-center">
+                <div className="col-md-1 col-2 align-self-center">
                   {client ? client.credit : 0}
                 </div>
               </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { Input } from '@material-ui/core';
 import { useAuth0 } from '../react-auth0-spa';
+import history from '../utils/history';
 import '../css/edit-client.css';
 import '../css/main.css';
 
@@ -33,10 +34,21 @@ const EditClient = ({ t }) => {
       });
   };
 
+  const goBack = () => {
+    history.goBack();
+  };
+
   return (
     <div className="component-container row justify-content-center">
       <div className="main-title col-12">
-        <h2>{t('Edit information')}</h2>
+        <div className="row">
+          <div className="col-md-2 col-2 align-self-center">
+            <h4><button type="button" className="go-back-button" onClick={() => goBack()}>{'<<'}</button></h4>
+          </div>
+          <div className="col-md-8 offset-md-2 col-10">
+            <h2>{t('Edit information')}</h2>
+          </div>
+        </div>
       </div>
       <div className="col-md-6 col-12 order-md-1 order-2">
         <div className="row">
