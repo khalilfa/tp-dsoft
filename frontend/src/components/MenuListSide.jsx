@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   },
 });
 
-function MenuListSide({ menus, t, openMenu }) {
+function MenuListSide({ menus, t, openMenu, isDolarCurrency}) {
   const classes = useStyles();
   const { user } = useAuth0();
   const { email } = user;
@@ -35,7 +35,13 @@ function MenuListSide({ menus, t, openMenu }) {
   };
 
   const menuList = menus.map((menu, key) => (
-    <MenuRow key={key} menu={menu} openMenu={openMenu} addMenuToCart={addMenuToCart} />
+    <MenuRow
+      key={key}
+      menu={menu}
+      openMenu={openMenu}
+      addMenuToCart={addMenuToCart}
+      isDolarCurrency={isDolarCurrency}
+    />
   ));
   const emptyMenus = <h3 className={`${classes.text} col-12`}>No existe ningun menu...</h3>;
 

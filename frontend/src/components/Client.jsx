@@ -82,7 +82,7 @@ export default class Client extends React.Component {
               t={t}
               selector={category}
               handleChange={this.handleChangeCategory}
-              selectorName="Category"
+              selectorName={t('Category')}
             />
             <SimpleSelect
               className="filter col-md-10"
@@ -96,7 +96,12 @@ export default class Client extends React.Component {
         </div>
 
         <div className="menu-list col-md-8">
-          <MenuListSide t={t} menus={menus} openMenu={this.openMenu} />
+          <MenuListSide
+            t={t}
+            menus={menus}
+            openMenu={this.openMenu}
+            isDolarCurrency={this.props.isDolarCurrency}
+          />
           <Pagination
             totalPages={pageable ? pageable.totalPages : 0}
             page={page}

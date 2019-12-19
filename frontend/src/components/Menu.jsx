@@ -43,7 +43,7 @@ const Menu = (props) => {
           <div
             role="button"
             className="add-cart-button col-11"
-            onClick={() => console.log('Me toca')}
+            onClick={() => console.info('Me toca')}
           >
             {t('Add to cart')}
           </div>

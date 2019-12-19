@@ -45,6 +45,7 @@ const resources = {
       Summaries: 'Resumenes',
       Items: 'Elementos',
       Quantity: 'Cantidad',
+      Category: 'Categoria',
       'There are no menus': 'No hay menus',
       'Shopping cart': 'Carro de compras',
       'Create at': 'Creado el',

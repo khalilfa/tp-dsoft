@@ -6,7 +6,7 @@ import LanguageButton from './LanguageButton';
 import history from '../utils/history';
 import '../css/navbar.css';
 
-const NavBar = ({ existProvider, existClient, setExistProvider }) => {
+const NavBar = ({ existProvider, existClient, setExistProvider, changeDolarCurrency }) => {
   const { logout, user } = useAuth0();
   const { nickname, email } = user;
   const [client, setClient] = useState({});
@@ -58,7 +58,10 @@ const NavBar = ({ existProvider, existClient, setExistProvider }) => {
         <NavDropdown.Item onClick={() => logout()}>Log out</NavDropdown.Item>
       </NavDropdown>
 
-      <LanguageButton className="col-auto d-flex align-items-end" />
+      <LanguageButton
+        className="col-auto d-flex align-items-end"
+        changeDolarCurrency={changeDolarCurrency}
+      />
     </div>
   );
 };
