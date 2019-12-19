@@ -23,6 +23,7 @@ export default class Client extends React.Component {
     this.getMenus = this.getMenus.bind(this);
     this.getMenusByFilters = this.getMenusByFilters.bind(this);
     this.openMenu = this.openMenu.bind(this);
+
   }
 
   componentDidMount() {
@@ -96,7 +97,10 @@ export default class Client extends React.Component {
         </div>
 
         <div className="menu-list col-md-8">
-          <MenuListSide t={t} menus={menus} openMenu={this.openMenu} />
+          <MenuListSide t={t} 
+                        menus={menus} 
+                        openMenu={this.openMenu}
+                        isDolarCurrency={this.props.isDolarCurrency} />
           <Pagination
             totalPages={pageable ? pageable.totalPages : 0}
             page={page}

@@ -19,9 +19,12 @@ const useStyles = makeStyles({
   },
 });
 
-function MenuListSide({ menus, t, openMenu }) {
+function MenuListSide({ menus, t, openMenu, isDolarCurrency}) {
   const classes = useStyles();
-  const menuList = menus.map((menu, key) => <MenuRow key={key} menu={menu} openMenu={openMenu} />);
+  const menuList = menus.map((menu, key) => <MenuRow key={key} 
+                                                     menu={menu}
+                                                     openMenu={openMenu} 
+                                                     isDolarCurrency={isDolarCurrency} />);
   const emptyMenus = <h3 className={`${classes.text} col-12`}>No existe ningun menu...</h3>;
 
   return (
