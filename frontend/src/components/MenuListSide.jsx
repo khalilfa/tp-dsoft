@@ -4,6 +4,7 @@ import Axios from 'axios';
 import { toast } from 'react-toastify';
 import { useAuth0 } from '../react-auth0-spa';
 import MenuRow from './MenuRow';
+import '../css/main.css';
 
 const useStyles = makeStyles({
   menu: {
@@ -44,7 +45,7 @@ function MenuListSide({ menus, t, openMenu, isDolarCurrency }) {
       isDolarCurrency={isDolarCurrency}
     />
   ));
-  const emptyMenus = <h3 className={`${classes.text} col-12`}>No existe ningun menu...</h3>;
+  const emptyMenus = <h3 className={`${classes.text} col-12`}>{t('There are no menus')}...</h3>;
 
   return (
     <div className={`${classes.menuListContainer} row justify-content-center`}>

@@ -70,7 +70,7 @@ const Bill = ({ t }) => {
         className="load-data-bill-button main-button col-md-3"
         onClick={() => chargeCredit()}
       >
-        {t('Load data')}
+        {t('Load')}
       </div>
     </div>
   );

@@ -53,7 +53,7 @@ function App({ t }) {
         changeDolarCurrency={setIsDolarCurrencyLB}
       />
     )
-    : <LanguageButton />;
+    : <LanguageButton changeDolarCurrency={setIsDolarCurrencyLB} />;
 
 
   return (

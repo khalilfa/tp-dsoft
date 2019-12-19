@@ -99,9 +99,21 @@ const ClientCart = ({ t }) => {
     history.goBack();
   };
 
+  const noMenusRender = (
+    <div className="row">
+      <div className="no-exist-data col-12 align-self-center">
+        <h4>{t('There are no menus...')}</h4>
+      </div>
+    </div>
+  );
+
+  const noExistMenus = cart && cart.items.length === 0
+    ? noMenusRender
+    : '';
+
   const menuList = cart
     ? cart.items.map((item, key) => <MenuCartRow key={key} {...item} deleteItem={deleteItem} />)
-    : <h4>{t('There are no menus')}...</h4>;
+    : noMenusRender;
 
   const clientCartRender = loading
     ? (
@@ -150,6 +162,7 @@ const ClientCart = ({ t }) => {
             </div>
             <div className="col-12">
               {menuList}
+              {noExistMenus}
             </div>
           </div>
         </div>
@@ -163,7 +176,7 @@ const ClientCart = ({ t }) => {
               {t('Buy')}
             </button>
             <div className="col-md-1 total-price-items align-self-center col-5">
-          ${cart ? cart.total : 0}
+              ${cart ? cart.total : 0}
             </div>
           </div>
         </div>

@@ -11,6 +11,15 @@
     margin-bottom: 10px;
 }
 
+.no-exist-data {
+    border-style: dotted;
+    border-color: rgb(150, 149, 149);
+    border-width: 0px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    text-align: center;
+}
+
 .MuiInput-underline:after {
     border-color: rgba(103, 131, 78, 1) !important;
 }
