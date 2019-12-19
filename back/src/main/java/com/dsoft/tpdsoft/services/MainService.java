@@ -21,7 +21,7 @@ public class MainService {
 
     public void loadData() {
         // GENERATE A CLIENT
-        Client client = new Client("facundokhalil@hotmail.com", "Juan", "Perez",
+        Client client = new Client("msanchez.jose.94@gmail.com", "Juan", "Perez",
                 "Las heras 324");
 
         client.addCredit(500.0);
@@ -48,17 +48,17 @@ public class MainService {
         Provider provider1 = new Provider(attentionSchedule, "La vieja", logo, "Bernal",
                 "-34.710402+-58.280877", "Comida casera hecha por la vieja del sur",
                 "wwww.la-vieja.com", 800, "0541165853218",
-                "facundokhalil@hotmail.com");
+                "msanchez.jose.94@gmail.com");
 
         Provider provider2 = new Provider(attentionSchedule, "Pizzeria el molde", logo, "Bernal",
                 "-34.711134+-58.281810", "Una pizzeria comun como todas.",
                 "wwww.el-molde.com", 800, "0541165853218",
-                "facundokhalil@hotmail.com");
+                "msanchez.jose.94@gmail.com");
 
         Provider provider3 = new Provider(attentionSchedule, "Antares", logo, "Bernal",
                 "-34.706475+-58.279849", "La vieja confiable de Buenos Aires",
                 "wwww.antares.com", 800, "0541165853218",
-                "facundokhalil@hotmail.com");
+                "msanchez.jose.94@gmail.comm");
 
         clientProvider1.setProvider(provider1);
         clientProvider2.setProvider(provider2);
