@@ -45,6 +45,15 @@ public class SummaryService {
         }
     }
 
+    public Page<Summary> getProviderSummaries(Provider provider, Pageable pageable) {
+        try {
+            Page<Summary> summaries = this.summaryRepository.findAllByProviderOrderByCreateAtAsc(provider, pageable);
+            return summaries;
+        } catch (Exception ex) {
+            throw new NotFoundException("Could not get the summaries", ex);
+        }
+    }
+
     public List<Summary> generateProviderSummaries(List<Item> items, Client client) {
         List<Summary> summaries = new ArrayList<>();
         for (Item item : items) {

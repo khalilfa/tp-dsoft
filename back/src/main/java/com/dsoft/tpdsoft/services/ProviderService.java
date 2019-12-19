@@ -5,9 +5,9 @@ import com.dsoft.tpdsoft.exceptions.StorageException;
 import com.dsoft.tpdsoft.model.*;
 import com.dsoft.tpdsoft.repositories.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class ProviderService {
@@ -16,6 +16,9 @@ public class ProviderService {
 
     @Autowired
     private ClientService clientService;
+
+    @Autowired
+    private SummaryService summaryService;
 
     public Provider saveProvider(Provider provider, String email) {
         try {
@@ -57,8 +60,9 @@ public class ProviderService {
         return this.updateProvider(provider, id);
     }
 
-    public List<Summary> getSummaries(Integer id) {
+    public Page<Summary> getSummaries(Integer id, Pageable pageable) {
         Provider provider = this.getProvider(id);
-        return provider.getSummaries();
+        Page<Summary> summaries = this.summaryService.getProviderSummaries(provider, pageable);
+        return summaries;
     }
 }

@@ -58,8 +58,9 @@ public class ClientController {
     }
 
     @PutMapping
-    public ResponseEntity<Client> updateClient(@Valid @RequestBody Client client) {
-        Client clientSaved = this.clientService.updateClient(client.getEmail(), client);
+    public ResponseEntity<Client> updateClient(@Valid @RequestBody Client client,
+                                               @RequestParam(name = "email") String email) {
+        Client clientSaved = this.clientService.updateClient(email, client);
         return ResponseEntity.of(Optional.of(clientSaved));
     }
 
