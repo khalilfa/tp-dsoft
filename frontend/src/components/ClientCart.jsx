@@ -5,7 +5,6 @@ import { useAuth0 } from '../react-auth0-spa';
 import history from '../utils/history';
 import '../css/main.css';
 import '../css/cart.css';
-import convertToDolar from '../utils/convertDolarCurrency.js'
 
 const MenuCartRow = ({ menu, quantity, id, deleteItem }) => (
   <div className="main-row row">

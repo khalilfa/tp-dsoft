@@ -42,7 +42,7 @@ function App({ t }) {
         changeDolarCurrency={setIsDolarCurrencyLB}
       />
     )
-    : <LanguageButton />;
+    : <LanguageButton changeDolarCurrency={setIsDolarCurrencyLB}/>;
 
 
   return (
@@ -58,7 +58,7 @@ function App({ t }) {
           <Route exact path="/" render={(props) => <Index {...props} t={t} setExistClient={setExistClient} />} />
           <PrivateRoute exact path="/profile" render={(props) => <Profile {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient" render={(props) => <Client {...props} t={t} isDolarCurrency={isDolarCurrency}/>} />
-          <PrivateRoute exact path="/client/:idClient/summaries" render={(props) => <Summaries {...props} t={t} />} />
+          <PrivateRoute exact path="/client/:idClient/summaries" render={(props) => <Summaries {...props} t={t} isDolarCurrency={isDolarCurrency}/>} />
           <PrivateRoute exact path="/client/:idClient/edit" render={(props) => <EditClient {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/menu/:idMenu" render={(props) => <Menu {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/provider/:idProvider" render={(props) => <Provider {...props} t={t} />} />

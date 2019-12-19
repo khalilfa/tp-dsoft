@@ -5,7 +5,7 @@ import '../../css/main.css';
 import SummaryRow from './SummaryRow';
 import Pagination from '../Pagination';
 
-const Summaries = ({ t }) => {
+const Summaries = ({ t , isDolarCurrency}) => {
   const { user } = useAuth0();
   const { email } = user;
 
@@ -29,7 +29,7 @@ const Summaries = ({ t }) => {
   }, [getSummariesByPage]);
 
   const summariesList = summaries
-    .map((summary, key) => <SummaryRow key={key} id={key} summary={summary} t={t} />);
+    .map((summary, key) => <SummaryRow key={key} id={key} summary={summary} t={t} isDolarCurrency={isDolarCurrency}/>);
 
   return (
     <div className="component-container row justify-content-center">
