@@ -5,14 +5,15 @@ const SummaryRow = ({ summary, isDolarCurrency }) => {
   const { createAt, total, items } = summary;
   const cantItems = items.length;
 
-  function changeCurrency(value){
-    const { total } = value;
-    return isDolarCurrency ? `u$s ${valueInDollars(total)}` : `$ ${total}` 
-  }
-
   function valueInDollars(value){
     return (value / 60).toFixed(2);
   }
+  
+  function changeCurrency(value){
+    const { total } = value;
+    return isDolarCurrency ? `u$s ${valueInDollars(total)}` : `$ ${total}`; 
+  }
+
 
   return (
     <div className="main-row row">
