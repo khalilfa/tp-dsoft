@@ -38,7 +38,7 @@ const useStyles = makeStyles(() => ({
 export default function MenuRow(props) {
   const classes = useStyles();
   const { id, name, description, price } = props.menu;
-  const { openMenu } = props;
+  const { openMenu, addMenuToCart } = props;
 
   return (
     <div className={`${classes.menuRow} row`}>
@@ -65,7 +65,13 @@ export default function MenuRow(props) {
       </div>
 
       <div className="col-2 align-self-center">
-        <img className={classes.shoppingCartIcon} src={ShoppingCartIcon} alt="Shopping cart" />
+        <input
+          type="image"
+          className={classes.shoppingCartIcon}
+          src={ShoppingCartIcon}
+          alt="Shopping cart"
+          onClick={() => addMenuToCart(id)}
+        />
       </div>
     </div>
   );

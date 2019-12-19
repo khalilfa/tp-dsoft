@@ -97,6 +97,12 @@ const resources = {
       'By min/max price': 'Por min/max precio',
       'My menus for sale': 'Mis menus en venta',
       'Menu list': 'Lista de menus',
+      'The purchase was successful': 'La compra se realizo con exito',
+      'Not enough credit': 'No hay suficiente credito',
+      'there is no address': 'No existe ninguna direccion',
+      'The cart is empty': 'El carrito esta vacio',
+      'A menu has been added to the cart': 'Se agrego un menu al carrito',
+      'The client was updated': 'El cliente fue actualizado',
     },
   },
 };
