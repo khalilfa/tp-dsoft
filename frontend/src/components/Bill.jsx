@@ -1,7 +1,7 @@
-/* eslint-disable no-alert */
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { Input } from '@material-ui/core';
+import { toast } from 'react-toastify';
 import { useAuth0 } from '../react-auth0-spa';
 import history from '../utils/history';
 import '../css/bill.css';
@@ -26,10 +26,12 @@ const Bill = ({ t }) => {
       Axios.post(`http://127.0.0.1:8080/client/credit/${credit}?email=${email}`)
         .then(() => {
           setUpdate(true);
-          alert(t('The credit was deposited'));
+          const text = t('The credit was deposited');
+          toast.success(text);
         });
     } else {
-      alert('Enter an amount');
+      const text = t('Enter an amount');
+      toast.error(text);
     }
   };
 

@@ -1,10 +1,18 @@
-/* eslint-disable no-alert */
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import { toast } from 'react-toastify';
+import { css } from '@emotion/core';
+import { RingLoader } from 'react-spinners';
 import { useAuth0 } from '../react-auth0-spa';
 import history from '../utils/history';
 import '../css/main.css';
 import '../css/cart.css';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: green;
+`;
 
 const MenuCartRow = ({ menu, quantity, id, deleteItem }) => (
   <div className="main-row row">
@@ -53,12 +61,17 @@ const ClientCart = ({ t }) => {
   const deleteItem = (itemId) => {
     Axios.delete(`http://127.0.0.1:8080/client/cart?email=${email}&itemId=${itemId}`)
       .then((res) => res.data)
-      .then((data) => setCart(data));
+      .then((data) => {
+        setCart(data);
+        const text = t('The menu was successfully removed');
+        toast.success(text);
+      });
   };
 
   const buyItems = () => {
     if (cart.items.length === 0) {
-      alert(t('The cart is empty'));
+      const text = t('The cart is empty');
+      toast.error(text);
       history.push(`/client/${nickname}`);
     } else if (client.address) {
       if (client.credit >= cart.total) {
@@ -67,14 +80,17 @@ const ClientCart = ({ t }) => {
           .then((res) => res.data)
           .then(() => {
             setLoading(false);
-            alert(t('The purchase was successful'));
+            const text = t('The purchase was successful');
+            toast.success(text);
           });
       } else {
-        alert(t('Not enough credit'));
+        const text = t('Not enough credit');
+        toast.error(text);
         history.push(`/client/${nickname}/bill`);
       }
     } else {
-      alert(t('There is no address'));
+      const text = t('There is no address');
+      toast.error(text);
       history.push(`/client/${nickname}/edit`);
     }
   };
@@ -88,7 +104,17 @@ const ClientCart = ({ t }) => {
     : <h4>{t('There are no menus')}...</h4>;
 
   const clientCartRender = loading
-    ? <h2>Loading...</h2>
+    ? (
+      <div className="row align-items-center">
+        <div className="col-12 align-self-center">
+          <RingLoader
+            css={override}
+            size={200}
+            color="green"
+          />
+        </div>
+      </div>
+    )
     : (
       <div className="component-container row">
         <div className="col-12">

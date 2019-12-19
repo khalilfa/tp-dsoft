@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../../css/provider.css';
 import '../../css/main.css';
+import { toast } from 'react-toastify';
 import MenuEditRow from './MenuEditRow';
 import { useAuth0 } from '../../react-auth0-spa';
 import history from '../../utils/history';
@@ -32,6 +33,8 @@ const Provider = (props) => {
         const newProvider = { ...provider };
         newProvider.menuList = data;
         setProvider({ ...newProvider });
+        const text = t('The menu was successfully deleted');
+        toast.success(text);
       })
       .catch((error) => console.info(error));
   };

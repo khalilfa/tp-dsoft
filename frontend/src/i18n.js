@@ -114,6 +114,11 @@ const resources = {
       'The cart is empty': 'El carrito esta vacio',
       'A menu has been added to the cart': 'Se agrego un menu al carrito',
       'The client was updated': 'El cliente fue actualizado',
+      'The menu has been added to the cart': 'El menu fue agregado al carrito',
+      'The menu was created': 'El menu fue creado',
+      'The provider was created successfully': 'El provedor se creo con exito',
+      'The menu was updated successfully': 'El menu fue actualizado con exito',
+      'The menu was successfully removed': 'El menu se elimino con exito',
     },
   },
 };

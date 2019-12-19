@@ -3,6 +3,7 @@ import { Input } from '@material-ui/core';
 import '../../css/create-provider.css';
 import '../../css/main.css';
 import Axios from 'axios';
+import { toast } from 'react-toastify';
 import TimeSelect from '../TimeSelect';
 import Multiselect from '../Multiselect';
 import Map from '../Map';
@@ -52,6 +53,8 @@ const CreateProvider = ({ t, setExistProvider }) => {
       .then((data) => {
         Axios.post(`http://localhost:8080/provider/${data.id}/logo`, formData)
           .then(() => {
+            const text = t('The provider was created successfully');
+            toast.success(text);
             setExistProvider(true);
             history.push(`/client/${nickname}/provider/${data.id}`);
           })
