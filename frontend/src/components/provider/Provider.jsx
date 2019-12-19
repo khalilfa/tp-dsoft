@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../../css/provider.css';
 import '../../css/main.css';
+import { toast } from 'react-toastify';
 import MenuEditRow from './MenuEditRow';
 import { useAuth0 } from '../../react-auth0-spa';
 import history from '../../utils/history';
@@ -32,6 +33,8 @@ const Provider = (props) => {
         const newProvider = { ...provider };
         newProvider.menuList = data;
         setProvider({ ...newProvider });
+        const text = t('The menu was successfully deleted');
+        toast.success(text);
       })
       .catch((error) => console.info(error));
   };
@@ -63,10 +66,13 @@ const Provider = (props) => {
           <div className="col-md-2 col-2 align-self-center">
             <h4><button type="button" className="go-back-button" onClick={goBack}>{'<<'}</button></h4>
           </div>
-          <div className="col-md-8 offset-md-2 col-10">
+          <div className="col-md-6 offset-md-2 col-9">
             <h2>
               {t('My menus for sale')}
             </h2>
+          </div>
+          <div className="provider-credit col-md-2 col-1 align-self-center">
+            <h4>{provider ? provider.credit : 0}</h4>
           </div>
         </div>
       </div>

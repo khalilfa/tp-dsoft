@@ -6,7 +6,7 @@ import LanguageButton from './LanguageButton';
 import history from '../utils/history';
 import '../css/navbar.css';
 
-const NavBar = ({ existProvider, existClient, setExistProvider, changeDolarCurrency }) => {
+const NavBar = ({ existProvider, existClient, setExistProvider, changeDolarCurrency, t }) => {
   const { logout, user } = useAuth0();
   const { nickname, email } = user;
   const [client, setClient] = useState({});
@@ -34,14 +34,14 @@ const NavBar = ({ existProvider, existClient, setExistProvider, changeDolarCurre
     ? (
       <div>
         <NavDropdown.Divider />
-        <NavDropdown.Item onClick={() => history.push(`/client/${nickname}/provider/${client.provider.id}`)}>Home</NavDropdown.Item>
-        <NavDropdown.Item onClick={() => logout()}>Summaries</NavDropdown.Item>
+        <NavDropdown.Item onClick={() => history.push(`/client/${nickname}/provider/${client.provider.id}`)}>{t('Menus')}</NavDropdown.Item>
+        <NavDropdown.Item onClick={() => history.push(`/client/${nickname}/provider/${client.provider.id}/summaries`)}>{t('Summaries')}</NavDropdown.Item>
       </div>
     )
     : (
       <div>
         <NavDropdown.Divider />
-        <NavDropdown.Item onClick={() => history.push(`/client/${nickname}/createProvider`, {})}>Provider</NavDropdown.Item>
+        <NavDropdown.Item onClick={() => history.push(`/client/${nickname}/createProvider`, {})}>{t('Provider')}</NavDropdown.Item>
       </div>
     );
 
@@ -49,13 +49,14 @@ const NavBar = ({ existProvider, existClient, setExistProvider, changeDolarCurre
   return (
     <div className="row d-flex justify-content-between">
       <NavDropdown className="col-auto client-navbar" title={clientImageNavBar} id="basic-nav-dropdown">
-        <NavDropdown.Item onClick={() => history.push(`/client/${nickname}`)}>Home</NavDropdown.Item>
-        <NavDropdown.Item onClick={() => history.push(`/client/${nickname}/edit`)}>Edit</NavDropdown.Item>
-        <NavDropdown.Item onClick={() => history.push(`/client/${nickname}/cart`)}>Cart</NavDropdown.Item>
-        <NavDropdown.Item onClick={() => history.push(`/client/${nickname}/summaries`)}>Summaries</NavDropdown.Item>
+        <NavDropdown.Item onClick={() => history.push(`/client/${nickname}`)}>{t('Home')}</NavDropdown.Item>
+        <NavDropdown.Item onClick={() => history.push(`/client/${nickname}/edit`)}>{t('Edit')}</NavDropdown.Item>
+        <NavDropdown.Item onClick={() => history.push(`/client/${nickname}/bill`)}>{t('Bill')}</NavDropdown.Item>
+        <NavDropdown.Item onClick={() => history.push(`/client/${nickname}/cart`)}>{t('Cart')}</NavDropdown.Item>
+        <NavDropdown.Item onClick={() => history.push(`/client/${nickname}/summaries`)}>{t('Summaries')}</NavDropdown.Item>
         {providerNavBar}
         <NavDropdown.Divider />
-        <NavDropdown.Item onClick={() => logout()}>Log out</NavDropdown.Item>
+        <NavDropdown.Item onClick={() => logout()}>{t('Log out')}</NavDropdown.Item>
       </NavDropdown>
 
       <LanguageButton

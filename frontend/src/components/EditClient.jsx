@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { Input } from '@material-ui/core';
 import { useAuth0 } from '../react-auth0-spa';
+import history from '../utils/history';
 import '../css/edit-client.css';
 import '../css/main.css';
+import { toast } from 'react-toastify';
 
 const EditClient = ({ t }) => {
   const { user } = useAuth0();
@@ -28,15 +30,26 @@ const EditClient = ({ t }) => {
     const updateClientUrl = `http://127.0.0.1:8080/client?email=${email}`;
     Axios.put(updateClientUrl, client)
       .then(() => {
-        // eslint-disable-next-line no-alert
-        alert(t('The client was updated'));
+        const text = t('The client was updated');
+        toast.success(text);
       });
+  };
+
+  const goBack = () => {
+    history.goBack();
   };
 
   return (
     <div className="component-container row justify-content-center">
       <div className="main-title col-12">
-        <h2>{t('Edit information')}</h2>
+        <div className="row">
+          <div className="col-md-2 col-2 align-self-center">
+            <h4><button type="button" className="go-back-button" onClick={() => goBack()}>{'<<'}</button></h4>
+          </div>
+          <div className="col-md-8 offset-md-2 col-10">
+            <h2>{t('Edit information')}</h2>
+          </div>
+        </div>
       </div>
       <div className="col-md-6 col-12 order-md-1 order-2">
         <div className="row">

@@ -7,6 +7,9 @@ import com.dsoft.tpdsoft.services.ProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -148,8 +151,11 @@ public class ProviderController {
     }
 
     @GetMapping("/{id}/summaries")
-    public ResponseEntity<List<Summary>> getSummaries(@PathVariable Integer id) {
-        List<Summary> summaries = this.providerService.getSummaries(id);
+    public ResponseEntity<Page<Summary>> getSummaries(@PathVariable Integer id,
+                                                      @RequestParam(name = "page", defaultValue = "0") Integer page,
+                                                      @RequestParam(name="elements", defaultValue = "5") Integer elements) {
+        Pageable pageRequest = PageRequest.of(page, elements);
+        Page<Summary> summaries = this.providerService.getSummaries(id, pageRequest);
         return ResponseEntity.of(Optional.of(summaries));
     }
 

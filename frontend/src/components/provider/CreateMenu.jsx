@@ -6,6 +6,7 @@ import { MuiPickersUtilsProvider,
   KeyboardDatePicker } from '@material-ui/pickers';
 import { Input } from '@material-ui/core';
 import Axios from 'axios';
+import { toast } from 'react-toastify';
 import Multiselect from '../Multiselect';
 import '../../css/create-menu.css';
 import '../../css/main.css';
@@ -89,13 +90,21 @@ const CreateMenu = (props) => {
 
   const createMenu = (data) => {
     Axios.post(`http://127.0.0.1:8080/provider/${idProvider}/menu`, data)
-      .then(() => history.push(`/client/${nickname}/provider/${idProvider}`))
+      .then(() => {
+        const text = t('The menu was created');
+        toast.success(text);
+        history.push(`/client/${nickname}/provider/${idProvider}`);
+      })
       .catch((error) => console.info(error));
   };
 
   const updateMenu = (data) => {
     Axios.put(`http://127.0.0.1:8080/provider/${idProvider}/menu/${props.location.state.menuId}`, data)
-      .then(() => history.push(`/client/${nickname}/provider/${idProvider}`))
+      .then(() => {
+        const text = t('The menu was updated successfully');
+        toast.success(text);
+        history.push(`/client/${nickname}/provider/${idProvider}`);
+      })
       .catch((error) => console.info(error));
   };
 
