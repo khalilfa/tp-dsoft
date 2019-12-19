@@ -53,7 +53,7 @@ function App({ t }) {
         changeDolarCurrency={setIsDolarCurrencyLB}
       />
     )
-    : <LanguageButton />;
+    : <LanguageButton changeDolarCurrency={setIsDolarCurrencyLB}/>;
 
 
   return (
@@ -67,6 +67,8 @@ function App({ t }) {
 
         <Switch>
           <Route exact path="/" render={(props) => <Index {...props} t={t} setExistClient={setExistClient} />} />
+          <PrivateRoute exact path="/client/:idClient" render={(props) => <Client {...props} t={t} isDolarCurrency={isDolarCurrency}/>} />
+          <PrivateRoute exact path="/client/:idClient/summaries" render={(props) => <Summaries {...props} t={t} provider={false} isDolarCurrency={isDolarCurrency}/>} />
           <PrivateRoute exact path="/client/:idClient" render={(props) => <Client {...props} t={t} isDolarCurrency={isDolarCurrency} />} />
           <PrivateRoute exact path="/client/:idClient/summaries" render={(props) => <Summaries {...props} t={t} provider={false} />} />
           <PrivateRoute exact path="/client/:idClient/edit" render={(props) => <EditClient {...props} t={t} />} />
@@ -75,7 +77,7 @@ function App({ t }) {
           <PrivateRoute exact path="/client/:idClient/provider/:idProvider/modifyMenu" render={(props) => <CreateMenu {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/provider/:idProvider/summaries" render={(props) => <Summaries {...props} t={t} provider />} />
           <PrivateRoute exact path="/client/:idClient/createProvider" render={(props) => <CreateProvider {...props} t={t} setExistProvider={setExistProvider} />} />
-          <PrivateRoute exact path="/client/:idClient/cart" render={(props) => <ClientCart {...props} t={t} />} />
+          <PrivateRoute exact path="/client/:idClient/cart" render={(props) => <ClientCart {...props} t={t} isDolarCurrency={isDolarCurrency}/>} />
           <PrivateRoute exact path="/maps" render={(props) => <Maps {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/bill" render={(props) => <Bill {...props} t={t} />} />
         </Switch>
