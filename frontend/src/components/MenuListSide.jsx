@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Axios from 'axios';
+import { toast } from 'react-toastify';
 import { useAuth0 } from '../react-auth0-spa';
 import MenuRow from './MenuRow';
 
@@ -21,7 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
-function MenuListSide({ menus, t, openMenu, isDolarCurrency}) {
+function MenuListSide({ menus, t, openMenu, isDolarCurrency }) {
   const classes = useStyles();
   const { user } = useAuth0();
   const { email } = user;
@@ -29,8 +30,8 @@ function MenuListSide({ menus, t, openMenu, isDolarCurrency}) {
   const addMenuToCart = (idMenu) => {
     Axios.post(`http://127.0.0.1:8080/client/cart?email=${email}&menuId=${idMenu}&menuQ=1`)
       .then(() => {
-        // eslint-disable-next-line no-alert
-        alert(t('A menu has been added to the cart'));
+        const text = t('The menu has been added to the cart');
+        toast.success(text);
       });
   };
 

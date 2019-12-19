@@ -5,6 +5,7 @@ import { useAuth0 } from '../react-auth0-spa';
 import history from '../utils/history';
 import '../css/edit-client.css';
 import '../css/main.css';
+import { toast } from 'react-toastify';
 
 const EditClient = ({ t }) => {
   const { user } = useAuth0();
@@ -29,8 +30,8 @@ const EditClient = ({ t }) => {
     const updateClientUrl = `http://127.0.0.1:8080/client?email=${email}`;
     Axios.put(updateClientUrl, client)
       .then(() => {
-        // eslint-disable-next-line no-alert
-        alert(t('The client was updated'));
+        const text = t('The client was updated');
+        toast.success(text);
       });
   };
 

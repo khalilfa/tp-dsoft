@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { withTranslation } from 'react-i18next';
 import { Router, Route, Switch } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Index from './components/Index';
 import { useAuth0 } from './react-auth0-spa';
 import Maps from './components/Maps';
@@ -17,6 +18,16 @@ import EditClient from './components/EditClient';
 import Summaries from './components/summary/Summaries';
 import CreateMenu from './components/provider/CreateMenu';
 import LanguageButton from './components/LanguageButton';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure({
+  position: 'top-center',
+  autoClose: 2300,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: false,
+  draggable: true,
+});
 
 function App({ t }) {
   const { loading, isAuthenticated } = useAuth0();
