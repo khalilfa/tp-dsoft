@@ -4,9 +4,8 @@ import ReactFlagsSelect from 'react-flags-select';
 import 'react-flags-select/css/react-flags-select.css';
 import '../css/language.css';
 
-const LanguageButton = ({ t, i18n, className ,changeDolarCurrency}) => {
-
-  const changeLanguage = countryCode => {
+const LanguageButton = ({ t, i18n, className, changeDolarCurrency }) => {
+  const changeLanguage = (countryCode) => {
     changeDolarCurrency();
     i18n.changeLanguage(countryCode);
   };

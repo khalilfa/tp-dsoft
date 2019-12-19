@@ -38,11 +38,10 @@ const useStyles = makeStyles(() => ({
 export default function MenuRow(props) {
   const classes = useStyles();
   const { id, name, description, price } = props.menu;
-  const { openMenu } = props;
-  const { isDolarCurrency } = props;
+  const { openMenu, addMenuToCart, isDolarCurrency } = props;
 
-  function convertToDolar(obj){
-    return "u$s " +(obj.price / 60).toFixed(2);
+  function convertToDolar(obj) {
+    return `u$s ${(obj.price / 60).toFixed(2)}`;
   }
 
   return (
@@ -66,11 +65,17 @@ export default function MenuRow(props) {
       </div>
 
       <div className="col-2 align-self-center">
-        { isDolarCurrency ? convertToDolar({price}) : `$ ${price}` }
+        { isDolarCurrency ? convertToDolar({ price }) : `$ ${price}` }
       </div>
 
       <div className="col-2 align-self-center">
-        <img className={classes.shoppingCartIcon} src={ShoppingCartIcon} alt="Shopping cart" />
+        <input
+          type="image"
+          className={classes.shoppingCartIcon}
+          src={ShoppingCartIcon}
+          alt="Shopping cart"
+          onClick={() => addMenuToCart(id)}
+        />
       </div>
     </div>
   );

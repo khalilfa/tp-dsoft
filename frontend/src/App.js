@@ -23,11 +23,11 @@ function App({ t }) {
   const { loading, isAuthenticated } = useAuth0();
   const [existClient, setExistClient] = useState(false);
   const [existProvider, setExistProvider] = useState(false);
-  const [isDolarCurrency,setIsDolarCurrency] = useState(true);
-  
+  const [isDolarCurrency, setIsDolarCurrency] = useState(true);
+
   const setIsDolarCurrencyLB = () => { // LB = language button
     setIsDolarCurrency(!isDolarCurrency);
-  }; 
+  };
 
   if (loading) {
     return <div>Loading...</div>;

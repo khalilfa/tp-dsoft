@@ -26,7 +26,11 @@ const EditClient = ({ t }) => {
   const updateClient = () => {
     const client = { name, lastName, address, email };
     const updateClientUrl = `http://127.0.0.1:8080/client?email=${email}`;
-    Axios.put(updateClientUrl, client);
+    Axios.put(updateClientUrl, client)
+      .then(() => {
+        // eslint-disable-next-line no-alert
+        alert(t('The client was updated'));
+      });
   };
 
   return (

@@ -23,7 +23,6 @@ export default class Client extends React.Component {
     this.getMenus = this.getMenus.bind(this);
     this.getMenusByFilters = this.getMenusByFilters.bind(this);
     this.openMenu = this.openMenu.bind(this);
-
   }
 
   componentDidMount() {
@@ -83,7 +82,7 @@ export default class Client extends React.Component {
               t={t}
               selector={category}
               handleChange={this.handleChangeCategory}
-              selectorName="Category"
+              selectorName={t('Category')}
             />
             <SimpleSelect
               className="filter col-md-10"
@@ -97,10 +96,12 @@ export default class Client extends React.Component {
         </div>
 
         <div className="menu-list col-md-8">
-          <MenuListSide t={t} 
-                        menus={menus} 
-                        openMenu={this.openMenu}
-                        isDolarCurrency={this.props.isDolarCurrency} />
+          <MenuListSide
+            t={t}
+            menus={menus}
+            openMenu={this.openMenu}
+            isDolarCurrency={this.props.isDolarCurrency}
+          />
           <Pagination
             totalPages={pageable ? pageable.totalPages : 0}
             page={page}
@@ -119,47 +120,47 @@ export default class Client extends React.Component {
 //   const [page, setPage] = useState(0);
 //   const [filter, setFilter] = useState('');
 //   const [category, setCategory] = useState('');
+//   const [reload, setReload] = useState('');
 //   const { t } = props;
-//   const { getTokenSilently } = useAuth0();
+//   // const { getTokenSilently } = useAuth0();
 //   const categories = ['PIZZA', 'BEER', 'SUSHI', 'EMPANADAS', 'SUSHIVEGAN', 'HAMBURGUER', 'ICECREAM'];
 //   const filters = ['Minimo', 'Maximo'];
 
-//   const getMenus = async (selectedPage = 0) => {
-//     try {
-//       getTokenSilently()
-//         .then((token) => {
-//           const url = `http://127.0.0.1:8080/menus?page=${selectedPage}&elements=${5}`;
-//           const config = {
-//             headers: {
-//               Authorization: `Bearer ${token}`,
-//             },
-//           };
-
-//           Axios.get(url)
-//             .then((res) => res.data)
-//             .then((data) => setMenus(data.content))
-//             .catch((error) => console.log(error));
-//         })
-//         .catch((error) => console.log(error));
-
-//     } catch (error) {
-//       console.error(error);
-//     }
+//   const openMenu = (id, menu) => {
+//     const user = props.match.params.idClient;
+//     history.push(`/client/${user}/menu/${id}`, menu);
 //   };
 
-//   const handleChangeFilter = (e) => {
-//     const selectedFilter = e.target.value;
-//     setFilter(selectedFilter);
-//   };
-
-//   const handleChangeCategory = (e) => {
-//     const selectedCategory = e.target.value;
-//     setCategory(selectedCategory);
+//   const getMenusByFilters = (selectedPage = 0) => {
+//     const selectedCategory = category === '' ? '' : `category=${categories[category]}`;
+//     const selectedPrice = filter === '' ? '' : `price=${filters[filter]}`;
+//     const existCategory = selectedCategory === '' ? '' : '&';
+//     const existPrice = selectedPrice === '' ? '' : '&';
+//     const urlFilters = selectedCategory + existCategory + selectedPrice + existPrice;
+//     const url = `http://127.0.0.1:8080/menus/filters?${urlFilters}page=${selectedPage}&elements=${5}`;
+//     Axios.get(url)
+//       .then((res) => res.data)
+//       .then((data) => {
+//         setPageable(data);
+//         setPage(page);
+//         setMenus(data.content);
+//       });
 //   };
 
 //   useEffect(() => {
-//     getMenus();
-//   });
+//     Axios.get(`http://127.0.0.1:8080/menus?page=${page}&elements=${5}`)
+//       .then((res) => res.data)
+//       .then((data) => {
+//         setPageable(data);
+//         setPage(page);
+//         setMenus(data.content);
+//       });
+//   }, []);
+
+//   useEffect(() => {
+//     getMenusByFilters();
+//     setReload(false);
+//   }, [reload]);
 
 //   return (
 //     <div className="client-view row">
@@ -170,24 +171,34 @@ export default class Client extends React.Component {
 //             className="filter col-md-10"
 //             items={categories}
 //             t={t}
-//             selectorName="Category"
 //             selector={category}
-//             handleChange={handleChangeCategory}
+//             handleChange={(e) => {
+//               setCategory(e.target.value);
+//               setReload(true);
+//             }}
+//             selectorName="Category"
 //           />
 //           <SimpleSelect
 //             className="filter col-md-10"
 //             items={filters}
 //             t={t}
-//             selectorName="Min / Max"
 //             selector={filter}
-//             handleChange={handleChangeFilter}
+//             handleChange={(e) => {
+//               setFilter(e.target.value);
+//               setReload(true);
+//             }}
+//             selectorName="Min / Max"
 //           />
 //         </div>
 //       </div>
 
 //       <div className="menu-list col-md-8">
-//         <MenuListSide t={t} menus={menus} />
-//         <Pagination {...pageable} page={page} getMenus={getMenus} />
+//         <MenuListSide t={t} menus={menus} openMenu={openMenu} />
+//         <Pagination
+//           totalPages={pageable ? pageable.totalPages : 0}
+//           page={page}
+//           getMenus={getMenusByFilters}
+//         />
 //       </div>
 
 //     </div>
@@ -195,3 +206,27 @@ export default class Client extends React.Component {
 // };
 
 // export default Client;
+
+
+// const getMenus = async (selectedPage = 0) => {
+//   try {
+//     getTokenSilently()
+//       .then((token) => {
+//         const url = `http://127.0.0.1:8080/menus?page=${selectedPage}&elements=${5}`;
+//         const config = {
+//           headers: {
+//             Authorization: `Bearer ${token}`,
+//           },
+//         };
+
+//         Axios.get(url)
+//           .then((res) => res.data)
+//           .then((data) => setMenus(data.content))
+//           .catch((error) => console.log(error));
+//       })
+//       .catch((error) => console.log(error));
+
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };

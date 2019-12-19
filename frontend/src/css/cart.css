@@ -1,0 +1,25 @@
+.delete-item-cart {
+    text-align: center;
+}
+
+.delete-item-cart:hover {
+    color: coral;
+    cursor: pointer;
+}
+
+.buy-items-cart-button {
+    color: white;
+    padding: 5px;
+    margin: 10px;
+}
+
+.total-price-items {
+    border-color: black;
+    border-style: dotted;
+    border-width: 1px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    margin-right: 10px;
+    background: rgba(0, 0, 0, 0.5);
+}

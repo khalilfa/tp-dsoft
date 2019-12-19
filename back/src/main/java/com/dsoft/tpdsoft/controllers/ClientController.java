@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Optional;
 
-@CrossOrigin(origins = "*", methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.PUT})
+@CrossOrigin(origins = "*", methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.PUT, RequestMethod.DELETE})
 @RestController
 @RequestMapping(path = "/client")
 public class ClientController {
@@ -107,7 +107,7 @@ public class ClientController {
     public ResponseEntity<Client> addCredit(@RequestParam(name = "email") String email,
                                             @PathVariable Double credit) {
         Client savedClient = this.clientService.addCredit(email, credit);
-        clientLogger.info(String.format("%d credit was added to client with email %s"),credit,email);
+        clientLogger.info(credit + "credit was added to client with email" + email);
         return ResponseEntity.of(Optional.of(savedClient));
     }
 
