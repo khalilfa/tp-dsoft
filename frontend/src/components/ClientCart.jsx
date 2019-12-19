@@ -35,12 +35,14 @@ const MenuCartRow = ({ menu, quantity, id, deleteItem }) => (
   </div>
 );
 
-const ClientCart = ({ t }) => {
+const ClientCart = (props) => {
   const { user } = useAuth0();
   const { email, nickname } = user;
   const [cart, setCart] = useState(undefined);
   const [client, setClient] = useState(undefined);
   const [loading, setLoading] = useState(false);
+  const { t, isDolarCurrency } = props;
+
 
   useEffect(() => {
     Axios.get(`http://127.0.0.1:8080/client/cart?email=${email}`)
@@ -67,6 +69,17 @@ const ClientCart = ({ t }) => {
         toast.success(text);
       });
   };
+
+  function selectCurrency(currentClient) {
+    const { credit } = currentClient;
+    return isDolarCurrency ? `u$s ${(credit / 60).toFixed(2)}` : `$ ${credit}`;
+  }
+
+  function selectCurrencyBis(currentCart) {
+    const { total } = currentCart;
+    return isDolarCurrency ? `u$s ${(total / 60).toFixed(2)}` : `$ ${total}`;
+  }
+
 
   const buyItems = () => {
     if (cart.items.length === 0) {
@@ -139,8 +152,10 @@ const ClientCart = ({ t }) => {
                 <div className="col-md-4 col-8 align-self-center">
                   <h2>{t('Shopping cart')}</h2>
                 </div>
+
                 <div className="col-md-1 col-2 align-self-center">
-                  {client ? client.credit : 0}
+                  {client ? selectCurrency(client) : 0}
+
                 </div>
               </div>
             </div>
@@ -176,7 +191,7 @@ const ClientCart = ({ t }) => {
               {t('Buy')}
             </button>
             <div className="col-md-1 total-price-items align-self-center col-5">
-              ${cart ? cart.total : 0}
+              {cart ? selectCurrencyBis(cart) : 0}
             </div>
           </div>
         </div>
