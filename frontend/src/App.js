@@ -64,7 +64,7 @@ function App({ t }) {
           <PrivateRoute exact path="/client/:idClient/provider/:idProvider" render={(props) => <Provider {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/provider/:idProvider/modifyMenu" render={(props) => <CreateMenu {...props} t={t} />} />
           <PrivateRoute exact path="/client/:idClient/createProvider" render={(props) => <CreateProvider {...props} t={t} setExistProvider={setExistProvider} />} />
-          <PrivateRoute exact path="/client/:idClient/cart" render={(props) => <ClientCart {...props} t={t} />} />
+          <PrivateRoute exact path="/client/:idClient/cart" render={(props) => <ClientCart {...props} t={t} isDolarCurrency={isDolarCurrency}/>} />
           <PrivateRoute exact path="/maps" render={(props) => <Maps {...props} t={t} />} />
           <PrivateRoute exact path="/bill" render={(props) => <Bill {...props} t={t} />} />
         </Switch>
