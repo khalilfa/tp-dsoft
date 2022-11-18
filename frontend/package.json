@@ -22,7 +22,7 @@
     "react-google-maps": "^9.4.5",
     "react-i18next": "^11.0.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.1.1",
+    "react-scripts": "5.0.1",
     "react-spinners": "^0.6.1",
     "react-time-picker": "^3.7.2",
     "react-toastify": "^5.4.1",
